@@ -1,0 +1,2005 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.76 [en] (X11; U; Linux 2.2.18pre21 i686) [Netscape]">
+   <meta name="CREATED" content="19980914;10125600">
+   <meta name="CHANGED" content="16010101;0">
+   <meta name="Author" content="Víctor González-Barbone">
+   <meta name="Description" content="Reseña de comandos básicos de UNIX">
+   <meta name="KeyWords" content="UNIX, curso, tutorial, Linux">
+   <title>Curso B&aacute;sico de UNIX - Rese&ntilde;a de comandos</title>
+</head>
+<body bgcolor="#FFFFFF">
+
+<address>
+<a href="index.htm">Curso B&aacute;sico de UNIX</a></address>
+
+<center>
+<h1>
+Comandos de Usuario</h1></center>
+
+<dt>
+Ultima revisi&oacute;n: Set 2001</dt>
+
+<dt>
+</dt>
+
+<dt>
+<a href="#Proposito">Prop&oacute;sito</a></dt>
+
+<dt>
+<a href="#Metalenguaje">Metalenguaje&nbsp; y convenciones</a></dt>
+
+<dt>
+<a href="#Referencias">Referencias</a></dt>
+
+<h4>
+<b>Comandos:</b></h4>
+
+<dt>
+<tt><a href="#apropos">apropos</a> <a href="#banner">banner</a> <a href="#cal">cal</a>&nbsp;<a href="#cat">cat</a>&nbsp;<a href="#cd">cd</a>
+<a href="#chmod">chmod</a>&nbsp;<a href="#clear">clear</a>&nbsp;<a href="#cmp">cmp</a>
+<a href="#cp">cp</a>&nbsp;<a href="#cut">cut</a> <a href="#date">date</a>&nbsp;<a href="#diff">diff</a>&nbsp;<a href="#echo">echo</a>
+<a href="#env">env</a>&nbsp;<a href="#exit">exit</a>&nbsp;<a href="#file">file</a>
+<a href="#head">head</a>&nbsp;<a href="#hostname">hostname</a>&nbsp;<a href="#id">id</a>
+<a href="#info">info</a>&nbsp;<a href="#less">less</a>&nbsp;<a href="#ln">ln</a>
+<a href="#ls">ls dir vdir</a>&nbsp;<a href="#mail">mail</a>&nbsp;<a href="#man">man</a>
+<a href="#mesg">mesg</a>&nbsp;<a href="#mkdir">mkdir</a>&nbsp;<a href="#more">more</a>
+<a href="#mv">mv</a>&nbsp;<a href="#passwd">passwd</a>&nbsp;<a href="#pr">pr</a>
+<a href="#printenv">printenv</a>&nbsp;<a href="#ps">ps</a> <a href="#pwd">pwd</a>&nbsp;<a href="#rm">rm</a>&nbsp;<a href="#rmdir">rmdir</a>&nbsp;<a href="#tail">tail</a>&nbsp;<a href="#talk">talk</a>
+<a href="#touch">touch</a>&nbsp;<a href="#umask">umask</a>&nbsp;<a href="#wc">wc</a>
+<a href="#whatis">whatis</a>&nbsp;<a href="#which">which</a>&nbsp;<a href="#who">who</a>
+<a href="#whoami">whoami</a></tt></dt>
+
+<h4>
+<a NAME="Proposito"></a>Prop&oacute;sito:</h4>
+Esta gu&iacute;a resume la sintaxis, opciones m&aacute;s frecuentes y ejemplos
+de uso de los comandos UNIX de m&aacute;s uso en la pr&aacute;ctica. En
+descripci&oacute;n se presenta nombre del comando, sintaxis resumida, acci&oacute;n
+principal, opciones m&aacute;s usuales, ejemplos y observaciones, si las
+hay.
+<p>Esta gu&iacute;a no puede ni pretende sustituir la consulta de las p&aacute;ginas
+man.
+<h4>
+<a NAME="Metalenguaje"></a>Metalenguaje y convenciones:</h4>
+<tt>...&nbsp;&nbsp;&nbsp;&nbsp; repetici&oacute;n del &uacute;ltimo item</tt>
+<br><tt>[]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; item opcional, puede estar o no</tt>
+<br><tt>{A|B}&nbsp;&nbsp; item opcional obligatorio, debe tomarse A o B</tt>
+<br><tt>TAB&nbsp;&nbsp;&nbsp;&nbsp; tecla o caracter tabulador</tt>
+<br><tt>LF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; caracter nueva l&iacute;nea</tt>
+<br><tt>CR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; caracter retorno de carro</tt>
+<br><tt>ESPACIO caracter o tecla de barra espaciadora</tt>
+<br><tt>blanco&nbsp; caracter TAB o ESPACIO, delimita palabras</tt>
+<br><tt>UID&nbsp;&nbsp;&nbsp;&nbsp; identificador de usuario (n&uacute;mero)</tt>
+<br><tt>GID&nbsp;&nbsp;&nbsp;&nbsp; identificador de grupo (n&uacute;mero)</tt>
+<br><tt>(su)&nbsp;&nbsp;&nbsp; requiere permiso de supervisor</tt>
+<p>Los items en <tt>min&uacute;sculas</tt> van tal cual, los items en
+<tt>MAYUSCULAS</tt>
+deben ser sustitu&iacute;dos por valores del usuario.
+<h3>
+<a NAME="apropos"></a>apropos</h3>
+
+<dt>
+<tt>apropos [OPCIONES] PALABRA-CLAVE ...</tt></dt>
+
+<dt>
+<tt>&nbsp;</tt></dt>
+
+<dt>
+busca entre las descripciones cortas de las p&aacute;ginas del manual la
+presencia de la palabra clave.</dt>
+
+<dt>
+<tt>&nbsp;</tt></dt>
+
+<dt>
+<tt>-r&nbsp; interpreta cada nombre como una expresi&oacute;n regular</tt></dt>
+
+<dt>
+<tt>-w interpreta cada nombre como conteniendo caracteres comodines</tt></dt>
+
+<dt>
+<tt>&nbsp;</tt></dt>
+
+<dt>
+<tt>&nbsp; apropos man</tt></dt>
+
+<dt>
+<tt>&nbsp; apropos -w man*</tt></dt>
+
+<h3>
+<a NAME="banner"></a>banner</h3>
+
+<dt>
+<tt>banner MENSAJE</tt></dt>
+
+<dt>
+<tt>&nbsp;</tt></dt>
+
+<dt>
+Muestra el mensaje (cadena de caracteres) en letras grandes y girado 90&deg;;
+para imprimir carteles.</dt>
+
+<dt>
+<tt>&nbsp;</tt></dt>
+
+<dt>
+<tt>-wN&nbsp; en un ancho de N columnas</tt></dt>
+
+<dt>
+<tt>&nbsp;</tt></dt>
+
+<dt>
+<tt>&nbsp; banner -w 40 Hola!</tt></dt>
+
+<dt>
+<tt>&nbsp; banner a</tt></dt>
+
+<h3>
+<a NAME="cal"></a>cal</h3>
+
+<dt>
+<tt>cal [OPCIONES] [[MES]A&Ntilde;O]</tt></dt>
+
+<dt>
+<tt>&nbsp;</tt></dt>
+
+<dt>
+Sin par&aacute;metros, muestra calendario del mes actual; el a&ntilde;o
+debe indicarse con centuria, 1-1999; el mes en n&uacute;mero 1 a 12.</dt>
+
+<dt>
+<tt>&nbsp;</tt></dt>
+
+<dt>
+<tt>-j&nbsp; d&iacute;a juliano, contado desde el 1 de enero</tt></dt>
+
+<dt>
+<tt>-y&nbsp; calendario del a&ntilde;o en curso</tt></dt>
+
+<dt>
+&nbsp;</dt>
+
+<dt>
+<tt>&nbsp; cal</tt></dt>
+
+<dt>
+<tt>&nbsp; cal 1998</tt></dt>
+
+<dt>
+<tt>&nbsp; cal 11 1997</tt></dt>
+
+<dt>
+<tt>&nbsp; cal 9 1752</tt></dt>
+
+<dt>
+muestra el mes del a&ntilde;o en que se saltearon 11 d&iacute;as para compensar
+a&ntilde;os bisiestos.</dt>
+
+<h3>
+<a NAME="cat"></a>cat</h3>
+
+<dt>
+<tt>cat [OPCIONES] [ARCHIVO ...]</tt></dt>
+
+<dt>
+<tt>&nbsp;</tt></dt>
+
+<dt>
+Concatena los archivos indicados y los muestra en la salida est&aacute;ndar.
+Sin argumentos, recibe de la entrada est&aacute;ndar (-).</dt>
+
+<dt>
+<tt>&nbsp;</tt></dt>
+
+<dt>
+<tt>-A&nbsp; equivalente a -vET</tt></dt>
+
+<dt>
+<tt>-b&nbsp; numera las l&iacute;neas que no est&aacute;n en blanco</tt></dt>
+
+<dt>
+<tt>-E&nbsp; muestra $ al final de cada l&iacute;nea</tt></dt>
+
+<dt>
+<tt>-n&nbsp; numera las l&iacute;neas</tt></dt>
+
+<dt>
+<tt>-s&nbsp; reemplaza varias l&iacute;neas en blanco por una sola</tt></dt>
+
+<dt>
+<tt>-t&nbsp; equivale a -vT</tt></dt>
+
+<dt>
+<tt>-v&nbsp; muestra caracteres no imprimibles excepto LF y TAB</tt></dt>
+
+<dt>
+<tt>-T&nbsp; muestra TAB como ^I</tt></dt>
+
+<dt>
+<tt>&nbsp;</tt></dt>
+
+<dt>
+<tt>&nbsp; cat /etc/group</tt></dt>
+
+<dt>
+<tt>&nbsp; cat cap1 cap2 cap3</tt></dt>
+
+<dt>
+muestra sucesivamente los archivos cap1, cap2 y cap3.</dt>
+
+<dt>
+<tt>&nbsp; cat cap1 cap2 cap3 > libro</tt></dt>
+
+<dt>
+re&uacute;ne los archivos cap1, cap2 y cap3 en el archivo libro.</dt>
+
+<dt>
+<tt>&nbsp; cat arch1 arch2 > arch1</tt></dt>
+
+<dt>
+hace perder los datos originales en arch1.</dt>
+
+<h3>
+<a NAME="cd"></a>cd</h3>
+
+<dt>
+<tt>cd [DIRECTORIO]</tt></dt>
+
+<dt>
+<tt>&nbsp;</tt></dt>
+
+<dt>
+cambia directorio de trabajo; sin par&aacute;metros, cambia al directorio
+propio del usuario como aparece en $HOME. En Linux, es un comando interno
+del shell; ver bash(1).</dt>
+
+<dt>
+&nbsp;</dt>
+
+<dt>
+<tt>&nbsp; cd /etc</tt></dt>
+
+<dt>
+<tt>&nbsp; cd</tt></dt>
+
+<h3>
+<a NAME="chmod"></a>chmod</h3>
+
+<dt>
+<tt>chmod [OPCION] MODO ARCHIVO ...</tt></dt>
+
+<dt>
+<tt>&nbsp;</tt></dt>
+
+<dt>
+cambia los permisos de acceso a los archivos indicados. No cambia los permisos
+de los enlaces simb&oacute;licos.</dt>
+
+<dt>
+&nbsp;</dt>
+
+<dt>
+<tt>-v&nbsp; verboso, describe acci&oacute;n sobre cada archivo.</tt></dt>
+
+<dt>
+<tt>-R&nbsp; recursivo, cambia permisos de subdirectorios y sus contenidos</tt></dt>
+
+<dt>
+<tt>&nbsp;</tt></dt>
+
+<dt>
+<tt>&nbsp; chmod -R 0755 documentos/visibles</tt></dt>
+
+<dt>
+<tt>&nbsp; chmod ug+rw-x,o+r-wx cap*.txt</tt></dt>
+
+<h3>
+<a NAME="clear"></a>clear</h3>
+
+<dt>
+<tt>clear</tt></dt>
+
+<dt>
+<tt>&nbsp;</tt></dt>
+
+<dt>
+borra la pantalla del terminal.</dt>
+
+<h3>
+<a NAME="cmp"></a>cmp</h3>
+
+<dt>
+<tt>cmp [OPCIONES] ARCH1 ARCH2 [SALTEAR1 [SALTEAR2]]</tt></dt>
+
+<dt>
+<tt>&nbsp;</tt></dt>
+
+<dt>
+compara dos archivos. Si son iguales, no dice nada; si difieren, marca
+el byte y el n&uacute;mero de l&iacute;nea de la primera diferencia.</dt>
+
+<dt>
+<tt>&nbsp;</tt></dt>
+
+<dt>
+<tt>-l&nbsp; n&uacute;mero de byte (decimal) y bytes diferentes (octal)
+para cada</tt></dt>
+
+<dt>
+<tt>&nbsp;&nbsp;&nbsp; diferencia.</tt></dt>
+
+<dt>
+<tt>-s&nbsp; devueve solamente un valor de retorno, sin escribir nada.</tt></dt>
+
+<dt>
+&nbsp;</dt>
+
+<dt>
+Los valores de retorno son 0 si los archivos son iguales, 1 si diferen,
+>1 si hubo un error. Los valores decimales <tt>SALTEAR1</tt> y <tt>SALTEAR2</tt>
+indican la posici&oacute;n de byte donde comienza la comparaci&oacute;n
+en <tt>ARCH1</tt> y <tt>ARCH2</tt>; puede expresarse en hexadecimal precediento
+el n&uacute;mero con 0x, o en octal precediendo con 0.</dt>
+
+<h3>
+<a NAME="cp"></a>cp</h3>
+
+<dt>
+<tt>cp [OPCIONES] ARCH_ORIGEN ARCH_DESTINO</tt></dt>
+
+<dt>
+<tt>cp [OPCIONES] ARCHIVO ... DIRECTORIO</tt></dt>
+
+<dt>
+<tt>&nbsp;</tt></dt>
+
+<dt>
+copia <tt>ARCH_ORIGEN</tt> hacia <tt>ARCH_DESTINO</tt>; copia los archivos
+indicados hacia<tt> DIRECTORIO</tt>. Por defecto no copia directorios.</dt>
+
+<dt>
+<tt>&nbsp;</tt></dt>
+
+<dt>
+<tt>-d&nbsp; copia enlaces simb&oacute;licos como tales</tt></dt>
+
+<dt>
+<tt>-f&nbsp; forzoso, sobreescribe archivos destino si existen</tt></dt>
+
+<dt>
+<tt>-i&nbsp; avisa antes de sobreescribir archivos existentes</tt></dt>
+
+<dt>
+<tt>-l&nbsp; crea enlaces hard en lugar de copiar los archivos</tt></dt>
+
+<dt>
+<tt>-p&nbsp; preserva due&ntilde;o, grupo, permiso y fecha</tt></dt>
+
+<dt>
+<tt>-s&nbsp; crea enlaces simb&oacute;licos en lugar de copiar los archivos</tt></dt>
+
+<dt>
+<tt>-R&nbsp; recursivo, copia directorios y sus archivos</tt></dt>
+
+<dt>
+<tt>-v&nbsp; verboso, escribe el nombre de cada archivo que copia</tt></dt>
+
+<dt>
+<tt>&nbsp;</tt></dt>
+
+<dt>
+<tt>&nbsp; cp arch1 /dir1/arch1</tt></dt>
+
+<dt>
+<tt>&nbsp; cp -vi arch1 arch2</tt></dt>
+
+<dt>
+<tt>&nbsp; cp -dpRv dir1 /dir2/subdir2 dirtodo</tt></dt>
+
+<dt>
+mejor forma de copiar exactamente una estructura de directorios, recursivamente,
+conservando permisos y manteniendo enlaces simb&oacute;licos; verboso puede
+omitirse.</dt>
+
+<h3>
+<a NAME="cut"></a>cut</h3>
+
+<dt>
+<tt>cut -f CAMPOS [-d DELIM][ARCHIVO ...]</tt></dt>
+
+<dt>
+<tt>cut -c COLUMNAS [ARCHIVO ...]</tt></dt>
+
+<dt>
+&nbsp;</dt>
+
+<dt>
+extrae partes de cada l&iacute;nea de los archivos indicados o de la entrada
+est&aacute;ndar. Los campos y columnas se indican con n&uacute;meros 1,
+2,... o con intervalos n-m. Intervalos incompletos: -n es 1-n, m- es m
+hasta el &uacute;ltimo campo o columna.</dt>
+
+<dt>
+<tt>&nbsp;</tt></dt>
+
+<dt>
+<tt>-f&nbsp; campos numerados, por defecto separados por TAB</tt></dt>
+
+<dt>
+<tt>-c&nbsp; columnas, ubicaci&oacute;n posicional de caracteres en la
+l&iacute;nea</tt></dt>
+
+<dt>
+<tt>-d&nbsp; fija el caracter delimitador de campos, TAB por defecto</tt></dt>
+
+<dt>
+<tt>-s&nbsp; con -f para no imprimir l&iacute;neas que no contengan el
+delimitador</tt></dt>
+
+<dt>
+<tt>&nbsp;</tt></dt>
+
+<dt>
+<tt>&nbsp; cat /etc/passwd | cut -d: -f1,3,5-6</tt></dt>
+
+<dt>
+<tt>&nbsp; cat /etc/passwd | cut -c1-15</tt></dt>
+
+<dt>
+<tt>&nbsp; ls -l | cut -c57-</tt></dt>
+
+<dt>
+corta s&oacute;lo el nombre del archivo, al final (puede requerir ajuste
+en el valor de columna).</dt>
+
+<h3>
+<a NAME="date"></a>date</h3>
+
+<dt>
+<tt>date [OPCION] [+FORMATO]</tt></dt>
+
+<dt>
+muestra fecha y hora. Con +FORMATO la presenta seg&uacute;n el patr&oacute;n
+indicado.</dt>
+
+<dt>
+<tt>&nbsp;</tt></dt>
+
+<dt>
+<tt>date [-u|--utc|--universal] [ MMDDHHmm [[CC]YY][.SS] ]</tt></dt>
+
+<dt>
+fija (su) fecha y hora.</dt>
+
+<dt>
+<tt>&nbsp;</tt></dt>
+
+<dt>
+<tt>-u --utc --universal&nbsp;&nbsp; hora universal (GMT)</tt></dt>
+
+<dt>
+<tt>&nbsp;</tt></dt>
+
+<dt>
+Formato para fijar la hora:</dt>
+
+<dt>
+<tt>MM&nbsp; mes (01-12)</tt></dt>
+
+<dt>
+<tt>DD&nbsp; d&iacute;a (01-31)</tt></dt>
+
+<dt>
+<tt>HH&nbsp; hora (00-23)</tt></dt>
+
+<dt>
+<tt>mm&nbsp; mminuto (00-59)</tt></dt>
+
+<dt>
+<tt>CC&nbsp; centuria</tt></dt>
+
+<dt>
+<tt>YY&nbsp; a&ntilde;o</tt></dt>
+
+<dt>
+<tt>SS&nbsp; segundos (00-59)</tt></dt>
+
+<dt>
+<tt>&nbsp;</tt></dt>
+
+<dt>
+<tt>Formato para presentar la fecha y la hora (+FORMATO):</tt></dt>
+
+<dt>
+<tt>'%H'&nbsp; hora (00-23)</tt></dt>
+
+<dt>
+<tt>'%M'&nbsp; minuto (00-59)</tt></dt>
+
+<dt>
+<tt>'%S'&nbsp; segundos (00-59)</tt></dt>
+
+<dt>
+<tt>'%T'&nbsp; hora en 24 horas (hh:mm:ss)</tt></dt>
+
+<dt>
+<tt>'%X'&nbsp; hora en representaci&oacute;n local (%H:%M:S)</tt></dt>
+
+<dt>
+<tt>'%a'&nbsp; nombre local abreviado del d&iacute;a</tt></dt>
+
+<dt>
+<tt>'%A'&nbsp; nombre local completo del d&iacute;a</tt></dt>
+
+<dt>
+<tt>'%b'&nbsp; nombre local abreviado del mes</tt></dt>
+
+<dt>
+<tt>'%B'&nbsp; nombre local completo del mes</tt></dt>
+
+<dt>
+<tt>'%c'&nbsp; fecha y hora locales</tt></dt>
+
+<dt>
+<tt>'%d'&nbsp; d&iacute;a del mes (01-31)</tt></dt>
+
+<dt>
+<tt>'%m'&nbsp; mes (01-12)</tt></dt>
+
+<dt>
+<tt>'%w'&nbsp; d&iacute;a de la semana (0-6), 0 es Domingo</tt></dt>
+
+<dt>
+<tt>'%x'&nbsp; fecha local</tt></dt>
+
+<dt>
+<tt>'%y'&nbsp; 2 d&iacute;gitos del a&ntilde;o (00-99)</tt></dt>
+
+<dt>
+<tt>'%Y'&nbsp; 4 d&iacute;gitos del a&ntilde;o (1970....)</tt></dt>
+
+<h3>
+<a NAME="diff"></a>diff</h3>
+
+<dt>
+<tt>diff ARCHIVO1 ARCHIVO2</tt></dt>
+
+<dt>
+&nbsp;</dt>
+
+<dt>
+muestra las diferencias existentes entre dos archivos.</dt>
+
+<dt>
+<tt>&nbsp;</tt></dt>
+
+<dt>
+<tt>&nbsp; diff nota1 nota2</tt></dt>
+
+<h3>
+<a NAME="echo"></a>echo</h3>
+
+<dt>
+<tt>echo [OPCIONES] MENSAJE <i>...</i></tt></dt>
+
+<dt>
+&nbsp;</dt>
+
+<dt>
+escribe en la salida est&aacute;ndar los mensajes, separados con un espacio
+y con LF al final. Muchos shells tienen un comando interno del mismo nombre;
+&eacute;ste, fuera del shell, debe invocarse como /bin/echo.</dt>
+
+<dt>
+<tt>&nbsp;</tt></dt>
+
+<dt>
+<tt>-n&nbsp;&nbsp; suprime LF al final</tt></dt>
+
+<dt>
+<tt>-e&nbsp;&nbsp; interpreta estos caracteres especiales, dentro de "
+"</tt></dt>
+
+<dt>
+<tt>&nbsp; \a&nbsp;&nbsp; campana</tt></dt>
+
+<dt>
+<tt>&nbsp; \b&nbsp;&nbsp; retroceso</tt></dt>
+
+<dt>
+<tt>&nbsp; \c&nbsp;&nbsp; suprime LF al final</tt></dt>
+
+<dt>
+<tt>&nbsp; \f&nbsp;&nbsp; cambio de p&aacute;gina</tt></dt>
+
+<dt>
+<tt>&nbsp; \n&nbsp;&nbsp; nueva l&iacute;nea (LF)</tt></dt>
+
+<dt>
+<tt>&nbsp; \r&nbsp;&nbsp; retorno de carro (CR)</tt></dt>
+
+<dt>
+<tt>&nbsp; \t&nbsp;&nbsp; tabulador horizontal</tt></dt>
+
+<dt>
+<tt>&nbsp; \v&nbsp;&nbsp; tabulador vertical</tt></dt>
+
+<dt>
+<tt>&nbsp; \\&nbsp;&nbsp; barra inversa</tt></dt>
+
+<dt>
+<tt>&nbsp; \nnn caracter ASCII nnn en octal</tt></dt>
+
+<dt>
+<tt>&nbsp;</tt></dt>
+
+<dt>
+<tt>&nbsp; echo Hola Todos!</tt></dt>
+
+<dt>
+<tt>&nbsp; echo -n Hola Todos!</tt></dt>
+
+<dt>
+<tt>&nbsp; echo -e "\a"</tt></dt>
+
+<dt>
+<tt>&nbsp; echo -e "\101"</tt></dt>
+
+<dt>
+muestra la letra A, que es 101 en octal.</dt>
+
+<h3>
+<a NAME="env"></a>env</h3>
+
+<dt>
+<tt>env [OPCIONES][NOMBRE=VALOR]...[COMANDO [ARGUMENTO <i>...</i>]]</tt></dt>
+
+<dt>
+<tt>&nbsp;</tt></dt>
+
+<dt>
+Sin argumentos, muestra valores de variables de ambiente; con argumentos,
+corre el comando indicado con las variables de ambiente modificadas seg&uacute;n
+se indique.</dt>
+
+<dt>
+<tt>&nbsp;</tt></dt>
+
+<dt>
+<tt>-i comenzar con un ambiente virgen, ignorando el actual</tt></dt>
+
+<dt>
+<tt>&nbsp;</tt></dt>
+
+<dt>
+<tt>&nbsp; env</tt></dt>
+
+<dt>
+<tt>&nbsp; env DIR=/etc listadir1</tt></dt>
+
+<dt>
+lista el contenido del directorio /etc; <tt>listadir</tt> es un archivo
+ejecutable que contiene la l&iacute;nea <tt>ls dir1</tt>, para listar contenido
+del directorio <tt>dir1</tt>.</dt>
+
+<dt>
+<tt>&nbsp; echo Directorio $HOME</tt></dt>
+
+<dt>
+<tt>&nbsp; ls -l $HOME</tt></dt>
+
+<dt>
+muestra el directorio propio del usuario, guardado en la variable de ambiente
+HOME.</dt>
+
+<h3>
+<a NAME="exit"></a>exit</h3>
+
+<dt>
+<tt>exit [N]</tt></dt>
+
+<dt>
+&nbsp;</dt>
+
+<dt>
+produce la salida del shell con estado de terminaci&oacute;n N (n&uacute;mero);
+si no se indica retorna con 0.</dt>
+
+<h3>
+<a NAME="file"></a>file</h3>
+<tt>file OPCIONES ARCHIVO</tt>
+<p>intenta determinar el tipo de archivo de que se trata: texto ASCII,
+c&oacute;digo C, script en diversos lenguajes, binario, otros.
+<p><tt>-z&nbsp; examina archivos comprimidos</tt>
+<p><tt>&nbsp; file cati.c</tt>
+<br>este archivo contiene c&oacute;digo C.
+<br><tt>&nbsp; file adduser</tt>
+<br>este archivo es un script en Perl.
+<br><tt>&nbsp; file /bin/cat</tt>
+<br>es un ejecutable binario.
+<h3>
+<a NAME="head"></a>head</h3>
+
+<dt>
+<tt>head [OPCIONES] ARCHIVO ...</tt></dt>
+
+<dt>
+&nbsp;</dt>
+
+<dt>
+muestra la primera parte de un archivo, por defecto 10 l&iacute;neas. Si
+son varios archivos muestra un encabezado con el nombre de cada archivo.</dt>
+
+<dt>
+&nbsp;</dt>
+
+<dt>
+<tt>-v&nbsp;&nbsp; verboso, imprime encabezamiento con nombre del archivo</tt></dt>
+
+<dt>
+<tt>-q&nbsp;&nbsp; silencioso, no imprime encabezado con nombre del archivo</tt></dt>
+
+<dt>
+<tt>-N&nbsp;&nbsp; imprime primeras N l&iacute;neas, por defecto 10</tt></dt>
+
+<dt>
+<tt>-n N imprime primeras N l&iacute;neas</tt></dt>
+
+<dt>
+<tt>&nbsp;</tt></dt>
+
+<dt>
+<tt>&nbsp; head -24 /etc/inetd.conf</tt></dt>
+
+<h3>
+<a NAME="hostname"></a>hostname</h3>
+
+<dt>
+<tt>hostname [NOMBRE]</tt></dt>
+
+<dt>
+&nbsp;</dt>
+
+<dt>
+sin argumentos, da el nombre de la m&aacute;quina; con NOMBRE, fija el
+nombre de la m&aacute;quina (su).</dt>
+
+<dt>
+<tt>&nbsp;</tt></dt>
+
+<dt>
+<tt>-h&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ayuda</tt></dt>
+
+<dt>
+<tt>-f --fqdn&nbsp;&nbsp;&nbsp; nombre de m&aacute;quina completo, con
+dominio DNS</tt></dt>
+
+<dt>
+<tt>-d --domain&nbsp; nombre de dominio DNS</tt></dt>
+
+<dt>
+<tt>-i --ip-address&nbsp;&nbsp; direcci&oacute;n (n&uacute;mero IP)</tt></dt>
+
+<dt>
+<tt>-a --alias&nbsp;&nbsp; nombres de alias</tt></dt>
+
+<dt>
+<tt>-v&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; verboso</tt></dt>
+
+<h3>
+<a NAME="id"></a>id</h3>
+
+<dt>
+<tt>id [OPCIONES] [NOMBRE_USUARIO]</tt></dt>
+
+<dt>
+&nbsp;</dt>
+
+<dt>
+muestra informaci&oacute;n sobre un usuario. Muestra nombre, UID, grupo,
+GID y grupos suplementarios. Si el id real y el efectivo no corresponden
+muestra ambos. Las opciones limitan el despliegue.</dt>
+
+<dt>
+<tt>&nbsp;</tt></dt>
+
+<dt>
+<tt>-g&nbsp; s&oacute;lo el grupo primario</tt></dt>
+
+<dt>
+<tt>-G&nbsp; grupos suplementarios</tt></dt>
+
+<dt>
+<tt>-n&nbsp; nombre en lugar de n&uacute;mero; requiere -u, -g, o -G</tt></dt>
+
+<dt>
+<tt>-r&nbsp; real en lugar de efectivo; requiere -u, -g o -G</tt></dt>
+
+<dt>
+<tt>-u&nbsp; s&oacute;lo el n&uacute;mero de usuario (UID)</tt></dt>
+
+<dt>
+<tt>&nbsp;</tt></dt>
+
+<dt>
+<tt>&nbsp; id</tt></dt>
+
+<dt>
+<tt>&nbsp; id webmaster</tt></dt>
+
+<dt>
+muestra datos del usuario <tt>webmaster</tt>.</dt>
+
+<h3>
+<a NAME="info"></a>info</h3>
+
+<dt>
+<tt>info [NOMBRE]</tt></dt>
+
+<dt>
+&nbsp;</dt>
+
+<dt>
+sistema de informaci&oacute;n de GNU sobre UNIX.</dt>
+
+<dt>
+&nbsp;</dt>
+
+<dt>
+<tt>&nbsp;info info</tt></dt>
+
+<dt>
+muestra informaci&oacute;n sobre info, con tutorial para aprender a manejar
+info.</dt>
+
+<h3>
+<a NAME="less"></a>less</h3>
+
+<dt>
+<tt>less [OPCIONES] [ARCHIVO]</tt></dt>
+
+<dt>
+programa de paginado y b&uacute;squeda similar a more, con m&aacute;s opciones
+y comandos.&nbsp; Permite movimiento hacia adelante y atr&aacute;s, pero
+no lee todo el archivo al principio, por lo que es m&aacute;s r&aacute;pido.
+Sus comandos est&aacute;n tomados de more y vi (ver more).</dt>
+
+<dt>
+<tt>--help -?&nbsp;&nbsp; muestra ayuda sobre comandos internos</tt></dt>
+
+<h3>
+<a NAME="ln"></a>ln</h3>
+
+<dt>
+<tt>ln [OPCIONES] ORIGEN [DESTINO]</tt></dt>
+
+<dt>
+<tt>ln [OPCIONES] ORIGEN ... DIRECTORIO</tt></dt>
+
+<dt>
+&nbsp;</dt>
+
+<dt>
+si el &uacute;ltimo argumento es un directorio, <tt>ln</tt> crea en ese
+directorio enlaces a todos los archivos origen con el mismo nombre; si
+s&oacute;lo se indica un nombre de archivo, crea un enlace hacia ese archivo
+en el directorio actual; si se indican dos archivos, crea un enlace con
+el primer nombre (archivo real) hacia el segundo (enlace). Por defecto,
+crea enlaces hard y no elimina archivos existentes.</dt>
+
+<dt>
+<tt>&nbsp;</tt></dt>
+
+<dt>
+<tt>-f&nbsp; forzoso, elimina archivos destino existentes</tt></dt>
+
+<dt>
+<tt>-i&nbsp; interactivo, pide confirmaci&oacute;n para eliminar archivos</tt></dt>
+
+<dt>
+<tt>-s&nbsp; simb&oacute;lico, crea enlaces simb&oacute;licos en lugar
+de hard</tt></dt>
+
+<dt>
+<tt>-v&nbsp; verboso, da el nombre de cada enlace creado</tt></dt>
+
+<dt>
+<tt>&nbsp;</tt></dt>
+
+<dt>
+<tt>&nbsp; ln nota nota.ln</tt></dt>
+
+<dt>
+<tt>&nbsp; ln -s /etc/passwd</tt></dt>
+
+<dt>
+<tt>&nbsp; ln -s datos.usuario datos.usu.ln</tt></dt>
+
+<dt>
+<tt>&nbsp; ln -sv datos.usuario LEAME dir2</tt></dt>
+
+<h3>
+<a NAME="ls"></a>ls, dir, vdir</h3>
+
+<dt>
+<tt>ls [OPCIONES] [NOMBRE]</tt></dt>
+
+<dt>
+&nbsp;</dt>
+
+<dt>
+Para cada nombre de directorio, lista contenido de directorio; para cada
+nombre de archivo, indica su nombre y datos. La salida est&aacute; ordenada
+alfab&eacute;ticamente por defecto. Sin nombre, lista el directorio corriente.
+La opci&oacute;n -l muestra, separados por espacios, los campos tipo archivo
+y permisos, cantidad de enlaces hard, due&ntilde;o, grupo, tama&ntilde;o,
+mes, d&iacute;a, hora o a&ntilde;o, nombre.</dt>
+
+<dt>
+<tt>&nbsp;</tt></dt>
+
+<dt>
+<tt>-1&nbsp; un nombre de archivo por l&iacute;nea</tt></dt>
+
+<dt>
+<tt>-a&nbsp; todos los archivos, incluso no visibles comenzados por .</tt></dt>
+
+<dt>
+<tt>-c&nbsp; ordenar por fecha de estado de &uacute;ltimo cambio (ctime
+en inodo)</tt></dt>
+
+<dt>
+<tt>-C&nbsp; salida en columnas con ordenamiento por columnas</tt></dt>
+
+<dt>
+<tt>-d&nbsp; lista directorios como archivos, no su contenido</tt></dt>
+
+<dt>
+<tt>-F&nbsp; indica tipo: / directorio, * ejecutable, @ enlace simb&oacute;lico</tt></dt>
+
+<dt>
+<tt>-i&nbsp; inodo, n&uacute;mero de &iacute;ndice de cada archivo</tt></dt>
+
+<dt>
+<tt>-k&nbsp; tama&ntilde;os en KB</tt></dt>
+
+<dt>
+<tt>-l&nbsp; listado en formato largo</tt></dt>
+
+<dt>
+<tt>-r&nbsp; invertir ordenamiento</tt></dt>
+
+<dt>
+<tt>-R&nbsp; listar recursivamente subdirectorios</tt></dt>
+
+<dt>
+<tt>-s&nbsp; tama&ntilde;o en bloques de 1024 bytes</tt></dt>
+
+<dt>
+<tt>-t&nbsp; ordenar por fecha de &uacute;ltima modificaci&oacute;n (mtime
+en inodo)</tt></dt>
+
+<dt>
+<tt>-u&nbsp; ordenar por fecha de &uacute;ltimo acceso (atime en inodo)</tt></dt>
+
+<dt>
+<tt>-U&nbsp; no ordenar</tt></dt>
+
+<dt>
+<tt>-x&nbsp; salida en columnas con ordenamiento por filas</tt></dt>
+
+<dt>
+&nbsp;</dt>
+
+<dt>
+&nbsp; <tt>dir</tt></dt>
+
+<dt>
+equivale al <tt>ls -C.</tt></dt>
+
+<dt>
+<tt>&nbsp; vdir</tt></dt>
+
+<dt>
+equivale a <tt>ls -l</tt>.</dt>
+
+<h3>
+<a NAME="mail"></a>mail</h3>
+
+<dt>
+<tt>mail [OPCIONES] [DESTINO ...]</tt></dt>
+
+<dt>
+&nbsp;</dt>
+
+<dt>
+procesador de correo electr&oacute;nico de UNIX. Sin argumentos, muestra
+lista de mensajes en la casilla de entrada y permite manipularlos. Si hay
+un destino, lee de la entrada est&aacute;ndar hasta un "." aislado en una
+l&iacute;nea y env&iacute;a lo le&iacute;do como mensaje a <tt>destino</tt>.</dt>
+
+<dt>
+<tt>&nbsp;</tt></dt>
+
+<dt>
+<tt>-v&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; verboso, muestra
+detalles de entrega</tt></dt>
+
+<dt>
+<tt>-s TEMA&nbsp;&nbsp;&nbsp;&nbsp; especifica el tema (subject) del mensaje</tt></dt>
+
+<dt>
+<tt>-c LISTA&nbsp;&nbsp;&nbsp; env&iacute;a copias a LISTA de usuarios,
+separados por coma</tt></dt>
+
+<dt>
+<tt>-b LISTA&nbsp;&nbsp;&nbsp; env&iacute;a copia ciega a LISTA de usuarios</tt></dt>
+
+<dt>
+<tt>-f [ARCH]&nbsp;&nbsp; lee contenido de archivo propio mbox o el indicado</tt></dt>
+
+<dt>
+<tt>-u USUARIO equivale a mail -f /var/spool/mail/USUARIO</tt></dt>
+
+<dt>
+&nbsp;</dt>
+
+<dt>
+Comandos internos de mail:</dt>
+
+<dt>
+<tt>&amp;&nbsp; indicador de comandos de mail</tt></dt>
+
+<dt>
+<tt>?&nbsp; muestra lista de comandos para manejo de mensajes</tt></dt>
+
+<dt>
+<tt>d&nbsp; borra mensaje corriente, marcado con '>'</tt></dt>
+
+<dt>
+<tt>N&nbsp; muestra el mensaje n&uacute;mero N</tt></dt>
+
+<dt>
+<tt>q&nbsp; sale del programa de correo</tt></dt>
+
+<dt>
+<tt>&nbsp;</tt></dt>
+
+<dt>
+<tt>&nbsp; mail -s "Saludos para todos " -c pedro,mateo@nsk.com.uy juan</tt></dt>
+
+<dt>
+env&iacute;a un mensaje al usuario juan, tema "Saludos para todos", con
+copia a usuarios pedro y mateo.</dt>
+
+<h3>
+<a NAME="man"></a>man</h3>
+
+<dt>
+<tt>man [OPCIONES] [SECCION] NOMBRE ...</tt></dt>
+
+<dt>
+&nbsp;</dt>
+
+<dt>
+Da formato y muestra las p&aacute;ginas del manual en l&iacute;nea. Si
+no se indica secci&oacute;n, muestra s&oacute;lo la primera que encuentre;
+si se indica secci&oacute;n como n&uacute;mero 1-9, muestra la p&aacute;gina
+que haya en la secci&oacute;n indicada. Las p&aacute;ginas est&aacute;n
+organizadas en secciones, reconocidas por un d&iacute;gito, y eventualmente
+subsecciones indicadas por una o m&aacute;s letras.</dt>
+
+<dt>
+<tt>&nbsp;</tt></dt>
+
+<dt>
+<tt>-a&nbsp; muestra p&aacute;ginas en todas las secciones</tt></dt>
+
+<dt>
+<tt>-d&nbsp; muestra informaci&oacute;n de depuraci&oacute;n propia de
+man</tt></dt>
+
+<dt>
+<tt>-f&nbsp; equivalente a whatis</tt></dt>
+
+<dt>
+<tt>-h&nbsp; muestra ayuda para man</tt></dt>
+
+<dt>
+<tt>-k&nbsp; equivalente a apropos</tt></dt>
+
+<dt>
+<tt>-w&nbsp; no imprime las p&aacute;ginas, sino las ubicaciones</tt></dt>
+
+<dt>
+<tt>&nbsp;</tt></dt>
+
+<dt>
+<tt>Secciones del manual:</tt></dt>
+
+<dt>
+<tt>1&nbsp; programas ejecutables y guiones (scripts)</tt></dt>
+
+<dt>
+<tt>2&nbsp; llamadas al sistema (funciones del n&uacute;cleo)</tt></dt>
+
+<dt>
+<tt>3&nbsp; llamadas a biblioteca (funciones de biblioteca)</tt></dt>
+
+<dt>
+<tt>4&nbsp; archivos especiales (generalmente en /dev)</tt></dt>
+
+<dt>
+<tt>5&nbsp; formatos de archivos</tt></dt>
+
+<dt>
+<tt>6&nbsp; juegos</tt></dt>
+
+<dt>
+<tt>7&nbsp; paquetes de macros</tt></dt>
+
+<dt>
+<tt>8&nbsp; comandos de administraci&oacute;n (su)</tt></dt>
+
+<dt>
+<tt>&nbsp;</tt></dt>
+
+<dt>
+<tt>&nbsp; man -h</tt></dt>
+
+<dt>
+<tt>&nbsp; man man</tt></dt>
+
+<dt>
+<tt>&nbsp; man -a man</tt></dt>
+
+<h3>
+<a NAME="mesg"></a>mesg</h3>
+
+<dt>
+<tt>mesg [y|n]</tt></dt>
+
+<dt>
+&nbsp;</dt>
+
+<dt>
+controla acceso de escritura a la terminal propia por otros usuarios, t&iacute;picamente
+con programas tales como <tt>talk</tt> y <tt>write</tt>. Sin par&aacute;metros,
+muestra el estado:<tt> is y </tt>si est&aacute; habilitada escritura, <tt>is
+n </tt>si no est&aacute; habilitada escritura.</dt>
+
+<dt>
+<tt>&nbsp;</tt></dt>
+
+<dt>
+<tt>y&nbsp; permite a otros escribir mensajes en la terminal</tt></dt>
+
+<dt>
+<tt>n&nbsp; no permite a otros escribir mensajes en la terminal</tt></dt>
+
+<dt>
+<tt>&nbsp;</tt></dt>
+
+<dt>
+<tt>&nbsp; mesg</tt></dt>
+
+<dt>
+<tt>&nbsp; mesg y</tt></dt>
+
+<dt>
+<tt>&nbsp; mesg n</tt></dt>
+
+<h3>
+<a NAME="mkdir"></a>mkdir</h3>
+
+<dt>
+<tt>mkdir [OPCIONES] [-m MODO] DIRECTORIO ...</tt></dt>
+
+<dt>
+&nbsp;</dt>
+
+<dt>
+crea los directorios indicados. Por defecto, el modo es 0777 menos los
+bits de umask.</dt>
+
+<dt>
+<tt>&nbsp;</tt></dt>
+
+<dt>
+<tt>-m MODO&nbsp; permite fijar el modo para el nuevo directorio;</tt></dt>
+
+<dt>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; el modo es simb&oacute;lico
+y usa el modo por defecto como partida.</tt></dt>
+
+<dt>
+<tt>-p&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; crea primero todos los directorios
+padre inexistentes,</tt></dt>
+
+<dt>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; con el modo de umask
+modificado con u+wx</tt></dt>
+
+<dt>
+<tt>--verbose&nbsp;&nbsp; informa sobre la creaci&oacute;n de directorios</tt></dt>
+
+<dt>
+<tt>&nbsp;</tt></dt>
+
+<dt>
+<tt>&nbsp; mkdir dir1 dir2</tt></dt>
+
+<dt>
+<tt>&nbsp; mkdir -p ltr/jd/jan</tt></dt>
+
+<dt>
+crea la estructura de directorios <tt>ltr/jd/jan</tt>.</dt>
+
+<h3>
+<a NAME="more"></a>more</h3>
+
+<dt>
+<tt>more [OPCIONES][-N][+/CADENA[-N] [ARCHIVO ...]</tt></dt>
+
+<dt>
+&nbsp;</dt>
+
+<dt>
+pagina el texto dividi&eacute;ndolo en pantallas, presentando una por vez.</dt>
+
+<dt>
+<tt>&nbsp;</tt></dt>
+
+<dt>
+<tt>-N&nbsp; fija tama&ntilde;o de pantalla en N l&iacute;neas</tt></dt>
+
+<dt>
+<tt>-d&nbsp; muestra mensajes de ayuda</tt></dt>
+
+<dt>
+<tt>-s&nbsp; comprime en una varias l&iacute;neas en blanco seguidas</tt></dt>
+
+<dt>
+<tt>-u&nbsp; suprime subrayados</tt></dt>
+
+<dt>
+<tt>+/<i>cadena</i>&nbsp;&nbsp; busca la cadena antes de mostrar</tt></dt>
+
+<dt>
+<tt>+N&nbsp; comienza a mostrar a partir de la l&iacute;nea N</tt></dt>
+
+<dt>
+&nbsp;</dt>
+
+<dt>
+Durante el despliegue, reconoce los comandos siguientes, algunos de los
+cuales pueden ir precedidos de un n&uacute;mero multiplicador:</dt>
+
+<dt>
+<tt>h&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; muestra resumen de estos
+comandos</tt></dt>
+
+<dt>
+<tt>ESPACIO&nbsp; avanza una pantalla</tt></dt>
+
+<dt>
+<tt>ENTER&nbsp;&nbsp;&nbsp; muestra siguiente l&iacute;nea</tt></dt>
+
+<dt>
+<tt>f&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; avanza una pantalla; ^F</tt></dt>
+
+<dt>
+<tt>b&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; retrocede una pantalla;
+tambi&eacute;n ^B</tt></dt>
+
+<dt>
+<tt>^L&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (Ctrl-L) redibuja la pantalla</tt></dt>
+
+<dt>
+<tt>=&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; muestra n&uacute;mero de
+l&iacute;nea actual</tt></dt>
+
+<dt>
+<tt>/PATRON&nbsp; busca hacia adelante la expresi&oacute;n regular PATRON</tt></dt>
+
+<dt>
+<tt>?/PATRON busca hacia atr&aacute;s la expresi&oacute;n regular PATRON</tt></dt>
+
+<dt>
+<tt>n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; repetir &uacute;ltima b&uacute;squeda</tt></dt>
+
+<dt>
+<tt>.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; repetir el comando anterior</tt></dt>
+
+<dt>
+<tt>&acute;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ir a lugar de comienzo
+de &uacute;ltima b&uacute;squeda</tt></dt>
+
+<dt>
+<tt>q, Q&nbsp;&nbsp;&nbsp;&nbsp; sale</tt></dt>
+
+<h3>
+<a NAME="mv"></a>mv</h3>
+
+<dt>
+<tt>mv [OPCIONES] ARCH_ORIGNEN ARCH_DESTINO</tt></dt>
+
+<dt>
+<tt>mv [OPCIONES] ARCHIVO ... DIRECTORIO</tt></dt>
+
+<dt>
+&nbsp;</dt>
+
+<dt>
+cambia de nombre <tt>ARCH_ORIGEN,</tt> o mueve hacia <tt>ARCH_DESTINO</tt>
+si el archivo destino invoca otro directorio; mueve <tt>ARCHIVO </tt>y
+los siguientes archivos hacia <tt>DIRECTORIO</tt>. Entre sistemas de archivos
+s&oacute;lo puede mover archivos normales.</dt>
+
+<dt>
+<tt>&nbsp;</tt></dt>
+
+<dt>
+<tt>-f&nbsp; forzoso, sobreescribe archivos destino si existen</tt></dt>
+
+<dt>
+<tt>-i&nbsp; avisa antes de sobreescribir archivos existentes</tt></dt>
+
+<dt>
+<tt>-v&nbsp; verboso, escribe el nombre de cada archivo que mueve</tt></dt>
+
+<dt>
+<tt>-u&nbsp; no mover si existe archivo destino m&aacute;s nuevo o de igual
+fecha</tt></dt>
+
+<dt>
+<tt>&nbsp;</tt></dt>
+
+<dt>
+<tt>&nbsp; mv nota notanueva</tt></dt>
+
+<dt>
+<tt>&nbsp; mv -vi LEAME LEAME2</tt></dt>
+
+<dt>
+<tt>&nbsp; mv -v arch1 notanueva LEAME /dir2/subdir2</tt></dt>
+
+<h3>
+<a NAME="passwd"></a>passwd</h3>
+
+<dt>
+<tt>passwd [OPCIONES] [NOMBRE]</tt></dt>
+
+<dt>
+&nbsp;</dt>
+
+<dt>
+cambia la contrase&ntilde;a del usuario. El superusuario puede cambiar
+las contrase&ntilde;as de otros usuarios. En general, las contrase&ntilde;as
+deben tener entre 6 y 8 caracteres, contener may&uacute;sculas, min&uacute;sculas,
+d&iacute;gitos 0 a 9 o signos de puntuaci&oacute;n; no se admiten contrase&ntilde;as
+simples ni parecidas al nombre del usuario. Si el superusuario asigna contrase&ntilde;as
+poco seguras no hay advertencia.</dt>
+
+<dt>
+<tt>&nbsp;</tt></dt>
+
+<dt>
+<tt>-x M&nbsp; m&aacute;ximo n&uacute;mero de d&iacute;as de validez; luego
+pide cambiar</tt></dt>
+
+<dt>
+<tt>-n M&nbsp; m&iacute;nimo n&uacute;mero de d&iacute;as antes de poder
+cambiar</tt></dt>
+
+<dt>
+<tt>-n M&nbsp; n&uacute;mero de d&iacute;as de advertencia antes de expirar</tt></dt>
+
+<dt>
+<tt>&nbsp;</tt></dt>
+
+<dt>
+<tt>&nbsp;passwd</tt></dt>
+
+<dt>
+permite cambiar la contrase&ntilde;a del usuario invocante</dt>
+
+<dt>
+<tt>&nbsp; passwd jperez</tt></dt>
+
+<dt>
+(su) cambia la contrase&ntilde;a del usuario jperez.</dt>
+
+<h3>
+<a NAME="pr"></a>pr</h3>
+
+<dt>
+<tt>pr [OPCIONES] ARCHIVO ...</tt></dt>
+
+<dt>
+&nbsp;</dt>
+
+<dt>
+escribe en salida est&aacute;ndar un texto con formato, paginado y opcionalmente
+en varias columnas.</dt>
+
+<dt>
+<tt>&nbsp;</tt></dt>
+
+<dt>
+<tt>+P1[:P2]&nbsp; de p&aacute;gina P1 a p&aacute;gina P2</tt></dt>
+
+<dt>
+<tt>-<i>C</i>&nbsp; en <i>C</i> columnas</tt></dt>
+
+<dt>
+<tt>-a&nbsp; escribe las columnas a trav&eacute;s y no hacia abajo</tt></dt>
+
+<dt>
+<tt>-d&nbsp; a doble espacio</tt></dt>
+
+<dt>
+<tt>-f&nbsp; separar p&aacute;ginas con salto de p&aacute;gina</tt></dt>
+
+<dt>
+<tt>-h&nbsp; reemplazar encabezado con el indicado</tt></dt>
+
+<dt>
+<tt>-l&nbsp; largo de p&aacute;gina en l&iacute;neas; por defecto 66</tt></dt>
+
+<dt>
+<tt>-m&nbsp; escribir archivos en paralelo uno en cada columna</tt></dt>
+
+<dt>
+<tt>-o&nbsp; margen izquierdo; se suma al ancho indicado por -w</tt></dt>
+
+<dt>
+<tt>-w&nbsp; ancho de p&aacute;gina en columnas; por defecto 72</tt></dt>
+
+<dt>
+<tt>&nbsp;</tt></dt>
+
+<dt>
+<tt>&nbsp; pr -o8 -l23 -h "Lista de usuarios" /etc/passwd</tt></dt>
+
+<dt>
+<tt>&nbsp; pr -o2 -l22 -h "Lista de servicios" /etc/services | more</tt></dt>
+
+<dt>
+<tt>&nbsp; ls /etc | pr -2 -b -l23 | more</tt></dt>
+
+<dt>
+<tt>&nbsp; ls /etc | pr -3 -b -l23 -a | more</tt></dt>
+
+<h3>
+<a NAME="printenv"></a>printenv</h3>
+
+<dt>
+<tt>printenv [VARIABLE] ...</tt></dt>
+
+<dt>
+&nbsp;</dt>
+
+<dt>
+muestra el valor de todas las variables de ambiente; si se indica un nombre
+de variable, puestra el valor de esa variable.</dt>
+
+<dt>
+<tt>&nbsp;</tt></dt>
+
+<dt>
+<tt>&nbsp;printenv TERM</tt></dt>
+
+<h3>
+<a NAME="ps"></a>ps</h3>
+
+<dt>
+<tt>ps [OPCIONES] [PID] ...</tt></dt>
+
+<dt>
+<tt>&nbsp;</tt></dt>
+
+<dt>
+informa sobre procesos en ejecuci&oacute;n. Para las opciones, no debe
+usarse -, aunque es aceptado.</dt>
+
+<dt>
+<tt>&nbsp;</tt></dt>
+
+<dt>
+<tt>l&nbsp; formato largo</tt></dt>
+
+<dt>
+<tt>u&nbsp; formto usuario, muestra nombre, PID, hora inicio, estado</tt></dt>
+
+<dt>
+<tt>j&nbsp; formato trabajos, muestra PGID y SID</tt></dt>
+
+<dt>
+<tt>s&nbsp; formato se&ntilde;ales</tt></dt>
+
+<dt>
+<tt>a&nbsp; mostrar tambi&eacute;n procesos de otros usuarios.</tt></dt>
+
+<dt>
+<tt>x&nbsp; mostrar tambi&eacute;n procesos sin terminal de control</tt></dt>
+
+<dt>
+<tt>w&nbsp; no truncar l&iacute;neas para caber en un ancho de p&aacute;gina;</tt></dt>
+
+<dt>
+<tt>&nbsp;&nbsp; agregar una w para cada l&iacute;nea m&aacute;s</tt></dt>
+
+<dt>
+<tt>h&nbsp; sin encabezado</tt></dt>
+
+<dt>
+<tt>r&nbsp; s&oacute;lo procesos en ejecuci&oacute;n</tt></dt>
+
+<dt>
+<tt>&nbsp;</tt></dt>
+
+<dt>
+<tt>&nbsp; ps auxwww | more</tt></dt>
+
+<dt>
+muestra todos los procesos en ejecuci&oacute;n, en formato usuario, a&uacute;n
+los sin terminal, admitiendo hasta 4 l&iacute;neas por comando<tt>.</tt></dt>
+
+<h3>
+<a NAME="pwd"></a>pwd</h3>
+
+<dt>
+<tt>pwd</tt></dt>
+
+<dt>
+&nbsp;</dt>
+
+<dt>
+imprime toda la ruta del directorio corriente; todos los componentes mostrados
+ser&aacute;n los directorios reales, no enlaces simb&oacute;licos. El shell
+tiene una versi&oacute;n interna de pwd, por lo que para ejecutar &eacute;sta,
+que es externa, es preciso escribir</dt>
+
+<dt>
+<tt>&nbsp;</tt></dt>
+
+<dt>
+<tt>&nbsp;ls -l /var/spool/mail</tt></dt>
+
+<dt>
+muestra /var/spool/mail como enlace simb&oacute;lico a /var/mail (Debian).</dt>
+
+<dt>
+<tt>&nbsp;cd /var/spool/mail</tt></dt>
+
+<dt>
+<tt>&nbsp;pwd</tt></dt>
+
+<dt>
+versi&oacute;n interna del shell, muestra /var/spool/mail, el enlace simb&oacute;lico.</dt>
+
+<dt>
+<tt>&nbsp; /bin/pwd</tt></dt>
+
+<dt>
+versi&oacute;n externa, muestra /var/mail, el directorio real.</dt>
+
+<dt>
+<tt>&nbsp;</tt></dt>
+
+<h3>
+<a NAME="rm"></a>rm</h3>
+
+<dt>
+<tt>rm [OPCIONES] NOMBRE ...</tt></dt>
+
+<dt>
+&nbsp;</dt>
+
+<dt>
+elimina los archivos indicados; por defecto no elimina directorios.</dt>
+
+<dt>
+<tt>&nbsp;</tt></dt>
+
+<dt>
+<tt>-f&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ignora archivos inexistentes y nunca
+pide confirmaci&oacute;n</tt></dt>
+
+<dt>
+<tt>-i&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; interactivo, pregunta antes de eliminar
+cada archivo.</tt></dt>
+
+<dt>
+<tt>-r, -R&nbsp; recursivo, borra directorios y su contenido</tt></dt>
+
+<dt>
+<tt>-v&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; verboso, muestra nombre de cada archivo
+eliminado</tt></dt>
+
+<dt>
+<tt>&nbsp;</tt></dt>
+
+<dt>
+<tt>&nbsp; rm arch1 arch2 dir1/arch3</tt></dt>
+
+<dt>
+<tt>&nbsp; rm -riv dir1/subdir1</tt></dt>
+
+<dt>
+<tt>&nbsp; rm -r *</tt></dt>
+
+<dt>
+elimina TODOS los archivos y subdirectorios; no avisa. &iexcl;Cuidado!</dt>
+
+<h3>
+<a NAME="rmdir"></a>rmdir</h3>
+
+<dt>
+<tt>rmdir [OPCIONES] DIRECTORIO ...</tt></dt>
+
+<dt>
+&nbsp;</dt>
+
+<dt>
+elimina directorios vac&iacute;os.</dt>
+
+<dt>
+<tt>&nbsp;</tt></dt>
+
+<dt>
+<tt>-p&nbsp; elimina directorios padre si quedan vac&iacute;os</tt></dt>
+
+<dt>
+<tt>&nbsp;</tt></dt>
+
+<dt>
+<tt>&nbsp; rmdir dir2</tt></dt>
+
+<dt>
+<tt>&nbsp; rmdir -p dir1/subdir11/subdir111</tt></dt>
+
+<h3>
+<a NAME="tail"></a>tail</h3>
+
+<dt>
+<tt>tail [OPCIONES] ARCHIVO ...</tt></dt>
+
+<dt>
+&nbsp;</dt>
+
+<dt>
+muestra la &uacute;ltima parte de un archivo, por defecto 10 l&iacute;neas.
+Si son varios archivos muestra un encabezado con el nombre de cada archivo.</dt>
+
+<dt>
+<tt>&nbsp;</tt></dt>
+
+<dt>
+<tt>-f&nbsp;&nbsp; contin&uacute;a tratando de leer; para archivos en crecimiento</tt></dt>
+
+<dt>
+<tt>-v&nbsp;&nbsp; verboso, imprime encabezamiento con nombre del archivo</tt></dt>
+
+<dt>
+<tt>-q&nbsp;&nbsp; silencioso, no imprime encabezado con nombre del archivo</tt></dt>
+
+<dt>
+<tt>-<i>N</i>&nbsp;&nbsp; imprime &uacute;ltimas <i>N</i> l&iacute;neas</tt></dt>
+
+<dt>
+<tt>-n <i>N</i> idem</tt></dt>
+
+<h3>
+<a NAME="talk"></a>talk</h3>
+
+<dt>
+<tt>talk USUARIO [TTY]</tt></dt>
+
+<dt>
+&nbsp;</dt>
+
+<dt>
+conversar con otro usuario. Si est&aacute; en la misma m&aacute;quina,
+alcanza con el nombre de login del usuario; si est&aacute; en otra m&aacute;quina,
+es preciso usar la forma <tt>usuario@maquina</tt>. Si el usuario tiene
+varias sesiones a la vez, puede indicarse la terminal, usualmente en la
+forma <tt>ttyXX</tt>.</dt>
+
+<h3>
+<a NAME="touch"></a>touch</h3>
+
+<dt>
+<tt>touch [OPCIONES] ARCHIVO ...</tt></dt>
+
+<dt>
+&nbsp;</dt>
+
+<dt>
+cambia fecha, hora de acceso y/o modificaci&oacute;n de los archivos indicados;
+les pone la fecha y hora actuales. Si los archivos no existen los crea
+vac&iacute;os.</dt>
+
+<dt>
+<tt>&nbsp;</tt></dt>
+
+<dt>
+<tt>-a&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+cambia s&oacute;lo fecha de acceso</tt></dt>
+
+<dt>
+<tt>-c&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+no crea el archivo si no existe</tt></dt>
+
+<dt>
+<tt>-m&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+cambiar s&oacute;lo fecha de modificaci&oacute;n</tt></dt>
+
+<dt>
+<tt>-r <i>arch_ref</i>&nbsp;&nbsp;&nbsp; fija la fecha seg&uacute;n fecha
+del archivo <i>arch_ref</i></tt></dt>
+
+<dt>
+<tt>-t MMDDhhmm[[CC]YY][.ss]</tt></dt>
+
+<dt>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp; fija la fecha indicando mes MM, d&iacute;a
+DD, hora hh y minuto mm;</tt></dt>
+
+<dt>
+<tt>&nbsp;&nbsp;&nbsp;&nbsp; puede agregarse tambi&eacute;n centuria CC
+y a&ntilde;o YY y segundos ss.</tt></dt>
+
+<dt>
+<tt>&nbsp;</tt></dt>
+
+<dt>
+<tt>&nbsp; touch 01011200 dia1enero.h1</tt></dt>
+
+<dt>
+<tt>&nbsp; touch ahora.arc</tt></dt>
+
+<dt>
+<tt>&nbsp; touch -r antes.arch arch1 arch2</tt></dt>
+
+<h3>
+<a NAME="umask"></a>umask</h3>
+
+<dt>
+<tt>umask [-S] [MODO]</tt></dt>
+
+<dt>
+&nbsp;</dt>
+
+<dt>
+fija la m&aacute;scara para permisos de creaci&oacute;n seg&uacute;n <tt>modo</tt>.
+Si <tt>modo</tt> se indica con n&uacute;mero, es en octal; si no, es en
+modo simb&oacute;lico. En general, los permisos de creaci&oacute;n ser&aacute;n,
+para directorios, 0777 menos los bits de m&aacute;scara; para archivos
+0666 menos los bits de m&aacute;scara. La m&aacute;scara vigente es la
+fijada por defecto o la que se fije con este comando. Sin par&aacute;metros,
+<tt>umask</tt>
+muestra la m&aacute;scara vigente. La m&aacute;scara indica los permisos
+que se quitan al permiso fijado.</dt>
+
+<dt>
+<tt>&nbsp;</tt></dt>
+
+<dt>
+<tt>-S&nbsp; muestra la m&aacute;scara, sin fijarla (por defecto, sin par&aacute;metros)</tt></dt>
+
+<dt>
+<tt>&nbsp;</tt></dt>
+
+<dt>
+<tt>&nbsp; umask</tt></dt>
+
+<dt>
+muestra la m&aacute;scara vigente.</dt>
+
+<dt>
+<tt>&nbsp; umask 022</tt></dt>
+
+<dt>
+fija los permisos de creaci&oacute;n de archivos en 0666 - 022, es decir,
+0644; los de directorios en 2777 - 022, es decir, 2755 (Debian).</dt>
+
+<h3>
+<a NAME="uname"></a>uname</h3>
+
+<dt>
+<tt>uname [OPCIONES]</tt></dt>
+
+<dt>
+<tt>&nbsp;</tt></dt>
+
+<dt>
+muestra informaci&oacute;n de la m&aacute;quina y del sistema operativo:</dt>
+
+<dt>
+<tt>&nbsp;</tt></dt>
+
+<dt>
+<tt>-a&nbsp; toda la informaci&oacute;n</tt></dt>
+
+<dt>
+<tt>-m&nbsp; m&aacute;quina, tipo de hardware</tt></dt>
+
+<dt>
+<tt>-n&nbsp; nombre de m&aacute;quina en la red</tt></dt>
+
+<dt>
+<tt>-p&nbsp; tipo de procesador</tt></dt>
+
+<dt>
+<tt>-r&nbsp; edici&oacute;n (release) del sistema operativo</tt></dt>
+
+<dt>
+<tt>-s&nbsp; nombre del sistema operativo</tt></dt>
+
+<dt>
+<tt>-v&nbsp; versi&oacute;n del sistema operativo</tt></dt>
+
+<h3>
+<a NAME="wc"></a>wc</h3>
+
+<dt>
+<tt>wc [OPCIONES] ARCHIVO<i> </i>...</tt></dt>
+
+<dt>
+&nbsp;</dt>
+
+<dt>
+cuenta l&iacute;neas, palabras y caracteres de los archivos indicados o
+de la entrada est&aacute;ndar. Si son varios los archivos, imprime una
+l&iacute;nea por cada uno y un total.</dt>
+
+<dt>
+<tt>&nbsp;</tt></dt>
+
+<dt>
+<tt>-c&nbsp;&nbsp; s&oacute;lo caracteres</tt></dt>
+
+<dt>
+<tt>-w&nbsp;&nbsp; s&oacute;lo palabras</tt></dt>
+
+<dt>
+<tt>-l&nbsp;&nbsp; s&oacute;lo l&iacute;neas</tt></dt>
+
+<dt>
+<tt>&nbsp;</tt></dt>
+
+<dt>
+<tt>&nbsp; man pwd | wc -l</tt></dt>
+
+<dt>
+<tt>&nbsp; wc /etc/passwd /etc/group</tt></dt>
+
+<h3>
+<a NAME="whatis"></a>whatis</h3>
+
+<dt>
+<tt>whatis [OPCIONES] NOMBRE ...</tt></dt>
+
+<dt>
+&nbsp;</dt>
+
+<dt>
+muestra una descripci&oacute;n corta de los comandos similares a nombre.</dt>
+
+<dt>
+<tt>&nbsp;</tt></dt>
+
+<dt>
+<tt>-r&nbsp; interpreta cada nombre como una expresi&oacute;n regular</tt></dt>
+
+<dt>
+<tt>-w interpreta cada nombre como conteniendo caracteres comodines</tt></dt>
+
+<dt>
+<tt>&nbsp;</tt></dt>
+
+<dt>
+<tt>&nbsp; whatis man</tt></dt>
+
+<dt>
+<tt>&nbsp; whatis -w man*</tt></dt>
+
+<h3>
+<a NAME="which"></a>which</h3>
+
+<dl>
+<dt>
+<tt>which PROGRAMA ...</tt></dt>
+
+<dt>
+<tt>&nbsp;</tt></dt>
+
+<dt>
+indica la ruta completa de <tt>PROGRAMA</tt>, si &eacute;ste est&aacute;
+accesible a trav&eacute;s de la variable <tt>PATH</tt>..</dt>
+</dl>
+
+<h3>
+<a NAME="who"></a>who</h3>
+
+<dl>
+<dt>
+<tt>who [OPCIONES] [am i]</tt></dt>
+
+<dt>
+&nbsp;</dt>
+
+<dt>
+Qui&eacute;n est&aacute; en el sistema. Muestra nombre de login, l&iacute;nea
+de terminal, hora de ingreso, nombre de m&aacute;quina remota o display
+X.</dt>
+
+<dt>
+&nbsp;</dt>
+
+<dt>
+<tt>am i&nbsp; m&aacute;quina y nombre de login del usuario invocante</tt></dt>
+
+<dt>
+<tt>-H&nbsp;&nbsp;&nbsp; muestra encabezado de columnas</tt></dt>
+
+<dt>
+<tt>-u&nbsp;&nbsp;&nbsp; tiempo inactivo; "old" es >24 horas; "." activo
+reciente</tt></dt>
+
+<dt>
+<tt>-w&nbsp;&nbsp;&nbsp; si el usuario recibe (+) o no (-) mensajes</tt></dt>
+
+<dt>
+<tt>-m&nbsp;&nbsp;&nbsp; igual que 'who am i'</tt></dt>
+</dl>
+
+<h3>
+<a NAME="whoami"></a>whoami</h3>
+
+<dl>
+<dt>
+<tt>whoami</tt></dt>
+
+<dt>
+&nbsp;</dt>
+
+<dt>
+Muestra identificador del usuario efectivo actual. Si se ha usado <tt>su</tt>
+para adoptar otro usuario,<tt> whoami </tt>muestra el nombre asociado con
+el usuario adoptado.</dt>
+</dl>
+
+<h3>
+<a NAME="Referencias"></a><b>Referencias:</b></h3>
+
+<li>
+Linux Debian/GNU. P&aacute;ginas man, info.</li>
+
+<address>
+&nbsp;</address>
+
+<address>
+&nbsp;</address>
+
+<br>
+<hr WIDTH="100%">
+<address>
+V&iacute;ctor A. Gonz&aacute;lez Barbone&nbsp; - Ingeniero de Sistemas
+en Computaci&oacute;n - <a href="http://iie.fing.edu.uy/~vagonbar">http://iie.fing.edu.uy/~vagonbar</a></address>
+
+<address>
+E-mail: <a href="mailto:vagonbar en fing edu uy">vagonbar en fing edu uy</a>&nbsp;
+- E-mail personal: <a href="mailto:vagonbar@adinet.com.uy">vagonbar@adinet.com.uy</a></address>
+
+<address>
+<a href="http://iie.fing.edu.uy">Instituto de Ingenier&iacute;a El&eacute;ctrica</a>
+- <a href="http://www.fing.edu.uy">Facultad de Ingenier&iacute;a</a> -
+Montevideo, Uruguay.</address>
+
+</body>
+</html>

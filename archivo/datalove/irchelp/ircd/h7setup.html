@@ -1,0 +1,862 @@
+<!doctype html>
+<html>
+
+<!-- Mirrored from www.irchelp.org/irchelp/ircd/h7setup.html by HTTrack Website Copier/3.x [XR&CO'2013], Sun, 29 Dec 2013 06:58:00 GMT -->
+<head>
+    <title>IRCHelp.org &mdash; Untitled Page</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="description" content="Comprehensive information on everything Internet Relay Chat" />
+    <meta name="author" content="irchelpers" />
+    <meta name="generator" content="PieCrust 1.0.0-dev" />
+    <meta name="template-engine" content="Twig" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,
+      initial-scale=1.0">
+    <!-- Le styles -->
+    <link href="http://www.irchelp.org/css/bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+    </style>
+    <link href="http://www.irchelp.org/css/bootstrap-responsive.css" rel="stylesheet">
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144"
+      href="http://www.irchelp.org/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114"
+      href="http://www.irchelp.org/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72"
+      href="http://www.irchelp.org/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed"
+      href="http://www.irchelp.org/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="http://www.irchelp.org/ico/favicon.png">
+</head>
+<body>
+    <!--Start of navigation-->
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container"> <a class="btn btn-navbar"
+            data-toggle="collapse" data-target=".nav-collapse"> <span
+              class="icon-bar"></span> <span class="icon-bar"></span> <span
+              class="icon-bar"></span> </a> <a class="brand" href="http://www.irchelp.org/">#irchelp</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class="active"><a href="http://www.irchelp.org/">Home</a></li>
+              <li><a href="../credit.html">About</a></li>
+              <li class="dropdown"> <a href="../clients/index.html" class="dropdown-toggle"
+                  data-toggle="dropdown">Clients </a>
+                <ul class="dropdown-menu">
+                  <li><a href="../clients/index.html">All Clients</a></li>
+                  <li class="divider"></li>
+                  <li class="nav-header">Windows</li>
+                  <li><a href="../clients/windows/mirc/index.html">mIRC</a></li>
+                  <li><a href="../clients/windows/xchat.html">XChat</a></li>
+                  <li><a href="../clients/windows.html">All Windows Clients</a></li>
+                  <li class="divider"></li>
+                  <li class="nav-header">MacOS X</li>
+                  <li><a href="../clients/mac/textual.html">Textual</a></li>
+                  <li><a href="../clients/mac/colloquy.html">Colloquy</a></li>
+                  <li><a href="../clients/mac/snak.html">Snak</a></li>
+                  <li><a href="../clients/mac.html">All MacOS X Clients</a></li>
+                  <li class="divider"></li>
+                  <li class="nav-header">Linux/Unix Terminal</li>
+                  <li><a href="../clients/unix/irssi/index.html">irssi</a></li>
+                  <li><a href="../clients/unix/epic.html">EPIC</a></li>
+                  <li><a href="../clients/unix/ircii/index.html">ircII</a></li>
+                  <li><a href="../clients/unix/index.html#terminal">All Linux/Unix Terminal Clients</a></li>
+                  <li class="divider"></li>
+                  <li class="nav-header">Linux/Unix Graphical</li>
+                  <li><a href="../clients/unix/xchat.html">XChat</a></li>
+                  <li><a href="../clients/unix/konversation.html">Konversation</a></li>
+                  <li><a href="../clients/unix/index.html#gui">All Linux/Unix Graphical Clients</a></li>
+                  <li class="nav-header">Smartphones</li>
+                  <li><a href="../clients/mobile/android/index.html">Clients for Android</a></li>
+                  <li><a href="../clients/mobile/ios.html">Clients for iOS</a></li>
+                  <li><a href="../clients/mobile.html">All Smartphone Clients</a></li>
+                  <li class="nav-header">Other OS and Crossplatform</li>
+                  <li><a href="../clients/cross/java.html">Clients writting in Java</a></li>
+                  <li><a href="../clients/cross.html">Other Crossplatform Clients</a></li>
+                  <li><a href="../clients/otheros/index.html">Clients for other Operating Systems</a></li>
+                  <li><a href="../clients/webclients.html">Web-based clients</a></li>
+
+                </ul>
+              </li>
+              <li class="dropdown"> <a href="../networks/index.html" class="dropdown-toggle"
+                  data-toggle="dropdown">Networks </a>
+                <ul class="dropdown-menu">
+                  <li><a href="../networks/popular.html">Major Networks</a></li>
+                  <li><a href="../networks/regional.html">Regional Networks</a></li>
+                  <li><a href="../networks/topical.html">Topical Networks</a></li>
+                  <li><a href="../networks/index.html">All Networks</a></li>
+                  <li class="divider"></li>
+                  <li class="nav-header">Major Networks</li>
+                  <li><a href="../networks/efnet.html">EFNet</a></li>
+                  <li><a href="../networks/undernet.html">Undernet</a></li>
+                  <li><a href="../networks/dalnet.html">Dalnet</a></li>
+                  <li><a href="../networks/quakenet.html">Quakenet</a></li>
+                  <li><a href="../networks/freenode.html">Freenode</a></li>
+                </ul>
+              </li>
+              <li class="dropdown"> <a href="../security/index.html" class="dropdown-toggle"
+                  data-toggle="dropdown">Security </a>
+                <ul class="dropdown-menu">
+                  <li><a href="../security/index.html">General Security</a></li>
+                  <li><a href="../security/privacy.html">Privacy</a></li>
+                  <li><a href="../security/nuke.html">Denial of Service</a></li>
+                  <li><a href="../security/trojan.html">Trojan Horses and Other Malware</a></li>
+                  <li><a href="../security/socialeng.html">Social Engineering</a></li>
+                </ul>
+              </li>
+              <li class="dropdown"> <a href="index.html" class="dropdown-toggle"
+                  data-toggle="dropdown">Servers </a>
+                <ul class="dropdown-menu">
+                  <li><a href="index.html">General ircd information</a></li>
+                  <li class="divider"></li>
+                  <li class="nav-header">EFNet IRCDs</li>
+                  <li><a href="ratbox/index.html">ircd-ratbox</a></li>
+                  <li><a href="hybrid/index.html">ircd-hybrid</a></li>
+                </ul>
+              </li>
+              <li class="dropdown"> <a href="#" class="dropdown-toggle"
+                  data-toggle="dropdown">FAQs </a>
+                <ul class="dropdown-menu">
+                  <li><a href="../new2irc.html">New user introduction</a></li>
+<!--
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li class="divider"></li>
+                  <li class="nav-header">Nav header</li>
+                  <li><a href="#">Separated link</a></li>
+                  <li><a href="#">One more separated link</a></li>
+-->
+                </ul>
+              </li>
+              <li class="dropdown"> <a href="../library.html" class="dropdown-toggle"
+                  data-toggle="dropdown">Library </a>
+                <ul class="dropdown-menu">
+                  <li><a href="../library.html">Index</a></li>
+<!--
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li class="divider"></li>
+                  <li class="nav-header">Nav header</li>
+                  <li><a href="#">Separated link</a></li>
+                  <li><a href="#">One more separated link</a></li>
+-->
+                </ul>
+              </li>
+            </ul>
+            <form class="navbar-form pull-right"> <input class="span2"
+                placeholder="Search" type="text"> <button type="submit"
+                class="btn">Search</button> </form>
+          </div>
+          <!--/.nav-collapse --> </div>
+      </div>
+    </div>
+<!--end of navigation-->
+
+    <div id="container" class="container">
+<!--
+                        <h1><a href="/">Untitled Page</a></h1>
+            -->        
+        
+            <div class="content">
+                                <p>Ed. note: Hybrid 7 is the latest version of IRC server software likely to be
+adopted by most of <a href="../networks/nets/big4.html">EFnet</a> and many other
+networks. This guide is part of our <a href="index.html">ircd help
+section</a>, and is intended for the
+relative novice. Before you attempt to set up your own ircd, you should be
+reasonably expert at both the IRC protocol and UNIX. For example, have you set
+up IRC clients on UNIX before (not one of those auto-install deals, but rather
+downloading, uncompressing, configuring, compiling, and installing it the old
+fashioned way)? That would be a minimal test of your experience. I would also
+suggest you first look over the <a href="server-request.html">Server Request FAQ</a> to
+make sure you really want to do this. -Jolo</p>
+
+<h1>A guide to setting up a basic Hybrid 7 irc server</h1>
+
+<p>By: <a href="http://axminister.ath.cx/icegate/">NoizyToyz</a> (Klaus Duren)</p>
+
+<p>Special thanks to: Vamps, Apatrix.</p>
+
+<p>last updated Apr 8, 2001</p>
+
+<h2>Contents</h2>
+
+<ol>
+<li>Introduction </li>
+<li>Requirements </li>
+<li>Obtaining the latest release </li>
+<li>Attention </li>
+<li>Unpacking the source </li>
+<li>Editing the ircd source to meet your needs </li>
+<li>Compiling and making the server </li>
+<li>Editing your ircd.conf file </li>
+<li>Testing your server </li>
+<li>Commands </li>
+<li>Automation </li>
+</ol>
+
+<h2>1. Introduction</h2>
+
+<p>Welcome. This document is to help with the configuration, compiling, and basic
+use of Hybrid 7. This guide is the first one I have written, so it most likely
+wont be the best, but I will try to do my best :).</p>
+
+<p>The following task is not going to be an easy one. This can consume hours of
+your time. Make sure you are committed to this when you start it, as it may be
+difficult to pick up where you left off.</p>
+
+<p>Side note, while you <em>CAN</em> run an irc server off of a connection as low as a
+56k, however, it is not a good idea. if you are doing it for personal reasons,
+cable is probably ideal. For public applications, such as linking to the
+popular networks, you will most likely have to have a minimum of a t3
+connection to be accepted.</p>
+
+<p>*The author has successfully compiled Hybrid 7 beta on FreeBSD, Linux Mandrake 7.2, various versions of Solaris, and versions of Redhat. </p>
+
+<p><em>The default directory is /usr/local/ircd/</em> </p>
+
+<p>Lets get started!</p>
+
+<h2>2. Requirements</h2>
+
+<ul>
+<li>UNIX or compatible operating system </li>
+<li>tar application to unpack the source code </li>
+<li>latest version of Autoconf </li>
+<li>latest version of GCC </li>
+</ul>
+
+<h2>3. Obtaining the latest release</h2>
+
+<p>You can get the latest version of h7 from the <a href="http://www.ircdhelp.org/ircdvers.html">IRCdhelp.org ircd
+archive</a>.</p>
+
+<p>[As of the creation of this guide, the latest version is ircd-hybrid-
+7beta1.tgz]</p>
+
+<h2>4. Attention</h2>
+
+<p>Before we go any further:</p>
+
+<p>As a matter of principle, if something can run as a non-root user, it should
+do so. Running daemons as root risks much higher damage in the event of a
+security breach. If ircd is one day shown to have an exploitable bug that
+yields ircd user privilages and the ircd user is root, you may find yourself
+in dire straits indeed. Ircd will work just fine without root privileges. So
+create an ircd user before you do anything and su(1) to it for the
+installation.</p>
+
+<h2>5. Unpacking the source</h2>
+
+<p>The source package comes in a gzip&#8217;ed tar file (.tar.gz). Copy the file to a
+directory you wish to install the Hybrid 7 source under. To unpack it use the
+following command: tar -zxf filename If your system&#8217;s tar program does not
+support the -z flag gunzip (or gzip -d) it first and then &#8216;tar -xf filename&#8217;,
+or, tar -xvf &lt;/path/filename>.</p>
+
+<h2>6. Editing the ircd source to meet your needs</h2>
+
+<p>Before we get started, you can damage the source code and your compile may
+fail if you tamper with any of the files that aren&#8217;t mentioned here. unless
+you <em>ABSOLUTELY</em> <em>POSITIVELY</em> know what you are doing, don&#8217;t mess with them!</p>
+
+<p>The files we will cover in this section:</p>
+
+<ul>
+<li>/<path to source>/include/config.h - Compile time configuration </li>
+<li>/<path to source>/messages/custom.po - Server messages file </li>
+</ul>
+
+<h3>A. /<path to source>/include/config.h customization walkthrough</h3>
+
+<p><em>Above every section in config.h is a farily detailed description on what that particular statement will do if #define&#8217;d or #undef&#8217;d</em> </p>
+
+<p>The first thing to do: Edit directory and file locations to suit your needs,
+if you dont know anything about it, or want it to install to its default
+locations, Leave them be. The things you may want to edit go as follows: DPATH
+= root directory of installation</p>
+
+<p>MODPATH = path to module directory</p>
+
+<p>MSGPATH = path of directory containing a message (.mo) file</p>
+
+<p>SPATH = the server executeable</p>
+
+<p>CPATH = the conf (configuration) file</p>
+
+<p>KPATH = kline conf file</p>
+
+<p>DLPATH = dline conf file</p>
+
+<p>RPATH = RSA keyfile</p>
+
+<p>MPATH = motd file</p>
+
+<p>PPATH = pid file</p>
+
+<p>HPATH = oper help file (displayed through /quote help)</p>
+
+<p>OPATH = path to the MOTD for opers</p>
+
+<p>Examples of the paths:</p>
+
+<pre><code>#define DPATH   IRCD_PREFIX *leave blank for default path*
+#define MODPATH IRCD_PREFIX "/modules/autoload/"
+#define MSGPATH IRCD_PREFIX "/messages/"
+#define SPATH   IRCD_PREFIX "/bin/ircd"
+#define CPATH   ETCPATH "/ircd.conf"
+#define KPATH   ETCPATH "/kline.conf"
+#define DLPATH  ETCPATH "/kline.conf"
+#define RPATH   ETCPATH "/ircd.rsa"
+#define MPATH   ETCPATH "/ircd.motd"
+#define PPATH   ETCPATH "/ircd.pid"
+#define HPATH   ETCPATH "/opers.txt"
+#define OPATH   ETCPATH "/opers.motd"
+</code></pre>
+
+<p>The below portion is for the basic configuration of config.h to get you going
+faster. Change nothing unless it is specified below if you&#8217;re new at this.</p>
+
+<p>You may want to increase the TS delta if you&#8217;re linking a server that does not
+always have the precise time. Rather than breaking TS though, you should synch
+your local time with a time server using ntpdate(8) or similar program and
+leave the TS delta be. If you get TS delta errors while linking servers, synch
+the time on both systems via NTP. Clock drift can be significant, you should
+automate the procedure to perform at least on a daily basis.</p>
+
+<p>Unless your going to run your server on EFnet, change NETWORK<em>NAME</em>DEFAULT and
+NETWORK<em>DESC</em>DEFAULT to reflect your network information.</p>
+
+<p>CRYPT<em>OPER</em>PASSWORD:</p>
+
+<p>This is something you&#8217;re better off doing if the ircd is running on a machine
+to which untrusted third parties, such as shell users, have access. Generate
+encrypted passwords using the mkpasswd utility which is built in as part of
+the ircd package.</p>
+
+<p>To enable encryption:</p>
+
+<h1>define CRYPT<em>OPER</em>PASSWORD</h1>
+
+<h1>define CRYPT<em>LINK</em>PASSWORD * i think that both servers participating server</h1>
+
+<p>need matching CRYPT<em>LINK</em>PASSWORD lines. If the server your goint to link to
+has it #undef&#8217;d, #undef it, and vice-versa.</p>
+
+<p>To disable encryption:</p>
+
+<h1>undef CRYPT<em>OPER</em>PASSWORD</h1>
+
+<h1>undef CRYPT<em>LINK</em>PASSWORD</h1>
+
+<p>To change the number of channels that a user is allowed to be on at a time is
+determined by #define MAXCHANNELSPERUSER x (where x is, put a number from, ill
+say 1 to 30 - the default, and recomended value is 15) [The smaller your
+bandwith, the lower the number should be i guess]</p>
+
+<h3>B. /<path to source>/messages/custom.po</h3>
+
+<p>Edit this file if you want the server to display your own messages.</p>
+
+<h2>7. Compiling and making the server</h2>
+
+<p>Well, now that you&#8217;ve conquered at least the basic configuration of config.h
+and custom.po (optionally), you&#8217;re ready to configure and compile the server.</p>
+
+<p>To configure: cd to /<path to source></p>
+
+<p>./configure &#8212;prefix=&#8221;/path/to/install/to&#8221;</p>
+
+<p>(if you want to compile to the default directory, just do ./configure)</p>
+
+<p>As soon as its done, and assuming it completed successfully, type, make -If it
+did not complete successfully, obtain the proper things, and try it again!</p>
+
+<p>@ Things? What things?</p>
+
+<p>If the make procedure was successful, lastly, type make install -If make
+failed, do whats described above about unsuccessful ./configure</p>
+
+<h2>8. Editing your ircd.conf file</h2>
+
+<p>Now, you will want to cd to /<install path>/etc/ and then edit example.conf.</p>
+
+<p>For a quick config, follow this guide:</p>
+
+<p>Edit the serverinfo block to roughly look like the below:</p>
+
+<pre><code>(serverinfo replaces the old M: line)
+serverinfo {
+    name="&lt;server name&gt;";
+    description="&lt;server description&gt;";
+    #The network_name and network_desc variables override
+    #the compiled in defaults.  These are used for server
+    #hiding.
+    network_name="-";
+    network_desc="-";
+    # HUB is no longer a compiled in option.  It is set at 
+    # runtime in this block and changable with a REHASH
+    hub=yes;
+    # vhost defines what IP to bind to for *OUTGOING* connections.
+    # This replaces the old M: line IP, and is only needed for 
+    # multi-homed or virtual hosted machines not using the default
+    # IP.  Note that you *MUST* use the IP, not a hostname, and it
+    # cannot be in quotes
+    # vhost=192.169.0.1;
+};
+</code></pre>
+
+<p>Now to edit the Admin block:</p>
+
+<pre><code>admin {
+    name="&lt;primary server administrator's name&gt;";
+    email="&lt;email@address&gt;";
+    description="&lt;server admin description&gt;";
+};
+</code></pre>
+
+<p>Leave everything be until you get to the listen block.</p>
+
+<pre><code>listen {
+    # accepts hostnames as well as ips
+    # ip="192.168.0.1";
+    port=&lt;listen for connection requests from this port (commonly 6667)&gt;;
+};
+</code></pre>
+
+<p>Dont bother modifying anything from the listen block to the operator block:</p>
+
+<pre><code>operator {
+    # The nick of the oper
+    name="&lt;the nickname of the desired oper&gt;";
+    # user@host, note that CIDR in O: lines is not *CURRENTLY* 
+    # supported (an important note for Hybrid 6 users)
+    user="*&lt;identd username&gt;@*&lt;hostmask&gt;";
+    # The encrypted password used in the OPER command
+    # Note:  if you #undef CRYPT_OPER_PASSWORD in config.h, you must
+    #        use the plaintext password here.  MD5 passwords are 
+    #        supported and available on some platforms (FreeBSD 4.x
+    #        and Linux glibc are known to work)
+    # password="$1$tPH$nN7t5Jj14wYCoDZXc4fe91";
+    # password="etcnjl8juSU1E"
+    password="&lt;password&gt;";
+    class="opers";
+    # Allow the oper to global KILL (old O flag)
+    global_kill=yes;
+    # Allow the oper to remote SQUIT and CONNECT (old R flag)
+    remote=yes;
+    # Allow the oper to issue KLINE and DLINE (old K flag)
+    kline=yes;
+    # Allow the oper to issue UNKLINE and UNDLINE (old U flag)
+    unkline=yes;
+    # Allow the oper to issue GLINE (old G flag)
+    gline=yes;
+    # Allow the oper to issue DIE and RESTART (old D flag)
+    die=yes;
+    # Allow the oper to issue REHASH (old H flag)
+    rehash=yes;
+    # Allow the oper to see nick changes (old N flag)
+    nick_changes=yes;
+    # Set the oper +a when they oper up.  Marks them as an 
+    # admin.  Admins can load and unload modules, as well as
+    # see the real IPs in STATS c
+    admin=yes;
+};
+</code></pre>
+
+<p>A simple part now, comment out all the connect blocks. starting at connect {
+and ending at };</p>
+
+<pre><code>#connect {
+#   name = "";
+#   # Hostnames and IP's are both accepted
+#   host = "";
+#   # send_password is the C line password, accept_password is the
+#   # N line password, they are not required to match.  The remote
+#   # server will have the two passwords reversed.
+#   send_password = "";
+#   accept_password = "";
+#   # What port should we autoconnect on (if autoconn is set to yes)
+#   port = 6667;
+#   # hub_mask replaces H: lines, multiple ones are accepted in each
+#   # connect block.
+#   hub_mask = "*";
+#   class = "server";
+#   # Set your server to autoconnect
+#   autoconn = YES;
+#};
+
+#connect {
+#   name = "";
+#   host = "";
+#   send_password = "";
+#   accept_password = "";
+#   port = 6667;
+#   # Force this server to be a leaf
+#   leaf_mask = "*";
+#   # Force this server to be a LazyLink server.  Read 
+#   # doc/LazyLinks.as.implemented.txt for more information
+#   lazylink=no;
+#   class = "server";
+#};
+</code></pre>
+
+<p>Dislike someone? Customize the kill block, create some kill blocks, or leave
+it alone:</p>
+
+<pre><code># Replacement for K: lines, bans based on user@host
+kill {
+    user="bad@*.hacked.edu";
+    reason="Obviously hacked account";
+};
+</code></pre>
+
+<p>Add a dline or 2, or, dont:</p>
+
+<pre><code># Replacement for D: lines, deny IP's and IP blocks.  CIDR notation is
+# recommended
+deny {
+    ip=10.0.1.0/24;
+    reason="Reconnecting vhosted bots";
+};
+</code></pre>
+
+<p>Prevent a nickname from being used, add some, or leave them be:</p>
+
+<pre><code># Replacement for Q: lines, preventing nicks from being used
+quarantine {
+    name="NickServ";
+    reason="There are no Nickname Services on EFnet";
+};
+</code></pre>
+
+<p>Even more blocking, again, touch, or don&#8217;t:</p>
+
+<pre><code># Replacement for X: lines, denying users based on their "realname"
+# field, useful for blocking known trojan drones, troublesome clients,
+# and floodnets.  Note that we don't CURRENTLY have a silent deny (2 in 
+# the last X: line field in the old conf)
+gecos {
+    name="*BitchX.doc*";
+    reason="Misconfigured lame client";
+    action=warn;
+};
+
+gecos {
+    name="sub7server";
+    reason="Trojan drone";
+    action=reject;
+};
+</code></pre>
+
+<p>Options you may want to edit in the general block:</p>
+
+<pre><code>general {
+    # Send a notice to all opers on the server when someone tries
+    # to OPER and uses the wrong password
+    failed_oper_notice=yes;
+    # If failed_oper_notice is set to "yes", also notify when someone
+    # fails to OPER because of an identity mismatch (wrong host or nick)
+    show_failed_oper_id=yes;
+
+    # Define how many 'dot' characters are permitted in an ident reply
+    # before rejecting the user.
+    dots_in_ident=2;
+
+    # Enable the nick flood control code.
+    anti_nick_flood=yes;
+    # These settings will allow 5 nick changes in 20 seconds.
+    max_nick_time=20;
+    max_nick_changes=5;
+
+    # Define the time delta permissible for a remote server connection.
+    # If our timestamp and the remote server's timestamp are over
+    # ts_max_delta different, the connection will be dropped.  If it
+    # is less than ts_max_delta but more than ts_warn_delta, send 
+    # a notice to opers on the server, but still allow the connection.
+    # Overrides the compiled in defaults
+    ts_warn_delta=30;
+    ts_max_delta=300;
+
+    # When a user QUIT's, prepend their QUIT message with "Client exit:"
+    # in order to help prevent against faking server error messages (ie.
+    # ping timeout, connection reset by peer)
+    client_exit=yes;
+
+    # Show the reason why the user was K-lined or D-lined to the "victim"
+    # It's a neat feature except for one thing... If you use a tcm
+    # and it shows the nick of the oper doing the kline (as it does by 
+    # default) Your opers can be hit with retalitation... Or if your 
+    # opers use scripts that stick an ID into the comment field. etc.
+    # It's up to you whether you want to use it or not.
+    kline_with_reason=yes;
+    # Force the signoff reason to be "Connection closed" when a user is
+    # K-lined.  The user will still see the real reason.  This prevents 
+    # other users seeing the client disconnect from harassing the IRCops.
+    kline_with_connection_closed=no;
+    # Set to "yes" if you wish your server to flag and not apply redundant
+    # K-lines.
+    non_redundant_klines=yes;
+
+    # Enable this if you want opers to get noticed about "things" trying
+    # to connect as servers that don't have N: lines.  Twits with 
+    # misconfigured servers can get really annoying with this enabled.
+    warn_no_nline=yes;
+
+    # Set these lines to be oper only.  The reasoning behind this is that
+    # people with exceed_limit or kline_exempt can almost always get on
+    # the server.
+    e_lines_oper_only=yes;
+    f_lines_oper_only=yes;
+
+    # Set STATS o to be oper only
+    o_lines_oper_only=yes;
+
+    # See a NOTICE when a user issues a STATS command
+        stats_notice=yes;
+    # See a NOTICE when a user issues a STATS p.  By enabling this, opers
+    # can see when users need them, but not invade their privacy by spying
+    # on other STATS requests
+    stats_p_notice=yes;
+
+    # See a NOTICE when a user issues a LINKS command
+    links_notice=no;
+
+    # Links Delay determines the time between updates of the user LINKS
+    # file.  The default updates it every 5 minutes
+    links_delay=300;
+
+    # minimum seconds between uses of MOTD, INFO, HELP, LINKS, TRACE
+    pace_wait=10;
+    # The minimum number of seconds between uses of remote WHOIS before
+    # the counter is reset.
+    whois_wait=10;
+    # Define the amount of time between KNOCK's.  Once every 5 minutes
+    # should be enough.
+    knock_delay=300;
+
+    # There are clients ignoring the FORCE_MOTD numeric.  There is no 
+    # no point forcing MOTD on connecting clients IMO.  Give them a short
+    # NOTICE telling them they should read the motd, and leave it at that.
+    short_motd=no;
+
+    # Set to "yes" to disable flood control for opers.
+    no_oper_flood=yes;
+
+    # Enable G-lines
+    glines=yes;
+    # Set the time for how long G-lines will last.  This example is
+    # the old setting of 12 * 3600.  Note that the new conf file
+    # cannot *CURRENTLY* perform the calculations for you.
+    gline_time=43200;
+
+    # Define the maximum amount of time a user can idle before 
+    # disconnecting them.  Set to 0 to disable
+        idletime=0;
+
+    # Enable the server hiding feature.  This prevents users from 
+    # finding out what server users are on, and hides IP's.  Note
+    # that some clients do not handle this well and may break.  Blame
+    # the packet kiddies for making this option almost a necessity.
+    hide_server=no;
+
+        # This is useful for leaf nodes and gateways. It keeps you from
+        # connecting to too many places. It works by keeping you from
+        # connecting to more than "n" nodes which you have C:blah::blah:6667
+        # lines for.
+
+        # Note that any number of nodes can still connect to you. This only
+        # limits the number that you actively reach out to connect to.
+
+        # Leaf nodes are nodes which are on the edge of the tree. If you want
+        # to have a backup link, then sometimes you end up connected to both
+        # your primary and backup, routing traffic between them. To prevent
+        # this, #define MAXIMUM_LINKS 1 and set up both primary and
+        # secondary with C:blah::blah:6667 lines. THEY SHOULD NOT TRY TO
+        # CONNECT TO YOU, YOU SHOULD CONNECT TO THEM.
+
+        # Gateways such as the server which connects Australia to the US can
+        # do a similar thing. Put the American nodes you want to connect to
+        # in with C:blah::blah:6667 lines, and the Australian nodes with
+        # C:blah::blah lines. Have the Americans put you in with C:blah::blah
+        # lines. Then you will only connect to one of the Americans.
+
+        # This value is only used if you don't have server classes defined, and
+        # a server is in class 0 (the default class if none is set).
+
+    #maximum_links=1;
+        maximum_links=0;  
+
+    # Define these to the logfiles you want to use for user connections
+        # (userlog), successful use of /oper (operlog), and failed use of
+        # /oper (foperlog).  Logging will stop if either these files do not
+        # exist, or if they are not defined.
+
+    fname_userlog = "logs/userlog";
+    fname_operlog = "logs/operlog";
+    fname_foperlog = "logs/foperlog";
+
+    # max_targets
+    # only max_target targets can be privmsg'd / notice'd in a single
+    # command. default is 4 if not defined here. setting to 0 will have
+    # broken results (ie privmsg/notice won't work).
+
+    max_targets = 4;
+
+    # message_locale
+    # default message locale to use if gettext() is enabled
+    # Use "custom" for the (in)famous Hybrid custom messages.
+    # Use "standard" for the compiled in defaults.
+    message_locale = "custom";
+
+    # umodes that only opers can set.
+    # the default should be fine, but you can add wallops and
+    # servnotice if you want only opers to set +s / +w.
+    # you can set others (invisible, callerid), but it's not
+    # recommended.
+
+    # Complete list:
+    # +a - NONE       - Admin status.  OPER controls this
+    # +b - bots       - See bot and drone flooding notices
+    # +c - cconn      - Client connection/quit notice
+    # +d - debug      - See debugging notices
+    # +f - full       - See I: line full notices
+    # +g - callerid   - Server Side Ignore
+    # +i - invisible  - Not shown in NAMES or WHO unless you share a 
+    #                  a channel
+    # +k - skill      - See server generated KILL messages
+    # +n - nchange    - See client nick changes
+    # +o - NONE       - Operator status.  OPER controls this
+    # +r - rej        - See rejected client notices
+    # +s - servnotice - See general server notices
+    # +u - unauth     - See unauthorized client notices
+    # +w - wallop     - See server generated WALLOPS
+    # +x - external   - See remote server connection and split notices
+    # +y - spy        - See LINKS, STATS (if configured), TRACE notices
+    # +z - operwall   - See oper generated WALLOPS
+
+    oper_only_umodes = bots, cconn, debug, full, skill, nchange, 
+                           rej, spy, external, operwall;
+
+    # vchans_oper_only
+        # allow non-opers to use CJOIN?
+    vchans_oper_only = NO;
+};
+</code></pre>
+
+<p>Now save the file as /<install path>/etc/ircd.conf Congratulations.. Your done
+editing the configuration file!</p>
+
+<h2>9. Testing your server</h2>
+
+<p>After you have completed all the steps described in sections 6 and 7 you will
+want to cd to /<install path>/bin/ and type ./ircd to get your server going.
+Now open your irc client of choice and connect to your ip, hostname, domain
+name, whatever&#8230; if all connects smoothly, type /oper <nickname set in
+operator block name="";> <password set in operator block password="";></p>
+
+<p>If you gain ircoppage, consider your ircd a working one. Last step to testing
+your server, invite some friends, if they can join and make channels and chat,
+and list channels, etc., your server is a-ok.</p>
+
+<h2>10. Commands</h2>
+
+<p>Essential Commands: (This may not have every command in the world, as i do not
+have a list, and may not remember them all.. You may want to check
+<a href="http://www.irchelp.org/">www.irchelp.org</a> for a complete list)</p>
+
+<p>Ed. note: In particular, you should check out the <a href="ircopguide.html">IRC Operator
+Guide</a>.</p>
+
+<pre><code>die (server name) = Shuts down the server [Operators]
+cjoin (channel name) = "Clones" a channel (creates a v-chan) [Everyone]
+rehash (parameter) = Rehashes the specified file. using /rehash by itself 
+            rehashes ircd.conf [Operators]
+connect (server specified in a connect block) = Connects your server to 
+            the one you specify [Operators]
+kill (nickname) (reason) = kills the client behind (nickname) for (reason) 
+            [Operators]
+wallop (text) = broadcasts (text) all over the network to 
+    operators and people who have wallop viewing enabled in there 
+    irc client [Operators]
+stats (parameter) = gives you status of (parameter) - different parameters 
+    include:  [Everyone(Standard users can use some, others, Opers only)]
+        ? - Server connection stats
+        c - connection blocks
+        i - i-lines
+        h - h-lines
+        l - l-lines
+        k - k-lines
+        x - gecos blocks
+        y - y-lines
+        z - more server stats
+restart (server name) = resets _ALL_ connections to the server. [Operators]
+squit (server) :(reason) = disconnects (server) from the network. [Operators]
+</code></pre>
+
+<h2>11. Automation</h2>
+
+<p>If you want to make your server start automatically, a basic way to do it is
+to make a crontab that points to a perl script that checks if the server is
+running and starts it if it isn&#8217;t.</p>
+
+<p>The crontab:</p>
+
+<pre><code>0,5,10,15,20,25,30,35,40,45,50 * * * *    perl /&lt;path to below script&gt;/&lt;script&gt;.pl
+</code></pre>
+
+<p>The script:</p>
+
+<pre><code>#!/usr/bin/perl &lt;- edit if necessary to reflect your perl location
+
+#This is a simple script to check the status of ircd, and start it if 
+#necessary
+#By NoizyToyz, with help from Vamps.
+
+#Edit to reflect your proper paths and filenames:
+system('/&lt;install path&gt;/bin/ircd') if ( ! `ps -aef|grep -v grep|grep ircd`);
+</code></pre>
+
+<hr />
+
+<p>[ <a href="../index.html">go back</a> | <a href="../search_engine.html">search</a> |
+<a href="../help.html">help</a> | <a href="../mail.html">send email</a> ]</p>
+
+<p><a href="../credit.html">all pages (C) IRCHELP.ORG or original authors</a></p>
+
+                            </div>
+        
+        <footer>
+
+                        <p>All documents © irchelp.org or original authors 2012 <br />Baked with <em><a href="http://bolt80.com/piecrust/">PieCrust</a> 1.0.0-dev</em>.</p>
+                    </footer>
+    </div>
+    
+        <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="http://www.irchelp.org/js/jquery.js"></script>
+    <script src="http://www.irchelp.org/js/bootstrap-transition.js"></script>
+    <script src="http://www.irchelp.org/js/bootstrap-alert.js"></script>
+    <script src="http://www.irchelp.org/js/bootstrap-modal.js"></script>
+    <script src="http://www.irchelp.org/js/bootstrap-dropdown.js"></script>
+    <script src="http://www.irchelp.org/js/bootstrap-scrollspy.js"></script>
+    <script src="http://www.irchelp.org/js/bootstrap-tab.js"></script>
+    <script src="http://www.irchelp.org/js/bootstrap-tooltip.js"></script>
+    <script src="http://www.irchelp.org/js/bootstrap-popover.js"></script>
+    <script src="http://www.irchelp.org/js/bootstrap-button.js"></script>
+    <script src="http://www.irchelp.org/js/bootstrap-collapse.js"></script>
+    <script src="http://www.irchelp.org/js/bootstrap-carousel.js"></script>
+    <script src="http://www.irchelp.org/js/bootstrap-typeahead.js"></script>
+</body>
+
+<!-- Mirrored from www.irchelp.org/irchelp/ircd/h7setup.html by HTTrack Website Copier/3.x [XR&CO'2013], Sun, 29 Dec 2013 06:58:00 GMT -->
+</html>

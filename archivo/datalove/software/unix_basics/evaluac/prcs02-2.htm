@@ -1,0 +1,221 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+  <title>Curso B&aacute;sico de Unix</title>
+     	 	   
+  <meta name="GENERATOR" content="StarOffice/5.1 (Linux)">
+  	   
+  <meta name="AUTHOR" content="Victor Gonzalez-Barbone">
+  	   
+  <meta name="CREATED" content="20000724;9342600">
+  	   
+  <meta name="CHANGEDBY" content="Victor Gonzalez-Barbone">
+  	   
+  <meta name="CHANGED" content="20001214;7021400">
+  	   
+  <meta http-equiv="Content-Type"
+ content="text/html; charset=iso-8859-1">
+  	   
+  <style>
+	<!--
+		@page { margin-left: 2cm; margin-right: 2cm; margin-top: 1.5cm; margin-bottom: 1.5cm }
+		P { font-size: 11pt }
+	-->
+	</style>
+</head>
+  <body bgcolor="#ffffff">
+   
+<address>Centro de Inform&aacute;tica. Sistemas Operativos II. Curso 2002</address>
+   
+<hr>  
+<h3 align="center">Prueba parcial 2/2<br>
+Soluciones<br>
+</h3>
+    
+<p style="margin-bottom: 0cm;"><font size="5">1.</font><font size="2"
+ style="font-size: 11pt;"> El correo de los usuarios se guarda en el directorio 
+/var/mail, en archivos con el nombre de login de cada usuario.<br>
+ Se desea un script</font><font size="2" style="font-size: 11pt;"><tt> </tt></font><font
+ size="2" style="font-size: 11pt;"><tt>monimail.sh </tt></font><font
+ size="2" style="font-size: 11pt;">que monitoree estos archivos, realizando
+lo siguiente:<br>
+ a) si el usuario fue borrado, pero qued&oacute; su archivo de correo, listar 
+estos usuarios.</font><font size="2" style="font-size: 11pt;"><br>
+ b) si el operador invoc&oacute; el programa sin par&aacute;metros, ac&aacute;
+termina.<br>
+ c) si el operador dio un par&aacute;metro no num&eacute;rico, avisa el error 
+y termina.</font><font size="2" style="font-size: 11pt;"><br>
+ d) si el operador da como par&aacute;metro un n&uacute;mero, listar los
+usuarios que hace m&aacute;s de este n&uacute;mero de d&iacute;as que no
+lee su correo, es decir, que el archivo con su nombre en /var/mail no ha
+sido accedido. Sugerencia: usar comando </font><tt>find</tt>.<br>
+ (14 puntos)<br>
+</p>
+<p style="margin-bottom: 0cm;"><small><tt>#!/bin/bash<br>
+# monimail.sh: monitorea estado de correo de usuarios<br>
+#&nbsp;&nbsp; - lista archivos de correo de usuarios borrados<br>
+#&nbsp;&nbsp; - lista usuarios que no leyeron correo &uacute;ltimamente<br>
+#&nbsp;&nbsp; $1: n&uacute;mero de d&iacute;as sin leer correo<br>
+<br>
+# archivos de correo de usuarios inexistentes<br>
+echo Archivos de correo de usuarios inexistentes:<br>
+LISTA=`ls /var/mail`<br>
+for USUARIO in $LISTA<br>
+do<br>
+&nbsp; id $USUARIO &gt;/dev/null 2&gt;&amp;1<br>
+&nbsp; if [ $? -ne 0 ]&nbsp;&nbsp;&nbsp; # el usuario no existe<br>
+&nbsp; then<br>
+&nbsp;&nbsp;&nbsp; echo $USUARIO<br>
+&nbsp; fi<br>
+done<br>
+echo<br>
+<br>
+# si no se indica cantidad de d&iacute;as salir<br>
+if [ ! "$1" ]<br>
+then<br>
+&nbsp; exit 1<br>
+fi<br>
+<br>
+DIAS=$1<br>
+# si el par&aacute;metro no es num&eacute;rico, informar error y salir<br>
+if [ `echo $DIAS | grep -v [0-9]` ]<br>
+then<br>
+&nbsp; echo Par&aacute;metro no num&eacute;rico: debe indicar cantidad de
+d&iacute;as.<br>
+&nbsp; exit 2<br>
+fi<br>
+<br>
+# lista de usuarios que no han le&iacute;do su correo &uacute;ltimamente<br>
+echo Usuarios que no leen correo hace m&aacute;s de $1 d&iacute;as:<br>
+NOLEEN=`find /var/mail -atime +$DIAS -print`<br>
+for ARCHIVO in $NOLEEN<br>
+do<br>
+&nbsp; echo `basename $ARCHIVO`<br>
+done</tt></small><br>
+ </p>
+   
+<p style="margin-bottom: 0cm;"><font size="5">2.</font> Los creadores del 
+programa<tt> maravil </tt>necesitan un script de instalaci&oacute;n, llamado<tt>
+instalar.sh</tt>. Debe realizar estas tareas:<br>
+ 1) presentar como pantalla de bienvenida el archivo bienvenida.txt, que
+ocupa menos de una pantalla; el usuario deber&aacute; digitar Enter para
+continuar. (2p)<br>
+ 2) presentar una pantalla con la licencia, el archivo licencia.txt, tambi&eacute;n 
+menor de una pantalla; el usuario deber&aacute; digitar la tecla S para aceptar 
+la licencia, si no la acepta el programa avisa y termina con c&oacute;digo 
+de error 1. (4p)<br>
+ 3) inicializar una variable DIRINSTAL con el nombre del directorio de instalaci&oacute;n 
+por defecto, /usr/local/maravil. (2p)<br>
+ 4) preguntar al usuario el directorio de instalaci&oacute;n, mostrando el 
+nombre sugerido (variable DIRINSTAL); el usuario podr&aacute; digitar un nombre
+de directorio o Enter para aceptar el directorio sugerido. En cualquier caso,
+el nombre del directorio de instalaci&oacute;n deber&aacute; quedar en la
+variable DIRINSTAL.(6p)<br>
+ 5) verificar si existe ya el directorio de instalaci&oacute;n; es as&iacute;, 
+contin&uacute;a la instalaci&oacute;n, y si no, deber&aacute; pedir autorizaci&oacute;n 
+al usuario, crearlo y verificar la creaci&oacute;n exitosa. Si el usuario 
+no autoriza la creaci&oacute;n del directorio, el programa termina con error 
+2; si no se pudo crear el directorio el programa termina con error 3. En todos
+los casos se informa lo realizado.(10p)<br>
+ 6) copiar los archivos maravil.py, LEAME y manual.txt hacia el directorio 
+de instalaci&oacute;n.  &nbsp;Si la copia no da error, se informa la terminacion 
+exitosa de la instalaci&oacute;n; en otro caso, se informa el error y se borra
+el directorio de instalaci&oacute;n y todo su contenido. (4p) <br>
+ (28 puntos)<br>
+</p>
+<p style="margin-bottom: 0cm;"><small><tt>#!/bin/bash<br>
+#instalar.sh: instala el programa "maravil"<br>
+<br>
+# pantalla de bienvenida<br>
+clear<br>
+cat bienvenida.txt<br>
+echo "Digite Enter para continuar"<br>
+read<br>
+<br>
+# pantalla de licencia<br>
+clear<br>
+cat licencia.txt<br>
+echo "Digite la tecla S para aceptar las condiciones de licencia."<br>
+read LICENCIA<br>
+if [ ! "$LICENCIA" = "S" -a ! "$LICENCIA" = "s" ]<br>
+then <br>
+&nbsp; echo "No se acept&oacute; la licencia."<br>
+&nbsp; exit 1<br>
+fi</tt></small></p>
+<p style="margin-bottom: 0cm;"><small><tt># directorio de instalaci&oacute;n
+por defecto<br>
+DIRINSTAL=./maravil<br>
+<br>
+# preguntar directorio de instalaci&oacute;n<br>
+echo Digite directorio de instalaci&oacute;n, o tecla Enter<br>
+echo si acepta la opci&oacute;n propuesta.<br>
+echo -n "Directorio de instalaci&oacute;n [$DIRINSTAL]: "<br>
+read OTRODIR<br>
+if [ $OTRODIR ]<br>
+then<br>
+&nbsp; DIRINSTAL=$OTRODIR<br>
+fi<br>
+<br>
+# verificar si existe directorio de instalaci&oacute;n<br>
+if [ -d $DIRINSTAL ]<br>
+then<br>
+&nbsp; echo El directorio $DIRINSTAL existe, contin&uacute;a instalaci&oacute;n.<br>
+else<br>
+&nbsp; # pedir permiso para crear directorio<br>
+&nbsp; echo -n "El directorio $DIRINSTAL no existe. &iquest;Crear(sS)?: "<br>
+&nbsp; read CREARDIR<br>
+&nbsp; if [ ! "$CREARDIR" = "s" -a ! "$CREARDIR" = "S" ]<br>
+&nbsp; then<br>
+&nbsp;&nbsp;&nbsp; echo "No se autoriz&oacute; crear directorio. &iexcl;Adi&oacute;s!"<br>
+&nbsp;&nbsp;&nbsp; exit 2<br>
+&nbsp; fi<br>
+&nbsp; mkdir $DIRINSTAL 2&gt;/dev/null<br>
+&nbsp; # verificar creaci&oacute;n correcta de directorio de instalaci&oacute;n<br>
+&nbsp; if [ $? -ne 0 ]<br>
+&nbsp; then<br>
+&nbsp;&nbsp;&nbsp; echo Error: no fue posible crear el directorio $DIRINSTAL<br>
+&nbsp;&nbsp;&nbsp; exit 3<br>
+&nbsp; else<br>
+&nbsp;&nbsp;&nbsp; echo Fue creado el directorio ${DIRINSTAL}.<br>
+&nbsp; fi<br>
+fi<br>
+<br>
+# copiar el archivo de programa hacia el directorio de instalaci&oacute;n<br>
+echo Copiando archivos.<br>
+cp maravil.py LEAME manual.txt $DIRINSTAL<br>
+if [ $? -eq 0 ]<br>
+then<br>
+&nbsp; echo "Instalaci&oacute;n terminada. &iexcl;Felicitaciones!"<br>
+else<br>
+&nbsp; echo Ha ocurrido un error al copiar los archivos.<br>
+&nbsp; echo El programa no fue instalado correctamente.<br>
+&nbsp; rm -r $DIRINSTAL<br>
+&nbsp; echo Fue borrado el directorio de instalaci&oacute;n y todo su contenido.<br>
+fi</tt></small><br>
+ </p>
+   
+<p style="margin-bottom: 0cm;"><font size="5">3.</font>&nbsp; Se desea saber 
+qu&eacute; p&aacute;ginas de un servidor web son m&aacute;s accedidas. El 
+archivo /var/log/apache/access.log contiene l&iacute;neas del siguiente formato:</p>
+ 
+<p style="margin-bottom: 0cm;"><tt>127.0.0.1 - - [25/Jul/2002:20:21:51 -0300] 
+"GET /fabmelo/version7/modif_clave.php?nombre=pa232&amp;clave=madrid HTTP/1.1" 
+200 1609<br>
+ 127.0.0.1 - - [25/Jul/2002:20:21:58 -0300] "POST /fabmelo/version7/menu.php 
+HTTP/1.1" 200 1012<br>
+ 127.0.0.1 - - [25/Jul/2002:20:22:00 -0300] "GET /fabmelo/version7/presupuestos2.php?nombre=pa232&amp;clave=belice 
+HTTP/1.1" 200 642</tt></p>
+ 
+<p style="margin-bottom: 0cm;">Los accesos contienen la palabra GET, los nombres
+de las p&aacute;ginas terminan en espacio o en "?". Listar los nombres de
+p&aacute;ginas de las 20 m&aacute;s accedidas. (12 puntos).<br>
+</p>
+<p style="margin-bottom: 0cm;"><small><tt>cat /var/log/apache/access.log.0
+| grep -w GET | cut -d" " -f7 | cut -d"?" -f1 | sort | uniq -c | sort -nr
+| head -20</tt></small><br>
+</p>
+ 
+<p>Total prueba: 54 puntos.</p>
+ <br>
+</body>
+</html>

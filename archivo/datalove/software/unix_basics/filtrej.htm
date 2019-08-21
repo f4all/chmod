@@ -1,0 +1,202 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+   <META NAME="GENERATOR" CONTENT="Mozilla/4.06 [es] (Win95; I) [Netscape]">
+   <META NAME="Author" CONTENT="Víctor A. González Barbone">
+   <META NAME="Description" CONTENT="Ejercicios de Filtros">
+   <META NAME="Keywords" CONTENT="UNIX, Linux, tutorial, curso">
+   <TITLE>Curso B&aacute;sico de UNIX - Filtros</TITLE>
+</HEAD>
+<BODY TEXT="#000000" BGCOLOR="#FFFFFF" LINK="#0000FF" VLINK="#FF0000" ALINK="#000088">
+
+<ADDRESS>
+<A HREF="index.htm">Curso&nbsp; B&aacute;sico de UNIX</A></ADDRESS>
+
+<CENTER>
+<H2>
+Preguntas y Ejercicios.&nbsp;<BR>
+Ficha Referencia: Filtros</H2></CENTER>
+
+<DT>
+&nbsp;</DT>
+
+<DT>
+<B>Estructura de archivos.</B></DT>
+
+<DT>
+Estructura del archivo /etc/passwd:</DT>
+
+<DD>
+<TT>#nombre:contrase&ntilde;a:UID:GID:comentarios:dir_propio:shell</TT></DD>
+
+<DD>
+<TT>jperez:Xdio0IKLLP:1130:103:Juan P&eacute;rez:/home/jperez:/bin/bash</TT></DD>
+
+<DT>
+Estructura del archivo /etc/group:</DT>
+
+<DD>
+<TT>#grupo:GID:lista_usuarios</TT></DD>
+
+<DD>
+<TT>docentes:103:victor,german,fernando</TT></DD>
+
+<DT>
+Estructura del archivo /etc/hosts:</DT>
+
+<DD>
+<TT>#n&uacute;mero_IP nombre_m&aacute;quina alias</TT></DD>
+
+<DD>
+<TT>10.137.137.250&nbsp;&nbsp;&nbsp; liebre.cdi.edu.uy liebre localhost
+mailhost</TT></DD>
+
+<DT>
+Todos los archivos anteriores pueden tener comentarios (l&iacute;neas comenzadas
+por #).</DT>
+
+<DT>
+&nbsp;</DT>
+
+<DT>
+<B>1.</B></DT>
+
+<DT>
+Buscar a partir del directorio <TT>/var</TT> todos los archivos de nombre
+<TT>core</TT>
+y mostrar a) sus nombre; b) sus nombres en listado largo; c) eliminarlos.</DT>
+
+<DT>
+&nbsp;</DT>
+
+<DT>
+<B>2.</B></DT>
+
+<DT>
+Un archivo <TT>acceso.log</TT> de registro de accesos de usuarios a un
+sistema UNIX, genera un rengl&oacute;n por acceso, el primer campo es el
+nombre del usuario, y los campos est&aacute;n separados por <TT>":"</TT>.</DT>
+
+<DT>
+a) Escribir comandos que muestren el nombre de cada usuario y la cantidad
+de accesos registrados, en orden alfab&eacute;tico.</DT>
+
+<DT>
+b) Extraer del archivo <TT>acceso.log</TT> las l&iacute;neas correspondientes
+al usuario <TT>jperez</TT> del mes de mayo del a&ntilde;o 1997. La fecha
+figura en el formato "1300 15 Mayo 1997"; el primer n&uacute;mero es la
+hora.</DT>
+
+<DT>
+c) Extraer del archivo <TT>acceso.log</TT> las l&iacute;neas que correspondan
+al usuario <TT>jperez</TT> o al usuario <TT>elopez</TT>.</DT>
+
+<DT>
+&nbsp;</DT>
+
+<DT>
+<B>3.</B></DT>
+
+<DT>
+En el archivo <TT>NoMBreS.tXT</TT> un mismo nombre puede estar en may&uacute;sculas
+y min&uacute;sculas, mezcladas de diferentes maneras. Generar una lista
+de nombres en min&uacute;scula con los 7 nombres que aparecen menos veces,
+sin importar como est&eacute;n escritos.</DT>
+
+<DT>
+&nbsp;</DT>
+
+<DT>
+<B>4.</B></DT>
+
+<DT>
+Un archivo <TT>palabras.txt</TT> contiene palabras distintas una por l&iacute;nea.
+Extrar todas las palabras que empiecen y terminen con vocal, en min&uacute;scula
+o may&uacute;scula.</DT>
+
+<DT>
+&nbsp;</DT>
+
+<DT>
+<B>5.</B></DT>
+
+<DT>
+Usar el archivo <TT>/etc/passwd</TT> o el comando <TT>ypcat passwd</TT>
+si el sistema usa NIS, para resolver las siguientes preguntas. En estos
+archivos pueden haber comentarios, l&iacute;neas empezadas por #, que deben
+eliminarse de la b&uacute;squeda. Recordar que el caracter # es interpretado
+por el shell.</DT>
+
+<BR>a) eliminar los comentarios.
+<BR>b) extraer una l&iacute;nea que muestre directorio propio y shell del
+usuario
+<TT>elopez</TT>.
+<DT>
+c) listar los usuarios que usan el shell /bin/bash.</DT>
+
+<DT>
+d) listar los usuarios que no usan el shell /bin/bash.</DT>
+
+<DT>
+e) contar la cantidad de usuarios.</DT>
+
+<BR>&nbsp;
+<DT>
+<B>6.</B></DT>
+
+<DT>
+Realizar las tareas indicadas, si es posible; si no lo es, indicar los
+motivos. Presentar el archivo <TT>/etc/passwd</TT> ordenado seg&uacute;n
+los siguientes criterios:</DT>
+
+<DT>
+&nbsp; a) ordenado por nombre de login de usuario.</DT>
+
+<DT>
+&nbsp; b) ordenado por n&uacute;mero de usuario.</DT>
+
+<DT>
+&nbsp; c) ordenado por n&uacute;mero de grupo y dentro de cada grupo por
+n&uacute;mero de usuario.</DT>
+
+<DT>
+&nbsp; d) ordenado por n&uacute;mero de grupo y dentro de cada grupo por
+campo de comentario.</DT>
+
+<DT>
+<B>&nbsp;</B></DT>
+
+<DT>
+<B>7.</B></DT>
+
+<DT>
+Encontrar las 5 palabras m&aacute;s frecuentes en el texto <TT>historia1.txt</TT>,
+e indicar la cantidad de veces que fue usada cada una. Indicaci&oacute;n:
+transformar primero todas las palabras a min&uacute;scula.</DT>
+
+<DL>
+<DT>
+</DT>
+
+<DT>
+</DT>
+
+<DT>
+</DT>
+</DL>
+
+<ADDRESS>
+
+<HR WIDTH="100%"></ADDRESS>
+
+<ADDRESS>
+V&iacute;ctor A. Gonz&aacute;lez Barbone&nbsp; <A HREF="mailto:vagonbar en fing edu uy">vagonbar en fing edu uy</A></ADDRESS>
+
+<ADDRESS>
+<A HREF="http://iie.fing.edu.uy">Instituto de Ingenier&iacute;a El&eacute;ctrica</A>
+- <A HREF="http://www.fing.edu.uy">Facultad de Ingenier&iacute;a</A> -
+Montevideo, Uruguay.</ADDRESS>
+
+</BODY>
+</HTML>

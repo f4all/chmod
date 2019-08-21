@@ -1,0 +1,121 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta http-equiv="CONTENT-TYPE" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.75 [en] (X11; U; Linux 2.2.17 i586) [Netscape]">
+   <meta name="AUTHOR" content="Víctor González Barbone">
+   <meta name="CREATED" content="20001220;19120600">
+   <meta name="CHANGEDBY" content="Víctor González Barbone">
+   <meta name="CHANGED" content="20001220;21174800">
+<style>
+	<!--
+		@page { size: 8.27in 11.69in; margin-left: 0.8in; margin-right: 0.8in; margin-top: 0.58in; margin-bottom: 0.58in }
+	-->
+	</style>
+</head>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EF" vlink="#51188E" alink="#FF0000">
+
+<h5>
+Centro de Inform&aacute;tica<br>
+Sistemas Operativos II</h5>
+
+<center>
+<h2>
+Examen Febrero 2001.</h2></center>
+
+<div STYLE="margin-bottom: 0in">
+<div STYLE="margin-bottom: 0in"><b><font face="Times, serif"><font size=+1>A.
+Sin consulta de material (30 puntos).</font></font></b>
+<br>Responder brevemente las siguientes preguntas<font face="Times, serif">.</font><font face="Times, serif"></font>
+<p><font face="Times, serif"><b>1.</b>&nbsp; &iquest;Para qu&eacute; sirve
+el comando </font><tt>finger</tt><font face="Times, serif">? Dar un ejemplo
+de uso.</font><font face="Times, serif"></font>
+<p><font face="Times, serif"><b>2.</b> &iquest;Qu&eacute; significa el
+permiso "x" en un archivo? &iquest;Y en un directorio?</font><font face="Times, serif"></font>
+<p><font face="Times, serif"><b>3.</b> &iquest;Qu&eacute; es el "sticky
+bit? &iquest;Para qu&eacute; sirve? &iquest;Qu&eacute; permisos debe tener
+el directorio sobre el cual se aplique?</font>
+<br><font face="Times, serif"></font>&nbsp;</div>
+
+<div STYLE="margin-bottom: 0in; font-weight: medium"><font face="Times, serif"><font size=+0>Escribir
+comandos para realizar las tareas indicadas:</font></font><font face="Times, serif"><font size=+0></font></font>
+<p><font face="Times, serif"><font size=+0><b>4.</b> Enviar un correo al
+usuario carola del dominio nsk.com.uy, con t&iacute;tulo "Saludos matinales".
+El texto del mensaje est&aacute; en el archivo saludos-carola.txt.</font></font><font face="Times, serif"><font size=+0></font></font>
+<p><font face="Times, serif"><font size=+0><b>5.</b> Mostrar los archivos
+del directorio /usr/doc/HOWTO a) en listado breve; b) en listado largo;
+c) incluyendo archivos ocultos; d) en listado largo e incluyendo archivos
+ocultos.</font></font><font face="Times, serif"><font size=+0></font></font>
+<p><font face="Times, serif"><font size=+0><b>6.</b> Convertir el texto
+datos.txt todo a may&uacute;scula y guardar en datos-may.txt.</font></font><font face="Times, serif"><font size=+0></font></font>
+<p><font face="Times, serif"><font size=+0><b>7.</b> Listar, del directorio
+/usr/doc, s&oacute;lo los subdirectorios (no los archivos); en formato
+largo.</font></font><font face="Times, serif"><font size=+0></font></font>
+<p><font face="Times, serif"><font size=+0><b>8.</b>&nbsp; Fijar permisos
+en un archivo perdiz.txt para que due&ntilde;o y grupo tengan plenos poderes,
+pero los dem&aacute;s s&oacute;lo puedan verlo.</font></font><font face="Times, serif"><font size=+0></font></font>
+<p><font face="Times, serif"><font size=+0><b>9.</b> Extraer de un archivo
+todas las l&iacute;neas que contengan la cadena ":deudor:" y presentarlos
+ordenados por el monto adeudado, en orden decreciente. El monto adeudado
+est&aacute; contenido en el campo 5, y el separador es ":".</font></font><font face="Times, serif"><font size=+0></font></font>
+<p><font size=+0><font face="Times, serif"><b>10.</b> &iquest;Qu&eacute;
+hace el comando </font><tt>which php</tt><font face="Times, serif">? &iquest;Qu&eacute;
+condiciones debe cumplir el archivo para obtener un resultado positivo?</font></font>
+<br><font face="Times, serif"><font size=+0></font></font>&nbsp;</div>
+<b><font size=+1>B. Con libre consulta de material.</font></b></div>
+
+<div STYLE="margin-bottom: 0in"><font size=+2>1.</font> Escribir un script
+para encontrar usuarios que haga m&aacute;s de cierto n&uacute;mero de
+d&iacute;as que no ingresan al sistema. Se dispone para ello de los siguientes
+comandos:</div>
+<font face="Courier, monospace"><font size=-1>&nbsp;&nbsp; ypcat passwd</font></font>
+<br>da un listado de todos los usuarios en el sistema.
+<br><font face="Courier, monospace"><font size=-1>&nbsp;&nbsp; lastlog
+-t$DIAS</font></font>
+<br>da un listado de quienes han ingresan al sistema hace <i>menos</i>
+de $DIAS. DIAS es una variable inicializada al principio del script, para
+poder cambiarla f&aacute;cilmente; fijarla en 30 d&iacute;as. El formato
+de salida de <font face="Courier, monospace"><font size=-1>lastlog</font></font>
+es el siguiente:
+<pre>Username&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Port&nbsp;&nbsp;&nbsp;&nbsp; From&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Latest
+victor&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pts/2&nbsp;&nbsp;&nbsp; :0.0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mi&eacute; dic 20 19:29:15 -0300 2000
+cristina&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; console&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; lun dic 18 14:49:51 -0300 2000
+root&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tty2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; dom dic 17 20:34:25 -0300 2000</pre>
+
+<div STYLE="margin-bottom: 0in">Los separadores son espacios. (20 puntos)</div>
+
+<p><br><font size=+2>2.</font> A partir del comando ypcat passwd filtrar
+las cuentas de usuarios del sistema (con UID menores que 1000) para mostrar
+s&oacute;lo los usuarios verdaderos (con UID 1000 en adelante). (10 puntos)
+<p><font size=+2>3.</font> Escribir un script de arranque <tt><font size=-1>tango</font></tt>
+para un sofware llamado tango que funciona en base a un demonio
+<tt><font face="Courier, monospace"><font size=-1>tangod.</font></font></tt>
+El script deber&aacute; aceptar los par&aacute;metros siguientes y realizar
+las acciones indicadas:
+<br>&nbsp;&nbsp;&nbsp; start - arrancar el demonio <tt><font size=-1>tangod</font></tt>
+<br>&nbsp;&nbsp;&nbsp; stop - detener el demonio <tt><font size=-1>tangod,</font></tt>
+con se&ntilde;al 15
+<br>&nbsp;&nbsp;&nbsp; restart - detener y volver a arrancar <tt><font face="Courier, monospace"><font size=-1>tangod</font></font></tt>
+<br>&nbsp;&nbsp;&nbsp; reload - releer la configuraci&oacute;n enviando
+una se&ntilde;al 1 al proceso <tt>tangod.</tt>
+<br><font face="times, serif"><b>Sugerencia.</b> El comando <tt>ps ax</tt>
+muestra el PID de los procesos en sus primeros 6 caracteres, con relleno
+de blancos </font>sobre la izquierda. (20 puntos).
+<br><b>Nota para prueba en m&aacute;quina.</b> El proceso
+<font size=-1>tangod</font>
+puede simularse con el siguiente script:
+<pre><font face="Courier, monospace">#!/bin/bash&nbsp;
+# tangod: emulaci&oacute;n de demonio para tango&nbsp;
+# arrancarlo en background&nbsp;
+echo tangod: corriendo...&nbsp;
+trap "echo recibida se&ntilde;al 1" 1&nbsp;
+trap "echo recibida se&ntilde;al 15,terminando ; exit" 15&nbsp;
+while true&nbsp;
+do&nbsp;
+&nbsp;sleep 6&nbsp;
+done&nbsp;
+###</font></pre>
+
+</body>
+</html>

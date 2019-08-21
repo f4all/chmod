@@ -1,0 +1,1040 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+   <META NAME="GENERATOR" CONTENT="Mozilla/4.06 [es] (Win95; I) [Netscape]">
+   <META NAME="Author" CONTENT="Víctor González-Barbone">
+   <META NAME="Description" CONTENT="Manejo de archivos en UNIX">
+   <META NAME="KeyWords" CONTENT="UNIX, curso, tutorial, Linux">
+   <TITLE>Curso B&aacute;sico de UNIX - Manejo de archivos</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+
+<ADDRESS>
+<A HREF="index.htm">Curso B&aacute;sico de UNIX</A></ADDRESS>
+
+<CENTER>
+<H1>
+Manejo de Archivos</H1></CENTER>
+
+<DT>
+<A HREF="#CopiaArchivos">Copia de Archivos</A></DT>
+
+<DT>
+<A HREF="#Mover">Mover, cambiar de nombre</A></DT>
+
+<DT>
+<A HREF="#EnlacesHard">Enlaces "hard"</A></DT>
+
+<DT>
+<A HREF="#EnlaceSimbolico">Enlaces simb&oacute;licos</A></DT>
+
+<DT>
+<A HREF="#OpcionesLS">Opciones del comando <TT>ls</TT></A></DT>
+
+<DT>
+<A HREF="#CambioDueñoGrupo">Cambio de due&ntilde;o y grupo</A></DT>
+
+<DT>
+<A HREF="#ModosPermisos">Modos de permisos</A></DT>
+
+<DT>
+<A HREF="#ListadoPermisosDirectorios">Listado de permisos de los directorios</A></DT>
+
+<DT>
+<A HREF="#CambioPermisos">Cambio de permisos</A></DT>
+
+<DT>
+<A HREF="#BasenameDirname">basename, dirname</A></DT>
+
+<DT>
+<A HREF="#Dispositivos">Archivos de dispositivos</A></DT>
+
+<DT>
+<A HREF="#mesg">El comando "mesg"</A></DT>
+
+<DT>
+<A HREF="#OtrosDispositivos">Otros dispositivos</A></DT>
+
+<DT>
+<A HREF="#Ejercicios">Preguntas y Ejercicios</A></DT>
+
+<DT>
+<A HREF="#Bibliografia">Bibliograf&iacute;a y Referencias</A></DT>
+
+<DL>
+<DT>
+&nbsp;</DT>
+
+<DT>
+&nbsp;</DT>
+
+<DT>
+En los ejemplos siguientes se asume al usuario ubicado en su directorio
+personal, el cual contiene los archivos <TT>nota</TT> y <TT>LEAME</TT>.
+El resultado de cada ejemplo debe comprobarse mediante comandos tales como
+<TT>pwd,ls,</TT>
+<TT>cat</TT>
+o <TT>more</TT>.</DT>
+</DL>
+
+<H3>
+<A NAME="CopiaArchivos"></A>Copia de archivos.</H3>
+
+<DT>
+<TT>&nbsp; cp nota nota.copia</TT></DT>
+
+<DT>
+copia el archivo <TT>nota</TT> en <TT>nota.copia</TT>. Si el directorio
+propio del usuario es <TT>/home/usuario1</TT>,</DT>
+
+<DT>
+<TT>&nbsp; cp ./nota /home/usuario1/nota.copia</TT></DT>
+
+<DT>
+hace lo mismo indicando las rutas. Si el archivo destino existe lo sobreescribe
+y realiza la copia sin comentario ni advertencia.</DT>
+
+<DT>
+&nbsp;</DT>
+
+<DT>
+<TT>&nbsp; mkdir dir1</TT></DT>
+
+<DT>
+<TT>&nbsp; cp nota dir1</TT></DT>
+
+<DT>
+si el destino es un directorio, el archivo se copia en ese directorio.</DT>
+
+<DT>
+<TT>&nbsp;</TT></DT>
+
+<DT>
+<TT>&nbsp; cp nota LEAME dir1</TT></DT>
+
+<DT>
+pueden copiarse varios archivos hacia un directorio.</DT>
+
+<DT>
+&nbsp;</DT>
+
+<DT>
+<TT>&nbsp; mkdir dir2</TT></DT>
+
+<DT>
+<TT>&nbsp; touch dir2/arch2 dir2/arch3</TT></DT>
+
+<DT>
+<TT>&nbsp; ls dir2</TT></DT>
+
+<DT>
+<TT>&nbsp; cp dir2/* .</TT></DT>
+
+<DT>
+copia todos los archivos en <TT>dir2</TT> hacia el directorio actual.</DT>
+
+<DT>
+&nbsp;</DT>
+
+<DT>
+Para copiar un directorio es preciso usar la opci&oacute;n -r, de "recursivo":</DT>
+
+<DT>
+<TT>&nbsp; cp -r dir1 dir3</TT></DT>
+
+<DT>
+<TT>&nbsp; ls -l dir3</TT></DT>
+
+<DT>
+copia el directorio <TT>dir1</TT> y todo el contenido en el <TT>dir3</TT>.</DT>
+
+<DT>
+<TT>&nbsp;</TT></DT>
+
+<DT>
+<TT>&nbsp; rmdir dir3</TT></DT>
+
+<DT>
+fracasa porque <TT>dir3</TT> no est&aacute; vac&iacute;o.</DT>
+
+<DT>
+<TT>&nbsp; rm -r dir3</TT></DT>
+
+<DT>
+con la opci&oacute;n <TT>-r</TT>, "recursivo", se puede borrar completamente
+un directorio y todo su contenido, sean estos archivos o subdirectorios.</DT>
+
+<DT>
+&nbsp;</DT>
+
+<DT>
+<TT>&nbsp; rm -r dir1/* dir2</TT></DT>
+
+<DT>
+borra todos los archivos bajo <TT>dir1</TT> y <TT>dir2</TT>; borra tambi&eacute;n
+el directorio <TT>dir2</TT> pero no el <TT>dir1</TT>.</DT>
+
+<DT>
+<TT>&nbsp;</TT></DT>
+
+<DT>
+<TT>&nbsp; rm arch? nota.copia</TT></DT>
+
+<DT>
+borra del directorio actual los archivos <TT>arch1</TT>, <TT>arch2</TT>,
+.., y <TT>nota.copia</TT>.</DT>
+
+<H3>
+<A NAME="Mover"></A>Mover, cambiar de nombre.</H3>
+
+<DT>
+<TT>&nbsp; echo "Hola todos" > hola</TT></DT>
+
+<DT>
+<TT>&nbsp; cat hola</TT></DT>
+
+<DT>
+<TT>&nbsp; mv hola saludo</TT></DT>
+
+<DT>
+<TT>&nbsp; cat saludo</TT></DT>
+
+<DT>
+<TT>mv</TT> cambia el nombre del archivo <TT>hola</TT> por el de <TT>saludo</TT>.</DT>
+
+<DT>
+<TT>&nbsp;</TT></DT>
+
+<DT>
+<TT>&nbsp; mv saludo dir1/saludo.1</TT></DT>
+
+<DT>
+mueve hacia otro directorio cambiando el nombre.</DT>
+
+<DT>
+<TT>&nbsp;</TT></DT>
+
+<DT>
+<TT>&nbsp; mv dir1 dirnuevo</TT></DT>
+
+<DT>
+cambia de nombre archivos o directorios.</DT>
+
+<DT>
+<TT>&nbsp;</TT></DT>
+
+<DT>
+<TT>&nbsp; rm -r dirnuevo</TT></DT>
+
+<DT>
+elimina <TT>dirnuevo</TT> y todos sus archivos.</DT>
+
+<H3>
+<A NAME="EnlacesHard"></A>Enlaces "hard".</H3>
+Un enlace "hard" (hard link) es una nueva referencia a un mismo archivo;
+consiste en una nueva entrada de directorio que apunta a un archivo ya
+existente y apuntado desde otra entrada de directorio. El contenido se
+encuentra en un solo lado, pero el archivo puede ser accedido desde varios
+lugares, eventualmente con diferentes nombres.
+<DT>
+<TT>&nbsp; echo 'Hola todos de nuevo!' > adios</TT></DT>
+
+<DT>
+<TT>&nbsp; ln adios adios.ln0</TT></DT>
+
+<DT>
+ln crea un segundo nombre referido al mismo archivo; no se hace copia,
+crea un enlace (link). Verificar que</DT>
+
+<DT>
+<TT>&nbsp; ls -l adios*</TT></DT>
+
+<DT>
+muestra un conteo de 2 en la columna de enlaces. Al crear el enlace con
+el comando <TT>ln</TT>, observar que el archivo existente va en primer
+lugar, luego uno o m&aacute;s nombres de enlaces a crear.</DT>
+
+<DT>
+<TT>&nbsp;</TT></DT>
+
+<DT>
+<TT>&nbsp; ln adios adios.ln1</TT></DT>
+
+<DT>
+<TT>&nbsp; ln adios adios.ln2</TT></DT>
+
+<DT>
+<TT>&nbsp; ls -l adios*</TT></DT>
+
+<DT>
+muestra el conteo de enlaces hard en estos archivos.</DT>
+
+<DT>
+<TT>&nbsp;</TT></DT>
+
+<DT>
+<TT>&nbsp; mkdir dir2</TT></DT>
+
+<DT>
+<TT>&nbsp; ln adios dir2/adios</TT></DT>
+
+<DT>
+hace aparecer en <TT>dir2</TT> un enlace llamado <TT>adios</TT> hacia el
+archivo <TT>adios</TT> del directorio actual. Un enlace hard puede hacer
+aparecer un mismo archivo en m&aacute;s de un directorio, con igual o distinto
+nombre; el contenido est&aacute; en un solo lado, no est&aacute; repetido.</DT>
+
+<DT>
+<TT>&nbsp;</TT></DT>
+
+<DT>
+<TT>&nbsp; rm adios*</TT></DT>
+
+<DT>
+<TT>&nbsp; ls -l dir2/adios</TT></DT>
+
+<DT>
+Cuando se borra un archivo con varios enlaces, s&oacute;lo se borra el
+enlace. El archivo es realmente borrado s&oacute;lo cuando desaparece el
+&uacute;ltimo enlace.</DT>
+
+<DT>
+<TT>&nbsp; ln dir2 dir2ln</TT></DT>
+
+<DT>
+da error; no se puede crear un enlace hard para un directorio.</DT>
+
+<H3>
+<A NAME="EnlaceSimbolico"></A>Enlaces simb&oacute;licos.</H3>
+
+<DT>
+Un enlace simb&oacute;lico (symbolic link) es un archivo que apunta a otro
+archivo o directorio. El archivo de enlace simb&oacute;lico contiene solamente
+la ruta del otro archivo o directorio.</DT>
+
+<DT>
+<TT>&nbsp; ln -s nota nota.ls0</TT></DT>
+
+<DT>
+crea <TT>nota.ls0</TT> como enlace simb&oacute;lico.</DT>
+
+<DT>
+<TT>&nbsp;</TT></DT>
+
+<DT>
+<TT>&nbsp; ln -s dir2 dir2ls</TT></DT>
+
+<DT>
+crea <TT>dir2ls</TT> como enlace simb&oacute;lico hacia un directorio.</DT>
+
+<DT>
+<TT>&nbsp; ls -l</TT></DT>
+
+<DT>
+muestra la letra <TT>l</TT> en el tipo de archivo para indicar que es un
+enlace simb&oacute;lico.</DT>
+
+<DT>
+<TT>&nbsp; ls dir2</TT></DT>
+
+<DT>
+<TT>&nbsp; ls dir2ls</TT></DT>
+
+<DT>
+muestran el mismo contenido de archivos.</DT>
+
+<DT>
+<TT>&nbsp; ls -l dir2ls</TT></DT>
+
+<DT>
+muestra que es un enlace simb&oacute;lico e indica hacia donde apunta.</DT>
+
+<DT>
+<TT>&nbsp;</TT></DT>
+
+<DT>
+<TT>&nbsp; cd dir2ls</TT></DT>
+
+<DT>
+<TT>&nbsp; ls -l</TT></DT>
+
+<DT>
+muestra el contenido de <TT>dir2</TT>, enlazado desde <TT>dir2ls</TT>.</DT>
+
+<DT>
+<TT>&nbsp; pwd</TT></DT>
+
+<DT>
+indica el directorio con nombre del enlace, pero</DT>
+
+<DT>
+<TT>&nbsp; /bin/pwd</TT></DT>
+
+<DT>
+muestra el directorio verdadero, no el enlace simb&oacute;lico; <TT>pwd</TT>
+indica la ruta por la que se lleg&oacute; al directorio, <TT>/bin/pwd</TT>
+indica la ruta de acceso al verdadero directorio. Conviene usar <TT>/bin/pwd</TT>
+para evitar ser enga&ntilde;ado por enlaces simb&oacute;licos a directorios.
+El comando <TT>pwd</TT> es interno del shell, <TT>/bin/pwd</TT> es un programa
+aparte.</DT>
+
+<DT>
+<TT>&nbsp;</TT></DT>
+
+<DT>
+<TT>&nbsp; cd ..</TT></DT>
+
+<DT>
+<TT>&nbsp; mv dir2 DIR2</TT></DT>
+
+<DT>
+cambia el nombre del directorio real; el enlace simb&oacute;lico sigue
+apuntando a <TT>dir2</TT>, por lo que</DT>
+
+<DT>
+<TT>&nbsp; cd dir2ls</TT></DT>
+
+<DT>
+da error, ya que no existe el objeto real.</DT>
+
+<DT>
+<TT>&nbsp; mv DIR2 dir2</TT></DT>
+
+<DT>
+repone el nombre original al que apunta el enlace.</DT>
+
+<DT>
+<TT>&nbsp; rmdir dir2ls</TT></DT>
+
+<DT>
+da error porque no es un directorio sino un enlace.</DT>
+
+<DT>
+<TT>&nbsp; rm dir2ls</TT></DT>
+
+<DT>
+borra el enlace. Un enlace simb&oacute;lico se borra con <TT>rm</TT>, y
+no con <TT>rmdir</TT>, puesto que el enlace simb&oacute;lico es un archivo
+y no un directorio, a&uacute;n cuando sea un enlace simb&oacute;lico hacia
+un directorio.</DT>
+
+<DT>
+<TT>&nbsp; ls dir2</TT></DT>
+
+<DT>
+cuando se borra un enlace simb&oacute;lico, s&oacute;lo se borra un archivo
+puntero, y no el objeto real.</DT>
+
+<H3>
+<A NAME="OpcionesLS"></A>Opciones del comando ls.</H3>
+
+<DT>
+<TT>&nbsp; ls -1</TT></DT>
+
+<DT>
+muestra un item por l&iacute;nea. Cuando <TT>ls</TT> se usa en interconexiones,
+la salida de <TT>ls</TT> presenta un item por l&iacute;nea por defecto.</DT>
+
+<DT>
+<TT>&nbsp; ls -C</TT></DT>
+
+<DT>
+fuerza el despliegue encolumnado.</DT>
+
+<DT>
+<TT>&nbsp; ls -a</TT></DT>
+
+<DT>
+muestra todos los archivos, incluyendo los que comienzan con punto, normalmente
+no mostrados. El directorio corriente <B><TT>.</TT></B> y el directorio
+padre <B><TT>..</TT></B> son entidades reales.</DT>
+
+<DT>
+<TT>&nbsp;</TT></DT>
+
+<DT>
+<TT>&nbsp; ls -F /bin</TT></DT>
+
+<DT>
+<TT>&nbsp; ls -F</TT></DT>
+
+<DT>
+agrega sufijo que indica el tipo de archivo: / directorio, * ejecutable,
+@ enlace simb&oacute;lico.</DT>
+
+<DT>
+<TT>&nbsp;</TT></DT>
+
+<DT>
+<TT>&nbsp; ls -R</TT></DT>
+
+<DT>
+muestra recursivamente todos los archivos, subdirectorios y archivos dentro
+de subdirectorios. Para ver un listado m&aacute;s largo,</DT>
+
+<DT>
+<TT>&nbsp; ls -CR /etc | more</TT></DT>
+
+<DT>
+<TT>&nbsp;</TT></DT>
+
+<DT>
+<TT>&nbsp; ln -s dir2 dir2ls</TT></DT>
+
+<DT>
+<TT>&nbsp; ln nota nota.ln0</TT></DT>
+
+<DT>
+<TT>&nbsp; ls -l</TT></DT>
+
+<DT>
+listado largo, muestra atributos de los archivos: tipo de archivo (primer
+caracter), permisos (9 caracteres), enlaces hard (en archivos), due&ntilde;o,
+grupo, tama&ntilde;o en bytes, fecha y hora, nombre.</DT>
+
+<DD>
+<TT>-rw-r--r-- 1 esteban other 138 Apr 5 19:34 LEAME</TT></DD>
+
+<DD>
+<TT>drwxr-xr-x 2 esteban other 138 Apr 5 19:34 dir2</TT></DD>
+
+<DD>
+<TT>lrw-r--r-- 1 esteban other 138 Apr 5 19:34 dir2ls ->./dir2</TT></DD>
+
+<DD>
+<TT>-rw-rw-rw- 1 esteban other 138 Apr 5 19:34 nota</TT></DD>
+
+<DT>
+El s&iacute;mbolo <TT>-></TT> indica "apunta hacia" para enlaces simb&oacute;licos.</DT>
+
+<H3>
+<A NAME="CambioDueñoGrupo"></A>Cambio de due&ntilde;o y grupo.</H3>
+
+<DT>
+<TT>&nbsp; chown usuario1 nota</TT></DT>
+
+<DT>
+cambia el due&ntilde;o del archivo <TT>nota</TT> adjudic&aacute;ndoselo
+a <TT>usuario1</TT>.</DT>
+
+<DT>
+<TT>&nbsp; chown usuario1 arch1 arch2</TT></DT>
+
+<DT>
+cambia el due&ntilde;o de la lista de archivos indicada. No puede revertirse,
+ya que el usuario actual dej&oacute; de ser due&ntilde;o de esos archivos.
+Si el archivo tiene permiso de lectura, es posible copiarlo para disponer
+de una copia propia. El cambio de due&ntilde;o no est&aacute; permitido
+a usuarios comunes, sino reservado al supervisor para evitar que a un usuario
+se le adjudiquen archivos sin su consentimiento.</DT>
+
+<DT>
+<TT>&nbsp;</TT></DT>
+
+<DT>
+<TT>&nbsp; chgrp tecnicos nota</TT></DT>
+
+<DT>
+cambia de grupo el archivo notas, adjudic&aacute;ndoselo al grupo <TT>tecnicos</TT>.
+El due&ntilde;o debe pertenecer al grupo <TT>tecnicos</TT>.</DT>
+
+<DT>
+<TT>&nbsp; chgrp tecnicos arch1 arch2</TT></DT>
+
+<DT>
+cambia el grupo de la lista de archivos.</DT>
+
+<H3>
+<A NAME="ModosPermisos"></A>Modos de permisos.</H3>
+Los permisos de archivos y directorios se cambian con el comando <TT>chmod</TT>.
+Pueden expresarse de dos maneras: simb&oacute;lica y absoluta.
+<DT>
+En la forma simb&oacute;lica, se usa la siguiente sintaxis:</DT>
+
+<BR>&nbsp;
+<DT>
+<TT>[ugoa...][[+-=][rwxstugo...]</TT></DT>
+
+<BR>&nbsp;
+<DT>
+<TT>+&nbsp; agrega permiso a los existentes</TT></DT>
+
+<DT>
+<TT>-&nbsp; quita permiso de los existentes</TT></DT>
+
+<DT>
+<TT>=&nbsp; &uacute;nicos permisos asignados al archivo</TT></DT>
+
+<DT>
+<TT>r&nbsp; lectura</TT></DT>
+
+<DT>
+<TT>w&nbsp; escritura</TT></DT>
+
+<DT>
+<TT>x&nbsp; ejecuci&oacute;n, o acceso si es directorio</TT></DT>
+
+<DT>
+<TT>s&nbsp; usa el id del due&ntilde;o o grupo del archivo al ejecutar</TT></DT>
+
+<DT>
+<TT>t&nbsp; fijar "sticky bit" a un directorio: s&oacute;lo due&ntilde;os
+pueden borrar</TT></DT>
+
+<DT>
+<TT>u&nbsp; usuario (due&ntilde;o)</TT></DT>
+
+<DT>
+<TT>g&nbsp; grupo</TT></DT>
+
+<DT>
+<TT>o&nbsp; otros</TT></DT>
+
+<DT>
+<TT>a&nbsp; todos (due&ntilde;o, grupo y otros)</TT></DT>
+
+<DT>
+&nbsp;</DT>
+
+<DT>
+Ejemplos de permisos en notaci&oacute;n simb&oacute;lica:</DT>
+
+<DT>
+<TT>&nbsp; u+r&nbsp;&nbsp;&nbsp;&nbsp; g+w-r&nbsp;&nbsp;&nbsp; ug+r&nbsp;&nbsp;&nbsp;
+ugo+w-rx&nbsp;&nbsp;&nbsp;&nbsp; u+rwx,g+r-wx,o-rwx</TT></DT>
+
+<DT>
+<TT>&nbsp;</TT></DT>
+
+<DT>
+<TT>&nbsp; chmod u+rwx,g+rw-x,o+r-wx arch1</TT></DT>
+
+<DT>
+<TT>&nbsp; chmod u=rwx,g=rw,o=r arch1</TT></DT>
+
+<DT>
+cambian los permisos de los archivos indicados.</DT>
+
+<DT>
+&nbsp;</DT>
+
+<DT>
+En modo absoluto se usa un c&oacute;digo de 4 d&iacute;gitos octales 0..7,
+en la forma Nnnn.</DT>
+
+<DT>
+<TT>N</TT>, primer d&iacute;gito:</DT>
+
+<BR><TT>&nbsp; 4 fijar ID del due&ntilde;o al ejecutar</TT>
+<BR><TT>&nbsp; 2 fijar ID del grupo al ejecutar</TT>
+<DT>
+<TT>&nbsp; 1 fijar "sticky bit" a un directorio</TT></DT>
+
+<DT>
+<TT>nnn</TT>, 3 d&iacute;gitos: permisos del usuario, grupo y otros, con
+el c&oacute;digo</DT>
+
+<DT>
+<TT>&nbsp; 4 lectura</TT></DT>
+
+<BR><TT>&nbsp; 2 escritura</TT>
+<BR><TT>&nbsp; 1 ejecuci&oacute;n, o acceso si es directorio</TT>
+<DT>
+&nbsp;</DT>
+
+<DT>
+Ejemplos de permisos en notaci&oacute;n absoluta:</DT>
+
+<DT>
+<TT>&nbsp; 0777&nbsp;&nbsp;&nbsp; 0755&nbsp;&nbsp; 0764&nbsp;&nbsp; 0640&nbsp;&nbsp;
+0710</TT></DT>
+
+<DT>
+<TT>&nbsp;</TT></DT>
+
+<DT>
+<TT>&nbsp; chmod 0764 arch1</TT></DT>
+
+<DT>
+cambia los permisos como en el ejemplo anterior.</DT>
+
+<H3>
+<A NAME="ListadoPermisosDirectorios"></A>Listado de permisos de los directorios.</H3>
+
+<DT>
+<TT>&nbsp; ls -l</TT></DT>
+
+<DT>
+muestra los permisos y otros atributos.</DT>
+
+<DT>
+&nbsp;</DT>
+
+<DT>
+Para obtener informaci&oacute;n del directorio <TT>dir1</TT> ubicado en
+el directorio actual,</DT>
+
+<DT>
+<TT>&nbsp; ls -l</TT></DT>
+
+<DT>
+lista todos los archivos, entre los que aparece <TT>dir1</TT>;</DT>
+
+<DT>
+<TT>&nbsp; ls -l dir1</TT></DT>
+
+<DT>
+lista el contenido del directorio <TT>dir1</TT>.</DT>
+
+<DT>
+<TT>&nbsp; ls -ld dir1</TT></DT>
+
+<DT>
+trata la entrada <TT>dir1</TT> como archivo, sin listar su contenido, y
+dando sus atributos como directorio.</DT>
+
+<DT>
+<TT>&nbsp; ls -ld .</TT></DT>
+
+<DT>
+muestra atributos del directorio actual.</DT>
+
+<H3>
+<A NAME="CambioPermisos"></A>Cambio de permisos.</H3>
+
+<DT>
+<TT>&nbsp; chmod u-w nota</TT></DT>
+
+<DT>
+quita permisos de escritura al due&ntilde;o.</DT>
+
+<DT>
+<TT>&nbsp; chmod u+w nota</TT></DT>
+
+<DT>
+concede permisos de escritura al due&ntilde;o.</DT>
+
+<DT>
+<TT>&nbsp; chmod u-w+x nota</TT></DT>
+
+<DT>
+<TT>&nbsp; chmod u-wx+r nota</TT></DT>
+
+<DT>
+cambian varios permisos del due&ntilde;o al mismo tiempo.</DT>
+
+<DT>
+<TT>&nbsp; chmod u+w nota</TT></DT>
+
+<DT>
+<TT>&nbsp; chmod g+w nota</TT></DT>
+
+<DT>
+<TT>&nbsp; chmod o+w nota</TT></DT>
+
+<DT>
+concede permiso de escritura solo al usuario, al grupo o a otros.</DT>
+
+<DT>
+<TT>&nbsp; chmod u+rw-x,g+r-wx,o+r-wx nota</TT></DT>
+
+<DT>
+fija todos los permisos en una sola operaci&oacute;n. Los permisos que
+no se mencionen quedan como est&eacute;n.</DT>
+
+<DT>
+<TT>&nbsp; chmod 0644 nota</TT></DT>
+
+<DT>
+realiza lo mismo en notaci&oacute;n absoluta.</DT>
+
+<DT>
+<TT>&nbsp;</TT></DT>
+
+<DT>
+El comando <TT>chmod</TT> admite las opciones</DT>
+
+<DT>
+<TT>&nbsp; -v verboso, describe los permisos cambiados</TT></DT>
+
+<DT>
+<TT>&nbsp; -f no da error sobre permisos que no pueden cambiarse</TT></DT>
+
+<DT>
+<TT>&nbsp; -R recursivo, cambia permisos de directorios y sus archivos</TT></DT>
+
+<DT>
+<TT>&nbsp;</TT></DT>
+
+<DT>
+<TT>&nbsp; chmod -v u+rwx,g+rw-x,o+r-wx arch1</TT></DT>
+
+<DT>
+<TT>&nbsp; chmod -v 764 arch1</TT></DT>
+
+<DT>
+<TT>&nbsp; chmod -v 444 arch1</TT></DT>
+
+<DT>
+<TT>&nbsp; chmod u=rw,go=r arch1</TT></DT>
+
+<DT>
+fija permisos en rw-r--r--.</DT>
+
+<DT>
+<TT>&nbsp; chmod u=rwx,u+s arch1</TT></DT>
+
+<DT>
+<TT>e</TT>jecutar&aacute; arch1 con permiso del due&ntilde;o de arch1.</DT>
+
+<DT>
+<TT>&nbsp; chmod -vR a+r dir1</TT></DT>
+
+<DT>
+da permiso de lectura a todos los directorios bajo dir1, anunciando en
+forma verbosa lo hecho.</DT>
+
+<DT>
+<TT>&nbsp;</TT></DT>
+
+<DT>
+<TT>&nbsp; chmod ugo+rwx dirtodos</TT></DT>
+
+<DT>
+<TT>&nbsp; chmod a+t dirtodos</TT></DT>
+
+<DT>
+fija "sticky bit": a pesar de tener el directorio permisos totales para
+todos, s&oacute;lo pueden borrarse los archivos propios del usuario, no
+los ajenos.</DT>
+
+<DT>
+<TT>&nbsp; chmod 1777 dirtodos</TT></DT>
+
+<DT>
+realiza lo mismo.</DT>
+
+<DT>
+&nbsp;</DT>
+
+<DT>
+Los permisos s (setuid, setgid) hacen que un archivo ejecutable ejecute
+con permisos del usuario due&ntilde;o o del grupo due&ntilde;o del archivo,
+cualquiera sea el usuario y grupo de quien lo invoca. El permiso setgid
+sobre un directorio hace que los archivos y subdirectorios creados en &eacute;l
+pertenezcan al grupo del directorio, y no al grupo primario del usuario,
+como es normal; esto es &uacute;til para los grupos de trabajo. El permiso
+t (sticky bit) se aplica a directorios con permisos totales; limita la
+operaci&oacute;n de borrado al due&ntilde;o del archivo o subdirectorio.
+Los modos S y T, que pueden aparecer en <TT>ls -l</TT>, indican modos sin
+sentido: setuid o setgid sobre archivos no ejecutables, sticky bit sobre
+directorio sin permisos para todos.</DT>
+
+<H3>
+<A NAME="BasenameDirname"></A>basename, dirname</H3>
+
+<DT>
+<TT>&nbsp; echo $EDITOR</TT></DT>
+
+<DT>
+muestra la variable de ambiente que contiene el nombre del editor por defecto.
+Si no aparece nada, inicializarla:</DT>
+
+<DT>
+<TT>&nbsp; which vi</TT></DT>
+
+<DT>
+para obtener la v&iacute;a hacia el editor <TT>vi</TT>.</DT>
+
+<DT>
+<TT>&nbsp; EDITOR=/usr/bin/vi</TT></DT>
+
+<DT>
+<TT>&nbsp; echo $EDITOR</TT></DT>
+
+<DT>
+muestra el nombre del editor a usar por defecto.</DT>
+
+<DT>
+<TT>&nbsp;</TT></DT>
+
+<DT>
+<TT>&nbsp; MIEDITOR=`basename $EDITOR`</TT></DT>
+
+<DT>
+<TT>&nbsp; echo "Mi editor es $MIEDITOR"</TT></DT>
+
+<DT>
+muestra el nombre del archivo sin ruta; <TT>basename</TT> quita la ruta
+a un nombre de archivo calificado con ruta.</DT>
+
+<DT>
+<TT>&nbsp; DIREDITOR=`dirname $EDITOR`</TT></DT>
+
+<DT>
+<TT>dirname</TT> separa la ruta del nombre completo.</DT>
+
+<DT>
+<TT>&nbsp; echo "Mi editor es $MIEDITOR en el directorio $DIREDITOR"</TT></DT>
+
+<DT>
+muestra el uso en comandos de variables de ambiente.</DT>
+
+<DT>
+<TT>&nbsp; echo "Mi editor es "`basename $EDITOR`" en "`dirname $EDITOR`</TT></DT>
+
+<DT>
+muestra el uso del operador grave para ejecutar comandos dentro de otros
+comandos.</DT>
+
+<H3>
+<A NAME="Dispositivos"></A>Archivos de dispositivos.</H3>
+El sistema de archivos de UNIX provee una interface est&aacute;ndar entre
+los dispositivos de hardware y el sistema operativo que act&uacute;a igual
+que un archivo com&uacute;n: todas las operaciones de entrada y salida
+se hacen escribiendo y leyendo sobre un archivo. No se trata de un archivo
+com&uacute;n en disco; act&uacute;a como una ruta hacia un canal de entrada/salida
+del hardware. As&iacute; como se redirige la salida de un comando hacia
+un archivo, puede redirigirse tambi&eacute;n hacia un disco, una cinta
+o un m&oacute;dem con s&oacute;lo mencionar el nombre del dispositivo correspondiente.
+<BR>&nbsp;
+<DT>
+<TT>&nbsp; tty</TT></DT>
+
+<DT>
+devuelve el nombre del dispositivo asociado al terminal, por ejemplo
+<TT>/dev/tty1</TT>.
+Tomando ese mismo nombre</DT>
+
+<DT>
+<TT>&nbsp; ls -l /dev/tty1</TT></DT>
+
+<DT>
+obtenemos un listado de atributos del "archivo" controlador de este dispositivo,
+algo as&iacute; como</DT>
+
+<DT>
+<TT>&nbsp; crw-rw-rw- 1 usuario1 otros .... /dev/tty1</TT></DT>
+
+<BR>El primer caracter indica el tipo de dispositivo: c si es orientado
+a caracteres, b si es orientado a bloques. Terminales, impresoras y modems
+son orientados a caracter, discos y cintas son orientados a bloque.
+<DT>
+<TT>&nbsp;</TT></DT>
+
+<DT>
+<TT>&nbsp; cat - &lt; /dev/tty1</TT></DT>
+
+<DT>
+para escuchar en la propia sesi&oacute;n de terminal; escribir varias l&iacute;neas
+y finalizar con Ctrl-D.</DT>
+
+<DT>
+<TT>&nbsp; cat - &lt; `tty`</TT></DT>
+
+<DT>
+produce el mismo efecto. Luego probar</DT>
+
+<DT>
+<TT>&nbsp; $ cat - > `tty`</TT></DT>
+
+<DT>
+&iquest;puede explicarse el comportamiento?</DT>
+
+<H3>
+<A NAME="mesg"></A>El comando mesg.</H3>
+
+<DT>
+<TT>&nbsp; ls -l `tty`</TT></DT>
+
+<DT>
+Si otros usuarios pueden leer y escribir en este dispositivo, tambi&eacute;n
+pueden ver lo que se est&aacute; haciendo o a&uacute;n escribir directamente
+en el terminal redirigiendo su salida. Esto se usa en los comandos <TT>wall</TT>
+(write all, escribir a todos) y <TT>write</TT> (escribir mensajes entre
+usuarios).</DT>
+
+<DT>
+&nbsp;</DT>
+
+<DT>
+<TT>&nbsp; mesg</TT></DT>
+
+<DT>
+muestra si est&aacute; habilitada o no la recepci&oacute;n de mensajes.</DT>
+
+<DT>
+<TT>&nbsp; mesg y</TT></DT>
+
+<DT>
+cambia permisos de grupo y otros en el dispositivo, aceptando mensajes.</DT>
+
+<DT>
+<TT>&nbsp; mesg n</TT></DT>
+
+<DT>
+rechaza mensajes. Verificar con</DT>
+
+<DT>
+<TT>&nbsp; ls -l `tty`</TT></DT>
+
+<DT>
+que muestra los permisos que regulan la terminal del usuario.</DT>
+
+<DT>
+<TT>&nbsp;</TT></DT>
+
+<DT>
+<TT>&nbsp; ls -l /dev/tty?</TT></DT>
+
+<DT>
+muestra los permisos de las terminales principales;</DT>
+
+<DT>
+<TT>&nbsp; ls -l /dev/tty??</TT></DT>
+
+<DT>
+muestra una cantidad de tipos de terminal disponibles.</DT>
+
+<H3>
+<A NAME="OtrosDispositivos"></A>Otros dispositivos.</H3>
+
+<DT>
+<TT>&nbsp; cat /etc/passwd</TT></DT>
+
+<DT>
+<TT>&nbsp; cat /etc/passwd > /dev/null</TT></DT>
+
+<DT>
+El dispositivo <TT>/dev/null</TT> act&uacute;a como una papelera de tama&ntilde;o
+ilimitado que recibe la salida a descartar. No guarda nada; lo que all&iacute;
+se env&iacute;e se pierde para siempre.</DT>
+
+<BR>Todos los dispositivos de hardware del sistema tienen una representaci&oacute;n
+en el directorio <TT>/dev</TT>.
+<BR>&nbsp;
+<BR>&nbsp;
+<H3>
+<A NAME="Ejercicios"></A><A HREF="sisar2ej.htm">Preguntas y Ejercicios.</A></H3>
+
+<H3>
+<A NAME="Bibliografia"></A>Bibliograf&iacute;a.</H3>
+<B>Comandos:</B><TT> chgrp chmod chown ln ls mesg tty</TT>
+<P><B>Referencias:</B> Kernighan-Pike[1987], Coffin[1989]
+<BR>&nbsp;
+<BR>&nbsp;
+<ADDRESS>
+
+<HR WIDTH="100%"></ADDRESS>
+
+<ADDRESS>
+V&iacute;ctor A. Gonz&aacute;lez Barbone <A HREF="mailto: vagonbar en fing edu uy">vagonbar en fing edu uy</A></ADDRESS>
+
+<ADDRESS>
+<A HREF="http://iie.fing.edu.uy">Instituto de Ingenier&iacute;a El&eacute;ctrica</A>
+- <A HREF="http://www.fing.edu.uy">Facultad de Ingenier&iacute;a</A> -
+Montevideo, Uruguay.</ADDRESS>
+
+</BODY>
+</HTML>

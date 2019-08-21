@@ -1,0 +1,83 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+   <META NAME="Author" CONTENT="Victor González-Barbone">
+   <META NAME="GENERATOR" CONTENT="Mozilla/4.06 [es] (Win95; I) [Netscape]">
+   <TITLE>Examen UNIX julio 1999</TITLE>
+</HEAD>
+<BODY>
+
+<DT>
+
+<HR WIDTH="100%"></DT>
+
+<DT>
+<B>Centro de Inform&aacute;tica</B></DT>
+
+<DT>
+
+<HR WIDTH="100%"></DT>
+
+<CENTER>
+<H3>
+<B>Examen de</B> Sistemas Operativos II (UNIX)</H3></CENTER>
+
+<CENTER>
+<H4>
+Julio 1999</H4></CENTER>
+
+<CENTER>
+<H4>
+Duraci&oacute;n: 3 horas</H4></CENTER>
+
+<H4>
+A. Pr&aacute;ctico.</H4>
+<B><FONT SIZE=+2>1.</FONT></B> El comando du de UNIX calcula el espacio
+en disco insumido en un directorio.
+<BR><TT>&nbsp;&nbsp;&nbsp; du -sk /home/*</TT>
+<BR>muestra una salida consistente en dos campos: la cantidad de Kb usados
+y la v&iacute;a completa del directorio (/home/&lt;nombre_usuario). Ejemplo:
+<BR><TT>&nbsp;&nbsp;&nbsp; 79908&nbsp;&nbsp;&nbsp; /home/gabriel</TT>
+<BR>a) Construir un script que muestre los nombres de los 10 usuarios con
+mayor consumo de espacio en disco, presentando la cantidad de Kb usados
+y el nombre del usuario, con los t&iacute;tulos apropiados. (25 puntos)
+<BR>b) Complementar el script para obtener el espacio total en disco usado
+por el directorio /home.
+<BR>(5 puntos)
+<BR><B>Total: 30 puntos.</B>
+<P><B><FONT SIZE=+2>2.</FONT></B> La p&aacute;gina man del comando useradd,
+para agregar usuarios, muestra la siguiente sintaxis:
+<BLOCKQUOTE><TT>&nbsp;useradd [-c comment] [-d home_dir]</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+[-e expire_date] [-f inactive_time]</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+[-g initial_group] [-G group[,...]]</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+[-m [-k skeleton_dir]] [-s shell]</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+[-u uid [ -o]] login</TT></BLOCKQUOTE>
+Construir un script para crear usuarios que presente el pedido de datos
+as&iacute;:
+<BLOCKQUOTE>Nombre login:
+<BR>Nombre usuario:
+<BR>Directorio home:
+<BR>Grupo primario:
+<BR>Grupos secundarios:
+<BR>Directorio skel:</BLOCKQUOTE>
+Deber&aacute; pedir confirmaci&oacute;n antes de crear el usuario, manteniendo
+visibles los datos ingresados.
+<BR>El script debe continuar creando usuarios hasta que el operador de
+un nombre de login en blanco, en cuyo caso finalizar&aacute;.
+<BR><B>Total: 40 puntos.</B>
+<H4>
+B. Te&oacute;rico.</H4>
+Examen oral.
+<BR>Total: 30 puntos.
+<CENTER>
+<DT>
+
+<HR WIDTH="100%"></DT></CENTER>
+
+</BODY>
+</HTML>

@@ -1,0 +1,687 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+   <META NAME="GENERATOR" CONTENT="Mozilla/4.06 [es] (Win95; I) [Netscape]">
+   <META NAME="Author" CONTENT="Víctor A. González-Barbone">
+   <META NAME="Description" CONTENT="Características del sistema de archivos en UNIX">
+   <META NAME="KeyWords" CONTENT="UNIX, curso, tutorial, Linux">
+   <TITLE>Curso B&aacute;sico de UNIX - Sistema de Archivos</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+
+<ADDRESS>
+<A HREF="index.htm">Curso B&aacute;sico de UNIX</A></ADDRESS>
+
+<CENTER>
+<H1>
+Sistema de Archivos</H1></CENTER>
+
+<DT>
+<A HREF="#Archivos">Archivos</A></DT>
+
+<DT>
+<A HREF="#Directorios">Directorios</A></DT>
+
+<DT>
+<A HREF="#NombresArchivo">Nombres de Archivo</A></DT>
+
+<DT>
+<A HREF="#DirectorioPropioActual">Directorio Propio. Directorio Actual</A></DT>
+
+<DT>
+<A HREF="#NombreDirectorio">Nombres de Directorio</A></DT>
+
+<DT>
+<A HREF="#CambiosDirectorio">Cambios de directorio</A></DT>
+
+<DT>
+<A HREF="#EstrIntArchivos">Estructura Interna de los Archivos</A></DT>
+
+<DT>
+<A HREF="#PropiedadesArchivo">Propiedades de los archivos</A></DT>
+
+<DT>
+<A HREF="#TipoPermisosArchivo">Tipo y Permisos de achivos</A></DT>
+
+<DT>
+<A HREF="#ArchivosSysV">El sistema de archivos en UNIX</A></DT>
+
+<DT>
+<A HREF="#Ejercicios">Preguntas y Ejercicios</A></DT>
+
+<DT>
+<A HREF="#Bibliografia">Bibliograf&iacute;a</A></DT>
+
+<DT>
+&nbsp;</DT>
+
+<BR>&nbsp;
+<P>&nbsp;
+<P>El sistema UNIX funciona totalmente en base a archivos. Los programas,
+los datos, los directorios y a&uacute;n los controladores de dispositivos
+tales como discos, modems e impresoras, son archivos.
+<P>El sistema de archivos de UNIX se organiza en una jerarqu&iacute;a de
+directorios que resulta en una estructura arborescente.
+<H3>
+<A NAME="Archivos"></A>Archivos.</H3>
+Cada archivo tiene asociado un nombre, un contenido, un lugar de ubicaci&oacute;n
+e informaci&oacute;n de tipo administrativo, tal como due&ntilde;o y tama&ntilde;o.
+El contenido de un archivo puede ser texto, programas fuente, programas
+ejecutables, im&aacute;genes, sonidos y otros.
+<P>Estructuralmente un archivo es una secuencia de bytes de datos que reside
+en forma semipermanente en alg&uacute;n medio estable, como ser una cinta
+magn&eacute;tica o un disco.
+<H3>
+<A NAME="Directorios"></A>Directorios.</H3>
+Los archivos se agrupan en directorios. Un directorio es un archivo que
+contiene una lista de nombres de archivo e informaci&oacute;n acerca de
+los mismos. Dentro del sistema de archivos, un directorio es una localizaci&oacute;n
+capaz de contener otros directorios o archivos. Dos archivos que se encuentren
+en distinto directorio pueden tener el mismo nombre sin confundirse.
+<DT>
+El comando ls permite listar el contenido de un directorio:</DT>
+
+<DT>
+<TT>&nbsp; ls /var</TT></DT>
+
+<DT>
+el argumento es un directorio; la salida son los nombres de archivos y
+subdirectorios en ese directorio.</DT>
+
+<DT>
+<TT>&nbsp; ls nota</TT></DT>
+
+<DT>
+el argumento es un archivo, la salida es el nombre del archivo.</DT>
+
+<DT>
+<TT>&nbsp; ls -l /var</TT></DT>
+
+<DT>
+muestra los archivos y subdirectorios contenidos en <TT>/var</TT> en formato
+largo.</DT>
+
+<DT>
+<TT>&nbsp; ls -ld /var</TT></DT>
+
+<DT>
+muestra caracter&iacute;sticas del directorio <TT>/var</TT> en lugar de
+los archivos y subdirectorios contenidos en &eacute;l.</DT>
+
+<H3>
+<A NAME="NombresArchivo"></A>Nombres de archivos.</H3>
+Para el nombre de archivo se puede usar pr&aacute;cticamente cualquier
+caracter, incluso caracteres no visibles. Los caracteres <TT>$ ; \ &amp;
+! * |</TT> causan confusi&oacute;n y no conviene usarlos. Se aconseja usar
+solamente letras, n&uacute;meros, punto, gui&oacute;n y subraya. UNIX diferencia
+may&uacute;sculas y min&uacute;sculas: el archivo <TT>NOTA.TXT</TT> es
+distinto del archivo <TT>nota.txt</TT> y tambi&eacute;n de <TT>Nota.txt</TT>.
+No se distingue entre nombre de archivo y extensi&oacute;n: <TT>nota.nueva.txt</TT>
+es un nombre de archivo v&aacute;lido, y <TT>LCK..modem</TT> tambi&eacute;n.
+<DT>
+Un archivo que comienza por un punto no es visible:</DT>
+
+<DT>
+<TT>&nbsp; touch .noseve</TT></DT>
+
+<DT>
+<TT>&nbsp; ls</TT></DT>
+
+<DT>
+<TT>&nbsp; ls -a</TT></DT>
+
+<DT>
+<FONT FACE="Courier New,Courier"><TT>ls</TT> </FONT>no lo muestra, pero
+s&iacute; <TT>ls -a</TT>.</DT>
+
+<DT>
+<TT>&nbsp; rm .noseve</TT></DT>
+
+<DT>
+lo borra como a cualquier archivo.</DT>
+
+<H3>
+<A NAME="DirectorioPropioActual"></A>Directorio propio. Directorio actual.</H3>
+Al ingresar al sistema cada usuario entra en su directorio propio, un directorio
+privado que no es tocado por el sistema ni por los otros usuarios. El directorio
+en el cual se encuentra posicionado el usuario en un momento dado se denomina
+su directorio actual.
+<DT>
+<TT>&nbsp; cd /usr/bin</TT></DT>
+
+<DT>
+<TT>&nbsp; pwd</TT></DT>
+
+<DT>
+cambia al directorio /usr/bin; el directorio actual es /usr/bin.</DT>
+
+<DT>
+<TT>&nbsp; cd</TT></DT>
+
+<DT>
+<TT>&nbsp; pwd</TT></DT>
+
+<DT>
+devuelve al usuario a su directorio propio, que es ahora el directorio
+actual.</DT>
+
+<DT>
+<TT>&nbsp; echo $HOME</TT></DT>
+
+<DT>
+nuestra el nombre del directorio propio. HOME es una variable de ambiente
+que contiene el nombre del directorio propio del usuario.</DT>
+
+<DT>
+<TT>&nbsp; cd $HOME</TT></DT>
+
+<DT>
+tiene el mismo efecto que cd.</DT>
+
+<H3>
+<A NAME="NombreDirectorio"></A>Nombres de directorios.</H3>
+Un directorio puede contener otros directorios as&iacute; como archivos
+ordinarios, lo que genera una jerarqu&iacute;a o &aacute;rbol de directorios.
+El directorio superior o directorio ra&iacute;z se denomina /.
+<DT>
+<TT>&nbsp; cd /</TT></DT>
+
+<DT>
+<TT>&nbsp; pwd</TT></DT>
+
+<DT>
+el directorio actual es el directorio ra&iacute;z.</DT>
+
+<DT>
+<TT>&nbsp; cd</TT></DT>
+
+<DT>
+vuelve al directorio propio del usuario.</DT>
+
+<DT>
+&nbsp;</DT>
+
+<DT>
+El caracter / se usa tambi&eacute;n para separar los componentes de un
+nombre de archivo completo:&nbsp; <TT>/export/home/usuario1/nota.</TT></DT>
+
+<DT>
+La porci&oacute;n <TT>/export/home/usuario</TT> es la ruta, <TT>nota</TT>
+es el nombre del archivo. Si se omite la ruta, se asume que el archivo
+se encuentra en el directorio actual. Un nombre tal como</DT>
+
+<DT>
+<TT>textos/libro/capitulo.1 </TT>indica que su ruta comienza a partir del
+directorio actual. Ser&iacute;a lo mismo escribir <TT>./textos/libro/capitulo.1
+</TT>ya
+que el punto designa el directorio actual. Dos puntos seguidos designan
+el directorio de nivel superior al actual. Si el directorio actual es <TT>/home/usuario1</TT></DT>
+
+<DT>
+<TT>&nbsp; ls ../usuario2</TT></DT>
+
+<DT>
+muestra el contenido de los archivos en <TT>/home/usuario2</TT></DT>
+
+<DT>
+&nbsp;</DT>
+
+<DT>
+El caracter / separa directorios inclu&iacute;dos como parte de un nombre
+de archivo o directorio.</DT>
+
+<DT>
+<TT>&nbsp; ls dir1</TT></DT>
+
+<DT>
+es un direccionamiento relativo;</DT>
+
+<DT>
+<TT>&nbsp; ls /home/esteban/dir1</TT></DT>
+
+<DT>
+es un direccionamiento absoluto.</DT>
+
+<DT>
+&nbsp;</DT>
+
+<DT>
+Pueden usarse comodines para referenciar directorios y archivos:</DT>
+
+<DT>
+<TT>&nbsp; cat /home/esteban/*/*</TT></DT>
+
+<H3>
+<A NAME="CambiosDirectorio"></A>Cambios en la jerarqu&iacute;a de directorios.</H3>
+
+<DT>
+<TT>&nbsp; mkdir nuevo.dir</TT></DT>
+
+<DT>
+crea un nuevo directorio.</DT>
+
+<DT>
+<TT>&nbsp; rmdir nuevo.dir</TT></DT>
+
+<DT>
+borra un directorio existente; act&uacute;a s&oacute;lo sobre directorios
+vac&iacute;os.</DT>
+
+<DT>
+<TT>&nbsp; mkdir dir1</TT></DT>
+
+<DT>
+<TT>&nbsp; mkdir dir1/dir2</TT></DT>
+
+<DT>
+<TT>&nbsp; touch dir1/dir2/arch2 dir1/arch1</TT></DT>
+
+<DT>
+<TT>&nbsp; ls -lR</TT></DT>
+
+<DT>
+muestra todos los archivos y directorios creados;</DT>
+
+<DT>
+<TT>&nbsp; rm -r dir1</TT></DT>
+
+<DT>
+borra el directorio y todos los archivos y subdirectorios que pueda contener.</DT>
+
+<H3>
+<A NAME="EstrIntArchivos"></A>Estructura interna de los archivos.</H3>
+Un archivo es una secuencia de bytes. Un byte es equivalente a un caracter.
+El sistema no impone estructura alguna a los archivos ni asigna significado
+a su contenido; el significado de los bytes depende totalmente de los programas
+que interpretan el archivo.
+<P>En ning&uacute;n caso hay ning&uacute;n byte que no haya sido colocado
+por el usuario o un programa. No hay caracter de fin de archivo. El n&uacute;cleo
+del sistema UNIX se mantiene al tanto del tama&ntilde;o de los archivos
+sin introducir ning&uacute;n caracter especial. El caracter nueval&iacute;nea
+es interpretado por las terminales como nueva l&iacute;nea y retorno de
+carro (CR LF, carriage-return y line-feed), necesario para desplegar correctamente
+los renglones en la terminal. Al apretar la tecla Enter el n&uacute;cleo
+transmite a la terminal CR LF, pero en un archivo se guarda s&oacute;lo
+LF.
+<P>&iquest;Qu&eacute; hay dentro de un archivo? El n&uacute;cleo no puede
+decirnos nada del tipo de archivo: no lo conoce. Todos los archivos tienen
+la misma estructura interna. El comando <TT>file</TT> hace una conjetura:
+lee algunos bytes y busca indicios sobre el tipo de contenido. En los sistemas
+UNIX hay s&oacute;lo una clase de archivo. Lo &uacute;nico que se requiere
+para accederlo es su nombre.
+<H3>
+<A NAME="PropiedadesArchivo"></A>Propiedad de los archivos.</H3>
+Cada usuario es due&ntilde;o de los archivos creados por &eacute;l, hasta
+que los borre o los ceda a otro usuario. Cada usuario pertenece a un grupo,
+y puede compartir archivos con los usuarios de ese grupo. Cada archivo
+est&aacute; asignado a un grupo de usuarios, al cual debe pertenecer su
+due&ntilde;o. El comando <TT>ls -l</TT> muestra due&ntilde;o y grupo de
+los archivos listados.
+<H3>
+<A NAME="TipoPermisosArchivo"></A>Tipo y permisos de archivos.</H3>
+Cada archivo tienen un conjunto de permisos asociados con &eacute;l que
+determinan qu&eacute; puede hacerse con el archivo y qui&eacute;n puede
+hacerlo.
+<DT>
+Los permisos de un archivo se indican con 10 caracteres:</DT>
+
+<DD>
+1 caracter para tipo de archivo,</DD>
+
+<DD>
+3 caracteres [rwx] para permisos del due&ntilde;o,</DD>
+
+<DD>
+3 caracteres [rwx] para permisos del grupo,</DD>
+
+<DD>
+3 caracteres [rwx] para permisos de otros.</DD>
+
+<DT>
+Caracter para tipo de archivo:</DT>
+
+<DD>
+<TT>d&nbsp; </TT>directorio</DD>
+
+<DD>
+<TT>l&nbsp; </TT>enlace simb&oacute;lico</DD>
+
+<DD>
+<TT>-&nbsp; </TT>archivo normal</DD>
+
+<DD>
+<TT>b&nbsp; </TT>archivo controlador de dispositivo orientado a bloques</DD>
+
+<DD>
+<TT>c&nbsp; </TT>archivo control de dispositivo orientado a caracteres</DD>
+
+<DT>
+Caracteres de permisos:</DT>
+
+<DD>
+<TT>r&nbsp; </TT>acceso de lectura (read)</DD>
+
+<DD>
+<TT>w&nbsp; </TT>acceso de escritura (write)</DD>
+
+<DD>
+<TT>x&nbsp; </TT>acceso de ejecuci&oacute;n (execute)</DD>
+
+<DT>
+cuyo significado var&iacute;a seg&uacute;n se trate de archivos o directorios:</DT>
+
+<DT>
+&nbsp;</DT>
+
+<TABLE BORDER NOSAVE >
+<TR>
+<TD><B>Permiso</B></TD>
+
+<TD><B>Archivos</B></TD>
+
+<TD><B>Directorios</B></TD>
+</TR>
+
+<TR>
+<TD>r</TD>
+
+<TD>leer archivos</TD>
+
+<TD>ver contenido de directorios</TD>
+</TR>
+
+<TR>
+<TD>w</TD>
+
+<TD>grabar en un archivo</TD>
+
+<TD>crear y borrar archivos</TD>
+</TR>
+
+<TR NOSAVE>
+<TD>x</TD>
+
+<TD NOSAVE>ejecutar como programa</TD>
+
+<TD>ingresar a un directorio</TD>
+</TR>
+
+<TR>
+<TD>-</TD>
+
+<TD>sin derechos</TD>
+
+<TD>sin derechos</TD>
+</TR>
+</TABLE>
+
+<P>El ingreso a un directorio (permiso x) permite ejecutar un archivo contenido
+dentro de &eacute;l, o trasladarse a ese directorio; para estas operaciones
+no es necesario poder ver los nombres de los archivos contenidos (permiso
+r).
+<BR>Un archivo se declara ejecutable d&aacute;ndole permiso de ejecuci&oacute;n.
+Se ejecuta dando su nombre. Los comandos de UNIX son archivos ejecutables.
+<DT>
+Ejemplos de permisos de archivo:</DT>
+
+<DT>
+<TT>&nbsp; rwxr--r--</TT></DT>
+
+<DT>
+<TT>&nbsp; rw-rw-r--</TT></DT>
+
+<DT>
+<TT>&nbsp; rw-------</TT></DT>
+
+<H3>
+<A NAME="ArchivosSysV"></A>El sistema de archivos en UNIX.</H3>
+Un sistema de archivos en UNIX puede contener miles de archivos, cientos
+de directorios y cientos de enlaces simb&oacute;licos, dependiendo de la
+distribuci&oacute;n y de lo que se haya instalado. Como referencia, la
+distribuci&oacute;n Debian/GNU 2.1 viene con cerca de 2500 paquetes para
+instalar. Una instalaci&oacute;n normal puede insumir un 25% en herramientas
+de administraci&oacute;n, y un 10 % en herramientas de desarrollo. Borrar,
+alterar o cambiar permisos de archivos puede conducir a resultados impredecibles.
+<DL>
+<DT>
+<TT>&nbsp; $ ls -F /</TT></DT>
+
+<DT>
+es &uacute;til para recorrer el sistema de archivos, bajando luego a los
+subdirectorios.</DT>
+</DL>
+Los requerimientos de las redes cambiaron la organizaci&oacute;n funcional
+del sistema de archivos. En un lugar grande, la red se configura con un
+conjunto de m&aacute;quinas heterog&eacute;neas, cada una responsable del
+mantenimento y uso de cada archivo. Los archivos pueden ser espec&iacute;ficos
+para cierta m&aacute;quina, compartidos por varias m&aacute;quinas del
+mismo tipo, o accesibles a casi cualquier tipo de m&aacute;quina en la
+red. Enlaces simb&oacute;licos hacia la anterior localizaci&oacute;n de
+los archivos ayudan al acceso. Un directorio puede ser real o un enlace
+simb&oacute;lico a otro; usar <TT>/bin/pwd</TT> para si se ha llegado al
+directorio directamente o a trav&eacute;s de un enlace simb&oacute;lico.
+<H4>
+Convenciones en nombres de archivos y directorios.</H4>
+
+<DT>
+<TT>/bin&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; archivos
+ejecutables, comandos de usuario</TT></DT>
+
+<DT>
+<TT>/boot&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; archivos de arranque</TT></DT>
+
+<DT>
+<TT>/cdrom&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; punto de montaje para
+la uniad de CD-ROM</TT></DT>
+
+<DT>
+<TT>/dev&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; archivos
+especiales de dispositivos</TT></DT>
+
+<DT>
+<TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+[subdirectorios propios de System V]</TT></DT>
+
+<DT>
+<TT>&nbsp; ./dsk&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; dispositivos
+de disco</TT></DT>
+
+<DT>
+<TT>&nbsp; ./fd&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; dispositivos
+descriptores de archivo</TT></DT>
+
+<DT>
+<TT>&nbsp; ./kd&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; dispositivos
+de teclado y despliegue</TT></DT>
+
+<DT>
+<TT>&nbsp; ./kmem&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; memoria</TT></DT>
+
+<DT>
+<TT>&nbsp; ./null&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; dispositivo para
+descarte de salidas</TT></DT>
+
+<DT>
+<TT>&nbsp; ./osm&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mensajes de
+error del n&uacute;cleo</TT></DT>
+
+<DT>
+<TT>&nbsp; ./pts&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pseudo ttys;
+igual que /dev/pts*</TT></DT>
+
+<DT>
+<TT>&nbsp; ./rdsk&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; dispositivos crudos
+de disco</TT></DT>
+
+<DT>
+<TT>&nbsp; ./term&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; terminales; igual
+que /dev/tty*</TT></DT>
+
+<DT>
+<TT>&nbsp; ./xt&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pseudo
+ttys; para capas DMD</TT></DT>
+
+<DT>
+<TT>/dosc&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; punto de
+montaje para la partici&oacute;n DOS</TT></DT>
+
+<DT>
+<TT>/etc&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; configuraci&oacute;n
+de paquetes, configuraci&oacute;n de sistema</TT></DT>
+
+<DT>
+<TT>&nbsp; ./init.d&nbsp;&nbsp;&nbsp;&nbsp; scripts de arranque y detenci&oacute;n
+de programas</TT></DT>
+
+<DT>
+<TT>&nbsp; ./rc?.d&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; enlaces a scripts, con
+K o S (Kill o Start), y n&uacute;mero de</TT></DT>
+
+<DT>
+<TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+secuencia para controlar el arranque</TT></DT>
+
+<DT>
+<TT>&nbsp; ./skel&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; archivos de inicializaci&oacute;n
+para nuevos usuarios</TT></DT>
+
+<DT>
+<TT>/export&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; directorios de usuarios
+en sistemas grandes</TT></DT>
+
+<DT>
+<TT>/floppy&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; para montar una unidad
+de disquete</TT></DT>
+
+<DT>
+<TT>/home&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objetos
+relacionados con los usuarios</TT></DT>
+
+<DT>
+<TT>/lib&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; bibliotecas
+de desarrollo y material de apoyo</TT></DT>
+
+<DT>
+<TT>/lost+found&nbsp;&nbsp;&nbsp; archivos perdidos</TT></DT>
+
+<DT>
+<TT>/mnt&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; punto
+de montaje de dispositivos externos</TT></DT>
+
+<DT>
+<TT>/proc&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; archivos
+de control de procesos</TT></DT>
+
+<DT>
+<TT>/root&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; directorio
+propio para el supervisor (root)</TT></DT>
+
+<DT>
+<TT>/sbin&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; archivos
+ejecutables de administraci&oacute;n</TT></DT>
+
+<DT>
+<TT>/tmp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; archivos
+temporales</TT></DT>
+
+<DT>
+<TT>/usr&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ejecutables,
+documentaci&oacute;n, referencia</TT></DT>
+
+<DT>
+<TT>&nbsp; ./X11R6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sistema X-Windows</TT></DT>
+
+<DT>
+<TT>&nbsp; ./bin&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; m&aacute;s ejecutables</TT></DT>
+
+<DT>
+<TT>&nbsp; ./doc&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; documentos de
+paquetes de software</TT></DT>
+
+<DT>
+<TT>&nbsp; ./include&nbsp;&nbsp;&nbsp; encabezados .h de bibliotecas en
+C</TT></DT>
+
+<DT>
+<TT>&nbsp; ./info&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; archivos de info,
+informaci&oacute;n de UNIX (GNU)</TT></DT>
+
+<DT>
+<TT>&nbsp; ./lib&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; m&aacute;s bibliotecas
+en C</TT></DT>
+
+<DT>
+<TT>&nbsp; ./local&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ejecutables instalados
+por el administrador</TT></DT>
+
+<DT>
+<TT>&nbsp; ./man&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; subdirectorios
+de p&aacute;ginas del manual</TT></DT>
+
+<DT>
+<TT>&nbsp; ./sbin&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; m&aacute;s archivos
+ejecutables de administraci&oacute;n</TT></DT>
+
+<DT>
+<TT>&nbsp; ./share&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; compartidos</TT></DT>
+
+<DT>
+<TT>&nbsp; ./src&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (source) c&oacute;digo
+fuente del kernel</TT></DT>
+
+<DT>
+<TT>/var&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; archivos
+de log, auxiliares, archivos que crecen</TT></DT>
+
+<DT>
+<TT>&nbsp; ./backup&nbsp;&nbsp;&nbsp;&nbsp; respaldo de algunos archivos
+del sistema</TT></DT>
+
+<DT>
+<TT>&nbsp; ./catman&nbsp;&nbsp;&nbsp;&nbsp; p&aacute;ginas man ya formateadas</TT></DT>
+
+<DT>
+<TT>&nbsp; ./lib&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; informaci&oacute;n
+propia de programas</TT></DT>
+
+<DT>
+<TT>&nbsp; ./lock&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; control de bloqueos</TT></DT>
+
+<DT>
+<TT>&nbsp; ./log&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; archivos de
+registro de mensajes (log) del sistema</TT></DT>
+
+<DT>
+<TT>&nbsp; ./spool&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; colas de impresi&oacute;n,
+intermedios de correo y otros&nbsp;&nbsp;&nbsp; ./run&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+informaci&oacute;n de procesos (PIDs)</TT></DT>
+
+<DT>
+&nbsp;</DT>
+
+<H3>
+<A NAME="Ejercicios"></A><B><A HREF="sisar1ej.htm">Preguntas y Ejercicios.</A></B></H3>
+
+<H3>
+<A NAME="Bibliografia"></A><B>Bibliograf&iacute;a.</B></H3>
+<B>Comandos:</B>
+<P><TT>ls cat cd echo file mkdir pwd rm rmdir touch</TT>
+<P><B>Referencias:</B> Kernighan-Pike[1987], Coffin[1989]
+<DT>
+&nbsp;</DT>
+
+<ADDRESS>
+
+<HR WIDTH="100%"></ADDRESS>
+
+<ADDRESS>
+V&iacute;ctor A. Gonz&aacute;lez Barbone <A HREF="mailto: vagonbar en fing edu uy">vagonbar en fing edu uy</A></ADDRESS>
+
+<ADDRESS>
+<A HREF="http://iie.fing.edu.uy">Instituto de Ingenier&iacute;a El&eacute;ctrica</A>
+- <A HREF="http://www.fing.edu.uy">Facultad de Ingenier&iacute;a</A> -
+Montevideo, Uruguay.</ADDRESS>
+
+</BODY>
+</HTML>

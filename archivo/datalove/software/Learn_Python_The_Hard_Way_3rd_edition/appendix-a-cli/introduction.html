@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en"> <!--<![endif]-->
+
+<!-- Mirrored from learnpythonthehardway.org/book/appendix-a-cli/introduction.html by HTTrack Website Copier/3.x [XR&CO'2013], Sat, 28 Dec 2013 20:46:22 GMT -->
+<head>
+    <meta charset="utf-8" />
+
+    <!-- Set the viewport width to device width for mobile -->
+    <meta name="viewport" content="width=device-width" />
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Docutils 0.10: http://docutils.sourceforge.net/" />
+    <title></title>
+
+    <!-- Included CSS Files (Compressed) -->
+    <link rel="stylesheet" href="stylesheets/foundation.html">
+    <link rel="stylesheet" href="stylesheets/normalize.html">
+    <link rel="stylesheet" href="stylesheets/app.html">
+    <link rel="stylesheet" href="stylesheets/pygments.html">
+
+    <script src="javascripts/vendor/jquery.html"></script>
+  <script src="javascripts/foundation/foundation.html"></script>
+    <script src="javascripts/vendor/custom.modernizr.html"></script>
+  
+  <!-- Initialize JS Plugins -->
+  <script src="javascripts/app.html"></script>
+
+    <!-- IE Fix for HTML5 Tags -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.10: http://docutils.sourceforge.net/" />
+<title>Introduction: Shut Up And Shell</title>
+
+</head>
+<body>
+    <nav class="top-bar">
+        <ul class="title-area">
+            <!-- Title Area -->
+            <li class="name">
+              <h1><a href="http://learnpythonthehardway.org/">Learn Python The Hard Way</a></h1>
+            </li>
+        </ul>
+
+        <section class="top-bar-section">
+            <!-- Right Nav Section -->
+            <ul class="right">
+                <li> <a href="#video">Watch The Video</a></li>
+            </ul>
+        </section>
+
+        <section class="top-bar-section">
+            <!-- Right Nav Section -->
+            <ul class="right">
+                <li><a href="https://paydiv.io/products/contents/2/">See All The Content</a></li>
+            </ul>
+        </section>
+
+        <section class="top-bar-section">
+            <!-- Right Nav Section -->
+            <ul class="right">
+                <li><a href="https://paydiv.io/access/buy/2/">Purchase The Videos+PDF For $29.59</a></li>
+            </ul>
+        </section>
+    </nav>
+
+  <div class="row">
+    <div class="large-11 columns">
+        <h1 class="title">Introduction: Shut Up And Shell</h1>
+
+        <p>This appendix is a crash course in using the command line to make your computer perform tasks.  As a crash course, it's not as detailed or extensive as my other books.  It is simply designed to get you barely capable enough to start using your computer like a real programmer does.  When you're done with this appendix, you will be able to give most of the basic commands that every shell user touches every day.  You'll understand the basics of directories and a few other concepts.</p>
+<p>The only piece of advice I am going to give you is this:</p>
+<blockquote>
+Shut up and type all of this in.</blockquote>
+<p>Sorry to be mean, but that's what you have to do.  If you have an irrational fear of the command line, the only way to conquer an irrational fear is to just shut up and fight through it.</p>
+<p>You are not going to destroy your computer.  You are not going to be thrown into some jail at the bottom of Microsoft's Redmond campus.  Your friends won't laugh at you for being a nerd.  Simply ignore any stupid weird reasons you have for fearing the command line.</p>
+<p>Why?  Because if you want to learn to code, then you must learn this.  Programming languages are advanced ways to control your computer with language.  The command line is the baby little brother of programming languages.  Learning the command line teaches you to control the computer using language.  Once you get past that, you can then move on to writing code and feeling like you actually own the hunk of metal you just bought.</p>
+<div class="section" id="how-to-use-this-appendix">
+<h1>How to Use This Appendix</h1>
+<p>The best way to use this appendix is to do the following:</p>
+<ul class="simple">
+<li>Get yourself a small paper notebook and a pen.</li>
+<li>Start at the beginning of the appendix and do each exercise exactly as you're told.</li>
+<li>When you read something that doesn't make sense or that you don't understand, <em>write it down in your notebook</em>.  Leave a little space so you can write an answer.</li>
+<li>After you finish an exercise, go back through your notebook and review the questions you have.  Try to answer them by searching online and asking friends who might know the answer.  Email me at <a class="reference external" href="mailto:help&#64;learncodethehardway.org">help&#64;learncodethehardway.org</a> and I'll help you too.</li>
+</ul>
+<p>Just keep going through this process of doing an exercise, writing down questions you have, then going back through and answering the questions you can.  By the time you're done, you'll actually know a lot more than you think about using the command line.</p>
+</div>
+<div class="section" id="you-will-be-memorizing-things">
+<h1>You Will Be Memorizing Things</h1>
+<p>I'm warning you ahead of time that I'm going to make you memorize things right away.  This is the quickest way to get you capable at something, but for some people memorization is painful.  Just fight through it and do it anyway.  Memorization is an important skill in learning things, so you should get over your fear of it.</p>
+<p>Here's how you memorize things:</p>
+<ul class="simple">
+<li>Tell yourself you <em>will</em> do it.  Don't try to find tricks or easy ways out of it, just sit down and do it.</li>
+<li>Write what you want to memorize on some index cards.  Put one half of what you need to learn on one side, then another half on the other side.</li>
+<li>Every day for about 15-30 minutes, drill yourself on the index cards, trying to recall each one.  Put any cards you don't get right into a different pile, just drill those cards until you get bored, then try the whole deck and see if you improve.</li>
+<li>Before you go to bed, drill just the cards you got wrong for about 5 minutes, then go to sleep.</li>
+</ul>
+<p>There are other techniques, like you can write what you need to learn on a sheet of paper, laminate it, then stick it to the wall of your shower.  While you're bathing, drill the knowledge without looking, and when you get stuck glance at it to refresh your memory.</p>
+<p>If you do this every day, you should be able to memorize most things I tell you to memorize in about a week to a month.  Once you do, nearly everything else becomes easier and intuitive, which is the purpose of memorization.  It's not to teach you abstract concepts, but rather to ingrain the basics so that they are intuitive and you don't have to think about them.  Once you've memorized these basics they stop being speed bumps preventing you from learning more advanced abstract concepts.</p>
+</div>
+
+        <div class="section" id="video">
+            <div class="large-12 columns panel">
+                <div data-paydiv_product="2" id='paydiv'>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="large-1 columns" id="right-nav">
+        <center>
+        <p><a href="../index.html"><img src="images/48_structure.html"></a></p>
+        <p><a href="mailto:help@learncodethehardway.org"><img src="images/48_email.html"></a></p>
+        <p><a href="#common-student-questions"><img src="images/48_faq.html"></a></p>
+        <p><a href="#video"><img src="images/48_video.html"></a></p>
+        </center>
+    </div>
+
+    <div class="twelve columns" id="footer">
+        <div class="large-4 columns" id="footer-block">
+            <p>
+            <a href="http://learncodethehardway.org/">Copyright (C) 2010 Zed. A. Shaw</a>
+            </p>
+        </div>
+        <div class="large-4 columns" id="footer-block">
+            <p>
+            </p>
+        </div>
+        <div class="large-3 columns" id="footer-block">
+            <p>
+            </p>
+        </div>
+        <div class="one columns">
+            &nbsp;
+        </div>
+    </div>
+
+
+
+    <script src="https://paydiv.io/static/js/videojs/video.js"></script>
+    <link rel="stylesheet" href="https://paydiv.io/static/js/videojs/video-js.css">
+    <script src="https://paydiv.io/static/api/v1/paydiv.js"></script>
+
+  <!-- Included JS Files (Compressed) -->
+  <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-24168052-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script>
+
+</body>
+
+<!-- Mirrored from learnpythonthehardway.org/book/appendix-a-cli/introduction.html by HTTrack Website Copier/3.x [XR&CO'2013], Sat, 28 Dec 2013 20:46:36 GMT -->
+</html>

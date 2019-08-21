@@ -1,0 +1,172 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+   <TITLE></TITLE>
+   <META NAME="GENERATOR" CONTENT="Mozilla/3.01Gold (Win16; I) [Netscape]">
+   <META NAME="AUTHOR" CONTENT="Víctor A. GONZALEZ BARBONE">
+   <META NAME="CREATED" CONTENT="19990225;10410400">
+   <META NAME="CHANGED" CONTENT="16010101;0">
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+</HEAD>
+<BODY TEXT="#000000" BGCOLOR="#FFFFFF" LINK="#0000EE" VLINK="#551A8B">
+
+<DL>
+<ADDRESS>Centro de Inform&aacute;tica. Sistemas Operativos II. Curso 1999.</ADDRESS>
+
+<DT>
+<HR WIDTH="100%"></DT>
+
+<H2 ALIGN=CENTER>Prueba parcial 2/2.</H2>
+</DL>
+
+<DT><FONT SIZE=+1>&nbsp;&nbsp;</FONT></DT>
+
+<DT><FONT SIZE=+1>Nombre:&nbsp;______________________________________&nbsp;Nota:
+___________&nbsp;</FONT></DT>
+
+<P><B>Con libre consulta de material.</B></P>
+
+<DT><B>Estructura de archivos.</B></DT>
+
+<DT>Estructura del archivo /etc/passwd:</DT>
+
+<DD><TT>#nombre:contrase&ntilde;a:UID:GID:comentarios:dir_propio:shell</TT></DD>
+
+<DD><TT>jperez:Xdio0IKLLP:1130:103:Juan P&eacute;rez:/home/jperez:/bin/bash</TT></DD>
+
+<DT>Estructura del archivo /etc/group:</DT>
+
+<DD><TT>#grupo:GID:lista_usuarios</TT></DD>
+
+<DD><TT>docentes:103:victor,german,fernando</TT></DD>
+
+<DT>Estructura del archivo /etc/hosts:</DT>
+
+<DD><TT>#n&uacute;mero_IP nombre_m&aacute;quina alias</TT></DD>
+
+<DD><TT>10.137.137.250&nbsp;&nbsp;&nbsp; liebre.cdi.edu.uy liebre localhost
+mailhost</TT></DD>
+
+<DT>Todos los archivos anteriores pueden tener comentarios (l&iacute;neas
+comenzadas por #).</DT>
+
+<DT>En los sistemas con NIS, para <TT>passwd</TT> y <TT>group</TT> usar
+el comanto <TT>ypcat</TT> en lugar de cat para listar estos archivos, o
+el comando <TT>ypmatch</TT> para extraer una l&iacute;nea sola de alguno
+de ellos. Ejemplos:</DT>
+
+<DT><TT>&nbsp; ypcat passwd</TT></DT>
+
+<DT><TT>&nbsp; ypcat group</TT></DT>
+
+<DT><TT>&nbsp; ypmatch jperez passwd</TT></DT>
+
+<DT><TT>&nbsp;&nbsp;</TT></DT>
+
+<DT><FONT SIZE=+2>1.</FONT> Escribir un script <TT>admaq</TT> para agregar
+una m&aacute;quina al archivo <TT>/etc/hosts</TT>. Solicitar&aacute; al
+usuario un n&uacute;mero IP y luego un nombre de m&aacute;quina. El ingreso
+del nombre de m&aacute;quina se reiterar&aacute; hasta que el usuario ingrese
+un nombre de m&aacute;quina vac&iacute;o (tecla Enter sin escribir nada).
+El script armar&aacute; la l&iacute;nea en el formato del archivo hosts
+y la presentar&aacute; al usuario pidiendo confirmaci&oacute;n. Si la obtiene,
+adjuntar&aacute; la l&iacute;nea al final del archivo <TT>/etc/hosts</TT>.
+<B>(15 puntos)</B></DT>
+
+<DT>&nbsp;&nbsp;</DT>
+
+<DT><FONT SIZE=+2>2.</FONT> Escribir un script <TT>sumadora</TT> para hacer
+sumas y restas de enteros. Presentar&aacute; al usuario una interfaz similar
+a &eacute;sta:</DT>
+
+<DT><TT>&nbsp;&nbsp;SUMADORA: suma y resta enteros.</TT></DT>
+
+<DT><TT>&nbsp;&nbsp;Los s&iacute;mbolos aceptados son: + y -</TT></DT>
+
+<DT><TT>&nbsp;&nbsp;Debe haber espacio entre todos los operandos y operadores.</TT></DT>
+
+<DT><TT>&nbsp;&nbsp;Ejemplo: 5 + 3 - 20 + 35</TT></DT>
+
+<DT><TT>&nbsp;&nbsp;Ingrese operaciones:</TT></DT>
+
+<DT><TT>&nbsp;&nbsp;3 * 2 + 10</TT></DT>
+
+<DT><TT>&nbsp;&nbsp;Resultado:</TT></DT>
+
+<DT><TT>&nbsp;&nbsp;16</TT></DT>
+
+<DT>Si la expresi&oacute;n ingresada es correcta, el script realizar&aacute;
+el c&aacute;lculo y presentar&aacute; el resultado; si no lo es, emitir&aacute;
+en lugar del resultado el mensaje &quot;Expresi&oacute;n incorrecta. Debe
+comenzar de nuevo&quot; y saldr&aacute;.</DT>
+
+<DT>&iquest;Qu&eacute; dificultas se presentar&iacute;a al inclu&iacute;r
+otras operaciones?</DT>
+
+<DT><B>Sugerencia:</B> para controlar la validez de la expresi&oacute;n,
+capturar el valor de retorno del comando que realiza la operaci&oacute;n.
+<B>(10 puntos)</B></DT>
+
+<DT>&nbsp;&nbsp;</DT>
+
+<DT><FONT SIZE=+2>3.</FONT> Un administrador de una m&aacute;quina UNIX
+debe revisar d&iacute;a a d&iacute;a si hay conexi&oacute;n hacia todas
+las m&aacute;quinas contenidas en el archivo <TT>/etc/hosts</TT>. Para
+ello dispone del comando</DT>
+
+<DT><TT>&nbsp;&nbsp;&nbsp;ping -c1 &lt;nombre de la m&aacute;quina destino&gt;</TT></DT>
+
+<DT>Como ejemplo, el comando</DT>
+
+<DT><TT>&nbsp;&nbsp;ping -c1 nutria</TT></DT>
+
+<DT>env&iacute;a y recibe un paquete hacia la m&aacute;quina <TT>nutria</TT>.
+El valor de retorno del comando <TT>ping</TT> es el siguiente:</DT>
+
+<DT>&nbsp;&nbsp;0 &nbsp;&nbsp;La m&aacute;quina destino est&aacute; viva,
+contesta normalmente.</DT>
+
+<DT>&nbsp;&nbsp;1 &nbsp;&nbsp;La m&aacute;quina destino no contesta. </DT>
+
+<DT>&nbsp;&nbsp;2 &nbsp;&nbsp;Hubo alg&uacute;n error.</DT>
+
+<DT>Construir un script <TT>vivas</TT> que pruebe conectividad a todas
+las m&aacute;quinas contenidas en el archivo <TT>/etc/hosts</TT>, y muestre
+el nombre de las m&aacute;quinas indicando su estado, as&iacute;:</DT>
+
+<DT><TT>&nbsp;&nbsp;RESPUESTA&nbsp;de m&aacute;quinas en /etc/hosts:</TT></DT>
+
+<DT><TT>&nbsp;&nbsp;nutria: est&aacute; viva.</TT></DT>
+
+<DT><TT>&nbsp;&nbsp;gaviota: no contesta.</TT></DT>
+
+<DT><TT>&nbsp;&nbsp;coati: error en ping</TT></DT>
+
+<DT><B>Sugerencias.</B> Recordar que el archivo /etc/hosts puede tener
+comentarios. Redireccionar salida y error de <TT>ping</TT> para no confundir
+la salida del script. <B>(15 puntos)</B></DT>
+
+<DT>&nbsp;&nbsp;</DT>
+
+<DT><FONT SIZE=+2>4.</FONT> El comando <TT>df</TT> muestra el espacio disponible
+en los sistemas de archivos montados. Su salida tiene esta forma:</DT>
+
+<DT><TT>&nbsp;&nbsp;Filesystem&nbsp;&nbsp;1024-blocks&nbsp;&nbsp;&nbsp;Used&nbsp;&nbsp;Available
+&nbsp;Capacity&nbsp;&nbsp;Mounted on</TT></DT>
+
+<DT><TT>&nbsp;&nbsp;/dev/hda2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1484386&nbsp;&nbsp;433463&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;974213&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;31%
+&nbsp;&nbsp;/</TT></DT>
+
+<DT><TT>&nbsp;&nbsp;/dev/hda1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1228736&nbsp;&nbsp;524576&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;704160&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;31%
+&nbsp;&nbsp;/dosc</TT></DT>
+
+<DT><TT>&nbsp;&nbsp;/dev/hda3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 68263&nbsp;&nbsp;&nbsp;&nbsp;63484&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4779&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;93%&nbsp;&nbsp;&nbsp;/tmp</TT></DT>
+
+<DT>Los campos est&aacute;n separados por espacios. El campo Capacity indica
+el porcentaje ocupado. Escribir un script<TT> espacio </TT>que invoque
+el comando <TT>df</TT> y muestre en su salida el nombre del sistema de
+archivo y su capacidad ocupada para los sistemas de archivos con 90% o
+m&aacute;s espacio ocupado. <B>(10 puntos)</B></DT>
+
+</BODY>
+</HTML>

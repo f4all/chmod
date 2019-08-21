@@ -1,0 +1,374 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+    
+  <meta http-equiv="Content-Type"
+ content="text/html; charset=iso-8859-1">
+    
+  <meta name="GENERATOR"
+ content="Mozilla/4.06 [es] (Win95; I) [Netscape]">
+  <title>Curso B&aacute;sico de UNIX - Programaci&oacute;n del Shell - Ejercicios
+- Resoluci&oacute;n</title>
+</head>
+  <body text="#000000" bgcolor="#ffffff" link="#0000ff" vlink="#ff0000"
+ alink="#000088">
+  
+<address> <a href="index.htm">Curso&nbsp; B&aacute;sico de UNIX</a></address>
+  
+<center> 
+<h2> Programaci&oacute;n del Shell</h2>
+</center>
+  
+<center> 
+<h3> Ejercicios resueltos</h3>
+</center>
+   &nbsp;<br>
+   <b>Estructura de archivos.</b><br>
+   Estructura del archivo /etc/passwd:<br>
+  <dd> <tt>#nombre:contrase&ntilde;a:UID:GID:comentarios:dir_propio:shell</tt></dd>
+  <dd> <tt>jperez:Xdio0IKLLP:1130:103:Juan P&eacute;rez:/home/jperez:/bin/bash</tt></dd>
+   Estructura del archivo /etc/group:<br>
+  <dd> <tt>#grupo:GID:lista_usuarios</tt></dd>
+  <dd> <tt>docentes:103:victor,german,fernando</tt></dd>
+   Estructura del archivo /etc/hosts:<br>
+  <dd> <tt>#n&uacute;mero_IP nombre_m&aacute;quina alias</tt></dd>
+  <dd> <tt>10.137.137.250&nbsp;&nbsp;&nbsp; liebre.cdi.edu.uy liebre localhost 
+mailhost</tt></dd>
+   Todos los archivos anteriores pueden tener comentarios (l&iacute;neas
+comenzadas por #).<br>
+   En los sistemas con NIS, para <tt>passwd</tt> y <tt>group</tt> usar el 
+comanto <tt>ypcat</tt> en lugar de cat para listar estos archivos, o el comando
+<tt>ypmatch</tt> para extraer una l&iacute;nea sola de alguno de ellos. Ejemplos:<br>
+   <tt>&nbsp; ypcat passwd</tt><br>
+   <tt>&nbsp; ypcat group</tt><br>
+   <tt>&nbsp; ypmatch jperez passwd</tt><br>
+   &nbsp;<br>
+   <b>Nota.</b><br>
+   En la construcci&oacute;n de los siguientes programas o 'scripts' se valorar&aacute; 
+la presentaci&oacute;n interna y externa. En la presentaci&oacute;n interna, 
+importa la indentaci&oacute;n, los comentarios, la claridad de los comandos, 
+la significaci&oacute;n de los nombres elegidos; todo esto debe permitir considerar
+al programa como 'autodocumentado'. En la presentaci&oacute;n externa, importan
+las leyendas aclaratorias, ayudas, y avisos de ejecuci&oacute;n que favorezcan
+al usuario ocasional. Se aconseja colocar los archivos de los programas en
+un subdirectorio bin del directorio propio del usuario, donde no deber&aacute;
+haber otra cosa que estos programas.<br>
+   &nbsp;<br>
+   <b>1.</b> Recibir un nombre de archivo como par&aacute;metro e indicar, 
+imprimiendo todas las leyendas que correspondan, si el archivo es legible, 
+modificable y ejecutable por el usuario.<br>
+<tt><br>
+#!/bin/bsh<br>
+# carsarch.sh: caracter&iacute;sticas de un archivo<br>
+echo Caracteristicas del archivo $1<br>
+if [ -r $1 ]<br>
+then<br>
+&nbsp; echo es legible<br>
+fi<br>
+if [ -w $1 ]<br>
+then<br>
+&nbsp; echo es grabable<br>
+fi<br>
+if [ -r $1 ]<br>
+then<br>
+&nbsp; echo es ejecutable<br>
+fi<br>
+&nbsp;<br>
+</tt>                                             <b>2.</b> Recibir varios
+nombres de archivo como par&aacute;metros, y para cada uno validar si el
+nombre corresponde a un archivo com&uacute;n existente, y si es as&iacute;
+mostrarlo en pantalla paginando.<br>
+   <tt>&nbsp;<br>
+#!/bin/bash<br>
+# mostrarchs.sh: muestra contenido de varios archivos<br>
+for VAR in $*<br>
+do<br>
+if [ -f $VAR ]<br>
+then<br>
+&nbsp; more $VAR<br>
+else<br>
+&nbsp; echo No existe $VAR<br>
+fi<br>
+done<br>
+</tt>                              <tt>&nbsp;</tt><br>
+   <b>3.</b> Recibir un nombre de directorio, validar existencia y condici&oacute;n 
+de directorio y mostrar nombres de todos los directorios y subdirectorios 
+bajo &eacute;l, en formato de p&aacute;gina largo 23.<br>
+<tt><br>
+#!/bin/bash<br>
+# esdir.sh: verifica directorio y muestra contenido recursivo<br>
+clear<br>
+if [ -d $1 ] <br>
+then <br>
+&nbsp; echo Directorios bajo $1 <br>
+&nbsp; echo "Digite Enter para continuar"; read; clear <br>
+&nbsp; ls -lR $1 2&gt;/dev/null | grep '^d' | pr -l24 | more -24 <br>
+&nbsp; # el valor 24 en more es para visualizar en pantalla <br>
+else <br>
+&nbsp; echo No existe el directorio $1 <br>
+fi  &nbsp;</tt>        <br>
+<br>
+   <b>4.</b> Escribir un programa <tt>seaejec</tt> que reciba un nombre de 
+archivo, verifique que existe y que es un archivo com&uacute;n, lo convierta 
+en ejecutable para el due&ntilde;o y el grupo y muestre el modo final.<br>
+   <tt>&nbsp;<br>
+#!/bin/bash<br>
+# seaejec: convierte un archivo en ejecutable<br>
+#<br>
+ARCH=$1<br>
+if [ -f $ARCH ]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # existe
+y es archivo regular<br>
+then<br>
+&nbsp; chmod ug+x $ARCH<br>
+&nbsp; ls -l $ARCH<br>
+else<br>
+&nbsp; echo "seaejec: el archivo $ARCH no pudo ser convertido"<br>
+fi</tt>                                 <br>
+   &nbsp;<br>
+   <b>5.</b> Escribir un programa <tt>copiabin</tt>.sh que mueva todos los
+programas del directorio actual (archivos ejecutables) hacia el subdirectorio 
+<tt>bin</tt> del directorio propio del usuario, muestre los nombres de los
+que mueve e indique cu&aacute;ntos ha movido o que no ha movido ninguno.
+Si el directorio bin no existe, deber&aacute; ser creado.<br>
+   <tt>&nbsp;<br>
+#!/bin/bash<br>
+# copiabin.sh: copia archivos ejecutables hacia $HOME/bin<br>
+#<br>
+# si el directorio bin no existe lo crea<br>
+if [ ! -d $HOME/bin ]<br>
+then<br>
+&nbsp; mkdir $HOME/bin<br>
+fi<br>
+# copia de archivos<br>
+N=0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # contador
+de archivos copiados<br>
+for ARCH in *<br>
+do<br>
+&nbsp; if [ -x $ARCH -a -f $ARCH ]&nbsp; # ejecutable y archivo com&uacute;n
+(no directorio)<br>
+&nbsp; then<br>
+&nbsp;&nbsp;&nbsp; cp $ARCH $HOME/bin<br>
+&nbsp;&nbsp;&nbsp; echo "&nbsp; $ARCH fue copiado a $HOME/bin"<br>
+&nbsp;&nbsp;&nbsp; N=`expr $N + 1`<br>
+&nbsp; fi<br>
+done<br>
+if [ $N -eq 0 ]<br>
+then<br>
+&nbsp; echo "No se copi&oacute; ning&uacute;n archivo"<br>
+else<br>
+&nbsp; echo "Fueron copiados $N archivos"<br>
+fi<br>
+&nbsp;</tt>                                                            <br>
+   <b>6.</b> Usando el archivo /etc/passwd escribir el programa <tt>usuarios</tt>
+ que lista los nombres de login, el directorio propio del usuario y el int&eacute;rprete 
+invocado por defecto de todos los usuarios, ordenados alfab&eacute;ticamente 
+por nombre de login.<tt><br>
+&nbsp;<br>
+# usuarios: lista datos de usuarios<br>
+#<br>
+echo "Nombres de usuarios, Directorio propio, int&eacute;rprete de comandos"<br>
+ypcat passwd | cut -d: -f1,6,7 | sort | more<br>
+echo<br>
+&nbsp;</tt>                     <br>
+   <b>7.</b> Usando solamente el archivo /etc/group, escribir los siguientes 
+programas:<br>
+   a) 'grupo1': listar los nombres y n&uacute;meros de grupo y la lista de 
+usuarios de cada uno, ordenados por nombre.<br>
+   b) 'grupo2': igual, ordenados por n&uacute;mero de grupo.<br>
+   c) 'grupo3': re&uacute;ne las dos salidas anteriores, con leyendas explicativas 
+adecuadas para cada parte y para cada columna, as&iacute; como nombre de la
+m&aacute;quina y fecha del d&iacute;a.<br>
+   <tt>&nbsp;<br>
+#!/bin/bash<br>
+#<br>
+# grupo1:<br>
+clear<br>
+echo "Grupos por nombre:"<br>
+echo ---------------------------------------------------------<br>
+echo "login:n&uacute;mero_de_grupo:lista de usuarios"<br>
+echo ---------------------------------------------------------<br>
+ypcat group | cut -d: -f1,3,4 | sort | more -18<br>
+echo ---------------------------------------------------------<br>
+echo Digite Enter para continuar<br>
+read<br>
+clear<br>
+&nbsp;<br>
+#!/bin/bash<br>
+#<br>
+# grupo2:<br>
+echo "Grupos por n&uacute;mero:"<br>
+echo ---------------------------------------------------------<br>
+echo "login:n&uacute;mero_de_grupo:lista de usuarios"<br>
+echo ---------------------------------------------------------<br>
+ypcat group | cut -d: -f1,3,4 | sort -t: -n +1 | more -18<br>
+echo ---------------------------------------------------------<br>
+echo<br>
+&nbsp;<br>
+#!/bin/bash<br>
+#<br>
+# grupo3:<br>
+clear<br>
+./grupo1<br>
+echo<br>
+./grupo2<br>
+echo<br>
+echo M&aacute;quina: `hostname`<br>
+echo Fecha: `date`<br>
+&nbsp;</tt>                                                               
+                                             <br>
+   <b>8.</b> Escribir un programa <tt>usugrup</tt> que dado un nombre de
+login de usuario determine si existe en el sistema, y si es as&iacute;, presente 
+su nombre de usuario, , n&uacute;mero de usuario (UID), grupo primario y
+grupos secundarios si los tiene, con leyendas adecuadas.<br>
+   <tt>&nbsp;<br>
+#!/bin/bash<br>
+# usugrup: datos y grupos de un usuario<br>
+#<br>
+USUARIO=$1<br>
+id $USUARIO 1&gt;/dev/null 2&gt;&amp;1<br>
+ERROR=$?<br>
+if [ $ERROR -ne 0 ]<br>
+then<br>
+&nbsp; echo "El usuario " $USUARIO "no existe"<br>
+&nbsp; exit<br>
+fi<br>
+NOMBRE=`id $USUARIO | cut -f1 -d" "`<br>
+echo \(UID\) y nombre: $NOMBRE<br>
+GRUPO1=`id $USUARIO | cut -f2 -d" "`<br>
+echo \(GID\) y grupo primario: $GRUPO1<br>
+if test `id $USUARIO | tr " " "\n" | wc -l` -gt 2<br>
+then<br>
+&nbsp; GRUPOS2=`id $USUARIO | cut -f3 -d" "`<br>
+echo \(GIDs\) y grupos secundarios: $GRUPOS2<br>
+fi<br>
+&nbsp;</tt>                                                               
+<br>
+   <b>9.</b> Escribir un programa <tt>grupusu</tt> que dado un nombre de
+grupo determine si existe en el sistema, y si es as&iacute;, presente su
+nombre, n&uacute;mero de grupo (GID), y lista de usuarios que pertenezcan
+a &eacute;l, ya sea como grupo primario (en /etc/passwd) o como grupo secundario
+(lista en /etc/group).<br>
+   <tt>&nbsp;<br>
+#!/bin/bash<br>
+# determina usuarios en un grupo<br>
+&nbsp;<br>
+GRUPO=$1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # nombre de variable significativo<br>
+EXISTE=`ypcat group | grep "^$GRUPO"`<br>
+if [ ! $EXISTE ]<br>
+then<br>
+&nbsp; echo "El grupo $GRUPO no existe."<br>
+&nbsp; exit<br>
+fi<br>
+&nbsp;<br>
+# extrae n&uacute;mero del grupo<br>
+<br>
+GID=`echo $EXISTE | cut -d: -f3` <br>
+echo "El n&uacute;mero del grupo $GRUPO es $GID"  &nbsp;<br>
+# busca usuarios con este grupo primario<br>
+<br>
+echo Usuarios en este grupo como primario: <br>
+&nbsp;  # corta campos usuario e id grupo,<br>
+<br>
+# selecciona l&iacute;neas con $GID al final, <br>
+# luego corta el GID, deja nombre usuario <br>
+ypcat passwd | cut -d: -f1,4 | grep :$GID$ | cut -d: -f1  &nbsp;<br>
+# busca usuarios con este grupo secundario<br>
+<br>
+echo Usuarios en este grupo como secundario:  echo $EXISTE | cut -d: -f4
+| tr "," " "<br>
+&nbsp;</tt>                                                     <br>
+   <b>10.</b> Escribir los siguientes programas:<br>
+   a) <tt>ligass</tt>: muestra los nombres de archivo que son enlaces simb&oacute;licos.<br>
+   b) <tt>ligash</tt>: muestra los archivos que tiene enlaces hard.<br>
+   Ambos programas reciben un nombre como como par&aacute;metro, y validar&aacute;n 
+que corresponda a un directorio del sistema.<br>
+   <tt>&nbsp;<br>
+#!/bin/bash<br>
+# ligass: lista archivos que son enlace simb&oacute;lico o tienen enlaces 
+hard<br>
+# simb&oacute;licos: en ls -l se busca que empiece con l<br>
+if [ ! -d $1 ]<br>
+then<br>
+&nbsp; echo Error: ligas: $1 no es un directorio<br>
+&nbsp; exit<br>
+fi<br>
+echo Archivos que son enlace simb&oacute;lico:<br>
+ls -l | grep "^l" | cut -56 -<br>
+echo<br>
+# hard: se busca 3 espacios y distinto de 1 como contador de enlaces<br>
+echo Archivos que tienen enlace hard:<br>
+ls -l | grep -v "^d" | cut -c11 - | grep -v "^ 1" | cut -c46 -<br>
+&nbsp;</tt>                                             <br>
+   <b>*11.</b> Escribir un programa <tt>saludo</tt> que, seg&uacute;n la
+hora, escriba el saludo correspondiente al nombre de pila del usuario. En
+el archivo /etc/passwd los usuarios deben estar ingresados con nombre y apellido 
+separados por blanco. Los saludos corresponden a las siguientes horas: Buenos
+d&iacute;as, de 05:00 hasta 12:59; Buenas tardes, de 13:00 hasta 19:59; Buenas
+noches 20:00 hasta 04:59. Ejemplo de mensaje: Buenos d&iacute;as, Juan.<br>
+   A efectos de pruebas, se recibir&aacute;n la hora y el nombre de login 
+como par&aacute;metros, dejando comentados los comandos donde se extrae la
+hora real y se toma el usuario real.<br>
+   <tt>&nbsp;<br>
+#!/bin/bash<br>
+# saludo.cmd<br>
+# script en UNIX que saludo al usuario por su nombre<br>
+NOMBRE=`cat /etc/passwd | grep "^$LOGNAME" | \<br>
+cut -d: -f5 | cut -d' ' -f1`<br>
+# si el usuario no tiene ingresado un nombre, toma "Nadie"<br>
+NOMBRE=${NOMBRE:-Nadie}<br>
+HORA=`date | cut -c12-13 | tr -d ' '`<br>
+if expr "$HORA" \&lt;= 5 &gt; /dev/null<br>
+then<br>
+&nbsp; echo 'Buenas noches, '$NOMBRE<br>
+elif expr "$HORA" \&lt;= 12 &gt; /dev/null<br>
+then<br>
+&nbsp; echo 'Buenos dias, '$NOMBRE<br>
+elif expr "$HORA" \&lt;= 19 &gt; /dev/null<br>
+then<br>
+&nbsp; echo 'Buenas tardes, '$NOMBRE<br>
+elif expr "$HORA" \&lt;= 24 &gt; /dev/null<br>
+then<br>
+&nbsp; echo 'Buenas noches, '$NOMBRE<br>
+fi<br>
+   &nbsp;</tt>                                                            
+   <br>
+   <b>12.</b> Un script de respaldo produce, entre otros mensajes, l&iacute;neas 
+del tipo<br>
+   <tt>&nbsp;&nbsp; "Total bytes written 18804023"</tt><br>
+   Guarda su salida en el archivo <tt>respaldo.error</tt>. Escribir un script 
+<tt>total.cinta</tt> que sume los bytes grabados e indique el total en bytes,
+Mb y Gb.<br>
+   Crear un archivo<tt> respaldo.error</tt> de prueba, con un contenido tal 
+como<br>
+   <tt>&nbsp;&nbsp; Total bytes written 1800<br>
+&nbsp;&nbsp; Total bytes written 1000<br>
+&nbsp;<br>
+#<br>
+# total.cinta: cantidad de bytes grabados en cinta<br>
+#<br>
+TOTAL=0<br>
+LISTA=`cat respaldo.error | tr -dc "[0-9] "`<br>
+for NUM in $LISTA<br>
+do<br>
+&nbsp; TOTAL=`expr $TOTAL + $NUM`<br>
+done<br>
+echo "Total General de bytes respaldados: "$TOTAL<br>
+TOTALMB=`expr $TOTAL \/ 1000000`<br>
+echo "Total General de MB respaldados: "$TOTALMB<br>
+TOTALGB=`expr $TOTALMB \/ 1000`<br>
+echo "Total General de GB respaldados: "$TOTALGB</tt>                     
+                           <br>
+  <br>
+&nbsp; <br>
+&nbsp;&nbsp; 
+<address>  </address>
+<hr width="100%">  
+<address> V&iacute;ctor A. Gonz&aacute;lez Barbone&nbsp; <a
+ href="mailto:vagonbar en fing edu uy">vagonbar en fing edu uy</a></address>
+  
+<address> <a href="http://iie.fing.edu.uy">Instituto de Ingenier&iacute;a El&eacute;ctrica</a>
+ - <a href="/www.fing.edu.uy">Facultad de Ingenier&iacute;a</a> - Montevideo, 
+Uruguay.</address>
+  
+</body>
+</html>

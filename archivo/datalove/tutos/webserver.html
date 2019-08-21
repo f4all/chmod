@@ -1,0 +1,218 @@
+<by chmod! FTW | KOPIMI and perform datalove 2013>
+<h2><a href="https://streisand.freed0m4all.org" target="_blank">Streisand project.</a></h2>
+<h3>Tutorial: Setup+Nginx+PHP en Debian 6 para hostear webs estaticas.</h3>
+<p><u>Antes de partir.</u></p>
+<p>-Este tutorial asume que tienes instalado <a href="http://www.debian.org/CD/http-ftp/#stable" target="_blank">Debian 6 Stable (squeeze)</a> en tu servidor con configuracion minima. (solo SSH habilitado al instalar)</p>
+<p>-Este tutorial asume que los conocimientos para acceder al servidor mediante SSH existen.</p>
+<p>-Este tutorial usara la IP: 1.2.3.4, puerto SSH: 1234, usuario: usuario y hostname: TuHost.com.</p>
+<p>-Este tutorial asume que tu hardware o metodo de virtualizacion permite el uso de iptables.</p>
+<p>&nbsp;</p>
+<p><u>Primero, Configuracion basica del servidor.</u></p>
+<p>&nbsp;</p>
+<p>-login por SSH.</p>
+<pre>ssh root@1.2.3.4</pre>
+<p>&nbsp;</p>
+<p>- Actualizar apptitude.</p>
+<pre>apt-get update</pre>
+<pre>apt-get upgrade</pre>
+<p>&nbsp;</p>
+<p>- Configurar hostname.</p>
+<pre>cd ..</pre>
+<pre>echo "TuHost.com" > /etc/hostname</pre>
+<pre>hostname -F /etc/hostname</pre>
+<p>&nbsp;</p>
+<p>-Crear tu usuario.</p>
+<pre>adduser usuario</pre>
+<p>(Configurar clave y seguir instrucciones)</p>
+<p>&nbsp;</p>
+<p>-Instalar software utilizado en este tutorial.</p>
+<pre>apt-get install nano htop fail2ban sudo</pre> 
+<p>&nbsp;</p>
+<p>-Cambiar puerto SSH por defecto y denegar acceso root. </p>
+<pre>nano etc/ssh/sshd_config</pre>
+<p>Editar:</p>
+<pre>Port 22</pre>
+<p>por:</p>
+<pre>Port 1234</pre>
+<p>y editar:</p>
+<pre>PermitRootLogin yes</pre>
+<p>por:</p>
+<pre>PermitRootLogin no
+</pre>
+<p>(ctrl+x yes para guardar.)</p>
+<p>Actualizar servicio SSH:</p>
+<pre>service ssh restart</pre>
+<p>(no perderas tu coneccion SSH)</p>
+<p>&nbsp;</p>
+<p><u>Segundo, Configuracion firewall basico:</u></p>
+<p>&nbsp;</p>
+<p>- Crear script.</p>
+<pre>nano /etc/iptables.firewall.rules</pre>
+<p>Editar el siguiente script para reflejar que puertos y servicios quisieras abiertos, todo el resto sera cerrado. </p>
+<hr>
+<pre>*filter  
+
+#  permitir trafico loopback (lo0) y rechasar todo el trafico a 127/8 que no use lo0 
+#  (recomendado)
+-A INPUT -i lo -j ACCEPT 
+-A INPUT -d 127.0.0.0/8 -j REJECT  
+
+#  Aceptar todas las conecciones entrates pre establecidas
+#  (recomendado)
+-A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT  
+
+#  Permitir todo el trafico entrante
+#  (aceptable, se recomienda incluir reglas para limitarlo) 
+-A OUTPUT -j ACCEPT  
+
+#  Permitir conecciones entrantes.
+#  (necesario para hostear una pagina web) 
+-A INPUT -p tcp --dport 80 -j ACCEPT 
+-A INPUT -p tcp --dport 443 -j ACCEPT  
+
+#  Permitir conecciones SSH
+#  (recomendado, no olvidar el puerto previamente configurado en sshd_config) 
+-A INPUT -p tcp -m state --state NEW --dport 1234 -j ACCEPT  
+
+#  Permitir ping
+#  (Si deseas permitir pings deja esto sin comentar, de lo contrario agrega # al inicio) 
+-A INPUT -p icmp -j ACCEPT  
+
+#  Loggear denegaciones de iptables
+#  (util ante posibles ataques DDoS o escaneos para posterior analisis) 
+-A INPUT -m limit --limit 5/min -j LOG --log-prefix "iptables denied: " --log-level 7  
+
+#  Bloquear todo tipo de coneccion si no esta permitida explicitamente en este script
+#  (necesario) 
+-A INPUT -j DROP -A FORWARD -j DROP  
+
+COMMIT </pre>
+<hr>
+<p>(ctrl+x yes para guardar.)</p>
+<p>&nbsp;</p>
+<p>-Aplicar script.</p>
+<pre>iptables-restore &lt; /etc/iptables.firewall.rules</pre>
+<p>&nbsp;</p>
+<p>-Crear script para ejecutar tus reglas de firewall cada vez que se reinicie el server.</p>
+<pre>nano /etc/network/if-pre-up.d/firewall
+</pre>
+<hr>
+<pre>#!/bin/sh
+/sbin/iptables-restore &lt; /etc/iptables.firewall.rules </pre>
+<hr>
+<p>(ctrl+x yes para guardar.)</p>
+<p>&nbsp;</p>
+<p>-Cambiar permisos para ejecutar el script.</p>
+<pre>chmod +x /etc/network/if-pre-up.d/firewall
+</pre>
+<p>&nbsp;</p>
+<p>-Reiniciar fail2ban.</p>
+<pre>service fail2ban restart</pre>
+<p>&nbsp;</p>
+<p><u>Tercero, configuracion del web server nginx.</u></p>
+<p>&nbsp;</p>
+<p>-Instalacion del software.</p>
+<pre>apt-get install nginx</pre>
+<p>&nbsp;</p>
+<p>-Iniciar Nginx.</p>
+<pre>service nginx start
+</pre>
+<p>&nbsp;</p>
+<p>-Creacion de carpeta web.</p>
+<pre id="line1">mkdir /var/www</pre>
+<p>&nbsp;</p>
+<p>-Cambiar permisos y acceso para carpeta web.</p>
+<pre>
+chmod 755 /var/www
+chown usuario /var/www</pre>
+<h3>&nbsp;</h3>
+<h3>En este punto el web server esta listo para servir contenido html y descarga de archivos.</h3>
+<p>&nbsp;</p>
+<p>La carpeta root utilizada por nginx para el contenido web esta localizada en /var/www/ y el acceso al server mediate el usuario &quot;usuario&quot; y el puerto 1234.</p>
+<p>ej:</p>
+<pre>ssh usuario@1.2.3.4 -p 1234
+cd ..
+cd ..
+echo test page &gt; /var/www/index.html
+</pre>
+<p>Visita http://1.2.3.4 para asegurarte que todo este bien.</p>
+<p>&nbsp;</p>
+<p><u>Cuarto y ultimo, configuracion de PHP atravez de FastCGI.</u></p>
+<p>&nbsp;</p>
+<p>-Instalacion de software y dependencias.</p>
+<pre>apt-get install php5-cli php5-cgi build-essential wget psmisc spawn-fcgi
+</pre>
+<p>&nbsp;</p>
+<p>-Configuracion y descarga de wrapper para PHP-FastCGI (gracias a <a href="https://www.linode.com" target="_blank">linode.com</a> &lt;3).</p>
+<p>Seguir esta secuencia de comandos, ejecutados uno por uno:</p>
+<pre>cd /opt/ 
+wget -O php-fastcgi-deb.sh http://library.linode.com/assets/750-php-fastcgi-deb.sh 
+mv /opt/php-fastcgi-deb.sh /usr/bin/php-fastcgi 
+chmod +x /usr/bin/php-fastcgi 
+wget -O init-php-fastcgi-deb.sh http://library.linode.com/assets/749-init-php-fastcgi-deb.sh 
+mv /opt/init-php-fastcgi-deb.sh /etc/init.d/php-fastcgi 
+chmod +x /etc/init.d/php-fastcgi 
+/etc/init.d/php-fastcgi start 
+update-rc.d php-fastcgi defaults </pre>
+<p>&nbsp;</p>
+<p>-Editar configuracion en nginx.</p>
+<pre>nano etc/nginx/sites-enabled/default</pre>
+<p>Eliminar todo el contenido y reemplazar por:</p>
+<hr>
+<pre>server {<br>
+  listen   80;<br>
+  server_name  TuHost.com;<br>
+  access_log  /var/log/nginx/TuHost.access.log;<br>
+  error_log  /var/log/nginx/TuHost.error.log;<br>
+  <br>
+  location / {<br>
+  root   /var/www;<br>
+  index  index.html index.htm index.php;<br>
+  autoindex on;<br>
+  }</pre>
+<pre> location /doc {<br>
+  root   /usr/share;<br>
+  autoindex on;<br>
+  allow 127.0.0.1;<br>
+  deny all;<br>
+  }</pre>
+<pre> location /images {<br>
+  root   /usr/share;<br>
+  autoindex on;<br>
+  }</pre>
+<pre> location ~ \.php$ {<br>
+  include /etc/nginx/fastcgi_params;<br>
+  fastcgi_pass  127.0.0.1:9000;<br>
+  fastcgi_index index.php;<br>
+  fastcgi_param SCRIPT_FILENAME /var/www$fastcgi_script_name;<br>
+  }</pre>
+<pre>}
+</pre>
+<hr>
+<p>(ctrl+x yes para guardar.)</p>
+<p>&nbsp;</p>
+<p>-Reiniciar nginx. </p>
+<pre>service nginx restart
+</pre>
+<p>&nbsp;</p>
+<h3>En este punto el web server esta listo para servir contenido php, html y descarga de archivos.</h3>
+<p>&nbsp;</p>
+<p>Para asegurarte que todo salio bien puedes hacer lo siguiente:</p>
+<pre>nano var/www/info.php
+</pre>
+<p>agregar el siguiente codigo:</p>
+<hr />
+<pre>&lt;?php</pre>
+<pre>phpinfo();</pre>
+<pre>?&gt;</pre>
+<hr />
+<p>(ctrl+x yes para guardar.)</p>
+<p>Visita http://1.2.3.4/info.php para asegurarte que todo este bien.</p>
+<p>&nbsp;</p>
+<h4>Felicitaciones, si todo salio bien tienes un servidor web estatico para servir contenido html y php.</h4>
+<p>Proximo tutorial: configuracion de OpenVPN access server en Debian 6 minimal.</p>
+<p>Futuro tutorial: configuracion segura de MySQL en Debian 6 minimal.</p>
+<p>&nbsp;</p>
+<p>Saludos!</p>
+<p>chmod.</p>
+<p>F4All Networks.</p>

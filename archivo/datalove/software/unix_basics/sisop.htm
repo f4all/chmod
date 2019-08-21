@@ -1,0 +1,254 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+   <META NAME="GENERATOR" CONTENT="Mozilla/4.06 [es] (Win95; I) [Netscape]">
+   <META NAME="Author" CONTENT="Víctor González-Barbone">
+   <META NAME="Description" CONTENT="Introducción a los Sistemas Operativos">
+   <META NAME="KeyWords" CONTENT="UNIX, curso, tutorial, Linux">
+   <TITLE>Curso B&aacute;sico de UNIX - Sistemas Operativos</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+
+<ADDRESS>
+<A HREF="index.htm">Curso B&aacute;sico de UNIX</A></ADDRESS>
+
+<CENTER>
+<H1>
+Conceptos de Sistemas Operativos</H1></CENTER>
+
+<DL>
+<DT>
+<A HREF="#Hardware">Hardware</A></DT>
+
+<DT>
+<A HREF="#QueEs">Qu&eacute; es un Sistema Operativo</A></DT>
+
+<DT>
+<A HREF="#Historia">Historia de los Sistemas Operativos</A></DT>
+
+<DT>
+<A HREF="#Conceptos">Conceptos de Sistemas Operativos</A></DT>
+
+<DD>
+<A HREF="#Procesos">Procesos</A></DD>
+
+<DD>
+<A HREF="#Archivos">Archivos</A></DD>
+
+<DD>
+<A HREF="#Llamadas">Llamadas al Sistema</A></DD>
+
+<DT>
+<A HREF="#Interprete">El int&eacute;rprete de comandos ("shell")</A></DT>
+
+<DD>
+<A HREF="#EjsComandos">Ejemplos de comandos</A></DD>
+
+<DT>
+<A HREF="#Referencias">Referencias</A></DT>
+</DL>
+
+<P><BR>Una computadora sin software no presta ninguna utilidad. El software
+puede clasificarse en dos grandes grupos:
+<UL>
+<LI>
+programas de sistema (software de base, software de sistema): controlan
+la operaci&oacute;n de la computadora.</LI>
+
+<LI>
+programas de aplicaci&oacute;n (software de aplicaci&oacute;n): resuelven
+problemas para los usuarios.</LI>
+</UL>
+El Sistema Operativo es el programa fundamental entre los programas de
+sistemas; controla todos los recursos de la computadora y proporciona la
+base sobre la que pueden escribirse los programas de aplicaci&oacute;n.
+Es un nivel de software por encima del hardware que controla todas las
+partes del sistema y presenta al usuario una interfaz o m&aacute;quina
+virtual.
+<P>En un sistema de computaci&oacute;n se reconocen los siguientes niveles,
+yendo desde el usuario hacia la m&aacute;quina f&iacute;sica:
+<UL>
+<LI>
+Programas de aplicaci&oacute;n: Sistema bancario, Reservaciones a&eacute;reas,
+Juegos.</LI>
+
+<LI>
+Compiladores, Editores, Int&eacute;rprete de comandos.</LI>
+
+<LI>
+Sistema operativo.</LI>
+</UL>
+
+<H3>
+<A NAME="Hardware"></A>Hardware:</H3>
+Lenguaje de m&aacute;quina: instrucciones directas a la m&aacute;quina.
+Tiene de 50 a 300 instrucciones y es muy dif&iacute;cil de programar.
+<P>Microprogramaci&oacute;n: control directo de dispositivos. En memoria
+de s&oacute;lo lectura, o a veces en el propio hardware; interpreta el
+lenguaje de m&aacute;quina.
+<P>Dispositivos f&iacute;sicos: chips, barras, cables, fuentes de potencia,
+conectores, etc.
+<P>El sistema operativo ejecuta en modo superusuario, con plenos poderes;
+no puede ser alterado por el usuario. Los compiladores y editores se ejecutan
+en modo usuario, con poderes limitados. Cada usuario podr&iacute;a escribir
+su propio editor, compilador u otro utilitario. Los programas de aplicaci&oacute;n
+son escritos por los usuarios para resolver problemas particulares.
+<H3>
+<A NAME="QueEs"></A>Qu&eacute; es un sistema operativo.</H3>
+Como m&aacute;quina extendida. El sistema operativo presenta al usuario
+una m&aacute;quina extendida o m&aacute;quina virtual m&aacute;s f&aacute;cil
+de programar que accionar en forma directa sobre el hardware subyacente.
+En este sentido se dice que el sistema operativo "define un ambiente de
+trabajo".
+<P>Como controlador de recursos. Permite la asignaci&oacute;n ordenada
+de procesadores, memoria y dispositivos de entrada/salida para los varios
+programas que compiten por el uso de estos recursos.
+<H3>
+<A NAME="Historia"></A>Historia de los Sistemas Operativos.</H3>
+Primera generaci&oacute;n (1945-1955): bulbos y conexiones. Programaci&oacute;n
+en lenguaje de m&aacute;quina absoluto, o realizando directamente las conexiones
+el&eacute;ctricas. Alrededor de 1950 se introducen las tarjetas perforadas.
+<P>Segunda generaci&oacute;n (1955-1965): transistores y sistemas de procesamiento
+por lotes. Los programas y datos se entregaban en tarjetas, se acumulaban
+y luego eran procesados todos juntos por la m&aacute;quina, buscando minimizar
+los tiempos muertos.
+<P>Tercera generaci&oacute;n (1965-1980): circuitos integrados y multiprogramaci&oacute;n.
+El sistema 360 de IBM unifica computadoras comerciales y cient&iacute;ficas
+en una sola l&iacute;nea de m&aacute;quinas con software compatible. Se
+introduce la multiprogramaci&oacute;n, que divide la memoria en partes
+y ejecuta un programa distinto en cada una. El spooling permite la operaci&oacute;n
+simult&aacute;nea y en l&iacute;nea de perif&eacute;ricos. El tiempo compartido
+es una variante de multiprogramaci&oacute;n que habilita a cada usuario
+una terminal en l&iacute;nea. MULTICS, un gigantesco sistema operativo,
+fracasa en su construcci&oacute;n pero aporta muchas ideas que hacen surgir
+UNIX.
+<P>Cuarta generaci&oacute;n (1980-1990): estaciones de trabajo y computadoras
+personales. Sistemas operativos DOS y UNIX. Software "amigable con el usuario".
+Sistemas operativos de red, con varias computadoras interconectadas que
+pueden ser accedidas por un mismo usuario. Sistemas operativos distribu&iacute;dos,
+compuestos por varios procesadores que se presentan al usuario como un
+sistema &uacute;nico.
+<H3>
+<A NAME="Conceptos"></A>Conceptos de Sistemas Operativos.</H3>
+La interfaz entre los programas de usuario y el sistema operativo est&aacute;
+formada por llamadas al sistema capaces de crear, utilizar y eliminar procesos
+y archivos.
+<H4>
+<A NAME="Procesos"></A>Procesos.</H4>
+Un proceso es b&aacute;sicamente un programa en ejecuci&oacute;n. Consta
+del programa ejecutable, datos, pilas, registros y toda la informaci&oacute;n
+necesaria para ejecutar. Un int&eacute;rprete de comandos (shell) es un
+proceso que lee los comandos de usuario desde una terminal y crea procesos
+hijo para ejecutar ese comando. Se crea as&iacute; un &aacute;rbol de procesos
+en ejecuci&oacute;n. Los procesos se manejan mediante se&ntilde;ales que
+los obligan a suspender, reiniciar o terminar su acci&oacute;n. Las se&ntilde;ales
+se utilizan tambi&eacute;n para comunicaci&oacute;n entre procesos.
+<P>Cada usuario tiene asignado un identificador de usuario (uid), y grupos
+de usuarios tienen un identificador de grupo (gid). Un proceso tiene asignado
+el uid y gid del usuario que lo inici&oacute;. Ambos identificadores se
+utilizan para proteger la informaci&oacute;n manejada por el proceso.
+<H4>
+<A NAME="Archivos"></A>Archivos.</H4>
+Existen llamadas al sistema para crear, eliminar, leer y escribir archivos.
+Los archivos se agrupan en directorios, y existen llamadas al sistema para
+crear y eliminar directorios, y para colocar y quitar archivos de ellos.
+Esto crea una jerarqu&iacute;a de directorios y archivos llamada sistema
+de archivos. Un archivo se reconoce un&iacute;vocamente dando la ruta de
+acceso, que es la sucesi&oacute;n de directorios que permiten alcanzar
+el archivo a partir del directorio ra&iacute;z. Cada proceso activo tiene
+un directorio de trabajo en el que se buscan primariamente los archivos
+cuando se indica s&oacute;lo el nombre y no la ruta de acceso.
+<P>En un sistema multiusuario, es preciso dar privacidad a los archivos
+de cada persona. UNIX utiliza un c&oacute;digo de 9 bits en 3 grupos de
+3 bits. Estos grupos correspondientes al due&ntilde;o, el grupo y el resto
+del mundo. Cada conjunto de 3 bits corresponde a permiso de lectura, escritura
+y ejecuci&oacute;n. Se presentan como rwx (Read, Write, eXecute); cuando
+uno de estos permisos est&aacute; denegado se sustituye la letra por -,
+como en r-- o en rw-.
+<P>Para acceder a un archivo, se verifican primero sus permisos; si son
+correctos, el sistema devuelve un descriptor de archivo o "entrada de manejo",
+un n&uacute;mero entero que se utiliza en todas las operaciones subsiguientes.
+Al cerrarse el archivo, el descriptor es desasignado y el n&uacute;mero
+entero queda disponible para otro acceso.
+<P>UNIX maneja los dispositivos de entrada y salida con un artificio que
+los presenta como archivos especiales, lo que permite escribir y leer en
+ellos con las mismas llamadas al sistema que se usan para los archivos.
+Los archivos especiales de bloque se usan para dispositivos que organizan
+los datos en bloques de tama&ntilde;o fijo y acceso aleatorio, como los
+discos. Los archivos especiales de caracteres modelan los dispositivos
+formados con flujos de caracteres como las terminales, impresoras e interfaces
+de red.
+<P>En UNIX y DOS, al iniciar un proceso se establece el descriptor de archivo
+0 como entrada est&aacute;ndar para recibir datos desde el teclado y el
+descriptor de archivo 1 como salida est&aacute;ndar para presentar informaci&oacute;n
+en la pantalla. El descriptor de archivo 2 es el de error est&aacute;ndar;
+se usa para mensajes de error y se asigna normalmente a la pantalla.
+<P>La interconexi&oacute;n de procesos se realiza a trav&eacute;s de una
+tuber&iacute;a, entubamiento, tubo o secuencia de comandos, indicado por
+el caracter | (barra vertical). Un tubo es un seudoarchivo en el cual un
+primer proceso escribe su salida para ser le&iacute;da por un segundo proceso;
+la salida del primero es la entrada del segundo.
+<H4>
+<A NAME="Llamadas"></A>Llamadas al sistema.</H4>
+Los programas de usuario se comunican con el sistema operativo mediante
+llamadas al sistema. Para cada llamada existe un procedimiento de biblioteca
+que puede ser invocado desde un programa de usuario mediante un nombre
+y par&aacute;metros.
+<H3>
+<A NAME="Interprete"></A>El int&eacute;rprete de comandos (shell).</H3>
+El int&eacute;rprete de comandos de UNIX, o shell, es un proceso que muestra
+un indicador de comandos ($, %, o #) y aguarda que el usuario digite un
+comando. Toda vez que el usuario digita un comando, el int&eacute;rprete
+lo valida, y si es correcto crea un proceso hijo que realiza la acci&oacute;n
+encomendada. Al terminar el proceso hijo, exhibe nuevamente el indicador
+de comando e intenta leer una nueva l&iacute;nea de la entrada.
+<H4>
+<A NAME="EjsComandos"></A>Ejemplos de comandos (UNIX):</H4>
+
+<DT>
+<TT>&nbsp; date</TT></DT>
+
+<DT>
+imprime la fecha.</DT>
+
+<DT>
+<TT>&nbsp; date >archivo1</TT></DT>
+
+<DT>
+imprime la fecha pero la redirecciona hacia el archivo1.</DT>
+
+<DT>
+<TT>&nbsp; sort &lt;archivo1 >archivo2</TT></DT>
+
+<DT>
+lee archivo1, reordena sus l&iacute;neas y las graba en archivo2.</DT>
+
+<DT>
+<TT>&nbsp; cat arch1 arch2 arch3 | sort >/dev/lp</TT></DT>
+
+<DT>
+concatena los archivos arch1, arch2 y arch3, dirige su salida hacia el
+comando sort que ordena las l&iacute;neas de los tres archivos juntos y
+las env&iacute;a al dispositivo de impresi&oacute;n /dev/lp.</DT>
+
+<BR>&nbsp;
+<P>&nbsp;
+<BR>&nbsp;
+<P><A NAME="Referencias"></A><B>Referencias:</B>&nbsp; Tanenbaum[1992]
+<BR>&nbsp;
+<BR>&nbsp;
+<ADDRESS>
+
+<HR WIDTH="100%"></ADDRESS>
+
+<ADDRESS>
+V&iacute;ctor A. Gonz&aacute;lez Barbone <A HREF="mailto: vagonbar en fing edu uy">vagonbar en fing edu uy</A></ADDRESS>
+
+<ADDRESS>
+<A HREF="http://iie.fing.edu.uy">Instituto de Ingenier&iacute;a El&eacute;ctrica</A>
+- <A HREF="http://www.fing.edu.uy">Facultad de Ingenier&iacute;a</A> -
+Montevideo, Uruguay.</ADDRESS>
+
+</BODY>
+</HTML>

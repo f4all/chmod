@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Virtualmin</title>
+</head>
+
+<body>
+<p>In light of recent events, there&rsquo;s been a lot of chatter about  leaving free e-mail services in favor of self-hosted e-mail. With  self-hosted e-mail you have the option to host your e-mail wherever you  want it, either on a server at home or on a VPS.</p>
+<p>There&rsquo;s plenty of affordable options around to run your own mail  server. I would personally recommend a Xen or KVM VPS for this, as with  OpenVZ it is really easy for your provider to &ldquo;snoop&rdquo; on your e-mail.  This is also possible with Xen or KVM, but it usually requires a reboot  (which you will probably notice).</p>
+<p>I&rsquo;ve used a 512MB Xen VPS for this tutorial. I&rsquo;ve used &ldquo;this much&rdquo;  memory because I want to run clamd and SpamAssassin in RAM. The server  also has 45GB of disk space, which is more than enough to run a couple  of big mailboxes on. You could do with less RAM (though that would  increase the CPU load and slow down mail processing) and far less disk  space (depending on your needs), but with &ldquo;my&rdquo; specs, you&rsquo;re on the safe  side.<br />
+  <span id="more-4239"> </span></p>
+<h2>Installing Virtualmin</h2>
+<p>I&rsquo;m using Virtualmin in this tutorial. The choice for Virtualmin is  quite easy: it&rsquo;s free, fast, stable and doesn&rsquo;t invade your system  (like, for example, cPanel does). Virtualmin may not have the prettiest  UI out there, but it&rsquo;s clean and it&rsquo;s effective. You&rsquo;ll only be using  Virtualmin to create and administrate mailboxes. Other than that, you  won&rsquo;t need it.</p>
+<p>Virtualmin has an open source (GPL) version and a commercial version.  The commercial version has some &ldquo;advanced&rdquo; features not in the GPL  version. I&rsquo;ll be using the GPL version. This should run on most Linux  distributions and FreeBSD.</p>
+<p>So let&rsquo;s install Virtualmin. I recommend a clean server for this,  to avoid any conflicts. On the server, run:</p>
+<blockquote>
+  <p>wget http://software.virtualmin.com/gpl/scripts/install.sh</p>
+</blockquote>
+<p>Which will get the installer script. Next, make it executable:</p>
+<blockquote>
+  <p>chmod +x install.sh</p>
+</blockquote>
+<p>And finally, run the installer:</p>
+<blockquote>
+  <p>sudo ./install.sh</p>
+</blockquote>
+<p>Which should ask you for your sudo password and if you&rsquo;re sure you&rsquo;re running the installer on a suitable system:</p>
+<p><a href="http://lowendbox.com/wp-content/uploads/2013/08/mpkossen@leb001-_002.png"><img alt="mpkossen@leb001: ~_002" src="http://lowendbox.com/wp-content/uploads/2013/08/mpkossen@leb001-_002.png" height="386" width="521" /></a></p>
+<p>Next, it&rsquo;s going to install a bunch of packages. Just sit back and  relax. Get a cup of coffee or a beer. It could take anywhere from 5 tot  15 minutes (on average).</p>
+<p>Once that is done, open a web browser and go to either your IP address or domain name on port 10000 with &lsquo;https&rsquo; prepended:</p>
+<blockquote>
+  <p>https://192.0.2.1:10000</p>
+  <p>https://leb001.example.net:10000/</p>
+</blockquote>
+<p>This should ask you to log in:</p>
+<p><a href="http://lowendbox.com/wp-content/uploads/2013/08/Login-to-Webmin-Mozilla-Firefox_003.png"><img alt="Login to Webmin - Mozilla Firefox_003" src="http://lowendbox.com/wp-content/uploads/2013/08/Login-to-Webmin-Mozilla-Firefox_003.png" height="505" width="671" /></a></p>
+<p>Use the username and password of your sudo user to log in. Once logged in, the post-installation wizard should appear:</p>
+<p><a href="http://lowendbox.com/wp-content/uploads/2013/08/Virtualmin-4.02.gpl-on-leb001.quateria.net-Ubuntu-Linux-12.04.3-Mozilla-Firefox_004.png"><img alt="Virtualmin 4.02.gpl on leb001.quateria.net (Ubuntu Linux 12.04.3) - Mozilla Firefox_004" src="http://lowendbox.com/wp-content/uploads/2013/08/Virtualmin-4.02.gpl-on-leb001.quateria.net-Ubuntu-Linux-12.04.3-Mozilla-Firefox_004.png" height="505" width="671" /></a></p>
+<p>Click &lsquo;Next&rsquo;. You will be asked whether to preload the virtualmin  libraries or not and whether you want to run the email domain lookup  server. I would recommend against the former, except if you have plenty  of RAM. I would recommend turning on the domain lookup server for faster  mail processing.</p>
+<p><a href="http://lowendbox.com/wp-content/uploads/2013/08/Virtualmin-4.02.gpl-on-leb001.quateria.net-Ubuntu-Linux-12.04.3-Mozilla-Firefox_006.png"><img alt="Virtualmin 4.02.gpl on leb001.quateria.net (Ubuntu Linux 12.04.3) - Mozilla Firefox_006" src="http://lowendbox.com/wp-content/uploads/2013/08/Virtualmin-4.02.gpl-on-leb001.quateria.net-Ubuntu-Linux-12.04.3-Mozilla-Firefox_006.png" height="505" width="671" /></a></p>
+<p>In the next step you can enable the ClamAV mail scanner server. I would really recommend enabling this.</p>
+<p><a href="http://lowendbox.com/wp-content/uploads/2013/08/Virtualmin-4.02.gpl-on-leb001.quateria.net-Ubuntu-Linux-12.04.3-Mozilla-Firefox_007.png"><img alt="Virtualmin 4.02.gpl on leb001.quateria.net (Ubuntu Linux 12.04.3) - Mozilla Firefox_007" src="http://lowendbox.com/wp-content/uploads/2013/08/Virtualmin-4.02.gpl-on-leb001.quateria.net-Ubuntu-Linux-12.04.3-Mozilla-Firefox_007.png" height="505" width="671" /></a></p>
+<p>The same applies to the SpamAssassin server filter in the next step.  This one is easier on the memory than the ClamAV server or domain lookup  server, so even in you choose not to enable those two, you should  enable this one.</p>
+<p><a href="http://lowendbox.com/wp-content/uploads/2013/08/Virtualmin-4.02.gpl-on-leb001.quateria.net-Ubuntu-Linux-12.04.3-Mozilla-Firefox_008.png"><img alt="Virtualmin 4.02.gpl on leb001.quateria.net (Ubuntu Linux 12.04.3) - Mozilla Firefox_008" src="http://lowendbox.com/wp-content/uploads/2013/08/Virtualmin-4.02.gpl-on-leb001.quateria.net-Ubuntu-Linux-12.04.3-Mozilla-Firefox_008.png" height="505" width="671" /></a></p>
+<p>We don&rsquo;t need MySQL or PostgreSQL running and sucking up memory. So disable both.</p>
+<p><a href="http://lowendbox.com/wp-content/uploads/2013/08/Virtualmin-4.02.gpl-on-leb001.quateria.net-Ubuntu-Linux-12.04.3-Mozilla-Firefox_009.png"><img alt="Virtualmin 4.02.gpl on leb001.quateria.net (Ubuntu Linux 12.04.3) - Mozilla Firefox_009" src="http://lowendbox.com/wp-content/uploads/2013/08/Virtualmin-4.02.gpl-on-leb001.quateria.net-Ubuntu-Linux-12.04.3-Mozilla-Firefox_009.png" height="505" width="671" /></a></p>
+<p>We don&rsquo;t need bind, so tick the box to skip the resolvability check and leave the other fields the way they are.</p>
+<p><a href="http://lowendbox.com/wp-content/uploads/2013/08/Virtualmin-4.02.gpl-on-leb001.quateria.net-Ubuntu-Linux-12.04.3-Mozilla-Firefox_010.png"><img alt="Virtualmin 4.02.gpl on leb001.quateria.net (Ubuntu Linux 12.04.3) - Mozilla Firefox_010" src="http://lowendbox.com/wp-content/uploads/2013/08/Virtualmin-4.02.gpl-on-leb001.quateria.net-Ubuntu-Linux-12.04.3-Mozilla-Firefox_010.png" height="505" width="671" /></a></p>
+<p>Passwords should never, ever be stored in plain text, so only store hashed passwords.</p>
+<p><a href="http://lowendbox.com/wp-content/uploads/2013/08/Virtualmin-4.02.gpl-on-leb001.quateria.net-Ubuntu-Linux-12.04.3-Mozilla-Firefox_011.png"><img alt="Virtualmin 4.02.gpl on leb001.quateria.net (Ubuntu Linux 12.04.3) - Mozilla Firefox_011" src="http://lowendbox.com/wp-content/uploads/2013/08/Virtualmin-4.02.gpl-on-leb001.quateria.net-Ubuntu-Linux-12.04.3-Mozilla-Firefox_011.png" height="505" width="671" /></a></p>
+<p>Click &lsquo;Next&rsquo; to go to the &lsquo;System Information&rsquo; screen.</p>
+<p><a href="http://lowendbox.com/wp-content/uploads/2013/08/Virtualmin-4.02.gpl-on-leb001.quateria.net-Ubuntu-Linux-12.04.3-Mozilla-Firefox_012.png"><img alt="Virtualmin 4.02.gpl on leb001.quateria.net (Ubuntu Linux 12.04.3) - Mozilla Firefox_012" src="http://lowendbox.com/wp-content/uploads/2013/08/Virtualmin-4.02.gpl-on-leb001.quateria.net-Ubuntu-Linux-12.04.3-Mozilla-Firefox_012.png" height="505" width="671" /></a></p>
+<p>Which should look like this (don&rsquo;t mind the yellow warning, we&rsquo;ll get to that):</p>
+<p><a href="http://lowendbox.com/wp-content/uploads/2013/08/Virtualmin-4.02.gpl-on-leb001.quateria.net-Ubuntu-Linux-12.04.3-Mozilla-Firefox_013.png"><img alt="Virtualmin 4.02.gpl on leb001.quateria.net (Ubuntu Linux 12.04.3) - Mozilla Firefox_013" src="http://lowendbox.com/wp-content/uploads/2013/08/Virtualmin-4.02.gpl-on-leb001.quateria.net-Ubuntu-Linux-12.04.3-Mozilla-Firefox_013.png" height="505" width="671" /></a></p>
+<p>You&rsquo;ve now successfully installed Virtualmin! Let&rsquo;s configure it and create a mailbox.</p>
+<h2>Configuring services and adding your first mailbox</h2>
+<p>First, we need to configure some services. Go to &lsquo;System Settings&rsquo; in  the left menu and then to &lsquo;Features and Plugins&rsquo;.  This is where we  disable all services that are not related to serving e-mail. Untick all  the boxes I have unticked in this screenshot:</p>
+<p><a href="http://lowendbox.com/wp-content/uploads/2013/08/Virtualmin-4.02.gpl-on-leb001.quateria.net-Ubuntu-Linux-12.04.3-Mozilla-Firefox_017.png"><img alt="Virtualmin 4.02.gpl on leb001.quateria.net (Ubuntu Linux 12.04.3) - Mozilla Firefox_017" src="http://lowendbox.com/wp-content/uploads/2013/08/Virtualmin-4.02.gpl-on-leb001.quateria.net-Ubuntu-Linux-12.04.3-Mozilla-Firefox_017.png" height="505" width="671" /></a></p>
+<p>When you click &lsquo;Save&rsquo; you should return to the &lsquo;System Information&rsquo; screen.</p>
+<p><a href="http://lowendbox.com/wp-content/uploads/2013/08/Virtualmin-4.02.gpl-on-leb001.quateria.net-Ubuntu-Linux-12.04.3-Mozilla-Firefox_018.png"><img alt="Virtualmin 4.02.gpl on leb001.quateria.net (Ubuntu Linux 12.04.3) - Mozilla Firefox_018" src="http://lowendbox.com/wp-content/uploads/2013/08/Virtualmin-4.02.gpl-on-leb001.quateria.net-Ubuntu-Linux-12.04.3-Mozilla-Firefox_018.png" height="505" width="671" /></a></p>
+<p>In the left menu, under &lsquo;System Settings&rsquo;, click &lsquo;Re-Check  Configuration&rsquo;. This should check several things of your installation  and display an error is something is wrong.</p>
+<p><a href="http://lowendbox.com/wp-content/uploads/2013/08/Virtualmin-4.02.gpl-on-leb001.quateria.net-Ubuntu-Linux-12.04.3-Mozilla-Firefox_019.png"><img alt="Virtualmin 4.02.gpl on leb001.quateria.net (Ubuntu Linux 12.04.3) - Mozilla Firefox_019" src="http://lowendbox.com/wp-content/uploads/2013/08/Virtualmin-4.02.gpl-on-leb001.quateria.net-Ubuntu-Linux-12.04.3-Mozilla-Firefox_019.png" height="505" width="671" /></a></p>
+<p>Let&rsquo;s create a Virtual Server, so we can add a mailbox. Click &lsquo;Create Virtual Server&rsquo; in the left menu:</p>
+<p><a href="http://lowendbox.com/wp-content/uploads/2013/08/Virtualmin-4.02.gpl-on-leb001.quateria.net-Ubuntu-Linux-12.04.3-Mozilla-Firefox_020.png"><img alt="Virtualmin 4.02.gpl on leb001.quateria.net (Ubuntu Linux 12.04.3) - Mozilla Firefox_020" src="http://lowendbox.com/wp-content/uploads/2013/08/Virtualmin-4.02.gpl-on-leb001.quateria.net-Ubuntu-Linux-12.04.3-Mozilla-Firefox_020.png" height="505" width="671" /></a></p>
+<p>Fill out the domain name for the server, which is the domain name you  wish to receive e-mail for. Also pick a strong password. Click &lsquo;Create  Server&rsquo; to actually create the server:</p>
+<p><a href="http://lowendbox.com/wp-content/uploads/2013/08/Virtualmin-4.02.gpl-on-leb001.quateria.net-Ubuntu-Linux-12.04.3-Mozilla-Firefox_021.png"><img alt="Virtualmin 4.02.gpl on leb001.quateria.net (Ubuntu Linux 12.04.3) - Mozilla Firefox_021" src="http://lowendbox.com/wp-content/uploads/2013/08/Virtualmin-4.02.gpl-on-leb001.quateria.net-Ubuntu-Linux-12.04.3-Mozilla-Firefox_021.png" height="505" width="671" /></a></p>
+<p>Once your virtual server is up, let&rsquo;s create a mailbox. Click &lsquo;Edit Users&rsquo; in the left menu, which should open the user list:</p>
+<p><a href="http://lowendbox.com/wp-content/uploads/2013/08/Virtualmin-4.02.gpl-on-leb001.quateria.net-Ubuntu-Linux-12.04.3-Mozilla-Firefox_022.png"><img alt="Virtualmin 4.02.gpl on leb001.quateria.net (Ubuntu Linux 12.04.3) - Mozilla Firefox_022" src="http://lowendbox.com/wp-content/uploads/2013/08/Virtualmin-4.02.gpl-on-leb001.quateria.net-Ubuntu-Linux-12.04.3-Mozilla-Firefox_022.png" height="505" width="671" /></a></p>
+<p>Clicking &lsquo;Add a user to this server&rsquo; opens the screen to create a new  user. Because we disabled several features before, the user you&rsquo;re  going to create will only have an e-mail account. So, basically, you&rsquo;re  creating an e-mail account.</p>
+<p><a href="http://lowendbox.com/wp-content/uploads/2013/08/Virtualmin-4.02.gpl-on-leb001.quateria.net-Ubuntu-Linux-12.04.3-Mozilla-Firefox_023.png"><img alt="Virtualmin 4.02.gpl on leb001.quateria.net (Ubuntu Linux 12.04.3) - Mozilla Firefox_023" src="http://lowendbox.com/wp-content/uploads/2013/08/Virtualmin-4.02.gpl-on-leb001.quateria.net-Ubuntu-Linux-12.04.3-Mozilla-Firefox_023.png" height="505" width="671" /></a></p>
+<p>Fill out the e-mail address field, a real name and a strong password.  Click &lsquo;Create&rsquo; to finish this. You should be returned to the user  overview, where you see your newly-created user including the IMAP/POP3  login.</p>
+<p><a href="http://lowendbox.com/wp-content/uploads/2013/08/Virtualmin-4.02.gpl-on-leb001.quateria.net-Ubuntu-Linux-12.04.3-Mozilla-Firefox_024.png"><img alt="Virtualmin 4.02.gpl on leb001.quateria.net (Ubuntu Linux 12.04.3) - Mozilla Firefox_024" src="http://lowendbox.com/wp-content/uploads/2013/08/Virtualmin-4.02.gpl-on-leb001.quateria.net-Ubuntu-Linux-12.04.3-Mozilla-Firefox_024.png" height="505" width="671" /></a></p>
+<p>And that&rsquo;s it! You&rsquo;ve just created your own e-mail server and your first mailbox!</p>
+<p>To add your mailbox to an e-mail client, like Mozilla Thunderbird, your details will be (from the example above):</p>
+<ul>
+  <li>Username: john.smith.example</li>
+  <li>Password: the one you picked</li>
+  <li>Mail server (IMAP/POP3/SMTP): the domain name/IP of the mail server</li>
+</ul>
+<p>TLS is available but the certificate is self-signed, so you should  accept the certificate to enable secure communication with the mail  server.</p>
+<p>The final step is to point you domain name&rsquo;s DNS records to your  newly created server, if you didn&rsquo;t already. If your domain points to  the server, point the MX record to your domain. If you&rsquo;ve used a  different domain for your server, point the MX record to that or the  server IP. Once the DNS records have propagated, you should be receiving  e-mail!</p>
+</body>
+</html>

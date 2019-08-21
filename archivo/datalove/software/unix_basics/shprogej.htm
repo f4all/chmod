@@ -1,0 +1,142 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+    
+  <meta http-equiv="Content-Type"
+ content="text/html; charset=iso-8859-1">
+    
+  <meta name="GENERATOR"
+ content="Mozilla/4.06 [es] (Win95; I) [Netscape]">
+  <title>Curso B&aacute;sico de UNIX - Programaci&oacute;n del Shell - Ejercicios
+- Resoluci&oacute;n</title>
+</head>
+  <body text="#000000" bgcolor="#ffffff" link="#0000ff" vlink="#ff0000"
+ alink="#000088">
+  
+<address> <a href="index.htm">Curso&nbsp; B&aacute;sico de UNIX</a></address>
+  
+<center> 
+<h2> Programaci&oacute;n del Shell</h2>
+</center>
+  
+<center> </center>
+   &nbsp;<br>
+   <b>Estructura de archivos.</b><br>
+   Estructura del archivo /etc/passwd:<br>
+  <dd> <tt>#nombre:contrase&ntilde;a:UID:GID:comentarios:dir_propio:shell</tt></dd>
+  <dd> <tt>jperez:Xdio0IKLLP:1130:103:Juan P&eacute;rez:/home/jperez:/bin/bash</tt></dd>
+   Estructura del archivo /etc/group:<br>
+  <dd> <tt>#grupo:GID:lista_usuarios</tt></dd>
+  <dd> <tt>docentes:103:victor,german,fernando</tt></dd>
+   Estructura del archivo /etc/hosts:<br>
+  <dd> <tt>#n&uacute;mero_IP nombre_m&aacute;quina alias</tt></dd>
+  <dd> <tt>10.137.137.250&nbsp;&nbsp;&nbsp; liebre.cdi.edu.uy liebre localhost 
+mailhost</tt></dd>
+   Todos los archivos anteriores pueden tener comentarios (l&iacute;neas
+comenzadas por #).<br>
+   En los sistemas con NIS, para <tt>passwd</tt> y <tt>group</tt> usar el 
+comanto <tt>ypcat</tt> en lugar de cat para listar estos archivos, o el comando
+<tt>ypmatch</tt> para extraer una l&iacute;nea sola de alguno de ellos. Ejemplos:<br>
+   <tt>&nbsp; ypcat passwd</tt><br>
+   <tt>&nbsp; ypcat group</tt><br>
+   <tt>&nbsp; ypmatch jperez passwd</tt><br>
+   &nbsp;<br>
+   <b>Nota.</b><br>
+   En la construcci&oacute;n de los siguientes programas o 'scripts' se valorar&aacute; 
+la presentaci&oacute;n interna y externa. En la presentaci&oacute;n interna, 
+importa la indentaci&oacute;n, los comentarios, la claridad de los comandos, 
+la significaci&oacute;n de los nombres elegidos; todo esto debe permitir considerar
+al programa como 'autodocumentado'. En la presentaci&oacute;n externa, importan
+las leyendas aclaratorias, ayudas, y avisos de ejecuci&oacute;n que favorezcan
+al usuario ocasional. Se aconseja colocar los archivos de los programas en
+un subdirectorio bin del directorio propio del usuario, donde no deber&aacute;
+haber otra cosa que estos programas.<br>
+   &nbsp;<br>
+   <b>1.</b> Recibir un nombre de archivo como par&aacute;metro e indicar, 
+imprimiendo todas las leyendas que correspondan, si el archivo es legible, 
+modificable y ejecutable por el usuario.<tt><br>
+&nbsp;<br>
+</tt>                                             <b>2.</b> Recibir varios
+nombres de archivo como par&aacute;metros, y para cada uno validar si el
+nombre corresponde a un archivo com&uacute;n existente, y si es as&iacute;
+mostrarlo en pantalla paginando.<br>
+&nbsp;&nbsp;<br>
+   <b>3.</b> Recibir un nombre de directorio, validar existencia y condici&oacute;n 
+de directorio y mostrar nombres de todos los directorios y subdirectorios 
+bajo &eacute;l, en formato de p&aacute;gina largo 23.<br>
+<br>
+   <b>4.</b> Escribir un programa <tt>seaejec</tt> que reciba un nombre de 
+archivo, verifique que existe y que es un archivo com&uacute;n, lo convierta 
+en ejecutable para el due&ntilde;o y el grupo y muestre el modo final.&nbsp; 
+                             <br>
+   &nbsp;<br>
+   <b>5.</b> Escribir un programa<tt> copiabin.sh </tt>que mueva todos los
+programas del directorio actual (archivos ejecutables) hacia el subdirectorio 
+<tt>bin</tt> del directorio propio del usuario, muestre los nombres de los
+que mueve e indique cu&aacute;ntos ha movido o que no ha movido ninguno.
+Si el directorio bin no existe, deber&aacute; ser creado.<br>
+                              &nbsp;<br>
+   <b>6.</b> Usando el archivo /etc/passwd escribir el programa <tt>usuarios</tt>
+ que lista los nombres de login, el directorio propio del usuario y el int&eacute;rprete 
+invocado por defecto de todos los usuarios, ordenados alfab&eacute;ticamente 
+por nombre de login.<br>
+<br>
+<b>7.</b> Usando solamente el archivo /etc/group, escribir los siguientes 
+programas:<br>
+   a) 'grupo1': listar los nombres y n&uacute;meros de grupo y la lista de 
+usuarios de cada uno, ordenados por nombre.<br>
+   b) 'grupo2': igual, ordenados por n&uacute;mero de grupo.<br>
+   c) 'grupo3': re&uacute;ne las dos salidas anteriores, con leyendas explicativas 
+adecuadas para cada parte y para cada columna, as&iacute; como nombre de la
+m&aacute;quina y fecha del d&iacute;a.<br>
+      &nbsp;<br>
+   <b>8.</b> Escribir un programa <tt>usugrup</tt> que dado un nombre de
+login de usuario determine si existe en el sistema, y si es as&iacute;, presente 
+su nombre de usuario, , n&uacute;mero de usuario (UID), grupo primario y
+grupos secundarios si los tiene, con leyendas adecuadas.<br>
+         &nbsp;<br>
+   <b>9.</b> Escribir un programa <tt>grupusu</tt> que dado un nombre de
+grupo determine si existe en el sistema, y si es as&iacute;, presente su
+nombre, n&uacute;mero de grupo (GID), y lista de usuarios que pertenezcan
+a &eacute;l, ya sea como grupo primario (en /etc/passwd) o como grupo secundario
+(lista en /etc/group).<br>
+<br>
+   <b>10.</b> Escribir los siguientes programas:<br>
+   a) <tt>ligass</tt>: muestra los nombres de archivo que son enlaces simb&oacute;licos.<br>
+   b) <tt>ligash</tt>: muestra los archivos que tiene enlaces hard.<br>
+   Ambos programas reciben un nombre como como par&aacute;metro, y validar&aacute;n 
+que corresponda a un directorio del sistema.<br>
+   &nbsp;         <br>
+   <b>*11.</b> Escribir un programa <tt>saludo</tt> que, seg&uacute;n la
+hora, escriba el saludo correspondiente al nombre de pila del usuario. En
+el archivo /etc/passwd los usuarios deben estar ingresados con nombre y apellido 
+separados por blanco. Los saludos corresponden a las siguientes horas: Buenos
+d&iacute;as, de 05:00 hasta 12:59; Buenas tardes, de 13:00 hasta 19:59; Buenas
+noches 20:00 hasta 04:59. Ejemplo de mensaje: Buenos d&iacute;as, Juan.<br>
+   A efectos de pruebas, se recibir&aacute;n la hora y el nombre de login 
+como par&aacute;metros, dejando comentados los comandos donde se extrae la
+hora real y se toma el usuario real.<br>
+         &nbsp;<br>
+   <b>12.</b> Un script de respaldo produce, entre otros mensajes, l&iacute;neas 
+del tipo<br>
+   <tt>&nbsp;&nbsp; "Total bytes written 18804023"</tt><br>
+   Guarda su salida en el archivo <tt>respaldo.error</tt>. Escribir un script 
+<tt>total.cinta</tt> que sume los bytes grabados e indique el total en bytes,
+Mb y Gb.<br>
+   Crear un archivo<tt> respaldo.error</tt> de prueba, con un contenido tal 
+como<br>
+   <br>
+  <br>
+&nbsp; <br>
+&nbsp;&nbsp; 
+<address>  </address>
+<hr width="100%">  
+<address> V&iacute;ctor A. Gonz&aacute;lez Barbone&nbsp; <a
+ href="mailto:vagonbar en fing edu uy">vagonbar en fing edu uy</a></address>
+  
+<address> <a href="http://iie.fing.edu.uy">Instituto de Ingenier&iacute;a El&eacute;ctrica</a>
+ - <a href="/www.fing.edu.uy">Facultad de Ingenier&iacute;a</a> - Montevideo, 
+Uruguay.</address>
+  
+</body>
+</html>

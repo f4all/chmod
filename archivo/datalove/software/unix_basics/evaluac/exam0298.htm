@@ -1,0 +1,93 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.7 [en] (Win95; I) [Netscape]">
+   <meta name="Author" content="Victor González-Barbone">
+   <title>Curso B&aacute;sico de UNIX - Ex&aacute;menes</title>
+</head>
+<body bgcolor="#FFFFFF">
+
+<dl>
+<dt>
+<b>Centro de Inform&aacute;tica</b></dt>
+
+<dt>
+<b>Sistemas Operativos II (UNIX)</b></dt>
+</dl>
+
+<center>
+<h3>
+Examen Febrero 1998</h3></center>
+
+<p><br>PARTE I. Sin consulta de material.
+<p>1. Al ingresar comandos, para qu&eacute; sirven los s&iacute;mbolos
+";" y "|"?
+<p>2. Los par&eacute;ntesis y otros s&iacute;mbolos son "interpretados
+por el shell". &iquest;C&oacute;mo puede escaparse esta intepretaci&oacute;n
+y mostrar los par&eacute;ntesis? Escribir un comando que muestre en pantalla
+la leyenda
+<br><tt>&nbsp; (aqu&iacute; se ven los par&eacute;ntesis)</tt>
+<br>de todas las formas que sepa hacerlo.
+<p>3. Ejecutar el comando <tt>nsk</tt> del directorio <tt>/usr/local/bin</tt>
+de modo que tome su entrada del archivo <tt>datos</tt> del directorio del
+usuario jperez en <tt>/home</tt>, grabe su salida en el archivo <tt>jperez.dts</tt>
+del directorio actual y los errores en <tt>jperez.errs</tt> del directorio
+actual.
+<p>4. Mostrar en pantalla el calendario del mes actual. Luego mostrar en
+pantalla el calendario del mes de marzo del a&ntilde;o en curso, y finalmente
+el calendario de 1999
+<p>5. Mostrar las primeras dos l&iacute;neas de los archivos cap01.txt
+a cap99.txt del directorio novela bajo el directorio actual. Mostrar la
+salida paginada.
+<p>6. &iquest;Cu&aacute;les son los tres modos del editor vi? &iquest;C&oacute;mo
+se pasa de uno a otro?
+<p>7. Escribir comandos para borrar
+<p>- arch1, archivo;
+<br>- lharch2, enlace hard al archivo arch2;
+<br>- lnarch2, enlace simb&oacute;lico al archivo arch1;
+<br>- dir 1, directorio vac&iacute;o;
+<br>- dir2, directorio lleno, junto con todos sus archivos;
+<br>- lndir3, enlace al directorio dir3.
+<p>Crear los siguientes enlaces, o indicar si no es posible:
+<p>- lnarch3, enlace simb&oacute;lico hacia el archivo arch3.
+<br>- lharch3, enlace hard hacia el archivo arch3.
+<br>- lndir3, enlace simb&oacute;lico hacia el directorio dir3.
+<br>- lhdir3, enlace hard hacia el directorio dir3.
+<p>8. Fijar los permisos del archivo resumen.txt para que el due&ntilde;o
+pueda leer y escribir, el grupo pueda leer y el resto no pueda nada. Usar
+modo absoluto y modo simb&oacute;lico.
+<p>9. Fijar los permisos del directorio varios para que el due&ntilde;o
+pueda ver, recorrer y borrar archivos, el grupo pueda ver y recorrer, y
+el resto s&oacute;lo pueda recorrer. Usar modo absoluto y modo simb&oacute;lico.
+<p>10. Escribir un script que reciba un nombre de archivo y agregue, al
+principio del archivo, las leyendas
+<blockquote>MEMORANDUM.
+<br>Montevideo, URUGUAY.
+<br>(fecha del d&iacute;a)
+<br>(rengl&oacute;n en blanco)</blockquote>
+Se dispone del comando fecha que pone la fecha en espa&ntilde;ol. Si se
+usan archivos temporales, eliminarlos al terminar.
+<br>&nbsp;
+<p>PARTE II: Con libre consulta de material.
+<p>Escribir scripts para realizar las siguientes tareas.
+<p>1. Escribir un script que reciba como par&aacute;metros un nombre de
+login, un nombre verdadero y un n&uacute;mero de usuario, y cree ese usuario
+con grupo primario 101, directorio en /home y shell bash.
+<p>2. Escribir un script que reciba como par&aacute;metro una palabra y
+el nombre de un archivo de texto, e indique si la palabra est&aacute; contenida
+en el archivo de texto y cu&aacute;ntas veces.
+<p>3. El comando ls -l muestra la cantidad de enlaces hard en el campo
+2, y el nombre del archivo en el campo 9; los campos est&aacute;n separados
+por uno o m&aacute;s espacios. Escribir un script que muestre, para los
+archivos que tengan enlace hard, la cantidad de enlaces hard y el nombre
+del archivo.
+<p>4. El comando ps -auxw muestra los procesos que est&aacute;n corriendo.
+Sus campos, separados por uno o m&aacute;s espacios, indican en el lugar
+2 el n&uacute;mero identificador de proceso y en el lugar 11 el comando
+de invocaci&oacute;n. Escribir un script que reciba el nombre de un comando
+y devuelva el (los) identificador(es) de proceso de ese comando, o indique
+que no est&aacute; corriendo.
+<br>&nbsp;
+</body>
+</html>

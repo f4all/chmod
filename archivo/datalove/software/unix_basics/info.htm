@@ -1,0 +1,160 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+   <META NAME="GENERATOR" CONTENT="Mozilla/4.06 [es] (Win95; I) [Netscape]">
+   <META NAME="Author" CONTENT="Víctor González-Barbone">
+   <META NAME="Description" CONTENT="Uso del sistema de documentación info de GNU">
+   <META NAME="KeyWords" CONTENT="UNIX, curso, tutorial, Linux">
+   <TITLE>Curso B&aacute;sico de UNIX - GNU info</TITLE>
+</HEAD>
+<BODY>
+
+<ADDRESS>
+<A HREF="index.htm">Curso B&aacute;sico de UNIX</A></ADDRESS>
+
+<CENTER>
+<H1>
+GNU info</H1></CENTER>
+
+<DT>
+<B><TT>info</TT></B> es un programa del proyecto GNU para leer o imprimir
+informaci&oacute;n. Sustituye a las p&aacute;ginas man, forma tradicional
+de mantener informaci&oacute;n acerca del sistema UNIX. Para obtener informaci&oacute;n
+sobre info, escribir</DT>
+
+<BR><TT>&nbsp;&nbsp;&nbsp; info info</TT>
+<BR><B><TT>info</TT></B> se basa en hipertexto; la informaci&oacute;n se
+organiza en "nodos" hacia los cuales es posible desplazarse. Un nodo es
+el texto que describe una unidad tem&aacute;tica. Los nodos se organizan
+jer&aacute;rquicamente. El encabezado de cada nodo muestra el archivo donde
+se encuentra la informaci&oacute;n, el nombre del nodo actual, el nodo
+siguiente en la organizaci&oacute;n tem&aacute;tica, el nombre del nodo
+previo en la organizaci&oacute;n tem&aacute;tica, y el nodo superior en
+la jerarqu&iacute;a de informaci&oacute;n.
+<BR>El tema del nodo aparece en doble subrayado.
+<P>Ejemplo de pantalla de info:
+<BR>&nbsp;
+<BR>&nbsp;
+<TABLE>
+<TR>
+<TD>
+<H4>
+<TT><FONT SIZE=-1>File: info-stnd.info,&nbsp; Node: Top,&nbsp; Next: What
+is Info,&nbsp; Up: (dir)</FONT></TT></H4>
+<TT><FONT SIZE=-1>File: info-stnd.info,&nbsp; Node: Top,&nbsp; Next: What
+is Info,&nbsp; Up: (dir)The GNU Info Program</FONT></TT>
+<BR><TT><FONT SIZE=-1>********************</FONT></TT>
+<P><TT><FONT SIZE=-1>This file documents GNU Info, a program for viewing
+the on-line</FONT></TT>
+<BR><TT><FONT SIZE=-1>formatted versions of Texinfo files, version 2.11.&nbsp;
+This documentation</FONT></TT>
+<BR><TT><FONT SIZE=-1>is different from the documentation for the Info
+reader that is part of</FONT></TT>
+<BR><TT><FONT SIZE=-1>GNU Emacs.</FONT></TT>
+<P><TT><FONT SIZE=-1>* Menu:</FONT></TT>
+<P><TT><FONT SIZE=-1>* What is Info::</FONT></TT>
+<BR><TT><FONT SIZE=-1>* Options::&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Options you can pass on the command line.</FONT></TT>
+<BR><TT><FONT SIZE=-1>* Cursor Commands::&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Commands which move the cursor within a node.</FONT></TT>
+<BR><TT><FONT SIZE=-1>* Scrolling Commands::&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Commands for moving the node around</FONT></TT>
+<BR><TT><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+in a window.</FONT></TT>
+<BR><TT><FONT SIZE=-1>* Node Commands::&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Commands for selecting a new node.</FONT></TT>
+<BR><TT><FONT SIZE=-1>* Searching Commands::&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Commands for searching an Info file.</FONT></TT>
+<BR><TT><FONT SIZE=-1>* Xref Commands::&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Commands for selecting cross references.</FONT></TT>
+<BR><TT><FONT SIZE=-1>* Window Commands::&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Commands which manipulate multiple windows.</FONT></TT>
+<BR><TT><FONT SIZE=-1>* Printing Nodes::&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+How to print out the contents of a node.</FONT></TT>
+<BR><B><TT><FONT COLOR="#000000"><FONT SIZE=-1>--zz-Info: (info-stnd.info.gz)Top,
+28 lines --Top------------------------------</FONT></FONT></TT></B></TD>
+</TR>
+</TABLE>
+
+<H4>
+Pantalla:</H4>
+<TT>`--All----' abajo a la derecha: todo el texto cabe en una pantalla;</TT>
+<BR><TT>`--Top----' abajo a la derecha: hay m&aacute;s texto en pantallas
+siguientes.</TT>
+<H4>
+<TT>Men&uacute;es:</TT></H4>
+<TT>Los men&uacute;es tienen esta estructura:</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp; * Menu:</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp; * Item1: T&iacute;tulo-item1&nbsp;&nbsp;&nbsp;
+Descripci&oacute;n t&iacute;tulo item 1</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp; * Item2: T&iacute;tulo-item2&nbsp;&nbsp;&nbsp;
+Descripci&oacute;n t&iacute;tulo item 2</TT>
+<P>Para ir hacia un item de men&uacute;: colocar el cursor y dar Enter;
+Ctrl-g para arrepentirse (antes de dar el Enter).
+<BR>Otra forma: m, luego el nombre del item o las primeras letras, TAB
+puede completar cuando las letras son suficientes
+<BR>Para volver al nodo superior, u. Elegir un item de men&uacute; "baja"
+a ese nodo; con u se "sube" de regreso a &eacute;l.
+<P><TT>&nbsp;&nbsp;&nbsp; * Item3::</TT>
+<BR>A este nodo (con <B><TT>::</TT></B>) se llega s&oacute;lo con dar Enter
+con el cursor sobre &eacute;l.
+<P><TT>&nbsp;&nbsp;&nbsp; * Note Cross: Ref-Cruzada&nbsp;&nbsp;&nbsp; Referencia
+cruzada</TT>
+<BR>Para ir a una referencia cruzada, f. Con f? se muestra la lista de
+referencias cruzadas en el nodo actual. Ctrl-g cancela.
+<P>Para terminar, q. Para volver a la informaci&oacute;n de info, m, luego
+Info.
+<H4>
+Teclas:</H4>
+<TT>h&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; invoca tutorial de
+info</TT>
+<BR><TT>?&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; lista de comandos
+de info, l para salir</TT>
+<BR><TT>Ctrl-g&nbsp;&nbsp;&nbsp; aborta lo que se est&eacute; haciendo</TT>
+<BR><TT>Ctrl-L&nbsp;&nbsp;&nbsp; refresco de pantalla</TT>
+<P><TT>ESPACIO&nbsp;&nbsp; avanzar en el texto</TT>
+<BR><TT>BS o Del&nbsp; retroceder en el texto</TT>
+<BR><TT>b&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; comienzo del
+nodo</TT>
+<P><TT>n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; nodo siguiente
+en la ordenaci&oacute;n tem&aacute;tica</TT>
+<BR><TT>p&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; nodo previo en
+la ordenaci&oacute;n tem&aacute;tica</TT>
+<BR><TT>m&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; elegir item de
+men&uacute;, ir hacia ese nodo</TT>
+<BR><TT>f&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; seguir una referencia
+cruzada</TT>
+<BR><TT>u&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; a nodo superior</TT>
+<BR><TT>l&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; nodo anterior
+visitado (last)</TT>
+<BR><TT>d&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; a nodo directorio</TT>
+<P><TT>q&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; salir de info</TT>
+<P><TT>1..5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; elegir item 1 .. 5 del men&uacute;
+de nodo</TT>
+<BR><TT>g&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mover a un nodo
+indicando su nombre;</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; puede darse
+el nombre de archivo, as&iacute;</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+(nombre-archivo)nombre-nodo</TT>
+<BR><TT>s&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; buscar una cadena
+de caracteres, elegir el nodo</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; de la siguiente
+ocurrencia</TT>
+<BR>&nbsp;
+<BR>&nbsp;
+<ADDRESS>
+
+<HR WIDTH="99%"></ADDRESS>
+
+<ADDRESS>
+V&iacute;ctor A. Gonz&aacute;lez Barbone <A HREF="mailto: vagonbar en fing edu uy">vagonbar en fing edu uy</A></ADDRESS>
+
+<ADDRESS>
+<A HREF="http://iie.fing.edu.uy">Instituto de Ingenier&iacute;a El&eacute;ctrica</A>
+- <A HREF="http://www.fing.edu.uy">Facultad de Ingenier&iacute;a</A> -
+Montevideo, Uruguay.</ADDRESS>
+
+</BODY>
+</HTML>

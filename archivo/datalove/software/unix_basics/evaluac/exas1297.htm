@@ -1,0 +1,167 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.7 [en] (Win95; I) [Netscape]">
+   <title>Curso B&aacute;sico de UNIX - Resoluci&oacute;n de Examen</title>
+</head>
+<body bgcolor="#FFFFFF">
+
+<dl>
+<dt>
+<b>Centro de Inform&aacute;tica</b></dt>
+
+<dt>
+<b>Sistemas Operativos II (UNIX)</b></dt>
+</dl>
+
+<center>
+<h3>
+Examen Diciembre 1997</h3></center>
+
+<center>
+<h3>
+Resoluci&oacute;n</h3></center>
+
+<h4>
+PARTE I. Sin consulta de material.</h4>
+1. &iquest;Para qu&eacute; sirve el operador grave?
+<blockquote>Para ejecutar un comando dentro de otro comando; un uso com&uacute;n
+es ejecutar un comando y colocar su salida en una variable de ambiente.</blockquote>
+2. Al escribir comandos, &iquest;qu&eacute; diferencia hay entre usar comillas
+dobles y simples?
+<blockquote>Lo que est&aacute; dentro de las comillas dobles es interpretado
+por el shell. Las variables de ambiente, el asterisco, etc., son expandidos
+a sus valores. Lo que est&aacute; dentro de comillas simples no es interpretado
+en modo alguno; son los caracteres escritos y nada m&aacute;s.</blockquote>
+3. Ejecutar el comando nodigo de modo que no produzca ninguna salida ni
+muestre ning&uacute;n error.
+<blockquote><tt>nodigo 1>/dev/null 2>&amp;1</tt></blockquote>
+4. &iquest;Qu&eacute; son los procesos? &iquest;Qu&eacute; son las se&ntilde;ales?
+<blockquote>Un proceso es un programa en ejecuci&oacute;n. Las se&ntilde;ales
+son valores que se hacen llegar a los procesos para controlarlos mientras
+se est&aacute;n ejecutando.</blockquote>
+5. &iquest;Qu&eacute; son BSD y SYSTEM V? &iquest;Qu&eacute; es POSIX?
+<blockquote>BSD y SYSTEM V son dos l&iacute;neas diferentes de desarrollo
+de los sistemas operativos UNIX. POSIX es un est&aacute;ndar que se pretende
+que cumpla todo sistema operativo que desee llamarse UNIX.</blockquote>
+6. &iquest;Puede haber un enlace hard hacia un directorio? &iquest;Puede
+haber un enlace simb&oacute;lico hacia un directorio? &iquest;Qu&eacute;
+diferencia hay?
+<blockquote>No puede haber enlace hard hacia directorio; s&iacute; puede
+haber enlace simb&oacute;lico hacia directorio. El enlace hard es s&oacute;lo
+una referencia m&aacute;s hacia el archivo; el enlace simb&oacute;lico
+es un peque&ntilde;o archivo que contiene un puntero hacia el archivo real.
+Cada enlace simb&oacute;lico genera un nuevo peque&ntilde;o archivo; los
+enlaces hard no generan nuevos archivos.</blockquote>
+7. &iquest;Con qu&eacute; comando se borra un archivo? &iquest;Y un directorio?
+&iquest;Con qu&eacute; comando se borra un enlace simb&oacute;lico hacia
+un archivo? &iquest;Con qu&eacute; comando se borra un enlace simb&oacute;lico
+hacia un directorio?
+<blockquote>Un archivo se borra con rm; un directorio se borra con rmdir;
+un enlace simb&oacute;lico se borra con rm, sea a directorio o a archivo,
+ya que un enlace simb&oacute;lico es en definitiva un archivo.</blockquote>
+8. &iquest;Qu&eacute; es el "shell"? &iquest;Qu&eacute; hace? En un mismo
+sistema UNIX, &iquest;puede haber m&aacute;s de un shell? Explicar.
+<blockquote>El shell es el int&eacute;rprete de comandos, que recibe los
+comandos del operador, los interpreta y los transfiere al n&uacute;cleo
+o "kernel" del sistema operativo. En un mismo sistema puede haber m&aacute;s
+de un shell; cada usuario puede tener uno diferente, e incluso un mismo
+usuario puede invocar un shell diferente del que est&aacute; atendiendo
+su sesi&oacute;n actual.</blockquote>
+9. Escribir un comando y uno solo para ejecutar cada una de las siguientes
+tareas, en el directorio actual:
+<br>- crear directorios trab1, trab2, trab3;
+<br>- asignar los tres directorios al usuario gerente;
+<br>- asignar los tres directorios al grupo trabajos;
+<br>- fijarles permiso total para el usuario y el grupo, pero s&oacute;lo
+lectura y recorrido para otros.
+<blockquote><tt>mkdir trab1 trab2 trab3</tt>
+<br><tt>chown gerente trab?</tt>
+<br><tt>chgrp trabajos trab?</tt>
+<br><tt>chmod 775 trab?</tt></blockquote>
+10. Escribir un comando (uno solo) para ejecutar cada una de las tareas
+siguientes en los directorios trab1, trab2 y trab3 del directorio actual,
+en forma simult&aacute;nea:
+<br>- crear en los tres directorios archivos resumen.txt.
+<br>- crear en los tres directorios enlaces simb&oacute;licos tmp hacia
+el directorio /tmp.
+<br>- crear en los tres directorios archivos 00indice con fecha y hora
+actuales.
+<br>- agregar a los tres archivos 00indice la leyenda "Montevideo, URUGUAY".
+<br>- eliminar en los tres directorios los subdirectorios basura y todos
+los archivos y subdirectorios bajo basura.
+<br>&nbsp;
+<blockquote><tt>touch trab?/resumen.txt</tt>
+<br><tt>ln -s /tmp trab?/tmp</tt>
+<br><tt>date > trab?/00indice</tt>
+<br><tt>echo "Montevideo, URUGUAY" >> trab?/00indice</tt>
+<br><tt>rm -r trab?/basura</tt></blockquote>
+
+<h4>
+PARTE II: Con libre consulta de material.</h4>
+Escribir scripts para realizar las siguientes tareas.
+<p>1. Dado un archivo de texto cuyo nombre se recibe como par&aacute;metro,
+crear un archivo diccionario.txt que contenga todas las palabras de ese
+texto sin repetir, ordenadas y en may&uacute;scula. Deber&aacute;n extraerse
+del texto s&oacute;lo las palabras, evitando s&iacute;mbolos y n&uacute;meros.
+<p><tt>&nbsp; cat $1 | tr -cs "[a-zA-Z]" "\n" | tr [a-z] [A-Z] | \</tt>
+<br><tt>&nbsp; sort | uniq > diccionario.txt</tt>
+<p>2. Un archivo de registro de eventos en un sistema UNIX tiene en su
+primer campo el nombre del evento, en el campo 2 el nombre de login del
+usuario y en el campo 5 la cantidad de minutos en sesi&oacute;n; el separador
+de campos es ":". Escribir un script que reciba un nombre de login, extraiga
+los registros del evento "login" del usuario indicado, y calcule el total
+de minutos en sesi&oacute;n de ese usuario. El archivo de registro es /var/log/events.log.
+Si el usuario no tiene ning&uacute;n login, deber&aacute; dar un mensaje
+adecuado.
+<p><tt>&nbsp; cat /var/log/events.log | grep login | grep $1 > logusu.tmp</tt>
+<br><tt>&nbsp;</tt>
+<br><tt>&nbsp; if [ ! -s logusu.tmp ] # si logusu.tmp no tiene tama&ntilde;o
+>0</tt>
+<br><tt>&nbsp; then</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; echo "El usuario $1 no tiene login"</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; exit</tt>
+<br><tt>&nbsp; fi</tt>
+<br><tt>&nbsp;</tt>
+<br><tt>&nbsp; MINUTOS=`cat logusu.tmp | cut -f5 -d:`</tt>
+<br><tt>&nbsp; TOTAL=0</tt>
+<br><tt>&nbsp;</tt>
+<br><tt>&nbsp; for MIN in $MINUTOS</tt>
+<br><tt>&nbsp; do</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; TOTAL=`expr $TOTAL + $MIN`</tt>
+<br><tt>&nbsp; done</tt>
+<br><tt>&nbsp; echo "El usuario $1 tiene $TOTAL minutos de login"</tt>
+<p>3. Usando el archivo /etc/group, escribir un script que reciba el nombre
+de un grupo como par&aacute;metro y presente el n&uacute;mero de grupo,
+el nombre del grupo, la lista de usuarios y la cantidad de usuarios.
+<p><tt>&nbsp; GRUPO=`cat /etc/group | grep ^$1`</tt>
+<br><tt>&nbsp; echo "Nombre grupo:" `echo $GRUPO | cut -f1 -d:`</tt>
+<br><tt>&nbsp; echo "N&uacute;mero grupo:" `echo $GRUPO | cut -f3 -d:`</tt>
+<br><tt>&nbsp; echo "Lista de Usuarios:" `echo $GRUPO | cut -f4 -d:`</tt>
+<br><tt>&nbsp; echo "Cantidad de usuarios" `echo $GRUPO | tr "," " " |
+wc -w`</tt>
+<p>4. Escribir un script que reciba el nombre de un directorio como par&aacute;metro,
+verifique que existe y que es un directorio, determine si est&aacute; ya
+contenido en la variable PATH, y si no est&aacute; lo agregue; en ambos
+casos emitir&aacute; un mensaje indicando la condici&oacute;n y mostrar&aacute;
+el contenido de la variable PATH.
+<p><tt>&nbsp; DIR=$1</tt>
+<br><tt>&nbsp; if [ ! -d $DIR ]</tt>
+<br><tt>&nbsp; then</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; echo $DIR no existe o no es un directorio</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; exit</tt>
+<br><tt>&nbsp; fi</tt>
+<br><tt>&nbsp; ESTA=`echo $PATH | grep $DIR`</tt>
+<br><tt>&nbsp; if [ -z $ESTA ] # $ESTA es vac&iacute;o, $DIR no est&aacute;
+en $PATH</tt>
+<br><tt>&nbsp; then</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; PATH=$PATH:$DIR</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; echo $DIR fue agregado a la variable PATH</tt>
+<br><tt>&nbsp; else</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; echo $DIR ya se encuentra en la variable PATH</tt>
+<br><tt>&nbsp; fi</tt>
+<br><tt>&nbsp; echo PATH=$PATH</tt>
+<br>&nbsp;
+</body>
+</html>

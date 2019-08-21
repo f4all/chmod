@@ -1,0 +1,765 @@
+<!doctype html>
+<html>
+
+<!-- Mirrored from www.irchelp.org/irchelp/altircfaq.html by HTTrack Website Copier/3.x [XR&CO'2013], Sun, 29 Dec 2013 06:56:53 GMT -->
+<head>
+    <title>IRCHelp.org &mdash; alt.irc faq</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="description" content="Comprehensive information on everything Internet Relay Chat" />
+    <meta name="author" content="irchelpers" />
+    <meta name="generator" content="PieCrust 1.0.0-dev" />
+    <meta name="template-engine" content="Twig" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,
+      initial-scale=1.0">
+    <!-- Le styles -->
+    <link href="http://www.irchelp.org/css/bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+    </style>
+    <link href="http://www.irchelp.org/css/bootstrap-responsive.css" rel="stylesheet">
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144"
+      href="http://www.irchelp.org/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114"
+      href="http://www.irchelp.org/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72"
+      href="http://www.irchelp.org/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed"
+      href="http://www.irchelp.org/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="http://www.irchelp.org/ico/favicon.png">
+</head>
+<body>
+    <!--Start of navigation-->
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container"> <a class="btn btn-navbar"
+            data-toggle="collapse" data-target=".nav-collapse"> <span
+              class="icon-bar"></span> <span class="icon-bar"></span> <span
+              class="icon-bar"></span> </a> <a class="brand" href="http://www.irchelp.org/">#irchelp</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class="active"><a href="http://www.irchelp.org/">Home</a></li>
+              <li><a href="credit.html">About</a></li>
+              <li class="dropdown"> <a href="clients/index.html" class="dropdown-toggle"
+                  data-toggle="dropdown">Clients </a>
+                <ul class="dropdown-menu">
+                  <li><a href="clients/index.html">All Clients</a></li>
+                  <li class="divider"></li>
+                  <li class="nav-header">Windows</li>
+                  <li><a href="clients/windows/mirc/index.html">mIRC</a></li>
+                  <li><a href="clients/windows/xchat.html">XChat</a></li>
+                  <li><a href="clients/windows.html">All Windows Clients</a></li>
+                  <li class="divider"></li>
+                  <li class="nav-header">MacOS X</li>
+                  <li><a href="clients/mac/textual.html">Textual</a></li>
+                  <li><a href="clients/mac/colloquy.html">Colloquy</a></li>
+                  <li><a href="clients/mac/snak.html">Snak</a></li>
+                  <li><a href="clients/mac.html">All MacOS X Clients</a></li>
+                  <li class="divider"></li>
+                  <li class="nav-header">Linux/Unix Terminal</li>
+                  <li><a href="clients/unix/irssi/index.html">irssi</a></li>
+                  <li><a href="clients/unix/epic.html">EPIC</a></li>
+                  <li><a href="clients/unix/ircii/index.html">ircII</a></li>
+                  <li><a href="clients/unix/index.html#terminal">All Linux/Unix Terminal Clients</a></li>
+                  <li class="divider"></li>
+                  <li class="nav-header">Linux/Unix Graphical</li>
+                  <li><a href="clients/unix/xchat.html">XChat</a></li>
+                  <li><a href="clients/unix/konversation.html">Konversation</a></li>
+                  <li><a href="clients/unix/index.html#gui">All Linux/Unix Graphical Clients</a></li>
+                  <li class="nav-header">Smartphones</li>
+                  <li><a href="clients/mobile/android/index.html">Clients for Android</a></li>
+                  <li><a href="clients/mobile/ios.html">Clients for iOS</a></li>
+                  <li><a href="clients/mobile.html">All Smartphone Clients</a></li>
+                  <li class="nav-header">Other OS and Crossplatform</li>
+                  <li><a href="clients/cross/java.html">Clients writting in Java</a></li>
+                  <li><a href="clients/cross.html">Other Crossplatform Clients</a></li>
+                  <li><a href="clients/otheros/index.html">Clients for other Operating Systems</a></li>
+                  <li><a href="clients/webclients.html">Web-based clients</a></li>
+
+                </ul>
+              </li>
+              <li class="dropdown"> <a href="networks/index.html" class="dropdown-toggle"
+                  data-toggle="dropdown">Networks </a>
+                <ul class="dropdown-menu">
+                  <li><a href="networks/popular.html">Major Networks</a></li>
+                  <li><a href="networks/regional.html">Regional Networks</a></li>
+                  <li><a href="networks/topical.html">Topical Networks</a></li>
+                  <li><a href="networks/index.html">All Networks</a></li>
+                  <li class="divider"></li>
+                  <li class="nav-header">Major Networks</li>
+                  <li><a href="networks/efnet/index.html">EFNet</a></li>
+                  <li><a href="networks/undernet.html">Undernet</a></li>
+                  <li><a href="networks/dalnet.html">Dalnet</a></li>
+                  <li><a href="networks/quakenet.html">Quakenet</a></li>
+                  <li><a href="networks/freenode.html">Freenode</a></li>
+                </ul>
+              </li>
+              <li class="dropdown"> <a href="security/index.html" class="dropdown-toggle"
+                  data-toggle="dropdown">Security </a>
+                <ul class="dropdown-menu">
+                  <li><a href="security/index.html">General Security</a></li>
+                  <li><a href="security/privacy.html">Privacy</a></li>
+                  <li><a href="security/nuke.html">Denial of Service</a></li>
+                  <li><a href="security/trojan.html">Trojan Horses and Other Malware</a></li>
+                  <li><a href="security/socialeng.html">Social Engineering</a></li>
+                </ul>
+              </li>
+              <li class="dropdown"> <a href="ircd/index.html" class="dropdown-toggle"
+                  data-toggle="dropdown">Servers </a>
+                <ul class="dropdown-menu">
+                  <li><a href="ircd/index.html">General ircd information</a></li>
+                  <li class="divider"></li>
+                  <li class="nav-header">EFNet IRCDs</li>
+                  <li><a href="ircd/ratbox/index.html">ircd-ratbox</a></li>
+                  <li><a href="ircd/hybrid/index.html">ircd-hybrid</a></li>
+                </ul>
+              </li>
+              <li class="dropdown"> <a href="#" class="dropdown-toggle"
+                  data-toggle="dropdown">FAQs </a>
+                <ul class="dropdown-menu">
+                  <li><a href="new2irc.html">New user introduction</a></li>
+<!--
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li class="divider"></li>
+                  <li class="nav-header">Nav header</li>
+                  <li><a href="#">Separated link</a></li>
+                  <li><a href="#">One more separated link</a></li>
+-->
+                </ul>
+              </li>
+              <li class="dropdown"> <a href="library.html" class="dropdown-toggle"
+                  data-toggle="dropdown">Library </a>
+                <ul class="dropdown-menu">
+                  <li><a href="library.html">Index</a></li>
+<!--
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li class="divider"></li>
+                  <li class="nav-header">Nav header</li>
+                  <li><a href="#">Separated link</a></li>
+                  <li><a href="#">One more separated link</a></li>
+-->
+                </ul>
+              </li>
+            </ul>
+            <form class="navbar-form pull-right"> <input class="span2"
+                placeholder="Search" type="text"> <button type="submit"
+                class="btn">Search</button> </form>
+          </div>
+          <!--/.nav-collapse --> </div>
+      </div>
+    </div>
+<!--end of navigation-->
+
+    <div id="container" class="container">
+<!--
+                        <h1><a href="/">alt.irc faq</a></h1>
+            -->        
+        
+            <div class="content">
+                                <p><strong>Editor&#8217;s note</strong>: This is a classic help file dating back to the 1990s when IRC was very new. We still keep this file here for historic value, and also because the general information is still accurate. If you are interested in other, more up to date help files, see <a href="faq.html">IRC FAQs and Help Files</a>. </p>
+
+<p>Back then there was only 1 network (EFnet), now there are hundreds, each with
+different people and channels. Nearly everybody used a shell IRC client such
+as ircII, hence all the references to command prompts. Finally, few if any of
+the specific information below such as download links, server/channel names,
+etc. still work. See the above URL for other help files to get the current
+information. <em>-Jolo</em></p>
+
+<h1>Internet Relay Chat FAQ</h1>
+
+<h2>What is IRC?</h2>
+
+<p>IRC stands for &#8220;Internet Relay Chat&#8221;. It was originally written by Jarkko
+Oikarinen <em>(jto@tolsun.oulu.fi)</em> in 1988. Since starting in Finland, it has
+been used in over 60 countries around the world. It was designed as a
+replacement for the &#8220;talk&#8221; program but has become much much more than that.
+IRC is a multi-user chat system, where people convene on &#8220;channels&#8221; (a virtual
+place, usually with a topic of conversation) to talk in groups, or privately.
+IRC is constantly evolving, so the way things to work one week may not be the
+way they work the next. Read the MOTD (message of the day) every time you use
+IRC to keep up on any new happenings or server updates.</p>
+
+<p>IRC gained international fame during the 1991 Persian Gulf War, where updates
+from around the world came accross the wire, and most irc users who were
+online at the time gathered on a single channel to hear these reports. IRC had
+similar uses during the coup against Boris Yeltsin in September 1993, where
+IRC users from Moscow were giving live reports about the unstable situation
+there.</p>
+
+<h2>How is IRC set up?</h2>
+
+<p>The user runs a &#8220;client&#8221; program (usually called &#8216;irc&#8217;) which connects to the
+irc network via another program called a &#8220;server&#8221;. Servers exist to pass
+messages from user to user over the irc network.</p>
+
+<h2>How do I use a client?</h2>
+
+<p>First, check to see if irc is installed on your system. Type &#8220;irc&#8221; from your
+prompt. If this doesn&#8217;t work, ask your local systems people if irc is already
+installed. This will save you the work of installing it yourself. If an IRC
+client isn&#8217;t already on your system, you either compile the source yourself,
+have someone else on your machine compile the source for you.</p>
+
+<h2>Where can I get source for the irc client?</h2>
+
+<p>You can anonymous ftp to any of the following sites (use the one closest to
+you): <strong>If you don&#8217;t know what anonymous ftp is, ask your local systems people
+to show you</strong></p>
+
+<pre><code>### UNIX client
+
+
+
+[cs-ftp.bu.edu /irc/clients](ftp://cs-ftp.bu.edu/irc/clients)
+
+[ftp.acsu.buffalo.edu /pub/irc](ftp://ftp.acsu.buffalo.edu/pub/irc)
+
+[ftp.funet.fi /pub/unix/irc](ftp://ftp.funet.fi/pub/unix/irc)
+
+[coombs.anu.edu.au /pub/irc](ftp://coombs.anu.edu.au/pub/irc)
+
+[ftp.informatik.tu-muenchen.de /pub/comp/networking/irc/clients](ftp://ftp.informatik.tu-muenchen.de/pub/comp/networking/irc/clients)
+
+
+
+
+
+### EMACS elisp
+
+
+
+[cs-ftp.bu.edu /irc/clients/elisp](ftp://cs-ftp.bu.edu/irc/clients/elisp)
+
+[ftp.funet.fi /pub/unix/irc/Emacs](ftp://ftp.funet.fi/pub/unix/irc/Emacs)
+
+[ftp.informatik.tu-muenchen.de /pub/comp/networking/irc/clients](ftp://ftp.informatik.tu-muenchen.de/pub/comp/networking/irc/clients)
+
+[cs.hut.fi /pub/irchat](ftp://cs.hut.fi/pub/irchat)
+
+
+
+
+
+### X11 client
+
+
+
+[catless.ncl.ac.uk /pub](ftp://catless.ncl.ac.uk/pub)
+
+[ftp.aud.alcatel.com /tcl/code](ftp://ftp.aud.alcatel.com/tcl/code)
+
+
+
+
+
+### NeXTStep client
+
+
+
+[http://www-personal.engin.umich.edu/~premise/foundation/encircle/](http://www-personal.engin.umich.edu/~premise/foundation/encircle/)
+
+
+
+
+
+### VMS client
+
+
+
+[cs-ftp.bu.edu /irc/clients/vms](ftp://cs-ftp.bu.edu/irc/clients/vms)
+
+[coombs.anu.edu.au /pub/irc/vms](ftp://coombs.anu.edu.au/pub/irc/vms)
+
+[ftp.funet.fi /pub/unix/irc/vms](ftp://ftp.funet.fi/pub/unix/irc/vms)
+
+[ftp.informatik.tu-muenchen.de /pub/net/irc](ftp://ftp.informatik.tu-muenchen.de/pub/net/irc)
+
+
+
+
+
+### REXX client for VM
+
+
+
+[cs-ftp.bu.edu /irc/clients/rxirc](ftp://cs-ftp.bu.edu/irc/clients/rxirc)
+
+[ftp.informatik.uni-oldenburg.de /pub/irc/rxirc](ftp://ftp.informatik.uni-oldenburg.de/pub/irc/rxirc)
+
+[ftp.informatik.tu-muenchen.de /pub/net/irc/VM](ftp://ftp.informatik.tu-muenchen.de/pub/net/irc/VM)
+
+[coombs.anu.edu.au /pub/irc/rxirc](ftp://coombs.anu.edu.au/pub/irc/rxirc)
+
+[ftp.funet.fi /pub/unix/irc/rxirc](ftp://ftp.funet.fi/pub/unix/irc/rxirc)
+
+
+
+
+
+### MSDOS
+
+
+
+[cs-ftp.bu.edu /irc/clients/pc/msdos](ftp://cs-ftp.bu.edu/irc/clients/pc/msdos)
+
+[ftp.funet.fi /pub/unix/irc/msdos](ftp://ftp.funet.fi/pub/unix/irc/msdos)
+
+
+
+
+
+### Microsoft Windows
+
+
+
+[cs-ftp.bu.edu /irc/clients/pc/windows](ftp://cs-ftp.bu.edu/irc/clients/pc/windows)
+
+[ftp.demon.co.uk
+
+/pub/ibmpc/win3/winsock/apps/wsirc (for WSIRC)](ftp://ftp.demon.co.uk/pub/ibmpc/win3/winsock/apps/wsirc)
+
+[ftp.demon.co.uk
+
+/pub/ibmpc/win3/winsock/apps/mirc (for MIRC)](ftp://ftp.demon.co.uk/pub/ibmpc/win3/winsock/apps/mirc)
+
+
+
+
+
+### OS/2
+
+
+
+[cs-ftp.bu.edu /irc/clients/pc/os2](ftp://cs-ftp.bu.edu/irc/clients/pc/os2)
+
+[hobbes.nmsu.edu /os2/2_x/network](ftp://hobbes.nmsu.edu/os2/2_x/network)
+
+
+
+
+
+### Macintosh
+
+
+
+[cs-ftp.bu.edu /irc/clients/macintosh](ftp://cs-ftp.bu.edu/irc/clients/macintosh)
+
+[mirrors.aol.com
+
+/info-mac/comm (info-mac mirror)/A&gt;
+
+[ftp.funet.fi /pub/unix/irc/mac](ftp://ftp.funet.fi/pub/unix/irc/mac)
+
+[ftp.ira.uka.de /pub/systems/mac](ftp://ftp.ira.uka.de/pub/systems/mac)
+</code></pre>
+
+<h2>Which server do I connect my client to?</h2>
+
+<p>It&#8217;s usually best to try and connect to one geographically close, even though
+that may not be the best. You can always ask when you get on irc. Here&#8217;s a
+list of servers avaliable for connection:</p>
+
+<ul>
+<li>USA: 
+
+<ul>
+<li>irc.bu.edu </li>
+<li>irc.colorado.edu </li>
+<li>piglet.cc.utexas.edu </li>
+</ul></li>
+<li>Canada: 
+
+<ul>
+<li>irc.mcgill.ca </li>
+</ul></li>
+<li>Europe: 
+
+<ul>
+<li>irc.funet.fi </li>
+<li>cismhp.univ-lyon1.fr </li>
+<li>irc.ethz.ch </li>
+<li>irc.nada.kth.se </li>
+<li>sokrates.informatik.uni-kl.de </li>
+<li>bim.itc.univie.ac.at </li>
+</ul></li>
+<li>Australia: 
+
+<ul>
+<li>jello.qabc.uq.oz.au </li>
+</ul></li>
+<li>Japan: 
+
+<ul>
+<li>endo.wide.ad.jp  This is, by no means, a comprehensive list, but merely a start. Connect to the closest of these servers and join the channel #irchelp </li>
+</ul></li>
+</ul>
+
+<h2>What is the port to use to connect to IRC?</h2>
+
+<p>In general, the port to use is 6667. Some servers listen to other ports (most
+commonly in the 6660-6670 range), but <em>not</em> all. When in doubt, use 6667.</p>
+
+<h2>What&#8217;s the username and password to connect to irc?</h2>
+
+<h3>I&#8217;m prompted for login: and I don&#8217;t know what to type! Sometimes when I</h3>
+
+<p>try to connect to IRC it just says &#8220;connection closed by foreign host. What
+gives?</p>
+
+<p>If you see &#8220;login:&#8221; then you are trying to use telnet to connect to IRC. You
+should go back up and read (3) and (4). Nowhere in this FAQ does it say you
+should use telnet to connect to an IRC server. You <em>must</em> use a client. Read
+(4) to find out where to get a client, and (5) to find out which server to
+connect to.</p>
+
+<p>&#8220;connection closed by foreign host&#8221; indicates that you&#8217;re trying to telnet to
+irc, just as in the paragraph above. Again, you HAVE to use a client!</p>
+
+<h2>OK, I&#8217;ve got a client and I&#8217;m connected to a server? Now what?</h2>
+
+<p>It&#8217;s probably best to take a look around and see what you want to do first.
+All irc commands start with a &#8220;/irchelp/&#8221;, and most are one word. Typing /help
+will get you help information. /names will get you a list of names, etc. The
+output is typically something like this-> (Note there are more channels than
+this, this is just sample output).</p>
+
+<pre><code>Pub: #hack      zorgo eiji Patrick fup htoaster 
+
+Pub: #Nippon    @jircc @miyu_d 
+
+Pub: #nicole    MountainD 
+
+Pub: #hottub    omar liron beer Deadog moh pfloyd Dode joek
+</code></pre>
+
+<p>(Note there are LOTS more channels than this, this is just sample output &#8212;
+one way to stop /names from being too large is doing /names -min 20 which will
+only list channels with 20 or more people on it, but you can only do this with
+the ircII client). &#8220;Pub&#8221; means public (or &#8220;visible&#8221;) channel. &#8220;hack&#8221; is the
+channel name. &#8220;#&#8221; is the prefix. A &#8220;@&#8221; before someone&#8217;s nickname indicates
+he/she is the &#8220;Channel operator&#8221; (see #7) of that channel. A Channel Operator
+is someone who has control over a specific channel. It can be shared or not as
+the first Channel Operator sees fit. The first person to join the channel
+automatically receives Channel Operator status, and can share it with anyone
+he/she chooses (or not). Another thing you might see is &#8220;Prv&#8221; which means
+private. You will only see this if you are on that private channel. No one can
+see Private channels except those who are on that particular private channel.</p>
+
+<h2>Now I&#8217;ve picked out a nice channel. How do I join that channel?</h2>
+
+<h3>And what do I type once I get there? And when I&#8217;m done, how do I leave a</h3>
+
+<p>channel?</p>
+
+<p>To join a channel, type /join #channelname. That&#8217;s it! Once you get to the
+channel, you will see people talking. It will probably look like this:</p>
+
+<pre><code>&lt;Avalon&gt; AUUG is on at the same time as LISA this year and is cheaper.
+
+&lt;Barron&gt; backhaul those DS3s to Virginia ;)
+
+&lt;Barron&gt; buy a farm
+
+&lt;FlashPYR&gt; so is .us going to start charging $50/domain, too?
+
+&lt;Barron&gt; or something
+
+&lt;Tolim&gt; oops
+</code></pre>
+
+<p>Note that you will often come in in the <em>middle</em> of a conversation. Unless
+you&#8217;re familiar with the channel you may want to sit and watch it for a minute
+or two to see what the conversation is about. Often the channel name (for
+instance, #Twilight<em>Zone) has nothing to do with what conversation goes on on
+the channel (#Twilight</em>Zone does <em>not</em> have discussion about the TV show
+&#8220;Twilight Zone&#8221;). So if you join #baseball, don&#8217;t be surprised if you hear
+about the SuperBowl picks or even the Rock-n-Roll Hall of Fame Museum!</p>
+
+<p>To start talking, just type! And when you&#8217;re done saying what you have to say,
+just hit the [return] key. You can start with something simple like &#8220;hello!&#8221;.
+You don&#8217;t have to type  hello! because IRC will insert  before all of your
+channel messages.</p>
+
+<p>When you choose to leave a channel, just type /part #channelname</p>
+
+<h2>What is a channel operator? What is an irc operator?</h2>
+
+<p>A channel operator is someone with a &#8220;@&#8221; by their nickname in a /names list,
+or a &#8220;@&#8221; by the channel name in /whois output. Channel operators are
+kings/queens of their channel. This means they can kick you out of their
+channel for no reason. If you don&#8217;t like this, you can start your own channel
+and become a channel operator there.</p>
+
+<p>An IRC operator is someone who maintains the IRC network. They cannot fix
+channel problems. They cannot kick someone out of a channel for you. They
+cannot /kill (kick someone out of IRC temporarily) someone just because you
+gave the offender channel operator privileges and said offender kicked <em>you</em>
+off.</p>
+
+<h2>What is a &#8220;bot&#8221;? How can I get one?</h2>
+
+<p>&#8220;bot&#8221; is short for &#8220;robot&#8221;. It is a script run from an ircII client or a
+seperate program (in perl, C, and sometimes more obscure languages).
+<em>StarOwl@uiuc.edu</em> (Michael Adams) defined bots very well: &#8220;A bot is a vile
+creation of /lusers to make up for lack of penis length&#8221;. IRC bots are
+generally not needed. See below about &#8220;ownership&#8221; of nicknames and channels. A
+bot generally tries to &#8220;protect&#8221; a channel (it should be noted that all bots
+will fail at some point, so relying on them to keep a channel is not a good
+idea) from takeovers.</p>
+
+<p>It should be noted that many servers (especially in the USA) ban ALL bots.
+Some ban bots so much that if you run a bot on their server, you will be
+banned from using that server (see segment below on K: lines).</p>
+
+<h2>What are good channels to try while using irc?</h2>
+
+<h1>hottub and #riskybus are almost always teeming with people. #hottub is meant</h1>
+
+<p>to simulate a hot tub, and #riskybus is a non-stop #game. Just join to find
+out!</p>
+
+<p>To get a list of channels with their names and topics, do /list -min 20 (on
+ircII) which will show you channels with 20 or more members. You can also do
+this for smaller numbers.</p>
+
+<p>Many IRC operators are in #Twilight_Zone &#8230; so if you join that channel and
+don&#8217;t hear much talking, don&#8217;t worry, it&#8217;s not because you joined, operators
+don&#8217;t talk much on that channel anyways!</p>
+
+<h2>What are some of the foreign language channels on IRC? What do they mean?</h2>
+
+<p>Some of the most popular foreign language channels include #42 (which is a
+Finnish channel), #warung (which is a Malaysian channel. The word &#8220;warung&#8221;
+means &#8220;coffeehouse&#8221; or &#8220;small restaurant&#8221;), #polska (a Polish channel),</p>
+
+<h1>nippon (a Japanese channel, note that &#8220;funny&#8221; characters are often seen here</h1>
+
+<p>&#8212; this is Kanji. You will need a Kanji-compatible terminal program and Kanji-
+compatible irc client to converse in Kanji), #espanol (a Spanish channel),</p>
+
+<h1>russian (a Russian channel). These are just examples &#8212; a large percentage of</h1>
+
+<p>languages in the world is spoken on irc <em>somewhere</em>. If your language/country
+isn&#8217;t listed above, ask on #irchelp to see if there is a channel for it.</p>
+
+<h2>Someone is using my nickname, can anyone do anything about it? Someone is</h2>
+
+<p>using my channel, can anyone do anything about it?</p>
+
+<p>Even while NickServ registered nicknames, there are not enough nicknames to
+have nickname ownership. If someone takes your nickname while you are not on
+irc, you can ask for them to give it back, but you can not <strong>demand</strong> it, nor
+will irc operators /kill for nickname ownership.</p>
+
+<p>There are, literally, millions of possible channel names, so if someone is on
+your usual channel, just go to another. You can /msg them and ask for them to
+leave, but you can&#8217;t <em>force</em> them to leave.</p>
+
+<h2>There aren&#8217;t any channel operators on my channel, now what?</h2>
+
+<p>Channel operators are the owner(s) of their respective channels. Keep this in
+mind when giving out channel operator powers (make sure to give them to enough
+people so that all of the channel operators don&#8217;t unexpectedly leave and the
+channel is stuck without a channel operator). On the other hand, do not give
+out channel operator to <em>everyone</em>. This causes the possibility of mass-
+kicking, where the channel would be stuck without any channel operators. You
+have one option. You can ask everyone to leave and rejoin the channel. This is
+a good way to get channel operator back. It doesn&#8217;t work on large channels or
+ones with bots, for obvious reasons.</p>
+
+<h2>What if someone tells me to type something cryptic?</h2>
+
+<p>Never type anything anyone tells you to without knowing what it is. There is a
+problem with typing a certain command with the ircII client that gives anyone
+immediate control of your client (and thus can alter your account environment
+also).</p>
+
+<h2>What was NickServ? Is NickServ ever coming back?</h2>
+
+<p>NickServ was a nickname registration service run in Germany. It was a bot that
+told people who used a registered nickname to stop using that nickname.
+NickServ has been down since the Spring of 1994.</p>
+
+<p>It is not likely that NickServ will be back. Remember, nicknames aren&#8217;t owned.</p>
+
+<h2>What does &#8220;*** Ghosts are not allowed on IRC.&#8221; mean? What does &#8220;*** You</h2>
+
+<p>are not welcome on this server.&#8221; mean?</p>
+
+<p>On IRC, you cannot be banned from every single server. Server-banning exists
+only on a per-server basis (being banned on one server does not mean you are
+automatically banned from another). &#8220;Ghosts are not allowed on IRC&#8221; means that
+you are banned from using that server. The banning is in one of three forms:</p>
+
+<ul>
+<li>You are banned specifically, you yourself. Only you can be responsible for this (if you are using a shared account, this obviously does not apply). Thus the responsibility lies completely with you and you have noone to complain to. </li>
+<li>Your machine is banned. Chances are it wasn&#8217;t you who committed the wrongdoing. Try using another machine on campus and seeing if you can use that particular irc server then. </li>
+<li>Your whole site is banned (where &#8220;site&#8221; == &#8220;school&#8221;, &#8220;company&#8221;, &#8220;country&#8221;). This almost certainly wasn&#8217;t your fault. And chances are you won&#8217;t be able to get the server-ban lifted. Try using another server.  The most general answer is &#8220;use another server&#8221;, but if it bothers you, try writing to the irc administrator of that site &#8212;> /admin server.name.here &#8212; plead your case. It might even get somewhere! </li>
+</ul>
+
+<h2>What does &#8220;You have new email.&#8221; mean? What does it mean when I see &#8220;[Mail:</h2>
+
+<p>5]&#8221; in my status bar?</p>
+
+<p>IRC does not have its own mail. However, if your client tells you that you
+have new email, it simply means that you have received mail in your account.
+Leave irc (either by suspending it or quitting it), and read the mail.</p>
+
+<p>You might also see &#8220;You have new email.&#8221; when you start irc. IRC does not keep
+track of email between sessions, so when you start irc and have something in
+your mailbox, irc will tell you you have new email.</p>
+
+<p>The &#8220;[Mail: 5]&#8221; in your status bar tells you how many email messages you have
+in your mailbox. Again, to access them, leave irc and read them using your
+normal mail reader.</p>
+
+<h2>I&#8217;ve just tried typing /list but it scrolls by so fast! How can I slow it</h2>
+
+<p>down to something more my pace?</p>
+
+<p>The standard ircII client (for UNIX) has an option called &#8220;hold mode&#8221;. To
+activate it, type: /set hold_mode on &#8212; then you will be able to hit return
+after each screen&#8217;s worth of data.</p>
+
+<h2>I&#8217;ve done a /whois on myself and other people, but I notice that my real</h2>
+
+<p>name shows up in parentheses &#8212; I don&#8217;t like this! It doesn&#8217;t show up in other
+people&#8217;s parentheses. How can I change it?</p>
+
+<p>In UNIX, there are two way of changing your IRCNAME and it depends on which
+shell you are using. If you are using csh or tcsh (the more popular UNIX
+shells, when in doubt, try this first), type this before you start irc:</p>
+
+<p>setenv IRCNAME &#8220;what you would like to appear&#8221;</p>
+
+<p>If you don&#8217;t want to type that every time you log in, put the line exactly as
+it appears above into your .cshrc file.</p>
+
+<p>If you are using sh, ksh, or bash, type this before you start irc:
+IRCNAME=&#8221;what you would like to appear&#8221;;export IRCNAME</p>
+
+<p>Or insert that line into your .profile</p>
+
+<p>In VMS, you must put this line in your login.com file: DEFINE IRCNAME &#8220;what
+you would like to appear&#8221;</p>
+
+<h2>What is a netsplit?</h2>
+
+<h3>What does it mean when I see: **<em>Signoff NickName (</em>.bu.edu eff.org)? Why</h3>
+
+<p>does NickName keep signing off?</p>
+
+<p>Netsplits are (unfortunately) a routine part of IRC life. What the above
+message means that NickName, who you were on a channel with, was on a
+different server from you. This server split off from the part of the net you
+were on.</p>
+
+<p>Note that netsplits are all from a point of view of the user. After a netsplit
+rejoins people might say to you &#8220;where did you go?&#8221; &#8212; because from their
+perspective, <em>you</em> split off.</p>
+
+<p>The only thing you can do during a netsplit is wait for the net to mend
+itself. Changing your server during a netsplit is a Bad Idea, because you are
+likely to get nickname collided. By changing servers, you may also be
+contributing to the lag.</p>
+
+<p>As long as you don&#8217;t quit your client, any DCC chat or send will still work,
+even during a netsplit (unless the netsplit is because of a specific rare
+hardware problem).</p>
+
+<h2>Where can I find GIF archives of irc people?</h2>
+
+<p>GIF archives of irc people are available:</p>
+
+<pre><code>     [ftp.funet.fi:/pub/pics/gif/pics/people/misc/irc -- NORDUnet Only!](ftp://ftp.funet.fi/pub/pics/gif/pics/people/misc/irc)
+
+     [ftp.informatik.tu-muenchen.de /pub/comp/networking/irc/RP](ftp://ftp.informatik.tu-muenchen.de/pub/comp/networking/irc/RP)
+</code></pre>
+
+<h2>Where can I learn more?</h2>
+
+<p>The best, basic, irc user&#8217;s manual is the IRC Primer, available in <a href="ircprimer.html">web page
+form</a>, <a href="text/ircprimer.txt">plain text</a>,
+<a href="http://www.kei.com/irc/IRCprimer1.1.ps">PostScript</a>, and
+<a href="http://www.kei.com/irc/IRCprimer1.1.tex">LaTeX</a>. You can also join various
+IRC related mailing lists.</p>
+
+<ul>
+<li><strong>operlist</strong></li>
+</ul>
+
+<p>&#8220;operlist&#8221; is a list that discusses current (and past) server code, routing,
+and protocol. You can join by mailing <em>operlist-request@kei.com</em> with Subject:
+subscribe</p>
+
+<ul>
+<li><strong>ircd-three</strong></li>
+</ul>
+
+<p>ircd-three@kei.com, exists to discuss protocol revisions for the 3.0 release
+of the ircd, currently in planning. Mail <em>ircd-three-request@kei.com</em> with
+Subject: subscribe</p>
+
+<p>Those looking for more technical information can get the IRC RFC as a <a href="rfc1459.html">web
+page</a> or [text file by FTP](ftp://cs-
+ftp.bu.edu/irc/support/rfc1459.txt).</p>
+
+<h2>Where can I get an updated copy of this FAQ?</h2>
+
+<p>this FAQ is available from several sources:</p>
+
+<ul>
+<li><a href="ftp://cs-ftp.bu.edu/irc/support/alt-irc-faq">cs-ftp.bu.edu:/irc/support/alt-irc-faq</a></li>
+<li><a href="ftp://ftp.kei.com/pub/irc/alt-irc-faq">ftp.kei.com:/pub/irc/alt-irc-faq</a></li>
+</ul>
+
+<p>You can also look at this FAQ on the web, at:
+<a href="http://www.kei.com/irc.html">http://www.kei.com/irc.html</a></p>
+
+<h2>What do I do if I&#8217;m still confused or have additions to this posting?</h2>
+
+<p>email <a href="http://www.kei.com/homepages/hrose/">hrose@kei.com</a> or ask for help (in</p>
+
+<h1>irchelp) on irc.</h1>
+
+<hr />
+
+                            </div>
+        
+        <footer>
+
+                        <p>All documents © irchelp.org or original authors 2012 <br />Baked with <em><a href="http://bolt80.com/piecrust/">PieCrust</a> 1.0.0-dev</em>.</p>
+                    </footer>
+    </div>
+    
+        <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="http://www.irchelp.org/js/jquery.js"></script>
+    <script src="http://www.irchelp.org/js/bootstrap-transition.js"></script>
+    <script src="http://www.irchelp.org/js/bootstrap-alert.js"></script>
+    <script src="http://www.irchelp.org/js/bootstrap-modal.js"></script>
+    <script src="http://www.irchelp.org/js/bootstrap-dropdown.js"></script>
+    <script src="http://www.irchelp.org/js/bootstrap-scrollspy.js"></script>
+    <script src="http://www.irchelp.org/js/bootstrap-tab.js"></script>
+    <script src="http://www.irchelp.org/js/bootstrap-tooltip.js"></script>
+    <script src="http://www.irchelp.org/js/bootstrap-popover.js"></script>
+    <script src="http://www.irchelp.org/js/bootstrap-button.js"></script>
+    <script src="http://www.irchelp.org/js/bootstrap-collapse.js"></script>
+    <script src="http://www.irchelp.org/js/bootstrap-carousel.js"></script>
+    <script src="http://www.irchelp.org/js/bootstrap-typeahead.js"></script>
+</body>
+
+<!-- Mirrored from www.irchelp.org/irchelp/altircfaq.html by HTTrack Website Copier/3.x [XR&CO'2013], Sun, 29 Dec 2013 06:56:55 GMT -->
+</html>

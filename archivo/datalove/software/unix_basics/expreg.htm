@@ -1,0 +1,590 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+   <META NAME="GENERATOR" CONTENT="Mozilla/4.07 [en] (X11; I; Linux 2.0.36 i586) [Netscape]">
+   <META NAME="Author" CONTENT="Víctor González-Barbone">
+   <META NAME="Description" CONTENT="Introducción al uso de expresiones regulares en UNIX">
+   <META NAME="KeyWords" CONTENT="UNIX, curso, tutorial, Linux">
+   <TITLE>Curso B&aacute;sico de UNIX - Expresiones Regulares</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+
+<ADDRESS>
+<A HREF="index.htm">Curso B&aacute;sico de UNIX</A></ADDRESS>
+
+<CENTER>
+<H1>
+Expresiones Regulares</H1></CENTER>
+
+<DT>
+<A HREF="#ER">Expresiones Regulares</A></DT>
+
+<DD>
+<A HREF="#Metacaracteres">Metacaracteres</A></DD>
+
+<DT>
+<A HREF="#ERbasicas">Expresiones regulares b&aacute;sicas</A></DT>
+
+<DD>
+<A HREF="#ERcaracter">Expresiones regulares de un s&oacute;lo caracter</A></DD>
+
+<DD>
+<A HREF="#ERconstruccion">Construcci&oacute;n de expresiones regulares</A></DD>
+
+<DD>
+<A HREF="#EjsBasicas">Ejemplos de expresiones regulares b&aacute;sica</A>s</DD>
+
+<DT>
+<A HREF="#ERextendidas">Expresiones regulares extendidas</A></DT>
+
+<DD>
+<A HREF="#EjsExtendidas">Ejemplos de expresiones regulares extendidas</A></DD>
+
+<DT>
+<A HREF="#ERenGNU">Expresiones Regulares en GNU</A></DT>
+
+<DT>
+<A HREF="#Ejercicios">Preguntas y Ejercicios</A></DT>
+
+<DT>
+<A HREF="#Bibliografia">Bibliograf&iacute;a y Referencias</A></DT>
+
+<H2>
+<BR>
+<A NAME="ER"></A>Expresiones Regulares.</H2>
+La expresiones regulares (ER) son una forma de describir cadenas de caracteres.
+Se usan en operaciones de apareamiento o comparaci&oacute;n. Las expresiones
+regulares permiten realizar b&uacute;squedas o sustituciones de gran complejidad.
+<BR>Las b&uacute;squedas en el editor vi con los comandos / y ? aceptan
+expresiones regulares; esto hace las b&uacute;squedas mucho m&aacute;s
+potentes y flexibles. Las expresiones regulares son aceptadas en otros
+editores y en muchos comandos, si bien con algunas diferencias de sintaxis.
+<BR>Una expresi&oacute;n regular es un patr&oacute;n que describe un conjunto
+de cadenas de caracteres. Por ejemplo, el patr&oacute;n <TT>aba*.txt</TT>
+describe el conjunto de cadenas de caracteres que comienzan con <TT>aba</TT>,
+contienen cualquier otro grupo de caracteres, luego un punto, y finalmente
+la cadena <TT>txt</TT>. El s&iacute;mbolo * se interpreta como "0, 1 o
+m&aacute;s caracteres cualesquiera".
+<BR>Las expresiones regulares se construyen como las expresiones aritm&eacute;ticas,
+usando operadores para combinar expresiones m&aacute;s peque&ntilde;as.
+Analizaremos esos operadores y las reglas de construcci&oacute;n de expresiones
+regulares, atendiendo siempre al conjunto de cadenas que representa cada
+patr&oacute;n.
+<H3>
+<A NAME="Metacaracteres"></A>Metacaracteres.</H3>
+La construcci&oacute;n de expresiones regulares depende de la asignaci&oacute;n
+de significado especial a algunos caracteres. En el patr&oacute;n <TT>aba*.txt</TT>
+el caracter * no vale por s&iacute; mismo, como el caracter asterisco,
+sino que indica un "conjunto de caracteres cualesquiera". Asimismo, el
+caracter ? no se interpreta como el signo de interrogaci&oacute;n sino
+que representa "un caracter cualquiera y uno solo". Estos caracteres a
+los que se asigna significado especial se denominan "metacaracteres".
+<P>El conjunto de metacaracteres para expresiones regulares es el siguiente:
+<P><TT>\ ^ $ . [ ] { } | ( ) * + ?</TT>
+<P>Estos caracteres, en una expresi&oacute;n regular, son interpretados
+en su significado especial y no como los caracteres que normalmente representan.
+Una b&uacute;squeda que implique alguno de estos caracteres obligar&aacute;
+a "escaparlo" de la interpretaci&oacute;n mediante \, como se hace para
+evitar la interpretaci&oacute;n por el shell de los metacaracteres del
+shell.&nbsp; En una expresi&oacute;n regular, el caracter ? representa
+"un caracter cualquiera"; si escribimos \?, estamos representando el caracter
+? tal cual, sin significado adicional.
+<H2>
+<A NAME="ERbasicas"></A>Expresiones Regulares B&aacute;sicas.</H2>
+Una expresi&oacute;n regular determina un conjunto de cadenas de caracteres.
+Un miembro de este conjunto de cadenas se dice que aparea, equipara o satisface
+la expresi&oacute;n regular.
+<H3>
+<A NAME="ERcaracter"></A>ERs de un s&oacute;lo caracter.</H3>
+Las expresiones regulares se componen de expresiones regulares elementales
+que aparean con un &uacute;nico caracter:
+<BR>&nbsp;
+<TABLE BORDER WIDTH="100%" NOSAVE >
+<TR>
+<TD>
+<DT>
+<B><TT>Exp.Reg.</TT></B></DT>
+</TD>
+
+<TD>
+<DT>
+<B>aparea con</B></DT>
+</TD>
+</TR>
+
+<TR>
+<TD>
+<DT>
+<TT>c</TT></DT>
+</TD>
+
+<TD>
+<DT>
+ER que aparea con el caracter ordinario c</DT>
+</TD>
+</TR>
+
+<TR>
+<TD>
+<DT>
+<TT>.</TT></DT>
+</TD>
+
+<TD>
+<DT>
+(punto) ER que aparea con un caracter cualquiera excepto nueva l&iacute;nea</DT>
+</TD>
+</TR>
+
+<TR>
+<TD>
+<DT>
+<TT>[abc]</TT></DT>
+</TD>
+
+<TD>
+<DT>
+ER de un caracter que aparea con a, b o c</DT>
+</TD>
+</TR>
+
+<TR>
+<TD>
+<DT>
+<TT>[^abc]</TT></DT>
+</TD>
+
+<TD>
+<DT>
+ER de un caracter que no sea a, b o c</DT>
+</TD>
+</TR>
+
+<TR NOSAVE>
+<TD>
+<DT>
+[<TT>0-9][a-z][A-Z]</TT></DT>
+</TD>
+
+<TD NOSAVE>
+<DT>
+ERs de un caracter que aparean con cualquier caracter en el intervalo indicado.
+El signo - indica un intervalo de caracteres consecutivos.</DT>
+</TD>
+</TR>
+
+<TR>
+<TD><TT>\e</TT></TD>
+
+<TD>
+<DT>
+ER que aparea con alguno de estos caracteres (en lugar de la e):&nbsp;</DT>
+
+<DT>
+<TT><B>.</B> * [ \&nbsp;&nbsp; </TT>cuando no est&aacute;n dentro de [
+]</DT>
+
+<DT>
+<TT>^&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </TT>al principio
+de la ER, o al principio dentro de [ ]</DT>
+
+<DT>
+<TT>$&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </TT>al final de
+una ER</DT>
+
+<BR><TT>/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </TT>usado para
+delimitar una ER</TD>
+</TR>
+</TABLE>
+
+<P>Los par&eacute;ntesis rectos <TT>[]</TT> delimitan listas de caracteres
+individuales. Muchos metacaracteres pierden su significado si est&aacute;n
+dentro de listas: los caracteres especiales<TT> . * [ \ </TT>valen por
+s&iacute; dentro de <TT>[]</TT>. Para incluir un caracter <TT>]</TT> en
+una lista, colocarlo al principio; para incluir un <TT>^</TT> colocarlo
+en cualquier lugar menos al principio; para incluir un <TT>-</TT> colocarlo
+al final.
+<BR>Dentro de los conjuntos de caracteres individuales, se reconocen las
+siguientes categor&iacute;as:
+<P><TT>[:alnum:]&nbsp;&nbsp;&nbsp; alfanum&eacute;ricos</TT>
+<BR><TT>[:alpha:]&nbsp;&nbsp;&nbsp; alfab&eacute;ticos</TT>
+<BR><TT>[:cntrl:]&nbsp;&nbsp;&nbsp; de control</TT>
+<BR><TT>[:digit:]&nbsp;&nbsp;&nbsp; d&iacute;gitos</TT>
+<BR><TT>[:graph:]&nbsp;&nbsp;&nbsp; gr&aacute;ficos</TT>
+<BR><TT>[:lower:]&nbsp;&nbsp;&nbsp; min&uacute;sculas</TT>
+<BR><TT>[:print:]&nbsp;&nbsp;&nbsp; imprimibles</TT>
+<BR><TT>[:punct:]&nbsp;&nbsp;&nbsp; de puntuaci&oacute;n</TT>
+<BR><TT>[:space:]&nbsp;&nbsp;&nbsp; espacios</TT>
+<BR><TT>[:upper:]&nbsp;&nbsp;&nbsp; may&uacute;sculas</TT>
+<BR><TT>[:xdigit:]&nbsp;&nbsp; d&iacute;gitos hexadecimales</TT>
+<P>Por ejemplo, <TT>[[:alnum:]]</TT> significa <TT>[0-9A-Za-z]</TT>, pero
+esta &uacute;ltima expresi&oacute;n depende de la secuencia de codificaci&oacute;n
+ASCII, en cambio la primera es portable, no pierde su significado bajo
+distintas codificaciones. En los nombres de categor&iacute;as, los par&eacute;ntesis
+rectos forman parte del nombre de la categor&iacute;a, no pueden ser omitidos.
+<H3>
+<A NAME="ERconstruccion"></A>Construcci&oacute;n de Expresiones Regulares.</H3>
+Una Expresi&oacute;n Regular se contruye con uno o m&aacute;s operadores
+que indican, cada uno, el caracter a buscar. Los operadores m&aacute;s
+comunes y aceptados son los siguientes:
+<BR>&nbsp;
+<TABLE BORDER WIDTH="100%" NOSAVE >
+<TR>
+<TD><B>Operador</B></TD>
+
+<TD><B>Significado</B></TD>
+</TR>
+
+<TR>
+<TD><TT>c</TT></TD>
+
+<TD>un caracter no especial concuerda consigo mismo&nbsp;</TD>
+</TR>
+
+<TR>
+<TD><TT>\c</TT></TD>
+
+<TD>elimina significado especial de un caracter c; el \ escapa el significado
+especial</TD>
+</TR>
+
+<TR>
+<TD><TT>^</TT></TD>
+
+<TD>indica ubicado al comienzo de la l&iacute;nea (cadena nula al principio
+de l&iacute;nea)</TD>
+</TR>
+
+<TR>
+<TD><TT>$</TT></TD>
+
+<TD>indica ubicado al final de la l&iacute;nea (cadena nula al final de
+l&iacute;nea)</TD>
+</TR>
+
+<TR>
+<TD><TT>.</TT></TD>
+
+<TD>(punto) un caracter individual cualquiera</TD>
+</TR>
+
+<TR>
+<TD><TT>[...]</TT></TD>
+
+<TD>uno cualquiera de los caracteres ...; acepta intervalos del tipo a-z,
+0-9, A-Z&nbsp; (lista)</TD>
+</TR>
+
+<TR>
+<TD><TT>[^...]</TT></TD>
+
+<TD>un caracter distinto de ... ; acepta intervalos del tipo a-z, 0-9,
+A-Z</TD>
+</TR>
+
+<TR>
+<TD><TT>r*</TT></TD>
+
+<TD>0, 1 o m&aacute;s ocurrencias de la ER <TT>r</TT> (repetici&oacute;n)</TD>
+</TR>
+
+<TR>
+<TD><TT>r1r2</TT></TD>
+
+<TD>la ER <TT>r1</TT> seguida de la ER <TT>r2</TT> (concatenaci&oacute;n)</TD>
+</TR>
+</TABLE>
+
+<H4>
+<A NAME="EjsBasicas"></A>Ejemplos de Expresiones Regulares B&aacute;sicas.</H4>
+Las expresiones regulares se aprenden mejor con los ejemplos y el uso.
+<BR>&nbsp;
+<TABLE BORDER WIDTH="100%" NOSAVE >
+<TR>
+<TD><B>Exp.Reg.</B></TD>
+
+<TD><B>aparea con</B></TD>
+</TR>
+
+<TR>
+<TD><TT>a.b</TT></TD>
+
+<TD>axb aab abb aSb a#b ...</TD>
+</TR>
+
+<TR>
+<TD><TT>a..b&nbsp;</TT></TD>
+
+<TD>axxb aaab abbb a4$b ...</TD>
+</TR>
+
+<TR>
+<TD><TT>[abc]&nbsp;</TT></TD>
+
+<TD>a b c (cadenas de un caracter)</TD>
+</TR>
+
+<TR>
+<TD><TT>[aA]&nbsp;</TT></TD>
+
+<TD>&nbsp;a A (cadenas de un caracter)</TD>
+</TR>
+
+<TR>
+<TD><TT>[aA][bB]</TT></TD>
+
+<TD>ab Ab aB AB (cadenas de dos caracteres)</TD>
+</TR>
+
+<TR>
+<TD><TT>[0123456789]&nbsp;</TT></TD>
+
+<TD>0 1 2 3 4 5 6 7 8 9</TD>
+</TR>
+
+<TR>
+<TD><TT>[0-9]&nbsp;</TT></TD>
+
+<TD>0 1 2 3 4 5 6 7 8 9</TD>
+</TR>
+
+<TR>
+<TD><TT>[A-Za-z]&nbsp;</TT></TD>
+
+<TD>A B C ... Z a b c ... z</TD>
+</TR>
+
+<TR>
+<TD><TT>[0-9][0-9][0-9]&nbsp;</TT></TD>
+
+<TD>000 001 .. 009 010 .. 019 100 .. 999</TD>
+</TR>
+
+<TR>
+<TD><TT>[0-9]*</TT></TD>
+
+<TD><TT>c</TT>adena_vac&iacute;a 0 1 9 00 99 123 456 999 9999 ...</TD>
+</TR>
+
+<TR>
+<TD><TT>[0-9][0-9]*&nbsp;</TT></TD>
+
+<TD>0 1 9 00 99 123 456 999 9999 99999 99999999 ...</TD>
+</TR>
+
+<TR>
+<TD><TT>^.*$&nbsp;</TT></TD>
+
+<TD>cualquier l&iacute;nea completa</TD>
+</TR>
+</TABLE>
+
+<DT>
+&nbsp;</DT>
+
+<BR>En el editor <TT>vi</TT>, las expresiones regulares permiten realizar
+b&uacute;squedas tales como:
+<DT>
+<TT>&nbsp; /^Desde</TT></DT>
+
+<DT>
+busca l&iacute;neas que empiecen con la cadena <TT>Desde</TT></DT>
+
+<DT>
+<TT>&nbsp; /final$</TT></DT>
+
+<DT>
+busca l&iacute;neas que termine con la cadena <TT>final</TT></DT>
+
+<DT>
+<TT>&nbsp; /\$25</TT></DT>
+
+<DT>
+busca l&iacute;neas que contengan <TT>$25</TT>; \ escapa el $</DT>
+
+<H2>
+<A NAME="ERextendidas"></A>Expresiones Regulares Extendidas.</H2>
+Algunos comandos, como <TT>egrep</TT> o <TT>grep -E</TT>, aceptan Expresiones
+Regulares Extendidas, que comprenden las Expresiones Regulares B&aacute;sicas
+m&aacute;s algunos operadores que permiten construcciones m&aacute;s complejas.
+Los operadores incorporados son los siguientes:
+<BR>&nbsp;
+<TABLE BORDER WIDTH="100%" NOSAVE >
+<TR>
+<TD><B>Operador</B></TD>
+
+<TD><B>Significado</B></TD>
+</TR>
+
+<TR>
+<TD><TT>r+</TT></TD>
+
+<TD>1 o m&aacute;s ocurrencias de la ER r</TD>
+</TR>
+
+<TR>
+<TD><TT>r?</TT></TD>
+
+<TD>0 o una ocurrencia de la ER r, y no m&aacute;s&nbsp;</TD>
+</TR>
+
+<TR>
+<TD><TT>r{n}</TT></TD>
+
+<TD>n ocurrencias de la ER r</TD>
+</TR>
+
+<TR>
+<TD><TT>r{n,}</TT></TD>
+
+<TD>n o m&aacute;s ocurrencias de la ER r</TD>
+</TR>
+
+<TR>
+<TD><TT>r{,m}</TT></TD>
+
+<TD>0 o a lo sumo m ocurrencias de la ER r</TD>
+</TR>
+
+<TR>
+<TD><TT>r{n,m}</TT></TD>
+
+<TD>n o m&aacute;s ocurrencias de la ER r, pero a lo sumo m</TD>
+</TR>
+
+<TR>
+<TD><TT>r1|r2</TT></TD>
+
+<TD>la ER r1 o la ER r2 (alternativa)</TD>
+</TR>
+
+<TR>
+<TD><TT>(r)</TT></TD>
+
+<TD>ER anidada</TD>
+</TR>
+
+<TR>
+<TD><TT>"r"</TT></TD>
+
+<TD>evita que los caracteres de la ER r sean interpretados por el shell&nbsp;</TD>
+</TR>
+</TABLE>
+
+<P>La repetici&oacute;n tiene precedencia sobre la concatenaci&oacute;n;
+la concatenaci&oacute;n tiene precedencia sobre la alternativa. Una expresi&oacute;n
+puede encerrarse entre par&eacute;ntesis para ser evaluada primero.
+<H3>
+<A NAME="EjsExtendidas"></A>Ejemplos de Expresiones Regulares Extendidas:</H3>
+
+<TABLE BORDER WIDTH="100%" NOSAVE >
+<TR>
+<TD><B>Exp.Reg.Ext.</B></TD>
+
+<TD><B>aparea con</B></TD>
+</TR>
+
+<TR>
+<TD>
+<DT>
+<TT>[0-9]+</TT></DT>
+</TD>
+
+<TD>
+<DT>
+<TT>0 1 9 00 99 123 456 999 9999 99999 99999999 ..</TT></DT>
+</TD>
+</TR>
+
+<TR>
+<TD>
+<DT>
+<TT>[0-9]?&nbsp;</TT></DT>
+</TD>
+
+<TD>
+<DT>
+<TT>cadena_vac&iacute;a 0 1 2 .. 9</TT></DT>
+</TD>
+</TR>
+
+<TR>
+<TD>
+<DT>
+<TT>^a|b</TT></DT>
+</TD>
+
+<TD>
+<DT>
+<TT>a b</TT></DT>
+</TD>
+</TR>
+
+<TR>
+<TD>
+<DT>
+<TT>(ab)*</TT></DT>
+</TD>
+
+<TD>
+<DT>
+<TT>cadena_vac&iacute;a ab abab ababab ...</TT></DT>
+</TD>
+</TR>
+
+<TR>
+<TD>
+<DT>
+<TT>^[0-9]?b&nbsp;</TT></DT>
+</TD>
+
+<TD>
+<DT>
+<TT>b 0b 1b 2b .. 9b</TT></DT>
+</TD>
+</TR>
+
+<TR>
+<TD>
+<DT>
+<TT>([0-9]+ab)*</TT></DT>
+</TD>
+
+<TD>
+<DT>
+<TT>cadena_vac&iacute;a 1234ab 9ab9ab9ab 9876543210ab 99ab99ab ...</TT></DT>
+</TD>
+</TR>
+</TABLE>
+
+<H2>
+<A NAME="ERenGNU"></A>Expresiones regulares en GNU.</H2>
+En GNU, no se distinguen expresiones regulares b&aacute;sicas de extendidas;
+los comandos aceptan todas las expresiones regulares. En ese caso, como
+siempre se est&aacute;n usando extendidas, los metacaracteres ?, +, {,
+|, (, y ) deben ser escapados cuando se quieren usar como caracteres normales,
+escribiendo \?, \+, \{, \|, \(, y \).
+<BR>&nbsp;
+<H2>
+<A NAME="Ejercicios"></A><A HREF="expregej.htm">Preguntas y Ejercicios.</A></H2>
+
+<H2>
+<A NAME="Bibliografia"></A>Bibliograf&iacute;a y Referencias.</H2>
+&nbsp;<B>Referencias:</B> Kernighan-Pike[1987], Coffin[1989]
+<BR>&nbsp;
+<BR>&nbsp;
+<ADDRESS>
+
+<HR WIDTH="100%"></ADDRESS>
+
+<ADDRESS>
+V&iacute;ctor A. Gonz&aacute;lez Barbone <A HREF="mailto: vagonbar en fing edu uy">vagonbar en fing edu uy</A></ADDRESS>
+
+<ADDRESS>
+<A HREF="http://iie.fing.edu.uy">Instituto de Ingenier&iacute;a El&eacute;ctrica</A>
+- <A HREF="http://www.fing.edu.uy">Facultad de Ingenier&iacute;a</A> -
+Montevideo, Uruguay.</ADDRESS>
+
+</BODY>
+</HTML>

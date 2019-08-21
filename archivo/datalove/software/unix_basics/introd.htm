@@ -1,0 +1,283 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+   <META NAME="GENERATOR" CONTENT="Mozilla/4.06 [es] (Win95; I) [Netscape]">
+   <META NAME="Author" CONTENT="Víctor González-Barbone">
+   <META NAME="Description" CONTENT="Introducción al sistema operativo UNIX">
+   <META NAME="KeyWords" CONTENT="UNIX, curso, tutorial, Linux">
+   <TITLE>Curso B&aacute;sico de UNIX - Introducci&oacute;n a UNIX</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+
+<ADDRESS>
+<A HREF="index.htm">Curso B&aacute;sico de UNIX</A></ADDRESS>
+
+<CENTER>
+<H1>
+Introducci&oacute;n a UNIX</H1></CENTER>
+
+<DL>
+<DT>
+<A HREF="#QueEs">Qu&eacute; es UNIX</A></DT>
+
+<DT>
+<A HREF="#Características">Caracter&iacute;sticas</A></DT>
+
+<DT>
+<A HREF="#Historia">Historia de UNIX</A></DT>
+
+<DD>
+<A HREF="#Antecedentes">Antecedentes</A></DD>
+
+<DD>
+<A HREF="#UNIX">UNIX</A></DD>
+
+<DD>
+<A HREF="#Versiones">Versiones actuales de UNIX</A></DD>
+
+<DT>
+<A HREF="#Objetivos">Objetivos de UNIX</A></DT>
+
+<DT>
+<A HREF="#Filosofía">Filosof&iacute;a del sistema UNIX</A></DT>
+
+<DT>
+<A HREF="#UnixModerno">El UNIX moderno</A></DT>
+
+<DT>
+<A HREF="#Referencias">Referencias</A></DT>
+</DL>
+
+<H3>
+<A NAME="QueEs"></A>Qu&eacute; es UNIX.</H3>
+Esctrictamente, UNIX designa el n&uacute;cleo de un sistema operativo multiusuario
+y multitarea. En un sentido m&aacute;s amplio, comprende el n&uacute;cleo
+del sistema operativo m&aacute;s un conjunto de programas que permiten
+compilar lenguajes de programaci&oacute;n, editar texto, interpretar comandos,
+manejar archivos y discos, acceder a otras m&aacute;quinas, establecer
+comunicaciones telef&oacute;nicas, enviar y recibir correo electr&oacute;nico,
+manejar las colas de impresi&oacute;n y un sinf&iacute;n de tareas m&aacute;s.
+Algunos de estos programas pueden haber sido desarrollados por los propios
+usuarios.
+<P>UNIX designa al mismo tiempo un cierto "ambiente de trabajo", un conjunto
+de circunstancias que encuentra el usuario de la computadora donde corre
+UNIX, tales como la presentaci&oacute;n en pantalla, los programas disponibles
+y la forma de trabajo que impone o permite.
+<P>Cuando hablemos de UNIX nos estaremos refiriendo al sentido amplio y,
+conjuntamente, a su ambiente de trabajo.
+<H3>
+<A NAME="Características"></A>Caracter&iacute;sticas:</H3>
+
+<UL>
+<LI>
+muchas herramientas de software (compiladores, editores, utilitarios para
+muchas tareas).</LI>
+
+<LI>
+reutiliza el software, a trav&eacute;s de la combinaci&oacute;n de comandos
+simples en aplicaciones complejas.</LI>
+
+<LI>
+portable: el mismo sistema operativo corre en un espectro de m&aacute;quinas
+que van desde notebooks a supercomputadoras. Es el &uacute;nico sistema
+operativo con estas caracter&iacute;sticas.</LI>
+
+<LI>
+flexible: se adapta a muchas aplicaciones diferentes.</LI>
+
+<LI>
+potente: dispone de muchos comandos y servicios ya incorporados.</LI>
+
+<LI>
+multiusuario: atiende a muchas personas simult&aacute;neamente.</LI>
+
+<LI>
+multitarea: hace muchas cosas a la vez.</LI>
+
+<LI>
+elegante: sus comandos son breves, coherentes, espec&iacute;ficos para
+cada tarea y muy eficientes.</LI>
+
+<LI>
+orientado a redes desde el comienzo.</LI>
+
+<LI>
+dispone de un est&aacute;ndar (POSIX) que debe cumplir todo sistema operativo
+que pretenda ser UNIX, lo que asegura una evoluci&oacute;n predecible.</LI>
+</UL>
+
+<H3>
+<A NAME="Historia"></A>Historia de UNIX</H3>
+
+<H4>
+<A NAME="Antecedentes"></A>Antecedentes:</H4>
+
+<UL>
+<LI>
+las computadoras ejecutan un trabajo por vez (a&ntilde;os '40 y '50).</LI>
+
+<LI>
+los trabajos se agrupan y ejecutan "por lotes" (a&ntilde;os '60).</LI>
+
+<LI>
+CTSS, un sistema operativo de prop&oacute;sito general y tiempo compartido,
+logra enorme &eacute;xito.</LI>
+
+<LI>
+MULTICS, un ambicioso proyecto de sistema operativo para cientos de usuarios
+fracasa y no llega a terminarse.</LI>
+</UL>
+
+<H4>
+<A NAME="UNIX"></A>UNIX.</H4>
+
+<UL>
+<LI>
+Ken Thomson, desarrollador de MULTICS, con ideas y apoyo de algunos compa&ntilde;eros,
+escribe un nuevo MULTICS m&aacute;s modesto en una m&aacute;quina PDP-7
+desechada (1969). Brian Kernighan, compa&ntilde;ero de Thomson, lo llama
+ir&oacute;nicamente UNICS.</LI>
+
+<LI>
+UNIX pasa a una m&aacute;quina PDP-11 (1970). Ritchie dise&ntilde;&oacute;
+y escribi&oacute; un compilador para lenguaje C.</LI>
+
+<LI>
+Thomson y Ritchie reescriben UNIX en C, rompiendo la tradici&oacute;n de
+sistemas operativos escritos en lenguaje ensamblador (1973). Esto aumenta
+la portabilidad del sistema hacia otras m&aacute;quinas.</LI>
+
+<LI>
+Thomson y Ritchie reciben el premio Turing por un memorable art&iacute;culo
+sobre UNIX escrito en 1974.</LI>
+
+<LI>
+UNIX es adoptado en las universidades, por tratarse de un "sistema abierto"
+que proporciona todo el c&oacute;digo fuente (1974).</LI>
+
+<LI>
+BSD y System V; el est&aacute;ndar de POSIX.</LI>
+
+<LI>
+El desmembramiento de AT&amp;T (1984) permite a esta empresa ingresar en
+el mercado de computadoras, y produce la primera versi&oacute;n comercial
+de UNIX, el Sistema III, que pronto es sustitu&iacute;do por el Sistema
+V versiones 2, 3 y 4.</LI>
+
+<LI>
+La Universidad de Berkeley produjo una versi&oacute;n mejorada para la
+PDP-11, llamada 1BSD; luego fueron la 3BSD y luego 4BSD, que incorpor&oacute;
+el protocolo de redes TCP/IP.</LI>
+
+<LI>
+El grupo POSIX estudi&oacute; y propuso un est&aacute;ndar para UNIX, llamado
+1003.1, que define un conjunto de procedimientos de biblioteca que cualquier
+sistema conforme con UNIX debe proporcionar. Esto resolvi&oacute; la controversia
+entre Sistema V y BSD.</LI>
+
+<LI>
+Se forma OSF, Open Software Foundation, integrada por IBM, DEC, HP y otros
+para enfrentar a AT&amp;T. Crea un UNIX con m&aacute;s prestaciones que
+el est&aacute;ndar de POSIX.</LI>
+</UL>
+
+<H4>
+<A NAME="Versiones"></A>Versiones actuales de UNIX.</H4>
+
+<UL>
+<LI>
+AT&amp;T, para enfrentar a OSF, crea UI, UNIX International, junto con
+otras empresas; crea otro UNIX ampliado de POSIX.</LI>
+
+<LI>
+IBM crea su propia variante de UNIX, llamada AIX. La confusi&oacute;n de
+versiones contin&uacute;a.</LI>
+
+<LI>
+surgen las versiones UNIX de dominio p&uacute;blico FreeBSD y Linux, que
+se distribuyen sin costo. Linux es desarrollado por una multitud de personas
+y equipos de trabajo a trav&eacute;s de Internet. FreeBSD es desarrollado
+por un grupo de trabajo cerrado.</LI>
+
+<LI>
+UNIX hacia el usuario final: distribuciones f&aacute;ciles de instalar
+(SuSE, Redhat, Mandrake, Corel), aplicaciones de escritorio (Applixware,
+StarOffice), programas asistentes de administraci&oacute;n para estaciones
+de trabajo o servidores.</LI>
+</UL>
+
+<H3>
+<A NAME="Objetivos"></A>Objetivos de UNIX.</H3>
+UNIX fue dise&ntilde;ado teniendo en mente los siguientes objetivos:
+<UL>
+<LI>
+crear un sistema interactivo de tiempo compartido dise&ntilde;ado por programadores
+y para programadores, destinado a usuarios calificados.</LI>
+
+<LI>
+que fuera sencillo, elegante, escueto y consistente.</LI>
+
+<LI>
+que permitiera resolver problemas complejos combinando un n&uacute;mero
+reducido de comandos b&aacute;sicos.</LI>
+</UL>
+
+<H3>
+<A NAME="Filosofía"></A>Filosof&iacute;a del sistema UNIX.</H3>
+Los objetivos con que se cre&oacute; determinaron una "filosof&iacute;a"
+de UNIX caracterizada por:
+<UL>
+<LI>
+comandos cortos, simples, espec&iacute;ficos y muy eficientes, que "hacen
+una sola cosa pero la hacen muy bien".</LI>
+
+<LI>
+entrada y salida estandarizadas que permiten la interconexi&oacute;n de
+comandos. Esto se llama entubamiento ("pipelining"): la salida de un comando
+es tomada por el siguiente como entrada.</LI>
+</UL>
+
+<H3>
+<A NAME="UnixModerno"></A>El UNIX moderno.</H3>
+Orientado en primera instancia a terminales de caracteres, actualmente
+dispone de la interface gr&aacute;fica X-Windows. Esto ha simplificado
+mucho el uso para los no especialistas.
+<P>Es ideal para trabajar como servidor: una m&aacute;quina potente como
+servidor, terminales o computadores personales baratas en los puestos de
+trabajo.&nbsp; El paquete de libre uso Samba permite que una m&aacute;quina
+UNIX act&uacute;e como servidor de puestos de trabajo Windows 3.11, Windows
+95, y Windows NT.
+<P>Se orienta en la direcci&oacute;n contraria a la tendencia de hacer
+invisible al usuario el sistema operativo, permitiendo el uso de todas
+las bibliotecas, llamadas al sistema y herramientas internas, aunque su
+uso requiere un alto nivel de especializaci&oacute;n.&nbsp; Es posible
+compilar un n&uacute;cleo espec&iacute;ficamente adaptado a las necesidades
+particulares de una empresa o grupo de trabajo, reduciendo el uso de recursos
+y aumentando la rapidez.
+<P>Las m&aacute;quinas RISC de los '80 y '90 adoptaron UNIX como sistema
+operativo; es por lejos el sistema predominante en las estaciones de trabajo
+orientadas a c&aacute;lculos e investigaci&oacute;n. Tambi&eacute;n fue
+adoptado para la creaci&oacute;n de Internet, mayoritariamente soportada
+por UNIX.
+<P>Por sus caracter&iacute;sticas de dise&ntilde;o, est&aacute; especialmente
+preparado para su ampliaci&oacute;n y desarrollo en 64 bits y el multiprocesamiento
+en varias CPUs.
+<BR>&nbsp;
+<P><A NAME="Referencias"></A><B>Referencias:</B> Kernighan-Pike[1987],
+Coffin[1989], Tanenbaum[1992]
+<BR>&nbsp;
+<ADDRESS>
+
+<HR WIDTH="100%"></ADDRESS>
+
+<ADDRESS>
+V&iacute;ctor A. Gonz&aacute;lez Barbone <A HREF="mailto: vagonbar en fing edu uy">vagonbar en fing edu uy</A></ADDRESS>
+
+<ADDRESS>
+<A HREF="http://iie.fing.edu.uy">Instituto de Ingenier&iacute;a El&eacute;ctrica</A>
+- <A HREF="http://www.fing.edu.uy">Facultad de Ingenier&iacute;a</A> -
+Montevideo, Uruguay.</ADDRESS>
+
+</BODY>
+</HTML>

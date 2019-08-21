@@ -1,0 +1,198 @@
+<!DOCTYPE doctype PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+            
+  <meta http-equiv="Content-Type"
+ content="text/html; charset=iso-8859-1">
+            
+  <meta name="GENERATOR"
+ content="Mozilla/4.7 [en] (Win95; I) [Netscape]">
+            
+  <meta name="Author" content="V&iacute;ctor Gonz&aacute;lez-Barbone">
+            
+  <meta name="Description"
+ content="Preguntas y Ejercicios de manejo de archivos.">
+            
+  <meta name="KeyWords" content="UNIX, curso, tutorial, Linux">
+  <title>Curso B&aacute;sico de UNIX - Sistema de Archivos - Ejercicios</title>
+</head>
+  <body text="#000000" bgcolor="#ffffff" link="#0000ff" vlink="#ff0000"
+ alink="#000088">
+      
+<address> <a href="index.htm">Curso&nbsp; B&aacute;sico de UNIX</a></address>
+      
+<center>   
+<h2> Preguntas y Ejercicios.&nbsp;<br>
+   Ficha Referencia: Manejo de Archivos</h2>
+  </center>
+     <br>
+ <br>
+ 
+<ol>
+   <li><b>ARCHIVOS.</b> Sea la siguiente salida del comando ls -l:<br>
+     <tt>&nbsp; -rwsr-xr-x   1 victor   docentes    29024 ene  1 16:29 controlar</tt><br>
+  <tt>&nbsp; -rw-rw-r--   1 victor   docentes     2300 may 18 09:37 borrador.txt</tt><br>
+  <tt>&nbsp; -rw-r--r--   1 victor   docentes     5895 may 15 12:08 index.htm</tt><br>
+  <tt>&nbsp; -rwxr-xr-x   1 victor   docentes    29024 ene  1 16:29 revisar</tt><br>
+  <tt>&nbsp; -rwxr--r--   1 victor   docentes    29024 ene  1 16:29 mostrar</tt><br>
+  <tt>&nbsp; drwxrwxrwt   2 victor   tecnicos     1024 may  1 17:23 trabajos</tt><br>
+  <tt>&nbsp; drwxr-xr-x   2 victor   tecnicos     1024 oct 16  1998 netscape3</tt><br>
+  <tt>&nbsp; drwxrwx--x   2 victor   tecnicos     1024 may 11  7:29 finanzas</tt><br>
+  <tt>&nbsp; drwxrwxr-x   2 victor   tecnicos     1024 jul  7  6:54 redes</tt><br>
+  <tt>&nbsp; drwxr-xr-x   2 jperez   docentes     1024 jun 17 19:35 corporacion</tt><br>
+  El usuario jperez, del grupo docentes, tiene acceso al presente directorio. 
+Indicar, si los hay:<br>
+  a) Archivos de los que puede mostrar contenido.<br>
+  b) Archivos que puede ejecutar como programa.<br>
+  c) Archivos en los que puede modificar contenido.<br>
+  d) Subdirectorios en los que puede ingresar.<br>
+  e) Subdirectorios en que puede grabar.<br>
+  f) Subdirectorios en los que puede borrar archivos que no sean de &eacute;l.<br>
+  g) Subdirectorios en los que puede ejecutar programas contenidos en ellos 
+pero no ver nombres de archivos.<br>
+  h) Archivos que puede ejecutar como programa con permisos del usuario victor.</li>
+   <li><b>ARCHIVOS.</b> Sea la siguiente salida de ls -l:<tt><br>
+ &nbsp;</tt><tt>-rw-r--r--   1 root     root        33280 jun 12 19:40 Carta.doc</tt><tt><br>
+ &nbsp; drwxrwxrwx   5 victor   staff        1024 dic  4  1999 step</tt><tt><br>
+ &nbsp; drwxrwxr-x  22 victor   staff        1024 nov 20  1999 Office51</tt><tt><br>
+ &nbsp; drwxr-x---   6 victor   staff        1024 may  7 16:43 argos</tt><tt><br>
+ &nbsp; drwxrwxr--  21 victor   staff        1024 jul 11 18:22 bajados</tt><tt><br>
+ &nbsp; -rw-rw----   3 root     root          542 jul 13 11:26 boor.exe</tt><tt><br>
+ &nbsp; drwxrwxrwt   3 victor   staff        1024 may 25 10:02 borrador</tt><tt><br>
+ &nbsp; -rwsrwsr-x   1 root     root         9218 jun 12 19:41 pph3</tt><tt><br>
+ &nbsp; drwxrwx--x   2 victor   victor       1024 may  7 16:47 cdir</tt><tt><br>
+ &nbsp; -rw-rw-r--   3 root     root          542 jul 13 11:26 mysql-doc</tt><tt><br>
+ &nbsp; -rw-r-xr--   3 victor   staff        1084 ago  1 10:01 ver.exe</tt><tt><br>
+ &nbsp; -rwxr-xr-x   3 victor   staff        1084 ago  1 10:01 ver</tt><tt><br>
+ &nbsp; drwxr-xr-x   7 victor   victor       1024 jul 25 11:48 lit</tt><br>
+ Indicar, si los hay,<br>
+ a) directorios p&uacute;blicos;<br>
+ b) archivos que tienen enlaces hard;<br>
+ c) archivos ejecutables;<br>
+ d) directorios recorribles por todo el mundo;<br>
+ e) directorios donde el grupo puede borrar archivos;<br>
+ g) archivos que son enlaces simb&oacute;licos.<br>
+ f) archivos ejecutables con permisos de root;</li>
+   <li><b>CREAR Y BORRAR ARCHIVOS Y DIRECTORIOS.</b><br>
+ &nbsp; a) Crear los archivos <tt>abaco, abajo, arriba, abalorio, balero, 
+ manejo</tt>. Verificar.<br>
+ &nbsp; b) Crear bajo el directorio actual los directorios <tt>./varios,
+ ./varios/subdir1, ./varios/subdir2, ./varios/subdir1/subdir11</tt>. Copiar
+ o crear en todos estos directorios los archivos de a). Verificar con listado
+ recursivo.<br>
+ &nbsp; c) Borrar del directorio actual todos los archivos cuyo nombre empiece 
+con "aba". Verificar el borrado, y la permanencia de estos archivos bajo el
+directorio varios y sus subdirectorios.<br>
+ &nbsp; d) Borrar del subdirectorio <tt>varios/subdir2</tt> el archivo de 
+nombre "balero".<br>
+ &nbsp; e) Borrar todos los archivos y subdirectorios bajo <tt>varios/subdir1</tt>
+  , inclu&iacute;do el propio <tt>subdir1</tt>.<br>
+ &nbsp; f) Borrar todos los archivos y subdirectorios bajo <tt>varios</tt>
+  , dejando este directorio vac&iacute;o.<br>
+ &nbsp; g) Borrar el directorio <tt>varios.</tt></li>
+   <li><b>MOVER, CAMBIAR NOMBRE (te&oacute;rico).</b><br>
+ Escriba comandos para:<br>
+ &nbsp; a) mostrar nombre, due&ntilde;o y grupo del archivo <tt>arch1</tt>
+   que est&aacute; en el subdirectorio <tt>textos</tt> del subdirectorio
+    <tt>  usuario7</tt> del subdirectorio <tt>home</tt> del directorio <tt>
+export</tt>  .<br>
+ &nbsp; b) mover archivos <tt>cap1, cap2 ... cap9</tt> desde el subdirectorio 
+   <tt>borrador</tt> hacia el subdirectorio <tt>libro</tt>, ambos subdirectorios
+ dentro del directorio propio del usuario; usar la variable HOME para escribir
+ las v&iacute;as.<br>
+ &nbsp; c) concatenar los archivos <tt>cap1, cap2 .... cap9</tt> del subdirectorio 
+    <tt>/export/home/usuario7/capitulos</tt> en un &uacute;nico archivo <tt>
+ sandokan</tt> ubicado en el directorio <tt>/export/home/libros</tt>.</li>
+   <li><b>&nbsp;ENLACES.</b> En su directorio de trabajo, cree un archivo 
+    <tt>arch1</tt> con el contenido "Este es arch1".<br>
+ &nbsp; a) Cree un enlace simb&oacute;lico <tt>liga1</tt> hacia el archivo 
+    <tt>arch1</tt>; verifique tipo de archivo, conteo de enlaces y contenido
+ de ambos archivos.<br>
+ &nbsp; b) Cree un enlace hardware <tt>liga0</tt> hacia el archivo   <tt>
+arch1</tt> ; verifique tipo de archivo, conteo de enlaces y contenido de
+ambos archivos.</li>
+   <li><b>ENLACES.</b> Marque todos los tipos de enlace que pueden establecerse 
+ en los siguientes casos.<br>
+ &nbsp; a) enlace hacia un archivo en el mismo directorio:<br>
+ &nbsp;&nbsp;&nbsp; _____ hardware _____ simb&oacute;lico<br>
+ &nbsp; b) enlace hacia un archivo en el mismo sistema de archivos:<br>
+ &nbsp;&nbsp;&nbsp; _____ hardware _____ simb&oacute;lico<br>
+ &nbsp; c) enlace hacia un archivo en otro sistema de archivos:<br>
+ &nbsp;&nbsp;&nbsp; _____ hardware _____ simb&oacute;lico<br>
+ &nbsp; d) enlace hacia un directorio en el mismo sistema de archivos:<br>
+ &nbsp;&nbsp;&nbsp; _____ hardware _____ simb&oacute;lico<br>
+ &nbsp; e) enlace hacia un directorio en otro sistema de archivos:<br>
+ &nbsp;&nbsp;&nbsp; _____ hardware _____ simb&oacute;lico</li>
+   <li><b>ENLACES.</b> Copiar el archivo <tt>nota</tt> en el archivo <tt>
+nota.texto</tt> . Crear los enlaces simb&oacute;licos <tt>mensaje</tt>, <tt>
+misiva</tt>,     <tt> esquela</tt> y <tt>carta</tt> hacia el archivo <tt>
+nota</tt>. Crear los enlaces hard <tt>mensaje0</tt>, <tt>misiva0</tt>, <tt>
+esquela0</tt> y     <tt>carta0</tt>  hacia el archivo <tt>nota.texto</tt>
+. En ambos casos, verificar conteo de enlaces, tipos de archivo y contenidos.
+Borrar <tt>nota.texto</tt> ; analizar la situaci&oacute;n estudiando conteo
+de enlaces y contenidos.</li>
+   <li><b>ENLACES.</b> Crear en el directorio propio los enlaces <tt>public</tt>
+ , <tt>docums</tt>  y <tt>textos</tt> hacia el directorio <tt>/usr/doc</tt>
+ . &iquest;Qu&eacute;  tipo de enlace debe emplearse? &iquest;Por qu&eacute;?</li>
+   <li><b>DUE&Ntilde;OS Y GRUPOS (te&oacute;rico).</b> Cambiar de due&ntilde;o 
+y grupo todos los archivos del directorio   <tt>/export/trabajos</tt> que 
+terminan con la palabra "obra", asign&aacute;ndolos al due&ntilde;o <tt>jperez</tt>
+ , grupo <tt>obras</tt>.</li>
+   <li><b>DUE&Ntilde;OS Y GRUPOS (te&oacute;rico).</b> Asignar al grupo <tt>
+ mant</tt> el directorio <tt>/export/home/mantdir</tt>  y todos sus archivos 
+y subdirectorios. Cambiar el due&ntilde;o de estos mismos archivos para el 
+usuario <tt>jefemant</tt>.</li>
+   <li><b>PERMISOS.</b><br>
+ &nbsp; a) Transformar los siguientes permisos simb&oacute;licos en absolutos:<tt><br>
+ &nbsp; rwxr-xr-x&nbsp;&nbsp;&nbsp; r-xr--r--&nbsp;&nbsp;&nbsp; rw-r-----&nbsp;&nbsp;&nbsp; 
+r-x--x--x</tt><br>
+ &nbsp; b) Transformar los siguientes permisos absolutos en simb&oacute;licos:<tt><br>
+ &nbsp; 644&nbsp;&nbsp;&nbsp; 755&nbsp;&nbsp;&nbsp; 610&nbsp;&nbsp;&nbsp; 
+ 631</tt><br>
+ &nbsp; c) Fijar, en modo simb&oacute;lico, los permisos de <tt>arch1</tt>
+   en modo <tt>754</tt>.<br>
+ &nbsp; d) Fijar, en modo absoluto, los permisos de <tt>arch1</tt> en modo 
+    <tt>rwxr-x--x</tt>.</li>
+   <li><b>PERMISOS.</b><br>
+ &nbsp; a) Fijar los permisos del directorio <tt>dir1</tt> de modo que todos 
+lo puedan leer y recorrer, pero s&oacute;lo el due&ntilde;o pueda modificar 
+sus archivos: 1) en modo simb&oacute;lico; 2) en modo absoluto.<br>
+ &nbsp; b) Modificar para que el grupo tambi&eacute;n pueda modificar archivos</li>
+   <li><b>PERMISOS.</b><br>
+ &nbsp; a) Fijar en modo simb&oacute;lico los permisos del archivo ejecutable 
+    <tt>exec.tar</tt> para que sea ejecutable por todos, legible por el due&ntilde;o 
+y el grupo y modificable solo por el due&ntilde;o. Repetir en modo absoluto.<br>
+ &nbsp; b) Fijar en modo absoluto los permisos del directorio <tt>dir1</tt>
+   de modo que s&oacute;lo el due&ntilde;o y el grupo lo puedan recorrer
+y leer, y s&oacute;lo el due&ntilde;o pueda grabar y borrar en &eacute;l.
+Repetir  en modo simb&oacute;lico.</li>
+   <li><b>PERMISOS.</b> Crear la siguiente estructura de directorios y archivos:<tt><br>
+ &nbsp; dir1</tt><tt><br>
+ &nbsp;&nbsp;&nbsp; arch1-1</tt><tt><br>
+ &nbsp;&nbsp;&nbsp; dir2</tt><tt><br>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; arch2-1</tt><br>
+ Investigar el significado de los permisos r, w, x sobre directorios variando 
+los permisos de los directorio <tt>dir1</tt> y <tt>dir2</tt> como sea necesario 
+y verificando qu&eacute; operaciones pueden realizarse sobre los archivos 
+contenidos en &eacute;l. Expresar los resultados en una tabla. <br>
+   </li>
+ 
+</ol>
+                                                                        
+     &nbsp;   
+<p>&nbsp; <br>
+  &nbsp; <br>
+  &nbsp; </p>
+   
+<address>  </address>
+   
+<hr width="100%">    
+<address> V&iacute;ctor A. Gonz&aacute;lez Barbone&nbsp; <a
+ href="vagonbar en fing edu uy">vagonbar en fing edu uy</a></address>
+      
+<address> <a href="http://iie.fing.edu.uy">Instituto de Ingenier&iacute;a El&eacute;ctrica</a>
+   - <a href="/www.fing.edu.uy">Facultad de Ingenier&iacute;a</a> - Montevideo, 
+ Uruguay.</address>
+      
+</body>
+</html>

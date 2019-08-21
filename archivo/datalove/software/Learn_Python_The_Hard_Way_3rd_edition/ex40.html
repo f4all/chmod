@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en"> <!--<![endif]-->
+
+<!-- Mirrored from learnpythonthehardway.org/book/ex40.html by HTTrack Website Copier/3.x [XR&CO'2013], Sat, 28 Dec 2013 20:46:03 GMT -->
+<head>
+    <meta charset="utf-8" />
+
+    <!-- Set the viewport width to device width for mobile -->
+    <meta name="viewport" content="width=device-width" />
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Docutils 0.10: http://docutils.sourceforge.net/" />
+    <title></title>
+
+    <!-- Included CSS Files (Compressed) -->
+    <link rel="stylesheet" href="stylesheets/foundation.css">
+    <link rel="stylesheet" href="stylesheets/normalize.css">
+    <link rel="stylesheet" href="stylesheets/app.css">
+    <link rel="stylesheet" href="stylesheets/pygments.css">
+
+    <script src="javascripts/vendor/jquery.js"></script>
+  <script src="javascripts/foundation/foundation.js"></script>
+    <script src="javascripts/vendor/custom.modernizr.js"></script>
+  
+  <!-- Initialize JS Plugins -->
+  <script src="javascripts/app.js"></script>
+
+    <!-- IE Fix for HTML5 Tags -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.10: http://docutils.sourceforge.net/" />
+<title>Exercise 40: Modules, Classes, and Objects</title>
+
+</head>
+<body>
+    <nav class="top-bar">
+        <ul class="title-area">
+            <!-- Title Area -->
+            <li class="name">
+              <h1><a href="http://learnpythonthehardway.org/">Learn Python The Hard Way</a></h1>
+            </li>
+        </ul>
+
+        <section class="top-bar-section">
+            <!-- Right Nav Section -->
+            <ul class="right">
+                <li> <a href="#video">Watch The Video</a></li>
+            </ul>
+        </section>
+
+        <section class="top-bar-section">
+            <!-- Right Nav Section -->
+            <ul class="right">
+                <li><a href="https://paydiv.io/products/contents/2/">See All The Content</a></li>
+            </ul>
+        </section>
+
+        <section class="top-bar-section">
+            <!-- Right Nav Section -->
+            <ul class="right">
+                <li><a href="https://paydiv.io/access/buy/2/">Purchase The Videos+PDF For $29.59</a></li>
+            </ul>
+        </section>
+    </nav>
+
+  <div class="row">
+    <div class="large-11 columns">
+        <h1 class="title">Exercise 40: Modules, Classes, and Objects</h1>
+
+        <p>Python is something called an &quot;object-oriented programming language.&quot;  What this means is there's a construct in Python called a <tt class="docutils literal">class</tt> that lets you structure your software in a particular way.  Using classes, you can add consistency to your programs so that they can be used in a cleaner way, or at least that's the theory.</p>
+<p>I am now going to try to teach you the beginnings of object-oriented programming, classes, and objects using what you already know about dictionaries and modules.  My problem though is that object-oriented programming (aka OOP) is just plain weird.  You have to simply struggle with this, try to understand what I say here, type in the code, and then in the next exercise I'll hammer it in.</p>
+<p>Here we go.</p>
+<div class="section" id="modules-are-like-dictionaries">
+<h1>Modules Are Like Dictionaries</h1>
+<p>You know how a dictionary is created and used and that it is a way to map one thing to another.  That means if you have a dictionary with a key 'apple' and you want to get it then you do this:</p>
+<pre class="code python literal-block">
+<span class="name">mystuff</span> <span class="operator">=</span> <span class="punctuation">{</span><span class="literal string">'apple'</span><span class="punctuation">:</span> <span class="literal string">&quot;I AM APPLES!&quot;</span><span class="punctuation">}</span>
+<span class="keyword">print</span> <span class="name">mystuff</span><span class="punctuation">[</span><span class="literal string">'apple'</span><span class="punctuation">]</span>
+</pre>
+<p>Keep this idea of &quot;get X from Y&quot; in your head, and now think about modules.  You've made a few so far, and used them, and you know they are:</p>
+<ol class="arabic simple">
+<li>A Python file with some functions or variables in it.</li>
+<li>You then import that file.</li>
+<li>And then you can access the functions or variables in that module with the '.' (dot) operator.</li>
+</ol>
+<p>Imagine if I have a module that I decide to name <tt class="docutils literal">mystuff.py</tt> and I put a function in it called <tt class="docutils literal">apple</tt>.  Here's the module <tt class="docutils literal">mystuff.py</tt>:</p>
+<pre class="code python literal-block">
+<span class="comment"># this goes in mystuff.py</span>
+<span class="keyword">def</span> <span class="name function">apple</span><span class="punctuation">():</span>
+    <span class="keyword">print</span> <span class="literal string">&quot;I AM APPLES!&quot;</span>
+</pre>
+<p>Once I have that, I can use that module with <tt class="docutils literal">import</tt> and then access the <tt class="docutils literal">apple</tt> function:</p>
+<pre class="code python literal-block">
+<span class="keyword namespace">import</span> <span class="name namespace">mystuff</span>
+
+<span class="name">mystuff</span><span class="operator">.</span><span class="name">apple</span><span class="punctuation">()</span>
+</pre>
+<p>I could also put a variable in it named <tt class="docutils literal">tangerine</tt> like this:</p>
+<pre class="code python literal-block">
+<span class="keyword">def</span> <span class="name function">apple</span><span class="punctuation">():</span>
+    <span class="keyword">print</span> <span class="literal string">&quot;I AM APPLES!&quot;</span>
+
+<span class="comment"># this is just a variable</span>
+<span class="name">tangerine</span> <span class="operator">=</span> <span class="literal string">&quot;Living reflection of a dream&quot;</span>
+</pre>
+<p>Then again I can access that the same way:</p>
+<pre class="code python literal-block">
+<span class="keyword namespace">import</span> <span class="name namespace">mystuff</span>
+
+<span class="name">mystuff</span><span class="operator">.</span><span class="name">apple</span><span class="punctuation">()</span>
+<span class="keyword">print</span> <span class="name">mystuff</span><span class="operator">.</span><span class="name">tangerine</span>
+</pre>
+<p>Refer back to the dictionary, and you should start to see how this is similar to using a dictionary, but the syntax is different.  Let's compare:</p>
+<pre class="code python literal-block">
+<span class="name">mystuff</span><span class="punctuation">[</span><span class="literal string">'apple'</span><span class="punctuation">]</span> <span class="comment"># get apple from dict</span>
+<span class="name">mystuff</span><span class="operator">.</span><span class="name">apple</span><span class="punctuation">()</span> <span class="comment"># get apple from the module</span>
+<span class="name">mystuff</span><span class="operator">.</span><span class="name">tangerine</span> <span class="comment"># same thing, it's just a variable</span>
+</pre>
+<p>This means we have a <em>very</em> common pattern in Python of this:</p>
+<ol class="arabic simple">
+<li>Take a key=value style container.</li>
+<li>Get something out of it by the key's name.</li>
+</ol>
+<p>In the case of the dictionary, the key is a string and the syntax is <tt class="docutils literal">[key]</tt>.  In the case of the module, the key is an identifier, and the syntax is <tt class="docutils literal">.key</tt>.  Other than that they are nearly the same thing.</p>
+<div class="section" id="classes-are-like-modules">
+<h2>Classes are Like Modules</h2>
+<p>A way to think about a module is that it is a specialized dictionary that can store Python code so you can get to it with the <tt class="docutils literal">'.'</tt> operator.  Python also has another construct that serves a similar purpose called a <tt class="docutils literal">class</tt>.  A <tt class="docutils literal">class</tt> is a way to take a grouping of functions and data and place them inside a container so you can access them with the <tt class="docutils literal">'.'</tt> (dot) operator.</p>
+<p>If I were to create a class just like the <tt class="docutils literal">mystuff</tt> module, I'd do something like this:</p>
+<pre class="code python literal-block">
+<span class="keyword">class</span> <span class="name class">MyStuff</span><span class="punctuation">(</span><span class="name builtin">object</span><span class="punctuation">):</span>
+
+    <span class="keyword">def</span> <span class="name function">__init__</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">):</span>
+        <span class="name builtin pseudo">self</span><span class="operator">.</span><span class="name">tangerine</span> <span class="operator">=</span> <span class="literal string">&quot;And now a thousand years between&quot;</span>
+
+    <span class="keyword">def</span> <span class="name function">apple</span><span class="punctuation">(</span><span class="name builtin pseudo">self</span><span class="punctuation">):</span>
+        <span class="keyword">print</span> <span class="literal string">&quot;I AM CLASSY APPLES!&quot;</span>
+</pre>
+<p>That looks complicated compared to modules, and there is definitely a lot going on by comparison, but you should be able to make out how this is like a &quot;mini-module&quot; with <tt class="docutils literal">MyStuff</tt> having an <tt class="docutils literal">apple()</tt> function in it.  What is probably confusing with this is the <tt class="docutils literal">__init__()</tt> function and use of <tt class="docutils literal">self.tangerine</tt> for setting the <tt class="docutils literal">tangerine</tt> variable.</p>
+<p>Here's why classes are used instead of modules:  You can take the above class and use it to craft many of them, millions at a time if you want, and they won't interfere with each other.  With modules, when you import there is only one for the entire program unless you do some monster hacks.</p>
+<p>Before you can understand this though, you need to know what an &quot;object&quot; is and how to work with <tt class="docutils literal">MyStuff</tt> just like you do with the <tt class="docutils literal">mystuff.py</tt> module.</p>
+</div>
+<div class="section" id="objects-are-like-mini-imports">
+<h2>Objects are Like Mini-Imports</h2>
+<p>If a <tt class="docutils literal">class</tt> is like a &quot;mini-module,&quot; then there has to be a similar concept to <tt class="docutils literal">import</tt> but for classes.  That concept is called &quot;instantiate&quot; which is just a fancy, obnoxious, overly smart way to say &quot;create.&quot;  When you instantiate a class what you get is called an <tt class="docutils literal">object</tt>.</p>
+<p>The way you do this is you call the <tt class="docutils literal">class</tt> like it's a function, like this:</p>
+<pre class="code python literal-block">
+<span class="name">thing</span> <span class="operator">=</span> <span class="name">MyStuff</span><span class="punctuation">()</span>
+<span class="name">thing</span><span class="operator">.</span><span class="name">apple</span><span class="punctuation">()</span>
+<span class="keyword">print</span> <span class="name">thing</span><span class="operator">.</span><span class="name">tangerine</span>
+</pre>
+<p>The first line is the &quot;instantiate&quot; operation, and it's a lot like calling a function.  However, when you call this there's a sequence of events that Python coordinates for you.  I'll go through them using the above code for <tt class="docutils literal">MyStuff</tt>:</p>
+<ol class="arabic simple">
+<li>Python looks for <tt class="docutils literal">MyStuff()</tt> and sees that it is a <tt class="docutils literal">class</tt> you've defined.</li>
+<li>Python crafts an empty object with all the functions you've specified in the class using <tt class="docutils literal">def</tt>.</li>
+<li>Python then looks to see if you made a &quot;magic&quot; <tt class="docutils literal">__init__</tt> function, and if you have it calls that function to initialize your newly created empty object.</li>
+<li>In the <tt class="docutils literal">MyStuff</tt> function <tt class="docutils literal">__init__</tt> I then get this extra variable <tt class="docutils literal">self</tt>, which is that empty object Python made for me, and I can set variables on it just like you would with a module, dict, or other object.</li>
+<li>In this case, I set <tt class="docutils literal">self.tangerine</tt> to a song lyric and then I've initialized this object.</li>
+<li>Now Python can take this newly minted object and assign it to the <tt class="docutils literal">thing</tt> variable for me to work with.</li>
+</ol>
+<p>That's the basics of how Python does this &quot;mini-import&quot; when you call a <tt class="docutils literal">class</tt> like a function.  Remember that this is <em>not</em> giving you the class, but instead it is using the class as a <em>blueprint</em> for how to build a copy of that type of thing.</p>
+<p>Keep in mind that I'm giving you a slightly inaccurate idea for how these work so that you can start to build up an understanding of classes based on what you know of modules.  The truth is, classes and objects suddenly diverge from modules at this point.  If I were being totally honest, I'd say something more like this:</p>
+<ul class="simple">
+<li>Classes are like blueprints or definitions for creating new mini-modules.</li>
+<li>Instantiation is how you make one of these mini-modules <em>and</em> import it at the same time.</li>
+<li>The resulting created mini-module is called an <tt class="docutils literal">object</tt> and you then assign it to a variable to work with it.</li>
+</ul>
+<p>After this though classes and objects become very different from modules and this should only serve as a way for you to bridge over to understanding classes.</p>
+</div>
+<div class="section" id="getting-things-from-things">
+<h2>Getting Things from Things</h2>
+<p>I now have three ways to get things from things:</p>
+<pre class="code python literal-block">
+<span class="comment"># dict style</span>
+<span class="name">mystuff</span><span class="punctuation">[</span><span class="literal string">'apples'</span><span class="punctuation">]</span>
+
+<span class="comment"># module style</span>
+<span class="name">mystuff</span><span class="operator">.</span><span class="name">apples</span><span class="punctuation">()</span>
+<span class="keyword">print</span> <span class="name">mystuff</span><span class="operator">.</span><span class="name">tangerine</span>
+
+<span class="comment"># class style</span>
+<span class="name">thing</span> <span class="operator">=</span> <span class="name">MyStuff</span><span class="punctuation">()</span>
+<span class="name">thing</span><span class="operator">.</span><span class="name">apples</span><span class="punctuation">()</span>
+<span class="keyword">print</span> <span class="name">thing</span><span class="operator">.</span><span class="name">tangerine</span>
+</pre>
+</div>
+<div class="section" id="a-first-class-example">
+<h2>A First Class Example</h2>
+<p>You should start seeing the similarities in these three key=value container types and probably have a bunch of questions.  Hang on with the questions, as the next exercise is going to hammer home your &quot;object-oriented vocabulary.&quot; In this exercise, I just want you to type in this code and get it working so that you have some experience before moving on.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></div></td><td class="code"><div class="highlight"><pre><a name="ex--ex40.py-idio.html-1"></a><span class="k">class</span> <span class="nc">Song</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<a name="ex--ex40.py-idio.html-2"></a>
+<a name="ex--ex40.py-idio.html-3"></a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lyrics</span><span class="p">):</span>
+<a name="ex--ex40.py-idio.html-4"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">lyrics</span> <span class="o">=</span> <span class="n">lyrics</span>
+<a name="ex--ex40.py-idio.html-5"></a>
+<a name="ex--ex40.py-idio.html-6"></a>    <span class="k">def</span> <span class="nf">sing_me_a_song</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a name="ex--ex40.py-idio.html-7"></a>        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">lyrics</span><span class="p">:</span>
+<a name="ex--ex40.py-idio.html-8"></a>            <span class="k">print</span> <span class="n">line</span>
+<a name="ex--ex40.py-idio.html-9"></a>
+<a name="ex--ex40.py-idio.html-10"></a><span class="n">happy_bday</span> <span class="o">=</span> <span class="n">Song</span><span class="p">([</span><span class="s">&quot;Happy birthday to you&quot;</span><span class="p">,</span>
+<a name="ex--ex40.py-idio.html-11"></a>                   <span class="s">&quot;I don&#39;t want to get sued&quot;</span><span class="p">,</span>
+<a name="ex--ex40.py-idio.html-12"></a>                   <span class="s">&quot;So I&#39;ll stop right there&quot;</span><span class="p">])</span>
+<a name="ex--ex40.py-idio.html-13"></a>
+<a name="ex--ex40.py-idio.html-14"></a><span class="n">bulls_on_parade</span> <span class="o">=</span> <span class="n">Song</span><span class="p">([</span><span class="s">&quot;They rally around the family&quot;</span><span class="p">,</span>
+<a name="ex--ex40.py-idio.html-15"></a>                        <span class="s">&quot;With pockets full of shells&quot;</span><span class="p">])</span>
+<a name="ex--ex40.py-idio.html-16"></a>
+<a name="ex--ex40.py-idio.html-17"></a><span class="n">happy_bday</span><span class="o">.</span><span class="n">sing_me_a_song</span><span class="p">()</span>
+<a name="ex--ex40.py-idio.html-18"></a>
+<a name="ex--ex40.py-idio.html-19"></a><span class="n">bulls_on_parade</span><span class="o">.</span><span class="n">sing_me_a_song</span><span class="p">()</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="what-you-should-see">
+<h1>What You Should See</h1>
+<div class="highlight"><pre><a name="ex--ex40.sh-idio-shint-pyg.html-1"></a><span class="gp">$</span> python ex40.py
+<a name="ex--ex40.sh-idio-shint-pyg.html-2"></a><span class="go">Happy birthday to you</span>
+<a name="ex--ex40.sh-idio-shint-pyg.html-3"></a><span class="go">I don&#39;t want to get sued</span>
+<a name="ex--ex40.sh-idio-shint-pyg.html-4"></a><span class="go">So I&#39;ll stop right there</span>
+<a name="ex--ex40.sh-idio-shint-pyg.html-5"></a><span class="go">They rally around the family</span>
+<a name="ex--ex40.sh-idio-shint-pyg.html-6"></a><span class="go">With pockets full of shells</span>
+</pre></div></div>
+<div class="section" id="study-drills">
+<h1>Study Drills</h1>
+<ol class="arabic simple">
+<li>Write some more songs using this and make sure you understand that you're passing a list of strings as the lyrics.</li>
+<li>Put the lyrics in a separate variable, then pass that variable to the class to use instead.</li>
+<li>See if you can hack on this and make it do more things.  Don't worry if you have no idea how, just give it a try, see what happens.  Break it, trash it, thrash it, you can't hurt it.</li>
+<li>Search online for &quot;object-oriented programming&quot; and try to overflow your brain with what you read.  Don't worry if it makes absolutely no sense to you.  Half of that stuff makes no sense to me too.</li>
+</ol>
+</div>
+<div class="section" id="common-student-questions">
+<h1>Common Student Questions</h1>
+<dl class="docutils">
+<dt>Why do I need <tt class="docutils literal">self</tt> when I make <tt class="docutils literal">__init__</tt> or other functions for classes?</dt>
+<dd>If you don't have <tt class="docutils literal">self</tt>, then code like <tt class="docutils literal">cheese = 'Frank'</tt> is ambiguous.  That code isn't clear about whether you mean the <em>instance's</em> <tt class="docutils literal">cheese</tt> attribute, <em>or</em> a local variable named <tt class="docutils literal">cheese</tt>.  With <tt class="docutils literal">self.cheese = 'Frank'</tt> it's very clear you mean the instance attribute <tt class="docutils literal">self.cheese</tt>.</dd>
+</dl>
+</div>
+
+        <div class="section" id="video">
+            <div class="large-12 columns panel">
+                <div data-paydiv_product="2" id='paydiv'>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="large-1 columns" id="right-nav">
+        <center>
+        <p><a href="index.html"><img src="images/48_structure.png"></a></p>
+        <p><a href="mailto:help@learncodethehardway.org"><img src="images/48_email.png"></a></p>
+        <p><a href="#common-student-questions"><img src="images/48_faq.png"></a></p>
+        <p><a href="#video"><img src="images/48_video.png"></a></p>
+        </center>
+    </div>
+
+    <div class="twelve columns" id="footer">
+        <div class="large-4 columns" id="footer-block">
+            <p>
+            <a href="http://learncodethehardway.org/">Copyright (C) 2010 Zed. A. Shaw</a>
+            </p>
+        </div>
+        <div class="large-4 columns" id="footer-block">
+            <p>
+            </p>
+        </div>
+        <div class="large-3 columns" id="footer-block">
+            <p>
+            </p>
+        </div>
+        <div class="one columns">
+            &nbsp;
+        </div>
+    </div>
+
+
+
+    <script src="https://paydiv.io/static/js/videojs/video.js"></script>
+    <link rel="stylesheet" href="https://paydiv.io/static/js/videojs/video-js.css">
+    <script src="https://paydiv.io/static/api/v1/paydiv.js"></script>
+
+  <!-- Included JS Files (Compressed) -->
+  <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-24168052-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script>
+
+</body>
+
+<!-- Mirrored from learnpythonthehardway.org/book/ex40.html by HTTrack Website Copier/3.x [XR&CO'2013], Sat, 28 Dec 2013 20:46:03 GMT -->
+</html>

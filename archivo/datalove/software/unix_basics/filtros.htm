@@ -1,0 +1,497 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+   <META NAME="GENERATOR" CONTENT="Mozilla/4.06 [es] (Win95; I) [Netscape]">
+   <META NAME="CREATED" CONTENT="19980914;10101600">
+   <META NAME="CHANGEDBY" CONTENT="Víctor A. González-Barbone">
+   <META NAME="CHANGED" CONTENT="19980914;10121700">
+   <META NAME="Author" CONTENT="Víctor González-Barbone">
+   <META NAME="Description" CONTENT="Uso de comandos con funciones de filtro en UNIX">
+   <META NAME="KeyWords" CONTENT="UNIX, curso, tutorial, Linux">
+   <TITLE>Curso B&aacute;sico de UNIX - Filtros</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+
+<ADDRESS>
+<A HREF="index.htm">Curso B&aacute;sico de UNIX</A></ADDRESS>
+
+<CENTER>
+<H1>
+Filtros.</H1></CENTER>
+
+<DT>
+<A HREF="#sort">sort</A></DT>
+
+<DT>
+<A HREF="#grep">grep</A></DT>
+
+<DT>
+<A HREF="#find">find</A></DT>
+
+<DT>
+<A HREF="#fgrepyegrep">fgrep y egrep</A></DT>
+
+<DT>
+<A HREF="#tr">tr</A></DT>
+
+<DT>
+<A HREF="#uniq">uniq</A></DT>
+
+<DT>
+<A HREF="#dd">dd</A></DT>
+
+<DT>
+<A HREF="#Ejercicios">Preguntas y Ejercicios</A></DT>
+
+<DT>
+<A HREF="#Bibliografia">Bibliograf&iacute;a y Referencias</A></DT>
+
+<BR>&nbsp;
+<BR>Se da el nombe de filtros a un grupo de comandos que leen alguna entrada,
+realizan una transformaci&oacute;n y escriben una salida. Adem&aacute;s
+de los que veremos aqu&iacute;, incluye comandos tales como <TT>head</TT>,
+<TT>tail</TT>,
+<TT>wc</TT>, y <TT>cut</TT>.
+<H3>
+<A NAME="sort"></A>sort</H3>
+La comparaci&oacute;n u ordenaci&oacute;n puede ser por caracteres ASCII
+o por valor num&eacute;rico. La ordenaci&oacute;n ASCII es la m&aacute;s
+parecida a la alfab&eacute;tica; sigue el orden del juego de caracteres
+ASCII. En este ordenamiento, los caracteres idiom&aacute;ticos (vocales
+acentuadas, &ntilde;) no se encuentran en el orden alfab&eacute;tico tradicional.
+En la ordenaci&oacute;n num&eacute;rica se respeta la ordenaci&oacute;n
+por valor num&eacute;rico de la cadena de caracteres: 101 va despu&eacute;s
+de 21; en ordenamiento ASCII ser&iacute;a al rev&eacute;s.
+<DT>
+<TT>&nbsp; sort arch1</TT></DT>
+
+<DT>
+ordena seg&uacute;n el c&oacute;digo ASCII.</DT>
+
+<DT>
+<TT>&nbsp; sort -n arch2.num</TT></DT>
+
+<DT>
+ordena num&eacute;ricamente.</DT>
+
+<BR>&nbsp;
+<BR>Si no se indican campos de ordenaci&oacute;n, la comparaci&oacute;n
+se hace sobre toda la l&iacute;nea. Si se indican campos, la comparaci&oacute;n
+se hace considerando la cadena de caracteres iniciada en el primer caracter
+del primer campo hasta el &uacute;ltimo caracter del &uacute;ltimo campo.
+<DT>
+<TT>&nbsp; sort -t: -k1,3 arch1.txt</TT></DT>
+
+<DT>
+ordena por campos separados por ":", tomando en cuenta para la comparaci&oacute;n
+los caracteres desde el primero del campo 1 hasta el &uacute;ltimo del
+campo 3.</DT>
+
+<DT>
+<TT>&nbsp; sort -t: -k1.3,3.5 arch1.txt</TT></DT>
+
+<DT>
+ordena por campos tomando en cuenta desde el 3er. caracter del campo 1
+hasta el 5to. caracter del campo 3.</DT>
+
+<DT>
+<TT>&nbsp; sort -nr arch2.num</TT></DT>
+
+<DT>
+ordena en orden num&eacute;rico descendente.</DT>
+
+<DT>
+<TT>&nbsp; sort -k3 arch3.txt</TT></DT>
+
+<DT>
+ordena alfab&eacute;ticamente, usando como cadena de comparaci&oacute;n
+la comprendida desde el primer caracter del 3er. campo hasta el fin de
+l&iacute;na. Como no se indica separador, los campos se definen por blancos
+(espacio o tabulador).</DT>
+
+<H3>
+<A NAME="find"></A>find</H3>
+
+<DT>
+El comando <TT>find</TT> explora una rama de directorios buscando archivos
+que cumplan determinados criterios. El comando <TT>find</TT> en GNU es
+extremadamente potente, permitiendo criterios de b&uacute;squeda tales
+como:</DT>
+
+<UL>
+<LI>
+el nombre contiene cierta cadena de caracteres o aparea con alg&uacute;n
+patr&oacute;n:</LI>
+
+<LI>
+son enlaces a ciertos archivos;</LI>
+
+<LI>
+fueron usados por &uacute;ltima vez en un cierto per&iacute;odo de tiempo;</LI>
+
+<LI>
+tienen un tama&ntilde;o comprendido dentro de cierto intervalo;</LI>
+
+<LI>
+son de cierto tipo (regular, directorio, enlace simb&oacute;lico, etc.);</LI>
+
+<LI>
+pertenecen a cierto usuario o grupo;</LI>
+
+<LI>
+tienen ciertos permisos de acceso;</LI>
+
+<LI>
+contienen texto que aparea con cierto patr&oacute;n.</LI>
+</UL>
+
+<DT>
+Una vez ubicados los archivos, <TT>find</TT> puede realizar diversas acciones
+sobre ellos:</DT>
+
+<UL>
+<LI>
+ver o editar;</LI>
+
+<LI>
+guardar sus nombres en otro archivo;</LI>
+
+<LI>
+eliminarlos o renombrarlos;</LI>
+
+<LI>
+cambiar sus permisos de acceso;</LI>
+
+<LI>
+clasificarlos por grupos.</LI>
+</UL>
+
+<DT>
+<TT>&nbsp; find /var -name *.log -print</TT></DT>
+
+<DT>
+busca en el directorio /var los archivos terminados en .log, imprime sus
+nombres en la salida.</DT>
+
+<DT>
+<TT>&nbsp; find /tmp -size +200k -print</TT></DT>
+
+<DT>
+busca archivos mayores de 200k. En los argumentos num&eacute;ricos, +N
+es mayor que N, -N es menor que N, N es exactamente igual a N.</DT>
+
+<DT>
+<TT>&nbsp; find /var/spool/mail -atime +30 -print</TT></DT>
+
+<DT>
+busca archivos no accedidos hace m&aacute;s de 30 d&iacute;as. La opci&oacute;n
+-atime se refiere a tiempo transcurrido desde &uacute;ltima lectura, -mtime
+desde &uacute;ltima modificaci&oacute;n de estado o permisos, -ctime de
+contenido.</DT>
+
+<DT>
+<TT>&nbsp; find /var/tmp -empty -exec rm {} \;</TT></DT>
+
+<DT>
+busca archivos vac&iacute;os y los borra.</DT>
+
+<DT>
+<TT>&nbsp; find /home -nouser -ls</TT></DT>
+
+<DT>
+busca archivos en los cuales en lugar del nombre de usuario due&ntilde;o
+aparece un n&uacute;mero (UID). Esta situaci&oacute;n se da cuando la cuenta
+de usuario ha sido borrada pero han permanecido los archivos creados por
+ese usuario.</DT>
+
+<H3>
+<A NAME="grep"></A>grep</H3>
+
+<DT>
+El comando <TT>grep</TT> (Global Regular Expression and Print) permite
+buscar las l&iacute;neas que contienen una cadena de caracteres especificada
+mediante una expresi&oacute;n regular. Lee la entrada est&aacute;ndar o
+una lista de archivos y muestra en la salida s&oacute;lo aquellas l&iacute;neas
+que contienen la expresi&oacute;n indicada. La sintaxis es</DT>
+
+<DT>
+<TT>&nbsp;grep patr&oacute;n archivos</TT></DT>
+
+<DT>
+donde el patr&oacute;n a buscar es una expresi&oacute;n regular.</DT>
+
+<DL>
+<DT>
+Crear un archivo con los d&iacute;as de la semana, uno por l&iacute;nea;
+llamarle <TT>dias.</TT></DT>
+
+<DT>
+<TT>&nbsp; grep martes dias</TT></DT>
+
+<DT>
+<TT>&nbsp; grep tes dias</TT></DT>
+
+<DT>
+muestra las l&iacute;neas del archivo dias que contienen la cadena "tes".</DT>
+
+<DT>
+<TT>&nbsp;</TT></DT>
+
+<DT>
+<TT>&nbsp; grep unix01 /etc/passwd</TT></DT>
+
+<DT>
+<TT>&nbsp; grep unix0[1-9] /etc/passwd</TT></DT>
+
+<DT>
+<TT>&nbsp;</TT></DT>
+
+<DT>
+<TT>&nbsp; ls -l /usr | grep '^d'</TT></DT>
+
+<DT>
+lista s&oacute;lo los subdirectorios del directorio /usr (la l&iacute;nea
+empieza con "d").</DT>
+
+<DT>
+<TT>&nbsp;</TT></DT>
+
+<DT>
+<TT>&nbsp; ls -l / | grep '.......rw'</TT></DT>
+
+<DT>
+lista s&oacute;lo los archivos que otros pueden leer y escribir en el directorio
+principal.</DT>
+
+<DT>
+<TT>&nbsp;</TT></DT>
+
+<DT>
+<TT>&nbsp; grep '^[^:]*::' /etc/passwd</TT></DT>
+
+<DT>
+busca usuarios sin contrase&ntilde;a; caracteres al principio de l&iacute;nea
+que no sean ":", y luego "::" (el segundo lugar, que es el de la contrase&ntilde;a,
+est&aacute; vac&iacute;o).</DT>
+
+<DT>
+<TT>&nbsp;</TT></DT>
+
+<DT>
+<TT>&nbsp; grep '^[^:]*:\*:' /etc/passwd</TT></DT>
+
+<DT>
+busca usuarios que no pueden entrar al sistema; tienen un * en el lugar
+de la contrase&ntilde;a; \ escapa el significado del segundo *, que vale
+como caracter a buscar.</DT>
+
+<BR>&nbsp;
+<P>&nbsp;
+<P>Ninguna expresi&oacute;n regular de <TT>grep</TT> aparea con un caracter
+nueva l&iacute;nea; las expresiones se aplican individualmente a cada l&iacute;nea.
+<P>Entre las opciones de <TT>grep</TT> se cuentan -i para evitar distinguir
+entre may&uacute;sculas de min&uacute;sculas, -n para mostrar el n&uacute;mero
+de l&iacute;nea y -v para buscar l&iacute;neas que no contengan la expresi&oacute;n
+regular indicada.</DL>
+
+<H3>
+<A NAME="fgrepyegrep"></A>fgrep y egrep</H3>
+Hay dos versiones de grep que optimizan la b&uacute;squeda en casos particulares:
+<P><TT>fgrep</TT> (fixed grep, o fast grep) acepta solamente una cadena
+de caracteres, y no una expresi&oacute;n regular, aunque permite buscar
+varias de estas cadenas simult&aacute;neamente;
+<P><TT>egrep</TT> (extended grep), que acepta expresiones regulares extendidas
+con los operadores + ? | y par&eacute;ntesis.
+<P><TT>fgrep</TT> no interpreta metacaracteres, pero puede buscar muy eficientemente
+muchas palabras en paralelo, por lo que se usa mucho en b&uacute;squedas
+bibliogr&aacute;ficas; <TT>egrep</TT> acepta expresiones m&aacute;s complejas,
+pero es m&aacute;s lento; <TT>grep</TT> es un buen compromiso entre ambos.
+<DL>
+<DT>
+<TT>&nbsp; fgrep martes dias</TT></DT>
+
+<DT>
+busca la cadena martes en el archivo <TT>dias</TT>.</DT>
+
+<DT>
+&nbsp;</DT>
+
+<DT>
+En <TT>fgrep</TT> y <TT>egrep</TT> puede indicarse la opci&oacute;n
+<TT>-f
+buscar.exp</TT>, donde <TT>buscar.exp</TT> es un archivo que contiene la
+expresi&oacute;n a buscar: cadenas simples para <TT>fgrep</TT>, expresiones
+regulares para <TT>egrep</TT>, separadas por nueva l&iacute;nea; las expresiones
+se buscan en paralelo, es decir que la salida ser&aacute;n todas las l&iacute;neas
+que contengan una cualquiera de las expresiones a buscar.</DT>
+
+<DT>
+Crear un archivo <TT>buscar.fgrep</TT> con las cadenas "tes" y "jue", una
+por l&iacute;nea. El comando</DT>
+
+<DT>
+<TT>&nbsp; fgrep -f buscar.fgrep dias</TT></DT>
+
+<DT>
+extrae del archivo <TT>dias</TT> las l&iacute;neas que contienen estas
+cadenas.</DT>
+
+<DT>
+&nbsp;</DT>
+
+<DT>
+El comando <TT>grep</TT> soporta <TT>fgrep</TT> y <TT>egrep</TT> como opciones
+-F y -E, respectivamente.</DT>
+
+<DT>
+<TT>&nbsp; grep -F -f buscar.fgrep dias</TT></DT>
+
+<DT>
+<TT>&nbsp; egrep "tes|jue" dias</TT></DT>
+
+<DT>
+<TT>&nbsp; grep -E "tes|jue" dias</TT></DT>
+
+<DT>
+obtienen el mismo efecto del comando anterior.</DT>
+
+<DT>
+<TT>&nbsp; egrep "([0-9]+ab)*1234" archivo</TT></DT>
+
+<DT>
+busca cadenas comenzadas opcionalmente por un d&iacute;gito y los caracteres
+ab, todo el par&eacute;ntesis 0 o m&aacute;s veces, y hasta encontrar la
+cadena 1234.</DT>
+
+<DT>
+&nbsp;</DT>
+
+<DT>
+Escribir <TT>grep -E</TT> es similar a <TT>egrep</TT>, aunque no id&eacute;ntico;
+<TT>egrep</TT>
+es compatible con el comando hist&oacute;rico <TT>egrep</TT>;
+<TT>grep
+-E</TT> acepta expresiones regulares extendidas y es la versi&oacute;n
+moderna del comando en GNU. <TT>fgrep</TT> es id&eacute;ntico a <TT>grep
+-F</TT>.</DT>
+</DL>
+
+<H3>
+<A NAME="tr"></A>tr</H3>
+El comando <TT>tr</TT> translitera los caracteres de la entrada: sustituye
+unos caracteres por otros. La sustituci&oacute;n es caracter a caracter.
+Entre sus opciones se encuentran -d para borrar caracteres; -c para sustituir
+complemento de los caracteres indicados, es decir, que no sean &eacute;sos;
+y -s para comprimir caracteres repetidos en uno solo.
+<DL>
+<DT>
+<TT>&nbsp; cat dias | tr a-z A-Z</TT></DT>
+
+<DT>
+convierte todo a may&uacute;sculas.</DT>
+
+<DT>
+<TT>&nbsp; cat dias | tr -d aeiou</TT></DT>
+
+<DT>
+borra todas las vocales del archivo dias.</DT>
+
+<DT>
+&nbsp;</DT>
+
+<DT>
+Agregar al archivo <TT>dias</TT> l&iacute;neas en blanco, varias seguidas,
+intercaladas entre los nombres de los d&iacute;as.</DT>
+
+<DT>
+<TT>&nbsp; cat dias</TT></DT>
+
+<DT>
+<TT>&nbsp; cat dias | tr -s "\n*"</TT></DT>
+
+<DT>
+convierte varios caracteres nueva l&iacute;nea seguidos en una solo; elimina
+renglones en blanco.</DT>
+
+<DT>
+<TT>&nbsp;</TT></DT>
+
+<DT>
+<TT>&nbsp; cat nota | tr -c "[a-zA-Z0-9]" "_"</TT></DT>
+
+<DT>
+transforma todos los caracteres que no sean letras o n&uacute;meros en
+subrayas.</DT>
+
+<DT>
+<TT>&nbsp; cat nota | tr -cs "[a-zA-Z0-9]" "[\n*]"</TT></DT>
+
+<DT>
+transforma todos los caracteres que no sean letras o n&uacute;meros en
+nueval&iacute;nea, y comprime las nueval&iacute;neas repetidas en una sola;
+deja cada palabra sola en un rengl&oacute;n.</DT>
+
+<DT>
+<TT>&nbsp;</TT></DT>
+
+<DT>
+<TT>&nbsp; ls -l /usr | tr -s " " | cut -f3,4</TT></DT>
+
+<DT>
+comprime los blancos en la salida para poder cortar campos.</DT>
+</DL>
+
+<H3>
+<A NAME="uniq"></A>uniq</H3>
+El comando <TT>uniq</TT> excluye todos los renglones adyacentes duplicados
+menos uno; es decir, elimina renglones repetidos consecutivos. La opci&oacute;n
+-c escribe el n&uacute;mero de ocurrencias al comienzo del rengl&oacute;n.
+<DT>
+El siguiente ejemplo muestra las 5 palabras m&aacute;s frecuentes en el
+conjunto de archivos:</DT>
+
+<DT>
+<TT>&nbsp; cat *.txt | tr -sc A-Za-z '\012' | \</TT></DT>
+
+<DT>
+<TT>&nbsp;&nbsp;&nbsp; sort | uniq -c | sort -n | tail 5</TT></DT>
+
+<DT>
+<TT>cat</TT> lista todos los archivos, <TT>tr</TT> comprime el rengl&oacute;n
+eliminando blancos, <TT>sort</TT> los ordena, <TT>uniq</TT> cuenta las
+ocurrencias y elimina repetidos, <TT>sort -n</TT> ordena por cantidad de
+ocurrencias y <TT>tail</TT> muestra las 5 ocurrencias m&aacute;s frecuentes.</DT>
+
+<H3>
+<A NAME="dd"></A>dd</H3>
+El comando <TT>dd</TT> es un convertidor de datos: convierte de ASCII a
+EBCDIC y a la inversa, cambia los tama&ntilde;os de los bloques de registros,
+hace ajuste de blancos y otras transformaciones usuales cuando se manejan
+transferencias entre sistemas operativos distintos o datos en bruto, sin
+formato, como en los respaldos en cinta.
+<H3>
+<A NAME="Ejercicios"></A><A HREF="filtrej.htm">Preguntas y Ejercicios.</A></H3>
+
+<H3>
+<A NAME="Bibliografia"></A>Bibliograf&iacute;a y Referencias.</H3>
+<B>Comandos:</B> sort, find, grep, fgrep, egrep, tr, uniq, dd
+<DL><B>Referencias:</B> p&aacute;ginas man, nodos info, Kernighan-Pike[1987],
+Coffin[1989].
+<BR>&nbsp;
+<BR>&nbsp;
+<ADDRESS>
+
+<HR WIDTH="100%"></ADDRESS>
+
+<ADDRESS>
+V&iacute;ctor A. Gonz&aacute;lez Barbone <A HREF="mailto: vagonbar en fing edu uy">vagonbar en fing edu uy</A></ADDRESS>
+
+<ADDRESS>
+<A HREF="http://iie.fing.edu.uy">Instituto de Ingenier&iacute;a El&eacute;ctrica</A>
+- <A HREF="http://www.fing.edu.uy">Facultad de Ingenier&iacute;a</A> -
+Montevideo, Uruguay.</ADDRESS>
+</DL>
+
+</BODY>
+</HTML>

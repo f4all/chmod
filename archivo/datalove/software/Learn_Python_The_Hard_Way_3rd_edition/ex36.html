@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en"> <!--<![endif]-->
+
+<!-- Mirrored from learnpythonthehardway.org/book/ex36.html by HTTrack Website Copier/3.x [XR&CO'2013], Sat, 28 Dec 2013 20:46:03 GMT -->
+<head>
+    <meta charset="utf-8" />
+
+    <!-- Set the viewport width to device width for mobile -->
+    <meta name="viewport" content="width=device-width" />
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Docutils 0.10: http://docutils.sourceforge.net/" />
+    <title></title>
+
+    <!-- Included CSS Files (Compressed) -->
+    <link rel="stylesheet" href="stylesheets/foundation.css">
+    <link rel="stylesheet" href="stylesheets/normalize.css">
+    <link rel="stylesheet" href="stylesheets/app.css">
+    <link rel="stylesheet" href="stylesheets/pygments.css">
+
+    <script src="javascripts/vendor/jquery.js"></script>
+  <script src="javascripts/foundation/foundation.js"></script>
+    <script src="javascripts/vendor/custom.modernizr.js"></script>
+  
+  <!-- Initialize JS Plugins -->
+  <script src="javascripts/app.js"></script>
+
+    <!-- IE Fix for HTML5 Tags -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.10: http://docutils.sourceforge.net/" />
+<title>Exercise 36: Designing and Debugging</title>
+
+</head>
+<body>
+    <nav class="top-bar">
+        <ul class="title-area">
+            <!-- Title Area -->
+            <li class="name">
+              <h1><a href="http://learnpythonthehardway.org/">Learn Python The Hard Way</a></h1>
+            </li>
+        </ul>
+
+        <section class="top-bar-section">
+            <!-- Right Nav Section -->
+            <ul class="right">
+                <li> <a href="#video">Watch The Video</a></li>
+            </ul>
+        </section>
+
+        <section class="top-bar-section">
+            <!-- Right Nav Section -->
+            <ul class="right">
+                <li><a href="https://paydiv.io/products/contents/2/">See All The Content</a></li>
+            </ul>
+        </section>
+
+        <section class="top-bar-section">
+            <!-- Right Nav Section -->
+            <ul class="right">
+                <li><a href="https://paydiv.io/access/buy/2/">Purchase The Videos+PDF For $29.59</a></li>
+            </ul>
+        </section>
+    </nav>
+
+  <div class="row">
+    <div class="large-11 columns">
+        <h1 class="title">Exercise 36: Designing and Debugging</h1>
+
+        <p>Now that you know <tt class="docutils literal"><span class="pre">if-statements</span></tt>, I'm going to give you some rules for <tt class="docutils literal"><span class="pre">for-loops</span></tt> and <tt class="docutils literal"><span class="pre">while-loops</span></tt> that will keep you out of trouble.  I'm also going to give you some tips on debugging so that you can figure out problems with your program.  Finally, you are going to design a similar little game as in the last exercise but with a slight twist.</p>
+<div class="section" id="rules-for-if-statements">
+<h1>Rules For If-Statements</h1>
+<ol class="arabic simple">
+<li>Every <tt class="docutils literal"><span class="pre">if-statement</span></tt> must have an <tt class="docutils literal">else</tt>.</li>
+<li>If this <tt class="docutils literal">else</tt> should never be run because it doesn't make sense, then you must use a <tt class="docutils literal">die</tt> function in the <tt class="docutils literal">else</tt> that prints out an error message and dies, just like we did in the last exercise.  This will find <em>many</em> errors.</li>
+<li>Never nest <tt class="docutils literal"><span class="pre">if-statements</span></tt> more than two deep and always try to do them one deep.  This means if you put an <tt class="docutils literal">if</tt> in an <tt class="docutils literal">if</tt> then you should be looking to move that second <tt class="docutils literal">if</tt> into another function.</li>
+<li>Treat <tt class="docutils literal"><span class="pre">if-statements</span></tt> like paragraphs, where each <tt class="docutils literal">if elif else</tt> grouping is like a set of sentences.  Put blank lines before and after.</li>
+<li>Your boolean tests should be simple.  If they are complex, move their calculations to variables earlier in your function and use a good name for the variable.</li>
+</ol>
+<p>If you follow these simple rules, you will start writing better code than most programmers.  Go back to the last exercise and see if I followed all of these rules.  If not, fix it.</p>
+<div class="warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Never be a slave to the rules in real life.  For training purposes you need to follow these rules to make your mind strong, but in real life sometimes these rules are just stupid.  If you think a rule is stupid, try not using it.</p>
+</div>
+</div>
+<div class="section" id="rules-for-loops">
+<h1>Rules For Loops</h1>
+<ol class="arabic simple">
+<li>Use a <tt class="docutils literal"><span class="pre">while-loop</span></tt> only to loop forever, and that means probably never.  This only applies to Python; other languages are different.</li>
+<li>Use a <tt class="docutils literal"><span class="pre">for-loop</span></tt> for all other kinds of looping, especially if there is a fixed or limited number of things to loop over.</li>
+</ol>
+</div>
+<div class="section" id="tips-for-debugging">
+<h1>Tips For Debugging</h1>
+<ol class="arabic simple">
+<li>Do not use a &quot;debugger.&quot;  A debugger is like doing a full-body scan on a sick person.  You do not get any specific useful information, and you find a whole lot of information that doesn't help and is just confusing.</li>
+<li>The best way to debug a program is to use <tt class="docutils literal">print</tt> to print out the values of variables at points in the program to see where they go wrong.</li>
+<li>Make sure parts of your programs work as you work on them.  Do not write massive files of code before you try to run them.  Code a little, run a little, fix a little.</li>
+</ol>
+</div>
+<div class="section" id="homework">
+<h1>Homework</h1>
+<p>Now write a similar game to the one that I created in the last exercise.  It can be any kind of game you want in the same flavor. Spend a week on it making it as interesting as possible.  For Study Drills, use lists, functions, and modules (remember those from Exercise 13?) as much as possible, and find as many new pieces of Python as you can to make the game work.</p>
+<p>However, before you start coding you must write up a map for your game.  Create the rooms, monsters, and traps that the player must go through on paper before you code.</p>
+<p>Once you have your map, try to code it up.  If you find problems with the map then adjust it and make the code match.</p>
+<p>One final word of advice:  Every programmer becomes paralyzed by irrational fear starting a new large project.  They then use procrastination to avoid confronting this fear and end up not getting their program working or even started.  I do this.  Everyone does this.  The best way to avoid this is to make a list of things you should do and then do them one at a time.</p>
+<p>Just start doing it, do a small version, make it bigger, keep a list of things to do, and do them.</p>
+</div>
+
+        <div class="section" id="video">
+            <div class="large-12 columns panel">
+                <div data-paydiv_product="2" id='paydiv'>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="large-1 columns" id="right-nav">
+        <center>
+        <p><a href="index.html"><img src="images/48_structure.png"></a></p>
+        <p><a href="mailto:help@learncodethehardway.org"><img src="images/48_email.png"></a></p>
+        <p><a href="#common-student-questions"><img src="images/48_faq.png"></a></p>
+        <p><a href="#video"><img src="images/48_video.png"></a></p>
+        </center>
+    </div>
+
+    <div class="twelve columns" id="footer">
+        <div class="large-4 columns" id="footer-block">
+            <p>
+            <a href="http://learncodethehardway.org/">Copyright (C) 2010 Zed. A. Shaw</a>
+            </p>
+        </div>
+        <div class="large-4 columns" id="footer-block">
+            <p>
+            </p>
+        </div>
+        <div class="large-3 columns" id="footer-block">
+            <p>
+            </p>
+        </div>
+        <div class="one columns">
+            &nbsp;
+        </div>
+    </div>
+
+
+
+    <script src="https://paydiv.io/static/js/videojs/video.js"></script>
+    <link rel="stylesheet" href="https://paydiv.io/static/js/videojs/video-js.css">
+    <script src="https://paydiv.io/static/api/v1/paydiv.js"></script>
+
+  <!-- Included JS Files (Compressed) -->
+  <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-24168052-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script>
+
+</body>
+
+<!-- Mirrored from learnpythonthehardway.org/book/ex36.html by HTTrack Website Copier/3.x [XR&CO'2013], Sat, 28 Dec 2013 20:46:03 GMT -->
+</html>

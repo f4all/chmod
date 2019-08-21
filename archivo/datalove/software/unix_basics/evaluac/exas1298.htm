@@ -1,0 +1,368 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.7 [en] (Win95; I) [Netscape]">
+   <meta name="AUTHOR" content="Victor Gonzalez-Barbone">
+   <meta name="CREATED" content="19981218;11082600">
+   <meta name="CHANGEDBY" content="Victor Gonzalez-Barbone">
+   <meta name="CHANGED" content="19981218;11154900">
+   <meta name="Author" content="Victor Gonzalez-Barbone">
+   <title>Curso B&aacute;sico de UNIX - Ex&aacute;menes</title>
+</head>
+<body>
+
+<address>
+Centro de Inform&aacute;tica / Sistemas Operativos II./ Ing. V&iacute;ctor
+Gonz&aacute;lez Barbone.</address>
+
+<address>
+
+<hr WIDTH="100%"></address>
+
+<center>
+<h2>
+Examen Diciembre 1998</h2></center>
+
+<center>
+<h3>
+<font size=+0>Soluci&oacute;n de scripts.</font></h3></center>
+
+<dt>
+<font size=+2>1.</font> Construir un script para crear usuarios. Deber&aacute;
+leer un archivo nuevos.txt con los campos nombre login, uid, grupo, comentario,
+directorio propio, separados por ":". Se dispone del comando de sistema
+useradd, con sintaxis</dt>
+
+<dt>
+<tt>&nbsp; useradd [-u uid] [-g grupo] [-c comentario] [-d dir_propio]
+nombre_login</tt></dt>
+
+<dt>
+Ejemplo de archivo <tt>nuevos.txt</tt>:</dt>
+
+<dt>
+<tt>&nbsp; nombre1:2001:prueba:Usuario_1:/home/prueba/nombre1</tt></dt>
+
+<dt>
+<tt>&nbsp; nombre2:2002:prueba:Usuario_2:/home/prueba/nombre2</tt></dt>
+
+<dt>
+<tt>&nbsp; nombre3:2003:prueba:Usuario_3:/home/prueba/nombre3</tt></dt>
+
+<dt>
+<tt><font face="courier">&nbsp;</font></tt></dt>
+
+<dt>
+<tt><font face="courier">#!/bin/sh</font></tt></dt>
+
+<dt>
+<tt><font face="courier">#</font></tt></dt>
+
+<dt>
+<tt><font face="courier"># nuevos.cmd: crea nuevos usuarios desde un archivo
+de texto.</font></tt></dt>
+
+<dt>
+<tt><font face="courier">#</font></tt></dt>
+
+<dt>
+<tt><font face="courier">&nbsp;</font></tt></dt>
+
+<dt>
+<tt><font face="courier">LISLINEA=`cat nuevos.txt`</font></tt></dt>
+
+<dt>
+<tt><font face="courier">&nbsp;</font></tt></dt>
+
+<dt>
+<tt><font face="courier">for LINEA in $LISLINEA</font></tt></dt>
+
+<dt>
+<tt><font face="courier">do</font></tt></dt>
+
+<dt>
+<tt><font face="courier">&nbsp; NOMBRE=`echo $LINEA | cut -f1 -d:`</font></tt></dt>
+
+<dt>
+<tt><font face="courier">&nbsp; NUMERO=`echo $LINEA | cut -f2 -d:`</font></tt></dt>
+
+<dt>
+<tt><font face="courier">&nbsp; GRUPO=`echo $LINEA | cut -f3 -d:`</font></tt></dt>
+
+<dt>
+<tt><font face="courier">&nbsp; COMENT=`echo $LINEA | cut -f4 -d:`</font></tt></dt>
+
+<dt>
+<tt><font face="courier">&nbsp; PROPIO=`echo $LINEA | cut -f5 -d:`</font></tt></dt>
+
+<dt>
+<tt><font face="courier">&nbsp; echo useradd -u $NUMERO -g $GRUPO -c $COMENT
+-d $PROPIO $NOMBRE</font></tt></dt>
+
+<dt>
+<tt><font face="courier">done</font></tt></dt>
+
+<dt>
+&nbsp;</dt>
+
+<dt>
+<font size=+2>2.</font> a) Escribir un script para mostrar los nombres
+de login de usuarios y sus directorios propios para aquellos usuarios con
+grupo primario GID 201.</dt>
+
+<dt>
+b) Escribir un script que reciba como par&aacute;metro un nombre de login
+de usario, extraiga su directorio propio y verifique si tiene all&iacute;
+un subdirectorio de nombre ".netscape". De no ser as&iacute;, copiar&aacute;
+hacia el directorio propio del usuario el directorio modelo /etc/skel/docentes/netscape
+y todos sus archivos.</dt>
+
+<dt>
+c) reunir ambos scripts en uno solo que agregue la configuraci&oacute;n
+personal modelo ".netscape" a todos los usuarios que a&uacute;n no lo tengan.</dt>
+
+<dt>
+&nbsp;</dt>
+
+<dt>
+<tt><font face="courier">#!/bin/sh</font></tt></dt>
+
+<dt>
+<tt><font face="courier">#</font></tt></dt>
+
+<dt>
+<tt><font face="courier"># netscape.cmd: coloca subdirectorio nestcape
+en directorios propios</font></tt></dt>
+
+<dt>
+<tt><font face="courier"># de usuarios del grupo 201 que a&uacute;n no
+lo tengan</font></tt></dt>
+
+<dt>
+<tt><font face="courier">&nbsp;</font></tt></dt>
+
+<dt>
+<tt><font face="courier">USU201=`cat /etc/passwd | tr " " "_" | \</font></tt></dt>
+
+<dt>
+<tt><font face="courier">&nbsp; grep "[a-zA-Z0-9-_]*:[^:]*:[0-9]*:201:"`</font></tt></dt>
+
+<dt>
+<tt><font face="courier">&nbsp;</font></tt></dt>
+
+<dt>
+<tt><font face="courier">for LINEA in $USU201</font></tt></dt>
+
+<dt>
+<tt><font face="courier">do</font></tt></dt>
+
+<dt>
+<tt><font face="courier">&nbsp; NOMBRE=`echo $LINEA | cut -f1 -d:`</font></tt></dt>
+
+<dt>
+<tt><font face="courier">&nbsp; PROPIO=`echo $LINEA | cut -f6 -d:`</font></tt></dt>
+
+<dt>
+<tt><font face="courier">&nbsp; if [ -d $PROPIO/.netscape ]</font></tt></dt>
+
+<dt>
+<tt><font face="courier">&nbsp; then</font></tt></dt>
+
+<dt>
+<tt><font face="courier">&nbsp;&nbsp;&nbsp; echo El usuario $NOMBRE tiene
+directorio .netscape</font></tt></dt>
+
+<dt>
+<tt><font face="courier">&nbsp; else</font></tt></dt>
+
+<dt>
+<tt><font face="courier">&nbsp;&nbsp;&nbsp; echo El usuario $NOMBRE NO
+TIENE directorio .netscape</font></tt></dt>
+
+<dt>
+<tt><font face="courier">&nbsp;&nbsp;&nbsp; cp -pr /etc/skel/netscape $PROPIO/.netscape</font></tt></dt>
+
+<dt>
+<tt><font face="courier">&nbsp;&nbsp;&nbsp; chown -R $NOMBRE $PROPIO/.netscape</font></tt></dt>
+
+<dt>
+<tt><font face="courier">&nbsp;&nbsp;&nbsp; chgrp -R 201 $PROPIO/.netscape</font></tt></dt>
+
+<dt>
+<tt><font face="courier">&nbsp; fi</font></tt></dt>
+
+<dt>
+<tt><font face="courier">done</font></tt></dt>
+
+<dt>
+&nbsp;</dt>
+
+<dt>
+<font size=+2>3.</font> a) Construir un script <tt>conec.cmd</tt> para
+establecer conexi&oacute;n discada a una red de datos. Se dispone de los
+siguientes scripts:</dt>
+
+<dt>
+<tt>&nbsp; urugnet.dip</tt> para conectar a UruguayNet;</dt>
+
+<dt>
+<tt>&nbsp; urupac.dip</tt> para conectar a URUPAC;</dt>
+
+<dt>
+<tt>&nbsp; iie.dip</tt> para acceder al Instituto de Ingenier&iacute;a
+El&eacute;ctrica;</dt>
+
+<dt>
+<tt>&nbsp; adinet.dip</tt> para conectar a Adinet.</dt>
+
+<dt>
+Estos scripts se invocan con el comando <tt>dip</tt>; por ejemplo:</dt>
+
+<dt>
+<tt>&nbsp; dip urugnet.dip</tt></dt>
+
+<dt>
+El script recibir&aacute; uno de los nombres (urugnet, urupac, iie, adinet)
+e invocara el script correspondiente al discado. Por ejemplo,</dt>
+
+<dt>
+<tt>&nbsp; conec urupac</tt></dt>
+
+<dt>
+invocar&aacute; el script de conexi&oacute;n a URUPAC.</dt>
+
+<dt>
+b) Agregar al script un control de &eacute;xito, mostrando un mensaje "Conexi&oacute;n
+establecida" o "No se pudo establecer conexi&oacute;n". Cuando se ha establecido
+un enlace PPP, el comando <tt>/sbin/ifconfig</tt> da una salida de varias
+l&iacute;neas, una de las cuales contiene la cadena "ppp0". El establecimiento
+de la conexi&oacute;n debe esperarse 40 segundos.</dt>
+
+<dt>
+<font face="courier">&nbsp;</font></dt>
+
+<dt>
+<tt><font face="courier">#!/bin/bash</font></tt></dt>
+
+<dt>
+<tt><font face="courier"># conec: disca proveedor para enlace PPP por dip</font></tt></dt>
+
+<dt>
+<tt><font face="courier"># ajustar los par&aacute;metros siguientes seg&uacute;n
+se requiera</font></tt></dt>
+
+<dt>
+<tt><font face="courier">&nbsp;</font></tt></dt>
+
+<dt>
+<tt><font face="courier">ESPERA=40 # tiempo de espera por conexi&oacute;n</font></tt></dt>
+
+<dt>
+<tt><font face="courier">&nbsp;</font></tt></dt>
+
+<dt>
+<tt><font face="courier"># elecci&oacute;n de proveedor a conectar</font></tt></dt>
+
+<dt>
+<tt><font face="courier">case $1 in</font></tt></dt>
+
+<dt>
+<tt><font face="courier">urupac)</font></tt></dt>
+
+<dt>
+<tt><font face="courier">&nbsp; echo Conectando a URUPAC...</font></tt></dt>
+
+<dt>
+<tt><font face="courier">&nbsp; dip urupac.dip;;</font></tt></dt>
+
+<dt>
+<tt><font face="courier">adinet)</font></tt></dt>
+
+<dt>
+<tt><font face="courier">&nbsp; echo Conectando a Adinet...</font></tt></dt>
+
+<dt>
+<tt><font face="courier">&nbsp; dip adinet.dip;;</font></tt></dt>
+
+<dt>
+<tt><font face="courier">iie)</font></tt></dt>
+
+<dt>
+<tt><font face="courier">&nbsp; echo Conectando a IIE...</font></tt></dt>
+
+<dt>
+<tt><font face="courier">&nbsp; dip iie.dip;;</font></tt></dt>
+
+<dt>
+<tt><font face="courier">urugnet)</font></tt></dt>
+
+<dt>
+<tt><font face="courier">&nbsp; echo Conectando a UruguayNet...</font></tt></dt>
+
+<dt>
+<tt><font face="courier">&nbsp; dip urugnet.dip;;</font></tt></dt>
+
+<dt>
+<tt><font face="courier">*)</font></tt></dt>
+
+<dt>
+<tt><font face="courier">&nbsp; echo dipconec: uso:</font></tt></dt>
+
+<dt>
+<tt><font face="courier">&nbsp; echo " dipconec urupac|adinet|iie|urugnet"</font></tt></dt>
+
+<dt>
+<tt><font face="courier">&nbsp; exit 1;;</font></tt></dt>
+
+<dt>
+<tt><font face="courier">esac</font></tt></dt>
+
+<dt>
+<tt><font face="courier">&nbsp;</font></tt></dt>
+
+<dt>
+<tt><font face="courier"># espera por conexi&oacute;n</font></tt></dt>
+
+<dt>
+<tt><font face="courier">sleep $ESPERA</font></tt></dt>
+
+<dt>
+<tt><font face="courier">&nbsp;</font></tt></dt>
+
+<dt>
+<tt><font face="courier"># detecta conexi&oacute;n por presencia de interfaz
+ppp0</font></tt></dt>
+
+<dt>
+<tt><font face="courier">CONEC=`/sbin/ifconfig | grep ppp0`</font></tt></dt>
+
+<dt>
+<tt><font face="courier">if [ ! -z "$CONEC" ]</font></tt></dt>
+
+<dt>
+<tt><font face="courier">then</font></tt></dt>
+
+<dt>
+<tt><font face="courier">&nbsp; echo -e "\007"</font></tt></dt>
+
+<dt>
+<tt><font face="courier">&nbsp; echo Conexi&oacute;n establecida.</font></tt></dt>
+
+<dt>
+<tt><font face="courier">&nbsp; exit 0</font></tt></dt>
+
+<dt>
+<tt><font face="courier">else</font></tt></dt>
+
+<dt>
+<tt><font face="courier">&nbsp; echo No se pudo establecer conexi&oacute;n.</font></tt></dt>
+
+<dt>
+<tt><font face="courier">&nbsp; exit 2</font></tt></dt>
+
+<dt>
+<tt><font face="courier">fi</font></tt></dt>
+
+</body>
+</html>

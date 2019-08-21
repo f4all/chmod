@@ -1,0 +1,741 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+            
+  <meta http-equiv="Content-Type"
+ content="text/html; charset=iso-8859-1">
+            
+  <meta name="GENERATOR"
+ content="Mozilla/4.06 [es] (Win95; I) [Netscape]">
+            
+  <meta name="Author" content="V&iacute;ctor Gonz&aacute;lez-Barbone">
+            
+  <meta name="Description"
+ content="Estructuras b&aacute;sicas de programaci&oacute;n del shell en UNIX">
+            
+  <meta name="KeyWords" content="UNIX, curso, tutorial, Linux">
+  <title>Curso B&aacute;sico de UNIX - Programaci&oacute;n del Shell</title>
+</head>
+  <body bgcolor="#ffffff">
+      
+<address> <a href="index.htm">Curso B&aacute;sico de UNIX</a></address>
+      
+<center>   
+<h1> Programaci&oacute;n del Shell</h1>
+  </center>
+     <a href="#Multilinea">Comandos multil&iacute;nea</a><br>
+     <a href="#Script">El archivo de comandos (script)</a><br>
+    &nbsp;&nbsp; <a href="#Comentarios">Comentarios en los scripts</a><br>
+     <a href="#ComandProg">Comandos de programaci&oacute;n</a><br>
+    &nbsp;&nbsp; <a href="#true">true</a><br>
+    &nbsp;&nbsp; <a href="#false">false</a><br>
+    &nbsp;&nbsp; <a href="#if">if</a><br>
+    &nbsp;&nbsp; <a href="#for">for</a><br>
+    &nbsp;&nbsp; <a href="#case">case</a><br>
+    &nbsp;&nbsp; <a href="#while">while</a><br>
+    &nbsp;&nbsp; <a href="#until">until</a><br>
+    &nbsp;&nbsp; <a href="#exit">exit</a><br>
+    &nbsp;&nbsp; <a href="#expr">expr</a><br>
+    &nbsp;&nbsp; <a href="#test">test</a><br>
+    &nbsp;&nbsp; <a href="#read">read</a><br>
+     <a href="#Parametros">Par&aacute;metros</a><br>
+     <a href="#Depuracion">Depuraci&oacute;n</a><br>
+     <a href="#Ejercicios">Preguntas y Ejercicios</a><br>
+     <a href="#Bibliografia">Bibliograf&iacute;a y Referencias</a><br>
+    <br>
+  &nbsp;   
+<p>El int&eacute;rprete de comandos o "shell" de UNIX es tambi&eacute;n un
+ lenguage de programaci&oacute;n completo. La programaci&oacute;n de shell
+ se usa mucho para realizar tareas repetidas con frecuencia. Los dise&ntilde;adores 
+ de sistemas suelen escribir aplicaciones en el lenguaje de base del sistema 
+ operativo, C en el caso de UNIX, por razones de rapidez y eficiencia. Sin 
+ embargo, el shell de UNIX tiene un excelente rendimiento en la ejecuci&oacute;n 
+ de "scripts" (guiones); &eacute;sta es la denominaci&oacute;n aplicada a
+ los programas escritos en el lenguaje del shell. Se han creado aplicaciones 
+ completas usando solamente scripts. </p>
+   
+<h3> <a name="Multilinea"></a>Comandos multil&iacute;nea.</h3>
+     Una l&iacute;nea de comando termina con un caracter nueval&iacute;nea. 
+ El caracter nueval&iacute;nea se ingresa digitando la tecla ENTER. Varios 
+ comandos pueden escribirse en una misma l&iacute;nea usando el separador 
+";"<br>
+     <tt>&nbsp; echo $LOGNAME; pwd; date</tt><br>
+     &nbsp;<br>
+     Si un comando no cabe en una l&iacute;nea, la mayor&iacute;a de los
+int&eacute;rpretes  contin&uacute;an la digitaci&oacute;n en la l&iacute;nea
+siguiente. Para establecer espec&iacute;ficamente que un comando contin&uacute;a
+en la l&iacute;nea  siguiente, hay dos formas, mutuamente excluyentes (se
+usa una u otra, pero  no ambas al mismo tiempo):<br>
+     - terminar la primera l&iacute;nea con \ :<br>
+     <tt>&nbsp; $ echo $LOGNAME \</tt><br>
+     <tt>&nbsp; &gt; $HOME</tt><br>
+     que muestra algo como<br>
+     <tt>&nbsp; jperez /home/jperez</tt><br>
+     - dejar una comilla sin cerrar:<br>
+     <tt>&nbsp; $ echo "$LOGNAME</tt><br>
+     <tt>&nbsp; &gt; $HOME"</tt><br>
+     que produce el mismo resultado.<br>
+     &nbsp;<br>
+     En los ejemplos anteriores hemos escrito los indicadores de comando. 
+Al  continuar el comando en la segunda l&iacute;nea, el indicador de comandos 
+ cambia de <tt>$</tt> a <tt>&gt;</tt>, es decir, del indicador de comando
+ de primer nivel PS1 al indicador de comando de segundo nivel PS2. Si no
+se  quiere terminar el comando multil&iacute;nea, puede interrumpirse el
+ingreso  con Ctrl-C, volviendo el indicador de comando a PS1 inmediatamente.<br>
+      
+<h3> <a name="Script"></a>El archivo de comandos (script).</h3>
+      Es c&oacute;modo poder retener una lista larga de comandos en un archivo, 
+ y ejecutarlos todos de una sola vez s&oacute;lo invocando el nombre del archivo.
+Crear el archivo <tt>misdatos.sh</tt> con las siguientes l&iacute;neas:<br>
+     <tt>&nbsp; # misdatos.sh</tt><br>
+     <tt>&nbsp; # muestra datos relativos al usuario que lo invoca</tt><br>
+     <tt>&nbsp; #</tt><br>
+     <tt>&nbsp; echo "MIS DATOS."</tt><br>
+     <tt>&nbsp; echo " Nombre: "$LOGNAME</tt><br>
+     <tt>&nbsp; echo "Directorio: "$HOME</tt><br>
+     <tt>&nbsp; echo -n "Fecha: "</tt><br>
+     <tt>&nbsp; date</tt><br>
+     <tt>&nbsp; echo</tt><br>
+     <tt>&nbsp; # fin misdatos.sh</tt><br>
+     &nbsp;<br>
+     El s&iacute;mbolo <tt>#</tt> indica comentario. Para poder ejecutar
+los  comandos contenidos en este archivo, es preciso dar al mismo permisos
+de ejecuci&oacute;n:<br>
+     <tt>&nbsp; chmod ug+x misdatos.sh</tt><br>
+     La invocaci&oacute;n (ejecuci&oacute;n) del archivo puede realizarse 
+dando  el nombre de archivo como argumento a <tt>bash</tt><br>
+     <tt>&nbsp; bash misdatos.sh</tt><br>
+     o invoc&aacute;ndolo directamente como un comando<br>
+     <tt>&nbsp; misdatos.sh</tt><br>
+     Puede requerirse indicar una v&iacute;a absoluta o relativa, o referirse 
+ al directorio actual,<br>
+     <tt>&nbsp; ./misdatos.sh</tt><br>
+     si el directorio actual no est&aacute; contenido en la variable PATH.<br>
+       
+<h3> <a name="Comentarios"></a>Comentarios en los scripts.</h3>
+     En un script todo lo que venga despu&eacute;s del s&iacute;mbolo # y 
+hasta  el pr&oacute;ximo caracter nueval&iacute;nea se toma como comentario 
+y no se ejecuta.<br>
+     <tt>&nbsp; echo Hola todos&nbsp;&nbsp;&nbsp;&nbsp; # comentario hasta
+ fin de l&iacute;nea</tt><br>
+     s&oacute;lo imprime "Hola todos".<br>
+     <tt>&nbsp; # cat /etc/passwd</tt><br>
+     no ejecuta nada, pues el s&iacute;mbolo <tt>#</tt> convierte toda la 
+l&iacute;nea  en comentario.<br>
+     &nbsp;<br>
+     Los scripts suelen encabezarse con comentarios que indican el nombre 
+de  archivo y lo que hace el script. Se colocan comentarios de documentaci&oacute;n 
+ en diferentes partes del script para mejorar la comprensi&oacute;n y facilitar 
+ el mantenimiento. Un caso especial es el uso de <tt>#</tt> en la primera 
+l&iacute;nea para indicar el int&eacute;rprete con que se ejecutar&aacute; 
+el script. El script anterior con comentarios quedar&iacute;a as&iacute;:<br>
+     &nbsp;<br>
+     <tt>&nbsp; #!/bin/bash</tt><br>
+     <tt>&nbsp; # misdatos.sh</tt><br>
+     <tt>&nbsp; #</tt><br>
+     <tt>&nbsp; # muestra datos propios del usuario que lo invoca</tt><br>
+     <tt>&nbsp; #</tt><br>
+     <tt>&nbsp; echo "MIS DATOS."</tt><br>
+     <tt>&nbsp; echo " Nombre: "$LOGNAME</tt><br>
+     <tt>&nbsp; echo "Directorio: "$HOME</tt><br>
+     <tt>&nbsp; echo -n "Fecha: "</tt><br>
+     <tt>&nbsp; date&nbsp;&nbsp;&nbsp; # muestra fecha y hora</tt><br>
+     <tt>&nbsp; echo&nbsp;&nbsp;&nbsp; # l&iacute;nea en blanco para presentaci&oacute;n</tt><br>
+     <tt>&nbsp; # fin misdatos.sh</tt><br>
+     &nbsp;<br>
+     La primera l&iacute;nea indica que el script ser&aacute; ejecutado con 
+ el int&eacute;rprete de comandos <tt>bash</tt>. Esta indicaci&oacute;n debe
+ ser siempre la primera l&iacute;nea del script y no puede tener blancos.<br>
+      
+<h3> Estructuras b&aacute;sicas de programaci&oacute;n.</h3>
+   Las estructuras b&aacute;sicas de programaci&oacute;n son s&oacute;lo
+dos:  la estructura repetitiva y la estructura alternativa. Cada forma tiene
+sus  variaciones, y la combinaci&oacute;n de todas ellas generan m&uacute;ltples 
+ posibilidades, pero detr&aacute;s de cualquiera de ellas, por compleja que
+ parezca, se encuentran siempre repeticiones o alternativas.   
+<p><b>Estructura repetitiva:</b> se realiza una acci&oacute;n un cierto n&uacute;mero
+ de veces, o mientras dure una condici&oacute;n.<br>
+  <br>
+  <tt>&nbsp; mientras haya manzanas,</tt><br>
+     <tt>&nbsp;&nbsp;&nbsp; pelarlas;</tt><br>
+     <tt>&nbsp;</tt><br>
+     <tt>&nbsp; desde i = 1 hasta i = 7</tt><br>
+     <tt>&nbsp;&nbsp;&nbsp; escribir dia_semana(i);</tt><br>
+     &nbsp;<br>
+     Esta escritura informal se denomina "pseudoc&oacute;digo", por contraposici&oacute;n 
+ al t&eacute;rmino "c&oacute;digo", que ser&iacute;a la escritura formal en
+un lenguaje de programaci&oacute;n. En el segundo ejemplo, <tt>dia_semana(i)</tt>
+   ser&iacute;a una funci&oacute;n que devuelve el nombre del d&iacute;a
+de  la semana cuando se le da su n&uacute;mero ordinal.<br>
+    </p>
+   
+<p><b>Estructura alternativa:</b> en base a la comprobaci&oacute;n de una
+ condici&oacute;n, se decide una acci&oacute;n diferente para cada caso.<br>
+  <br>
+    <tt>&nbsp; si manzana est&aacute; pelada,</tt><br>
+     <tt>&nbsp;&nbsp;&nbsp; comerla,</tt><br>
+     <tt>&nbsp; en otro caso,</tt><br>
+     <tt>&nbsp;&nbsp;&nbsp; pelarla;</tt><br>
+     <tt>&nbsp;</tt><br>
+     <tt>&nbsp; # or&aacute;culo</tt><br>
+     <tt>&nbsp; caso $estado en</tt><br>
+     <tt>&nbsp; soltero)</tt><br>
+     <tt>&nbsp;&nbsp;&nbsp; escribir "El casamiento ser&aacute; su felicidad";</tt><br>
+     <tt>&nbsp; casado)</tt><br>
+     <tt>&nbsp;&nbsp;&nbsp; escribir "El divorcio le devolver&aacute; la
+felicidad";</tt><br>
+     <tt>&nbsp; divorciado)</tt><br>
+     <tt>&nbsp;&nbsp;&nbsp; escribir "S&oacute;lo ser&aacute; feliz si se 
+vuelve  a casar";</tt><br>
+     <tt>&nbsp; fin caso</tt><br>
+     </p>
+   
+<p><b>Funciones:</b> una tarea que se realiza repetidamente dentro del mismo 
+ programa puede escribirse aparte e invocarse como una "funci&oacute;n". Para
+definir una funci&oacute;n es preciso elegir un nombre y escribir un trozo
+de c&oacute;digo asociado a ese nombre. La funci&oacute;n suele recibir alg&uacute;n
+valor como "par&aacute;metro" en base al cual realiza su tarea. Definida
+as&iacute; la funci&oacute;n, para usarla basta escribir su nombre y colocar
+el valor del par&aacute;metro entre par&eacute;ntesis.<br>
+  <br>
+  <tt>funci&oacute;n area_cuadrado (lado)</tt><br>
+     <tt>devolver lado * lado;</tt><br>
+     <tt>&nbsp;</tt><br>
+     <tt>funci&oacute;n dia_semana(d&iacute;a_hoy)</tt><br>
+     <tt>&nbsp; caso $dia_hoy en</tt><br>
+     <tt>&nbsp; 1)</tt><br>
+     <tt>&nbsp;&nbsp;&nbsp; devolver "Lunes";;</tt><br>
+     <tt>&nbsp; 2)</tt><br>
+     <tt>&nbsp;&nbsp;&nbsp; devolver "Martes";;</tt><br>
+     <tt>&nbsp; 3)</tt><br>
+     <tt>&nbsp;&nbsp;&nbsp; devolver "Mi&eacute;rcoles";:</tt><br>
+     <tt>&nbsp; 4)</tt><br>
+     <tt>&nbsp;&nbsp;&nbsp; devolver "Jueves";;</tt><br>
+     <tt>&nbsp; 5)</tt><br>
+     <tt>&nbsp;&nbsp;&nbsp; devolver "Viernes;;</tt><br>
+     <tt>&nbsp; 6)</tt><br>
+     <tt>&nbsp;&nbsp;&nbsp; devolver "S&aacute;bado";;</tt><br>
+     <tt>&nbsp; 7)</tt><br>
+     <tt>&nbsp;&nbsp;&nbsp; devolver "Domingo";;</tt><br>
+     <tt>&nbsp; fin caso;</tt><br>
+    </p>
+   
+<h3> <a name="ComandProg"></a>Comandos de programaci&oacute;n.</h3>
+   En esta secci&oacute;n veremos los comandos t&iacute;picos de programaci&oacute;n 
+ del shell. Obs&eacute;rvese que el shell toma la convenci&oacute;n inversa 
+ de C para cierto y falso: cierto es 0, y falso es distinto de 0. El shell 
+ adopta esta convenci&oacute;n porque los comandos retornan 0 cuando no hubo
+ error. Veremos dos comandos, <tt>true</tt> y <tt>false</tt>, que retornan 
+ siempre estos valores; se usan en algunas situaciones de programaci&oacute;n 
+ para fijar una condici&oacute;n.   
+<h4> <a name="true"></a>true</h4>
+     Este comando no hace nada, s&oacute;lo devuelve siempre 0, el valor
+verdadero.  La ejecuci&oacute;n correcta de un comando cualquiera devuelve
+0.<br>
+     <tt>&nbsp; true</tt><br>
+     <tt>&nbsp; echo $?</tt><br>
+     muestra el valor 0; la variable $? retiene el valor de retorno del &uacute;ltimo 
+ comando ejecutado.<br>
+      
+<h4> <a name="false"></a>false</h4>
+     Este comando tampoco hace nada s&oacute;lo devuelve siempre 1; cualquier 
+ valor diferente de 0 se toma como falso. Las diversas condiciones de error 
+ de ejecuci&oacute;n de los comandos devuelven valores diferentes de 0; su
+ significado es propio de cada comando.<br>
+     <tt>&nbsp; false</tt><br>
+     <tt>&nbsp; echo $?</tt><br>
+     muestra el valor 1.<br>
+      
+<h4> <a name="if"></a>if</h4>
+     El comando <tt>if</tt> implementa una estructura alternativa. Su sintaxis 
+ es<br>
+     <tt>&nbsp; if <i>expresi&oacute;n</i> ; then <i>comandos1</i> ; [else
+ <i>comandos2</i> ;] fi</tt><br>
+     o tambi&eacute;n<br>
+     <tt>&nbsp; if <i>expresi&oacute;n</i></tt><br>
+     <tt>&nbsp; then</tt><br>
+     <i><tt>&nbsp;&nbsp;&nbsp; comandos1</tt></i><br>
+     <tt>&nbsp; [else</tt><br>
+     <i><tt>&nbsp;&nbsp;&nbsp; comandos2]</tt></i><br>
+     <tt>&nbsp;fi</tt><br>
+     &nbsp;<br>
+     Si se usa la forma multil&iacute;nea cuando se trabaja en la l&iacute;nea 
+ de comandos, el indicador cambia a &gt; hasta que termina el comando.<br>
+     &nbsp;<br>
+     La expresi&oacute;n puede ser cualquier expresi&oacute;n l&oacute;gica 
+ o comando que retorne un valor; si el valor retornado es 0 (cierto) los <tt>
+ comandos1</tt> se ejecutan; si el valor retornado es distinto de 0 (falso)
+ los <tt>comandos1</tt> no se ejecutan. Si se us&oacute; la forma opcional
+ con <tt>else</tt> se ejecutan los <tt>comandos2</tt>.<br>
+     <tt>&nbsp; if true; then echo Cierto ; else echo Falso ; fi</tt><br>
+     siempre imprime Cierto; no entra nunca en <tt>else</tt>.<br>
+     <tt>&nbsp; if false; then echo Cierto ; else echo Falso ; fi</tt><br>
+     siempre imprime Falso, no entra nunca en <tt>then</tt>.<br>
+     &nbsp;<br>
+     Construcciones m&aacute;s complejas pueden hacerse usando <tt>elif</tt>
+   para anidar alternativas. Escribir en un archivo las l&iacute;neas que 
+siguen<br>
+  <br>
+     <tt>&nbsp; # ciertofalso.sh: escribe cierto o falso seg&uacute;n par&aacute;metro 
+ num&eacute;rico</tt><br>
+     <tt>&nbsp; #</tt><br>
+     <tt>&nbsp; if [ $1 = "0" ]</tt><br>
+     <tt>&nbsp; then</tt><br>
+     <tt>&nbsp;&nbsp;&nbsp; echo "Cierto: el par&aacute;metro es 0."</tt><br>
+     <tt>&nbsp; else</tt><br>
+     <tt>&nbsp;&nbsp;&nbsp; echo "Falso: el par&aacute;metro no es 0."</tt><br>
+     <tt>&nbsp; fi</tt><br>
+     &nbsp;<br>
+     Convertir el script en ejecutable. Invocar este script con<br>
+     <tt>&nbsp; ./ciertofalso.sh <i>N</i></tt><br>
+     donde N es un n&uacute;mero entero 0, 1, 2, etc. La variable $1 hace 
+referencia  a este par&aacute;metro de invocaci&oacute;n. Verificar el resultado.<br>
+     &nbsp;<br>
+     Crear y ejecutar el siguiente script:<br>
+  <br>
+     <tt>&nbsp; # trabajo.sh: dice si se trabaja seg&uacute;n el d&iacute;a</tt><br>
+     <tt>&nbsp; #&nbsp;&nbsp;&nbsp; invocar con par&aacute;metros:</tt><br>
+     <tt>&nbsp; #&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; domingo, feriado, u otro
+nombre  cualquiera</tt><br>
+     <tt>&nbsp; #</tt><br>
+     <tt>&nbsp; if [ $1 = "domingo" ]</tt><br>
+     <tt>&nbsp; then</tt><br>
+     <tt>&nbsp;&nbsp;&nbsp; echo "no se trabaja"</tt><br>
+     <tt>&nbsp; elif [ $1 = "feriado" ]</tt><br>
+     <tt>&nbsp; then</tt><br>
+     <tt>&nbsp;&nbsp;&nbsp; echo "en algunos se trabaja"</tt><br>
+     <tt>&nbsp; else</tt><br>
+     <tt>&nbsp;&nbsp;&nbsp; echo "se trabaja"</tt><br>
+     <tt>&nbsp; fi</tt><br>
+      
+<h4> <a name="for"></a>for</h4>
+     Este comando implementa una estructura repetitiva, en la cual una secuencia 
+ de comandos se ejecuta una y otra vez. Su sintaxis es<br>
+     <tt>&nbsp; for <i>variable</i> in <i>lista</i> ; do <i>comandos</i>
+;  done</tt><br>
+     &nbsp;<br>
+     Se puede probar en la l&iacute;nea de comandos:<br>
+     <tt>&nbsp; for NUMERO in 1 2 3 4 ; do echo $NUMERO ; done</tt><br>
+     <tt>&nbsp; for NOMBRE in alfa beta gamma ; do echo $NOMBRE ; done</tt><br>
+     <tt>&nbsp; for ARCH in * ; do echo Nombre archivo $ARCH ; done</tt><br>
+     El caracter * es expandido por el shell colocando en su lugar todos
+los  nombres de archivo del directorio actual.<br>
+     &nbsp;<br>
+     Crear y probar el siguiente script.<br>
+  <br>
+     <tt>&nbsp; # listapal.sh: lista de palabras</tt><br>
+     <tt>&nbsp; #&nbsp;&nbsp; muestra palabras de una lista interna</tt><br>
+     <tt>&nbsp; #</tt><br>
+     <tt>&nbsp; LISTA="silla mesa banco cuadro armario"</tt><br>
+     <tt>&nbsp; for I in $LISTA</tt><br>
+     <tt>&nbsp; do</tt><br>
+     <tt>&nbsp;&nbsp;&nbsp; echo $I</tt><br>
+     <tt>&nbsp; done</tt><br>
+     <tt>&nbsp; # fin listapal.sh</tt><br>
+     <tt>&nbsp;</tt><br>
+     En el siguiente script, el comando <tt>expr</tt> calcula expresiones 
+aritm&eacute;ticas;  notar su sintaxis.<br>
+  <br>
+     <tt>&nbsp; # contarch.sh</tt><br>
+     <tt>&nbsp; #&nbsp;&nbsp; muestra nombres y cuenta archivos en el directorio 
+ actual</tt><br>
+     <tt>&nbsp; #</tt><br>
+     <tt>&nbsp; CUENTA=0</tt><br>
+     <tt>&nbsp; for ARCH in *</tt><br>
+     <tt>&nbsp; do</tt><br>
+     <tt>&nbsp;&nbsp;&nbsp; echo $ARCH</tt><br>
+     <tt>&nbsp;&nbsp;&nbsp; CUENTA=`expr $CUENTA + 1`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+ # agrega 1 a CUENTA</tt><br>
+     <tt>&nbsp; done</tt><br>
+     <tt>&nbsp; echo Hay $CUENTA archivos en el directorio `pwd`</tt><br>
+     <tt>&nbsp; # fin contarch.sh</tt><br>
+      
+<h4> <a name="case"></a>case</h4>
+   Este comando implementa alternativas o "casos"; elige entre m&uacute;ltiples 
+ secuencias de comandos la secuencia a ejecutar. La elecci&oacute;n se realiza 
+ encontrando el primer patr&oacute;n con el que aparea una cadena de caracteres. 
+ Su sintaxis es<br>
+  <br>
+    <tt>&nbsp; case $CADENA in</tt><br>
+     <tt>&nbsp; <i>patr&oacute;n1</i>)</tt><br>
+     <tt><i>&nbsp;&nbsp;&nbsp; comandos1</i>;;</tt><br>
+     <tt>&nbsp; patr&oacute;n2)</tt><br>
+     <tt><i>&nbsp;&nbsp;&nbsp; comandos2</i>;;</tt><br>
+     <tt>&nbsp; ...</tt><br>
+     <tt>&nbsp; *)</tt><br>
+     <tt><i>&nbsp;&nbsp;&nbsp; comandosN</i>;;</tt><br>
+     <tt>&nbsp; esac</tt><br>
+     &nbsp;<br>
+     El patr&oacute;n * se coloca al final; aparea cualquier cadena, y permite 
+ ejecutar <i><tt>comandosN</tt></i> cuando ninguna de las opciones anteriores 
+ fue satisfecha. Crear el siguiente script:<br>
+     &nbsp;<br>
+     <tt>&nbsp; # diasemana.sh: nombres de los d&iacute;as de la semana</tt><br>
+     <tt>&nbsp; #&nbsp;&nbsp; invocar con n&uacute;mero del 0 al 6; 0 es
+domingo</tt><br>
+     <tt>&nbsp; case $1 in</tt><br>
+     <tt>&nbsp; 0)&nbsp;&nbsp; echo Domingo;;</tt><br>
+     <tt>&nbsp; 1)&nbsp;&nbsp; echo Lunes;;</tt><br>
+     <tt>&nbsp; 2)&nbsp;&nbsp; echo Martes;;</tt><br>
+     <tt>&nbsp; 3)&nbsp;&nbsp; echo Mi&eacute;rcoles;;</tt><br>
+     <tt>&nbsp; 4)&nbsp;&nbsp; echo Jueves;;</tt><br>
+     <tt>&nbsp; 5)&nbsp;&nbsp; echo Viernes;;</tt><br>
+     <tt>&nbsp; 6)&nbsp;&nbsp; echo S&aacute;bado;;</tt><br>
+     <tt>&nbsp; *)&nbsp;&nbsp; echo Debe indicar un n&uacute;mero de 0 a
+6;;</tt><br>
+     <tt>&nbsp; esac</tt><br>
+     &nbsp;<br>
+     Invocarlo como<br>
+     <tt>&nbsp; diasemana.sh <i>N</i></tt><br>
+     donde <i>N</i> es cualquier n&uacute;mero de 0 a 6, otro n&uacute;mero, 
+ o una cadena cualquiera. Verificar el comportamiento.<br>
+     &nbsp;<br>
+     Crear el archivo <tt>estacion.sh</tt> con estas l&iacute;neas:<br>
+  <br>
+     <tt>&nbsp; # estacion.sh</tt><br>
+     <tt>&nbsp; #&nbsp;&nbsp; indica la estaci&oacute;n del a&ntilde;o aproximada 
+ seg&uacute;n el mes</tt><br>
+     <tt>&nbsp; #</tt><br>
+     <tt>&nbsp; case $1 in</tt><br>
+     <tt>&nbsp; diciembre|enero|febrero)</tt><br>
+     <tt>&nbsp;&nbsp;&nbsp;&nbsp; echo Verano;;</tt><br>
+     <tt>&nbsp; marzo|abril|mayo)</tt><br>
+     <tt>&nbsp;&nbsp;&nbsp;&nbsp; echo Oto&ntilde;o;;</tt><br>
+     <tt>&nbsp; junio|julio|agosto)</tt><br>
+     <tt>&nbsp;&nbsp;&nbsp;&nbsp; echo Invierno;;</tt><br>
+     <tt>&nbsp; setiembre|octubre |noviembre)</tt><br>
+     <tt>&nbsp;&nbsp;&nbsp;&nbsp; echo Primavera;;</tt><br>
+     <tt>&nbsp; *)</tt><br>
+     <tt>&nbsp;&nbsp;&nbsp;&nbsp; echo estacion.sh: debe invocarse como</tt><br>
+     <tt>&nbsp;&nbsp;&nbsp;&nbsp; echo estacion.sh mes</tt><br>
+     <tt>&nbsp;&nbsp;&nbsp;&nbsp; echo con el nombre del mes en min&uacute;scula;;</tt><br>
+     <tt>&nbsp; esac</tt><br>
+     <tt>&nbsp; # fin estacion.sh</tt><br>
+     <tt>&nbsp;</tt><br>
+     El valor $1 es el par&aacute;metro recibido en la l&iacute;nea de comando. 
+ La opci&oacute;n *) aparea con cualquier cadena, por lo que act&uacute;a 
+como "en otro caso"; es &uacute;til para dar instrucciones sobre el uso del 
+comando. En las opciones, | act&uacute;a como OR; pueden usarse tambi&eacute;n 
+comodines * y ?. Invocar el script:<br>
+     <tt>&nbsp; bash estacion.sh octubre</tt><br>
+     <tt>&nbsp; bash estacion.sh</tt><br>
+     &nbsp;<br>
+     &iquest;C&oacute;mo podr&iacute;a modificarse el script anterior para
+ que aceptara el mes en cualquier combinaci&oacute;n de may&uacute;sculas
+y min&uacute;sculas?<br>
+      
+<h4> <a name="while"></a>while</h4>
+   Este comando implementa una estructura repetitiva en la cual el conjunto 
+ de comandos se ejecuta <i>mientras</i> se mantenga v&aacute;lida una condici&oacute;n 
+ (while = mientras). La condici&oacute;n se examina al principio y luego cada
+vez que se completa la secuencia de comandos. Si la condici&oacute;n es falsa
+desde la primera vez, los comandos no se ejecutan nunca. Su sintaxis es<br>
+    <tt>&nbsp; while <i>condici&oacute;n</i> ; do <i>comandos</i> ; done</tt><br>
+     &nbsp;<br>
+     En el gui&oacute;n que sigue la expresi&oacute;n entre par&eacute;ntesis 
+ rectos es una forma de invocar el comando <tt>test</tt>, que realiza una 
+prueba devolviendo cierto o falso. El operador <tt>-lt</tt>, "lower than", 
+significa "menor que". Observar su sintaxis, sobre todo la posici&oacute;n 
+de los espacios en blanco, obligatorios.<br>
+     &nbsp;<br>
+     <tt>&nbsp; # crear1.sh</tt><br>
+     <tt>&nbsp; # crea archivos arch1....arch9, los lista y luego borra</tt><br>
+     <tt>&nbsp; VAL=1</tt><br>
+     <tt>&nbsp; while [ $VAL -lt 10 ]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+ # mientras $VAL &lt; 10</tt><br>
+     <tt>&nbsp; do</tt><br>
+     <tt>&nbsp;&nbsp;&nbsp; echo creando archivo arch$VAL</tt><br>
+     <tt>&nbsp;&nbsp;&nbsp; touch arch$VAL</tt><br>
+     <tt>&nbsp;&nbsp;&nbsp; VAL=`expr $VAL + 1`</tt><br>
+     <tt>&nbsp; done</tt><br>
+     <tt>&nbsp; ls -l arch[0-9]</tt><br>
+     <tt>&nbsp; rm arch[0-9]</tt><br>
+     <tt>&nbsp; # fin crear1.sh</tt><br>
+      
+<h4> <a name="until"></a>until</h4>
+   Este comando implementa una estructura repetitiva en la cual el conjunto 
+ de comando se ejecuta hasta que se cumpla una condici&oacute;n. En cuanto 
+ la condici&oacute;n se cumple, dejan de ejecutarse los comandos. La condici&oacute;n 
+ se examina al principio; si es verdadera, los comandos no se ejecutan. Notar
+ la diferencia con <tt>while</tt>. Su sintaxis es<br>
+    <tt>&nbsp; until <i>condici&oacute;n</i> ; do <i>comandos</i> ; done</tt><br>
+     &nbsp;<br>
+     Usando <tt>until</tt>, el script anterior se escribir&iacute;a<br>
+  <br>
+     <tt>&nbsp; # crear2.sh</tt><br>
+     <tt>&nbsp; # crea archivos arch1....arch9, los lista y luego borra</tt><br>
+     <tt>&nbsp; VAL=1</tt><br>
+     <tt>&nbsp; until [ $VAL -eq 10 ]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+#  hasta que $VAL = 10</tt><br>
+     <tt>&nbsp; do</tt><br>
+     <tt>&nbsp;&nbsp;&nbsp; echo creando archivo arch$VAL</tt><br>
+     <tt>&nbsp;&nbsp;&nbsp; touch arch$VAL</tt><br>
+     <tt>&nbsp;&nbsp;&nbsp; VAL=`expr $VAL + 1`</tt><br>
+     <tt>&nbsp; done</tt><br>
+     <tt>&nbsp; ls -l arch[0-9]</tt><br>
+     <tt>&nbsp; rm arch[0-9]</tt><br>
+     <tt>&nbsp; # fin crear2.sh</tt><br>
+      
+<h4> <a name="exit"></a>exit</h4>
+     Este comando se utiliza en programaci&oacute;n de shell para terminar
+ inmediatamente un script y volver al shell original.<br>
+     <tt>&nbsp;</tt><br>
+     <tt>&nbsp; exit</tt><br>
+     en un script, termina inmediatamente el script; en la l&iacute;nea de
+ comando, termina la ejecuci&oacute;n del shell actual, y por lo tanto la
+sesi&oacute;n de UNIX.<br>
+     <tt>&nbsp; exit 6</tt><br>
+     termina el script devolviendo el n&uacute;mero indicado, lo que puede
+ usarse para determinar condiciones de error.<br>
+     <tt>&nbsp; exit 0</tt><br>
+     termina el script devolviendo 0, para indicar la finalizaci&oacute;n 
+exitosa  de tareas. Escribir s&oacute;lo <tt>exit</tt> tambi&eacute;n devuelve 
+c&oacute;digo  de error 0.<br>
+      El siguiente script ofrece un ejemplo de uso.<br>
+     &nbsp;<br>
+     <tt>#!/bin/bash</tt><br>
+     <tt># exitar.sh: prueba valores de retorno de exit</tt><br>
+     <tt>#</tt><br>
+     <tt>clear</tt><br>
+     <tt>echo "Prueba de valores de retorno"</tt><br>
+     <tt>echo "&nbsp; Invocar con par&aacute;metros "</tt><br>
+     <tt>echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; bien, error1, error2, 
+cualquier  cosa o nada"</tt><br>
+     <tt>echo "&nbsp; Verificar valor de retorno con"</tt><br>
+     <tt>echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; echo $?'</tt><br>
+     <tt>echo</tt><br>
+     <tt>VALOR=$1</tt><br>
+     <tt>case $VALOR in</tt><br>
+     <tt>bien)</tt><br>
+     <tt>&nbsp; echo "&nbsp;&nbsp;&nbsp; -&gt; Terminaci&oacute;n sin error."</tt><br>
+     <tt>&nbsp; exit 0;;</tt><br>
+     <tt>error1)</tt><br>
+     <tt>&nbsp; echo "&nbsp;&nbsp;&nbsp; -&gt; Terminaci&oacute;n con error
+ 1." ; exit 1;;</tt><br>
+     <tt>error2)</tt><br>
+     <tt>&nbsp; echo "&nbsp;&nbsp;&nbsp; -&gt; Terminaci&oacute;n con error
+ 2." ; exit 2;;</tt><br>
+     <tt>*)</tt><br>
+     <tt>&nbsp; echo "&nbsp;&nbsp;&nbsp; -&gt; Terminaci&oacute;n con error
+ 3."</tt><br>
+     <tt>&nbsp; echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (invocado con
+par&aacute;metro  no previsto o sin par&aacute;metro."</tt><br>
+     <tt>&nbsp; exit 3;;</tt><br>
+     <tt>esac</tt><br>
+       
+<h4> <a name="expr"></a>expr</h4>
+   Este comando recibe n&uacute;meros y operadores aritm&eacute;ticos como 
+argumentos, efect&uacute;a los c&aacute;lculos indicados y devuelve el resultado. 
+Cada argumento debe estar separado por blancos. Opera s&oacute;lo con n&uacute;meros
+ enteros y realiza las operaciones suma (+), resta (-), multiplicaci&oacute;n
+ (*), divisi&oacute;n entera (/), resto de divisi&oacute;n entera (%). Los
+ s&iacute;mbolos * y / deben ser escapados escribiendo \* y \/, al igual
+que  los par&eacute;ntesis, que deben escribirse \( y \).   
+<p>El comando <tt>expr</tt> usa la convenci&oacute;n de C para cierto y falso:
+ 0 es falso, y distinto de 0 es cierto. No confundir con la convenci&oacute;n 
+ que toma el shell en sus valores true y false, que es la contraria.<br>
+    <tt>&nbsp; expr 4 + 5</tt><br>
+     devuelve 9 ( 4 + 5 = 9 ).<br>
+     <tt>&nbsp; expr 3 \* 4 + 6 \/2</tt><br>
+     devuelve 15 ( 3 * 4 + 6 /2 = 15 ).<br>
+     <tt>&nbsp; expr 3 \* \( 4 + 3 \) \/2</tt><br>
+     devuelve 10 ( 3 * (4 + 3) / 2 = 10 ).<br>
+     <tt>&nbsp;</tt><br>
+     <tt>expr</tt> tambi&eacute;n realiza operaciones l&oacute;gicas de comparaci&oacute;n, 
+ aceptando los operadores <tt>=, !=, &gt;, &lt;, &gt;= y &lt;=</tt>. El operador 
+ <tt>!=</tt> es "no igual"; el <tt>!</tt> se usa para negar. Estos caracteres
+ tambi&eacute;n requieren ser escapados.<br>
+     <tt>&nbsp; echo `expr 6 \&lt; 10`</tt><br>
+     devuelve 1, cierto para <tt>expr</tt>.<br>
+     <tt>&nbsp; echo `expr 6 \&gt; 10`</tt><br>
+     devuelve 0, falso para <tt>expr</tt>.<br>
+     <tt>&nbsp; echo `expr abc \&lt; abd`</tt><br>
+     devuelve 1, cierto para <tt>expr</tt>.<br>
+    </p>
+   
+<h4> <a name="test"></a>test</h4>
+   Este comando prueba condiciones y devuelve valor cierto (0) o falso (distinto 
+ de 0) seg&uacute;n el criterio de cierto y falso del shell; esto lo hace 
+apto para usar en la condici&oacute;n de <tt>if</tt>. Tiene dos formas equivalentes<br>
+    <tt>&nbsp; test <i>expresi&oacute;n</i></tt><br>
+     <tt>&nbsp; [ <i>expresi&oacute;n</i> ]</tt><br>
+     &nbsp;<br>
+     Los blancos entre la expresi&oacute;n y los par&eacute;ntesis rectos 
+son  necesarios.<br>
+     <tt>&nbsp;</tt><br>
+     <tt>test</tt> devuelve cierto ante una cadena no vac&iacute;a, y falso 
+ ante una cadena vac&iacute;a:<br>
+     <tt>&nbsp; if test "cadena" ; then echo Cierto ; else echo Falso; fi</tt><br>
+     <tt>&nbsp; if test "" ; then echo Cierto ; else echo Falso ; fi</tt><br>
+     <tt>&nbsp; if [ cadena ] ; then echo Cierto ; else echo Falso; fi</tt><br>
+     <tt>&nbsp; if [ ] ; then echo Cierto ; else echo Falso ; fi</tt><br>
+     <tt>&nbsp;</tt><br>
+     <tt>test</tt> prueba una cantidad de condiciones y situaciones:<br>
+     &nbsp;<br>
+     <tt>&nbsp; if [ -f archivo ]; then echo "Existe archivo"; \</tt><br>
+     <tt>&nbsp;&nbsp;&nbsp; else echo "No existe archivo"; fi</tt><br>
+     La condici&oacute;n <tt>[ -f archivo ]</tt> es cierta si archivo existe 
+ y es un archivo normal; an&aacute;logamente, -r comprueba si es legible, 
+-w si puede escribirse, -x si es ejecutable, -d si es un directorio, -s si 
+tiene tama&ntilde;o mayor que 0.<br>
+     <tt>&nbsp;</tt><br>
+     Las condiciones<br>
+     <tt>&nbsp; [ $DIR = $HOME ]</tt><br>
+     <tt>&nbsp; [ $LOGNAME = "usuario1" ]</tt><br>
+     <tt>&nbsp; [ $RESULTADO != "error" ]</tt><br>
+     comparan cadenas de caracteres; = para igualdad y != para desigualdad.<br>
+     La condici&oacute;n<br>
+     <tt>&nbsp; [ "$VAR1" ]</tt><br>
+     devuelve falso si la variable no est&aacute; definida. Las comillas
+dan  la cadena nula cuando <tt>VAR1</tt> no est&aacute; definida; sin comillas 
+ no habr&iacute;a cadena y dar&iacute;a error de sintaxis.<br>
+     La condici&oacute;n<br>
+     <tt>&nbsp; [ <i>expnum1</i> -eq <i>expnum2</i> ]</tt><br>
+     compara igualdad de expresiones que resultan en un n&uacute;mero. Pueden 
+ ser expresiones num&eacute;ricas o l&oacute;gicas, ya que &eacute;stas tambi&eacute;n
+ resultan en n&uacute;meros. Los operadores num&eacute;ricos derivan sus
+letras  del ingl&eacute;s, y son -eq (igualdad), -neq (no igual, desigualdad),
+-lt  (menor), -gt (mayor), -le (menor o igual), -ge (mayor o igual).<br>
+     &nbsp;<br>
+     El comando <tt>test</tt> se usa mucho para determinar si un comando
+se  complet&oacute; con &eacute;xito, en cuyo caso el valor de retorno es
+0. El siguiente script crea un archivo si no existe.<br>
+  <br>
+     <tt>&nbsp; # nvoarch.sh</tt><br>
+     <tt>&nbsp; # recibe un nombre y crea un archivo de ese nombre;</tt><br>
+     <tt>&nbsp; # si ya existe emite un mensaje</tt><br>
+     <tt>&nbsp; if [ -f $1 ]</tt><br>
+     <tt>&nbsp; then</tt><br>
+     <tt>&nbsp;&nbsp;&nbsp; echo El archivo $1 ya existe</tt><br>
+     <tt>&nbsp; else</tt><br>
+     <tt>&nbsp;&nbsp;&nbsp; touch $1</tt><br>
+     <tt>&nbsp;&nbsp;&nbsp; echo Fue creado el archivo $1</tt><br>
+     <tt>&nbsp; fi</tt><br>
+     <tt>&nbsp; echo</tt><br>
+     <tt>&nbsp; # fin nvoarch.sh</tt><br>
+     <tt>&nbsp;</tt><br>
+     Para comprobar su acci&oacute;n,<br>
+     <tt>&nbsp; bash nvoarch.sh nuevo1</tt><br>
+     <tt>&nbsp; ls -l nuevo1</tt><br>
+     crea el archivo; <tt>ls</tt> comprueba que existe;<br>
+     <tt>&nbsp; bash nvoarch.sh nuevo1</tt><br>
+     da mensaje indicando que el archivo ya existe.<br>
+     &nbsp;<br>
+     Otros operadores aceptados por test son <tt>-a</tt> (AND) y <tt>-o</tt>
+   (OR).<br>
+     <tt>&nbsp; # rwsi.sh</tt><br>
+     <tt>&nbsp; # indica si un archivo tiene permiso de lectura y escritura</tt><br>
+     <tt>&nbsp; ARCH=$1</tt><br>
+     <tt>&nbsp; if [ -r $ARCH -a -w $ARCH ]</tt><br>
+     <tt>&nbsp; then</tt><br>
+     <tt>&nbsp;&nbsp;&nbsp; echo El archivo $ARCH se puede leer y escribir</tt><br>
+     <tt>&nbsp; else</tt><br>
+     <tt>&nbsp;&nbsp;&nbsp; echo Al archivo $ARCH le falta alg&uacute;n permiso</tt><br>
+     <tt>&nbsp; fi</tt><br>
+     <tt>&nbsp; ls -l $ARCH</tt><br>
+     <tt>&nbsp; # fin rwsi.sh</tt><br>
+      
+<h4> <a name="read"></a>read</h4>
+   Este comando tiene como prop&oacute;sito solicitar informaci&oacute;n
+al  usuario. Su ejecuci&oacute;n captura las digitaciones del usuario, hasta 
+obtener un caracter nueva l&iacute;nea (techa Enter). El ejemplo siguiente 
+obtiene datos del usuario, los repite en pantalla, solicita confirmaci&oacute;n 
+y emite un mensaje en consecuencia.<br>
+  <br>
+    <tt>&nbsp; # yo.sh: captura datos del usuario</tt><br>
+     <tt>&nbsp; #</tt><br>
+     <tt>&nbsp; clear</tt><br>
+     <tt>&nbsp; echo "Datos del usuario."</tt><br>
+     <tt>&nbsp; echo -n "Nombre y apellido: "; read NOMBRE</tt><br>
+     <tt>&nbsp; echo -n "C&eacute;dula de identidad: "; read CEDULA</tt><br>
+     <tt>&nbsp; echo</tt><br>
+     <tt>&nbsp; echo "Ha ingresado los siguientes datos:"</tt><br>
+     <tt>&nbsp; echo "&nbsp;&nbsp; Nombre y apellido: $NOMBRE"</tt><br>
+     <tt>&nbsp; echo "&nbsp;&nbsp; C&eacute;dula de Identidad: $CEDULA"</tt><br>
+     <tt>&nbsp; echo -n "&iquest;Es correcto?(sN):"; read RESP</tt><br>
+     <tt>&nbsp; if [ "$RESP" = "s" -o $RESP = "S" ]</tt><br>
+     <tt>&nbsp; then</tt><br>
+     <tt>&nbsp;&nbsp;&nbsp; echo "Fin de ingreso."</tt><br>
+     <tt>&nbsp; else</tt><br>
+     <tt>&nbsp;&nbsp;&nbsp; echo "Debe ingresar sus datos nuevamente."</tt><br>
+     <tt>&nbsp; fi</tt><br>
+      
+<h3> <a name="Parametros"></a>Par&aacute;metros.</h3>
+   El siguiente programa muestra los par&aacute;metros que recibe al ser
+invocado:<br>
+  <br>
+    <tt>&nbsp; # ecopars.sh</tt><br>
+     <tt>&nbsp; # muestra los par&aacute;metros recibidos</tt><br>
+     <tt>&nbsp; echo Cantidad de par&aacute;metros: $#</tt><br>
+     <tt>&nbsp; for VAR in $*</tt><br>
+     <tt>&nbsp; do</tt><br>
+     <tt>&nbsp;&nbsp;&nbsp; echo $VAR</tt><br>
+     <tt>&nbsp; done</tt><br>
+     <tt>&nbsp; # fin ecopars.sh</tt><br>
+     <tt>&nbsp;</tt><br>
+     <tt>&nbsp; ecopars.sh Enero Febrero Marzo</tt><br>
+     muestra la cantidad y los par&aacute;metros recibidos. La variable $*
+ contiene la lista de par&aacute;metros, y $# la cantidad.<br>
+     &nbsp;<br>
+     Dentro del script, los par&aacute;metros recibidos pueden referenciarse 
+ con $1, $2, $3, ..., $9, siendo $0 el nombre del propio programa. Debido 
+a que se los reconoce por su ubicaci&oacute;n, se llaman par&aacute;metros 
+posicionales. El siguiente programa se invoca con tres par&aacute;metros y
+muestra sus valores:<br>
+  <br>
+     <tt>&nbsp; # mostrar3.sh</tt><br>
+     <tt>&nbsp; # se invoca con 3 par&aacute;metros y los muestra</tt><br>
+     <tt>&nbsp; echo nombre del programa: $0</tt><br>
+     <tt>&nbsp; echo par&aacute;metros recibidos:</tt><br>
+     <tt>&nbsp; echo $1; echo $2; echo $3</tt><br>
+     <tt>&nbsp; echo</tt><br>
+     <tt>&nbsp; # fin mostrar3.sh</tt><br>
+     &nbsp;<br>
+     &iquest;C&oacute;mo se podr&iacute;a verificar la invocaci&oacute;n
+con  3 par&aacute;metros, y emitir un mensaje de error en caso contrario
+(cuando  el usuario ingresa menos de 3 par&aacute;metros)?<br>
+      
+<h3> <a name="Depuracion"></a>Depuraci&oacute;n.</h3>
+   Se llama depuraci&oacute;n ("debug") de un programa al proceso de verificar 
+ su funcionamiento en todos los casos posibles y corregir sus errores ("bugs", 
+ "pulgas"; del ingl&eacute;s, literalmente, "chinche"; por extensi&oacute;n, 
+ insecto peque&ntilde;o).   
+<p>Cuando se est&aacute; escribiendo un script, puede convenir invocarlo de
+forma especial para generar informaci&oacute;n de comandos ejecutados y errores,
+para ayudar en la depuraci&oacute;n. Las salidas se imprimen en el error
+est&aacute;ndar, por lo que pueden direccionarse a un archivo sin mezclarse
+con la salida del comando.<br>
+<tt>&nbsp; bash -x ecopars.sh</tt><br>
+     imprime cada comando en la salida;<br>
+     <tt>&nbsp; bash -v ecopars.sh</tt><br>
+     invoca el script obteniendo una salida verbosa con informaci&oacute;n
+ sobre cada comando ejecutado.<br>
+     <tt>&nbsp; bash -xv ecopars.sh 2&gt;ecopars.err</tt><br>
+     re&uacute;ne las dos fuentes de informaci&oacute;n y direcciona el error 
+ est&aacute;ndar a un archivo.<br>
+     &nbsp;<br>
+    </p>
+   
+<h2> <a name="Ejercicios"></a><a href="shprogej.htm">Preguntas y Ejercicios</a></h2>
+      
+<h2> <a name="Bibliografia"></a>Bibliograf&iacute;a y Referencias.</h2>
+     <b>Comandos:</b> <tt>true false if for case while until exit expr test</tt>
+  <br>
+  <b>Referencias:</b>&nbsp; Coffin[1989], Kernighan-Pike[1984]; p&aacute;ginas 
+ man de Linux "bash" ("Bourne-Again shell"). <br>
+ <br>
+ <br>
+  <br>
+   
+<address>  </address>
+   
+<hr width="100%">    
+<address> V&iacute;ctor A. Gonz&aacute;lez Barbone <a
+ href="mailto:%20vagonbar en fing edu uy">vagonbar en fing edu uy</a></address>
+      
+<address> <a href="http://iie.fing.edu.uy">Instituto de Ingenier&iacute;a
+El&eacute;ctrica</a>  - <a href="http://www.fing.edu.uy">Facultad de Ingenier&iacute;a</a>
+  - Montevideo, Uruguay.</address>
+      
+</body>
+</html>

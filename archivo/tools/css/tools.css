@@ -1,0 +1,94 @@
+@import url('//fonts.googleapis.com/css?family=Open+Sans');
+* { margin: 0; padding: 0; }
+body { font-family:'Open Sans', sans-serif; max-width: 50em; margin: 1em auto; background-color: #EAEAEA; }
+a { color: #DF2A7F; text-decoration: none; }
+a:hover { background-color: #F9FDA2; }
+i { font-size: 28px; }
+p { padding: .5em; }
+p i { padding-left: .5em; }
+header { margin: 1em auto; }
+footer { padding: 1em; }
+address { font-style: italic; }
+address i { font-size: 14px; margin: 0; }
+ul { list-style: none; width: 80%; margin: 1em auto; }
+li { list-style-type: none; margin-bottom: 1em; vertical-align: middle; }
+li a { display: block; padding: 2em; }
+li i { margin-right: .5em; }
+#main-content { clear: both; }
+.small { font-size: small; }
+.italic { font-style: italic; }
+.centertxt { text-align: center; }
+.centered { display: block; margin-left: auto; margin-right: auto; }
+.standout { background-color: #FAFAFA; border: 1px solid #D9D9D9; }
+.item-desc { margin-left: .5em; color: black; }
+.rounded {
+	-webkit-border-radius: 8px;
+	 -khtml-border-radius: 8px;
+	   -moz-border-radius: 8px;
+	    -ms-border-radius: 8px;
+	     -o-border-radius: 8px;
+	        border-radius: 8px;
+}
+header figure a h1 {
+	position: absolute;
+	top: 60px;
+	left: 50%;
+	padding: 0 .2em;
+	margin-left: -3em;
+	border-bottom: 2px dashed #666;
+	font-size: 1.5em;
+}
+header figure a:hover h1 {
+	filter:alpha(opacity=80);
+	-webkit-opacity: 0.8;
+	 -khtml-opacity: 0.8;
+	   -moz-opacity: 0.8;
+	    -ms-opacity: 0.8;
+	     -o-opacity: 0.8;
+	        opacity: 0.8;
+}
+header figure a:hover img {
+	filter:alpha(opacity=30);
+	-webkit-opacity: 0.3;
+	 -khtml-opacity: 0.3;
+	   -moz-opacity: 0.3;
+	    -ms-opacity: 0.3;
+	     -o-opacity: 0.3;
+	        opacity: 0.3;
+}
+header figure a h1 {
+	filter:alpha(opacity=0);
+	-webkit-opacity: 0;
+	 -khtml-opacity: 0;
+	   -moz-opacity: 0;
+	    -ms-opacity: 0;
+	     -o-opacity: 0;
+	        opacity: 0;
+}
+header figure a h1,
+header figure a img,
+header figure a:hover h1,
+header figure a:hover img {
+	-webkit-transition: opacity .5s ease-out;
+	 -khtml-transition: opacity .5s ease-out;
+	   -moz-transition: opacity .5s ease-out;
+	    -ms-transition: opacity .5s ease-out;
+	     -o-transition: opacity .5s ease-out;
+	        transition: opacity .5s ease-out;
+}
+li, li a {
+	-webkit-transition: all .3s ease-out;
+	 -khtml-transition: all .3s ease-out;
+	   -moz-transition: all .3s ease-out;
+	    -ms-transition: all .3s ease-out;
+	     -o-transition: all .3s ease-out;
+	        transition: all .3s ease-out;
+}
+li:hover {
+	-webkit-box-shadow: 0 0 8px 1px #999;
+	 -khtml-box-shadow: 0 0 8px 1px #999;
+	   -moz-box-shadow: 0 0 8px 1px #999;
+	    -ms-box-shadow: 0 0 8px 1px #999;
+	     -o-box-shadow: 0 0 8px 1px #999;
+	        box-shadow: 0 0 8px 1px #999;
+}

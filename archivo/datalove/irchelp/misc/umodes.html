@@ -1,0 +1,513 @@
+<!doctype html>
+<html>
+
+<!-- Mirrored from www.irchelp.org/irchelp/misc/umodes.html by HTTrack Website Copier/3.x [XR&CO'2013], Sun, 29 Dec 2013 06:58:10 GMT -->
+<head>
+    <title>IRCHelp.org &mdash; Untitled Page</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="description" content="Comprehensive information on everything Internet Relay Chat" />
+    <meta name="author" content="irchelpers" />
+    <meta name="generator" content="PieCrust 1.0.0-dev" />
+    <meta name="template-engine" content="Twig" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,
+      initial-scale=1.0">
+    <!-- Le styles -->
+    <link href="http://www.irchelp.org/css/bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+    </style>
+    <link href="http://www.irchelp.org/css/bootstrap-responsive.css" rel="stylesheet">
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144"
+      href="http://www.irchelp.org/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114"
+      href="http://www.irchelp.org/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72"
+      href="http://www.irchelp.org/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed"
+      href="http://www.irchelp.org/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="http://www.irchelp.org/ico/favicon.png">
+</head>
+<body>
+    <!--Start of navigation-->
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container"> <a class="btn btn-navbar"
+            data-toggle="collapse" data-target=".nav-collapse"> <span
+              class="icon-bar"></span> <span class="icon-bar"></span> <span
+              class="icon-bar"></span> </a> <a class="brand" href="http://www.irchelp.org/">#irchelp</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class="active"><a href="http://www.irchelp.org/">Home</a></li>
+              <li><a href="../credit.html">About</a></li>
+              <li class="dropdown"> <a href="../clients/index.html" class="dropdown-toggle"
+                  data-toggle="dropdown">Clients </a>
+                <ul class="dropdown-menu">
+                  <li><a href="../clients/index.html">All Clients</a></li>
+                  <li class="divider"></li>
+                  <li class="nav-header">Windows</li>
+                  <li><a href="../clients/windows/mirc/index.html">mIRC</a></li>
+                  <li><a href="../clients/windows/xchat.html">XChat</a></li>
+                  <li><a href="../clients/windows.html">All Windows Clients</a></li>
+                  <li class="divider"></li>
+                  <li class="nav-header">MacOS X</li>
+                  <li><a href="../clients/mac/textual.html">Textual</a></li>
+                  <li><a href="../clients/mac/colloquy.html">Colloquy</a></li>
+                  <li><a href="../clients/mac/snak.html">Snak</a></li>
+                  <li><a href="../clients/mac.html">All MacOS X Clients</a></li>
+                  <li class="divider"></li>
+                  <li class="nav-header">Linux/Unix Terminal</li>
+                  <li><a href="../clients/unix/irssi/index.html">irssi</a></li>
+                  <li><a href="../clients/unix/epic.html">EPIC</a></li>
+                  <li><a href="../clients/unix/ircii/index.html">ircII</a></li>
+                  <li><a href="../clients/unix/index.html#terminal">All Linux/Unix Terminal Clients</a></li>
+                  <li class="divider"></li>
+                  <li class="nav-header">Linux/Unix Graphical</li>
+                  <li><a href="../clients/unix/xchat.html">XChat</a></li>
+                  <li><a href="../clients/unix/konversation.html">Konversation</a></li>
+                  <li><a href="../clients/unix/index.html#gui">All Linux/Unix Graphical Clients</a></li>
+                  <li class="nav-header">Smartphones</li>
+                  <li><a href="../clients/mobile/android/index.html">Clients for Android</a></li>
+                  <li><a href="../clients/mobile/ios.html">Clients for iOS</a></li>
+                  <li><a href="../clients/mobile.html">All Smartphone Clients</a></li>
+                  <li class="nav-header">Other OS and Crossplatform</li>
+                  <li><a href="../clients/cross/java.html">Clients writting in Java</a></li>
+                  <li><a href="../clients/cross.html">Other Crossplatform Clients</a></li>
+                  <li><a href="../clients/otheros/index.html">Clients for other Operating Systems</a></li>
+                  <li><a href="../clients/webclients.html">Web-based clients</a></li>
+
+                </ul>
+              </li>
+              <li class="dropdown"> <a href="../networks/index.html" class="dropdown-toggle"
+                  data-toggle="dropdown">Networks </a>
+                <ul class="dropdown-menu">
+                  <li><a href="../networks/popular.html">Major Networks</a></li>
+                  <li><a href="../networks/regional.html">Regional Networks</a></li>
+                  <li><a href="../networks/topical.html">Topical Networks</a></li>
+                  <li><a href="../networks/index.html">All Networks</a></li>
+                  <li class="divider"></li>
+                  <li class="nav-header">Major Networks</li>
+                  <li><a href="../networks/efnet/index.html">EFNet</a></li>
+                  <li><a href="../networks/undernet.html">Undernet</a></li>
+                  <li><a href="../networks/dalnet.html">Dalnet</a></li>
+                  <li><a href="../networks/quakenet.html">Quakenet</a></li>
+                  <li><a href="../networks/freenode.html">Freenode</a></li>
+                </ul>
+              </li>
+              <li class="dropdown"> <a href="../security/index.html" class="dropdown-toggle"
+                  data-toggle="dropdown">Security </a>
+                <ul class="dropdown-menu">
+                  <li><a href="../security/index.html">General Security</a></li>
+                  <li><a href="../security/privacy.html">Privacy</a></li>
+                  <li><a href="../security/nuke.html">Denial of Service</a></li>
+                  <li><a href="../security/trojan.html">Trojan Horses and Other Malware</a></li>
+                  <li><a href="../security/socialeng.html">Social Engineering</a></li>
+                </ul>
+              </li>
+              <li class="dropdown"> <a href="../ircd/index.html" class="dropdown-toggle"
+                  data-toggle="dropdown">Servers </a>
+                <ul class="dropdown-menu">
+                  <li><a href="../ircd/index.html">General ircd information</a></li>
+                  <li class="divider"></li>
+                  <li class="nav-header">EFNet IRCDs</li>
+                  <li><a href="../ircd/ratbox/index.html">ircd-ratbox</a></li>
+                  <li><a href="../ircd/hybrid/index.html">ircd-hybrid</a></li>
+                </ul>
+              </li>
+              <li class="dropdown"> <a href="#" class="dropdown-toggle"
+                  data-toggle="dropdown">FAQs </a>
+                <ul class="dropdown-menu">
+                  <li><a href="../new2irc.html">New user introduction</a></li>
+<!--
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li class="divider"></li>
+                  <li class="nav-header">Nav header</li>
+                  <li><a href="#">Separated link</a></li>
+                  <li><a href="#">One more separated link</a></li>
+-->
+                </ul>
+              </li>
+              <li class="dropdown"> <a href="../library.html" class="dropdown-toggle"
+                  data-toggle="dropdown">Library </a>
+                <ul class="dropdown-menu">
+                  <li><a href="../library.html">Index</a></li>
+<!--
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li class="divider"></li>
+                  <li class="nav-header">Nav header</li>
+                  <li><a href="#">Separated link</a></li>
+                  <li><a href="#">One more separated link</a></li>
+-->
+                </ul>
+              </li>
+            </ul>
+            <form class="navbar-form pull-right"> <input class="span2"
+                placeholder="Search" type="text"> <button type="submit"
+                class="btn">Search</button> </form>
+          </div>
+          <!--/.nav-collapse --> </div>
+      </div>
+    </div>
+<!--end of navigation-->
+
+    <div id="container" class="container">
+<!--
+                        <h1><a href="/">Untitled Page</a></h1>
+            -->        
+        
+            <div class="content">
+                                <h1>User modes for the major networks</h1>
+
+<p>partial update Mar 5, 2005</p>
+
+<p>By Apatrix (EFnet,IRCnet) with contributions from Toyota (EFnet), prysm
+(EFnet), Dakal (DALnet), MHz (EFnet,DALnet), Jupiter (EFnet), jilles (EFnet),
+and others</p>
+
+<p>Looking for information on channel modes instead? The ones which are common to
+all networks are explained in the <a href="../irctutorial.html">IRC Tutorial</a> and the
+<a href="../changuide.html">New IRC Channel Operator&#8217;s Guide</a>.</p>
+
+<p>It&#8217;s been a long time since there was a single type of server used by all
+servers. Since then, the various networks have all continued to develop their
+own independently of the others. User modes are one of the things affected by
+this. The most standard (i, o and w) have the same function on all networks.
+Each network has also added a set of modes unique to that particular network.
+This also goes for smaller networks which usually base their ircds on one of
+those used by the major networks but often diverge and add modes of their own
+or change the behaviour of existing ones.</p>
+
+<p>These user modes are supported by the server versions current as of the date
+shown below. Older versions may be missing one or two modes or have a
+different implementation for some. User modes which may be set only by IRC
+operators are marked with an asterisk. Others will let themselves be set by
+all users but will return very little information for a non-IRC operator.</p>
+
+<p>The list is based on the following versions which were current as of the date
+above:</p>
+
+<p>EFnet: hybrid or ratbox</p>
+
+<p>IRCnet: 2.10.3</p>
+
+<p>DALnet: bahamut 1.4.3</p>
+
+<p>Undernet: u2.10.10</p>
+
+<hr />
+
+<p>Note that DALnet has their own help guide for <a href="http://help.dal.net/docs/modes.html">DALnet channel and user
+modes</a>.</p>
+
+<p>Overview of user modes for the major IRC networks</p>
+
+<p>Mode</p>
+
+<p>EFnet</p>
+
+<p>IRCnet</p>
+
+<p><a href="http://help.dal.net/docs/modes.html">DALnet</a></p>
+
+<p>Undernet</p>
+
+<p>a</p>
+
+<ul>
+<li><p>Indicates server administrator
+Indicates /away status</p></li>
+<li><p>Indicates server administrator
+n/a</p></li>
+</ul>
+
+<p>b</p>
+
+<ul>
+<li><p>Monitor floodbot notices
+n/a</p></li>
+<li><p>Receive &#8220;chatops&#8221; from operators
+n/a</p></li>
+</ul>
+
+<p>c</p>
+
+<ul>
+<li><p>Monitor client connects and disconnects
+n/a</p></li>
+<li><p>Monitor client connects and disconnects
+n/a</p></li>
+</ul>
+
+<p>d</p>
+
+<ul>
+<li>Monitor server debug notices
+n/a</li>
+</ul>
+
+<p>*
+Do not receive messages directed at the channel</p>
+
+<p>e</p>
+
+<p>n/a</p>
+
+<p>n/a</p>
+
+<ul>
+<li>Monitor DCC sends of possibly malicious files
+n/a</li>
+</ul>
+
+<p>f</p>
+
+<ul>
+<li><p>Monitor Full I:line notices
+n/a</p></li>
+<li><p>Receive flood notices
+n/a</p></li>
+</ul>
+
+<p>g</p>
+
+<p><a href="http://www.efnet.org/?module=docs&amp;doc=14&amp;type=text">&#8220;Caller ID&#8221; message
+blocking</a></p>
+
+<p>n/a</p>
+
+<p>Receive &#8220;globops&#8221; notices from servers, Services and operators</p>
+
+<p>Receive &#8220;HACK&#8221; wallops</p>
+
+<p>h</p>
+
+<p>n/a</p>
+
+<p>n/a</p>
+
+<ul>
+<li>Shows operator in /stats p
+n/a</li>
+</ul>
+
+<p>i</p>
+
+<p>Invisibility to /WHO and /NAMES scans unless performed by a user on the same
+channel</p>
+
+<p>k</p>
+
+<ul>
+<li>Monitor server kill notices
+n/a</li>
+</ul>
+
+<p>Receive KILL notices</p>
+
+<p>Special mode for channel service bots</p>
+
+<p>l</p>
+
+<ul>
+<li>Monitor oper locops
+n/a</li>
+</ul>
+
+<p>n/a</p>
+
+<p>n/a</p>
+
+<p>m</p>
+
+<p>n/a</p>
+
+<p>n/a</p>
+
+<ul>
+<li>Monitor notices about possible spambots
+n/a</li>
+</ul>
+
+<p>n</p>
+
+<ul>
+<li>Monitor local nickname changes
+n/a</li>
+</ul>
+
+<p>Receive routing notices</p>
+
+<p>n/a</p>
+
+<p>o</p>
+
+<p>Indicates active IRC operator status</p>
+
+<p>r</p>
+
+<ul>
+<li>Monitor &#8220;rejected&#8221; client notices
+Restricted. User may not use channel op commands. Cannot be reversed</li>
+</ul>
+
+<p>Monitor client rejection notices</p>
+
+<p>n/a</p>
+
+<p>s</p>
+
+<ul>
+<li>Monitor generic server messages and oper kills
+n/a</li>
+</ul>
+
+<p>Receive server notices</p>
+
+<p>u</p>
+
+<ul>
+<li>Monitor unauthorized client connections
+n/a</li>
+</ul>
+
+<p>n/a</p>
+
+<p>n/a</p>
+
+<p>w</p>
+
+<ul>
+<li>Receive server wallops
+Receive operator wallops</li>
+</ul>
+
+<p>Receive server and operator wallops</p>
+
+<p>x</p>
+
+<ul>
+<li>Monitor server split/intro notices
+n/a</li>
+</ul>
+
+<p>n/a</p>
+
+<p>n/a</p>
+
+<p>y</p>
+
+<ul>
+<li>Monitor links/stats/etc notices
+n/a</li>
+</ul>
+
+<p>*
+n/a</p>
+
+<p>z</p>
+
+<ul>
+<li>Receive operator wallops
+n/a</li>
+</ul>
+
+<p>n/a</p>
+
+<p>n/a</p>
+
+<p>A</p>
+
+<p>n/a</p>
+
+<p>n/a</p>
+
+<ul>
+<li>Indicates active server admin status
+n/a</li>
+</ul>
+
+<p>C</p>
+
+<ul>
+<li>like +c but more complete and machine-parsable
+n/a</li>
+</ul>
+
+<p>n/a</p>
+
+<p>n/a</p>
+
+<p>O</p>
+
+<ul>
+<li>Indicates active local operator status
+n/a</li>
+</ul>
+
+<p>n/a</p>
+
+<p>R</p>
+
+<p>n/a</p>
+
+<p>Receive /msg only from registered users to deter spam</p>
+
+<p>n/a</p>
+
+<p>Z</p>
+
+<ul>
+<li>Monitor operspy notices
+n/a</li>
+</ul>
+
+<p>n/a</p>
+
+<p>n/a</p>
+
+<hr />
+
+<p>[ <a href="../index.html">go back</a> | <a href="../search_engine.html">search</a> |
+<a href="../help.html">help</a> | <a href="../mail.html">send email</a> ]</p>
+
+<p><a href="../credit.html">all pages (C) IRCHELP.ORG or original authors</a></p>
+
+                            </div>
+        
+        <footer>
+
+                        <p>All documents © irchelp.org or original authors 2012 <br />Baked with <em><a href="http://bolt80.com/piecrust/">PieCrust</a> 1.0.0-dev</em>.</p>
+                    </footer>
+    </div>
+    
+        <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="http://www.irchelp.org/js/jquery.js"></script>
+    <script src="http://www.irchelp.org/js/bootstrap-transition.js"></script>
+    <script src="http://www.irchelp.org/js/bootstrap-alert.js"></script>
+    <script src="http://www.irchelp.org/js/bootstrap-modal.js"></script>
+    <script src="http://www.irchelp.org/js/bootstrap-dropdown.js"></script>
+    <script src="http://www.irchelp.org/js/bootstrap-scrollspy.js"></script>
+    <script src="http://www.irchelp.org/js/bootstrap-tab.js"></script>
+    <script src="http://www.irchelp.org/js/bootstrap-tooltip.js"></script>
+    <script src="http://www.irchelp.org/js/bootstrap-popover.js"></script>
+    <script src="http://www.irchelp.org/js/bootstrap-button.js"></script>
+    <script src="http://www.irchelp.org/js/bootstrap-collapse.js"></script>
+    <script src="http://www.irchelp.org/js/bootstrap-carousel.js"></script>
+    <script src="http://www.irchelp.org/js/bootstrap-typeahead.js"></script>
+</body>
+
+<!-- Mirrored from www.irchelp.org/irchelp/misc/umodes.html by HTTrack Website Copier/3.x [XR&CO'2013], Sun, 29 Dec 2013 06:58:10 GMT -->
+</html>

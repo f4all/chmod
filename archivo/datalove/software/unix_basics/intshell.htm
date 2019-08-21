@@ -1,0 +1,471 @@
+<!DOCTYPE doctype PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+    
+  <meta http-equiv="Content-Type"
+ content="text/html; charset=iso-8859-1">
+    
+  <meta name="GENERATOR"
+ content="Mozilla/4.7 [en] (Win95; I) [Netscape]">
+    
+  <meta name="CREATED" content="19980914;9555000">
+    
+  <meta name="CHANGED" content="16010101;0">
+    
+  <meta name="Author" content="V&iacute;ctor A. Gonz&aacute;lez-Barbone">
+    
+  <meta name="Description"
+ content="Introducci&oacute;n al uso del shell en UNIX">
+    
+  <meta name="KeyWords" content="UNIX, curso, tutorial, Linux">
+  <title>Curso B&aacute;sico de UNIX- Introducci&oacute;n al shell</title>
+</head>
+  <body bgcolor="#ffffff">
+  
+<address> <a href="index.htm">Curso B&aacute;sico de UNIX</a></address>
+  
+<address> &nbsp;</address>
+  
+<center> 
+<h1> Introducci&oacute;n al "shell"</h1>
+</center>
+  
+<p><br>
+<a href="#CrearDos">Crear dos archivos de prueba</a> <br>
+<a href="#ComandosUNIX">Comandos en el sistema UNIX</a> <br>
+<a href="#EstructuraComandos">Estructura de Comandos</a> <br>
+<a href="#Expansiones">Expansiones de la l&iacute;nea de comandos</a> <br>
+<a href="#Variables">Variables de ambiente</a> <br>
+<a href="#Entrecomillado">Entrecomillado de argumentos</a> <br>
+<a href="#PS1">PS1</a> <br>
+<a href="#EntradaSalida">Entrada est&aacute;ndar y salida est&aacute;ndar</a>
+ <br>
+<a href="#MarcaFinArchivo">Fin de flujo</a> <br>
+<a href="#AgregarSalida">Agregar la salida est&aacute;ndar a un archivo</a>
+ <br>
+<a href="#Error">Error est&aacute;ndar</a> <br>
+<a href="#Interconexi%F3n">Interconexi&oacute;n de comandos (entubamiento)</a>
+ <br>
+<a href="#Filtros">Filtros</a> <br>
+<a href="#CamposDelim">Campos y delimitadores</a> <br>
+<a href="#Retorno">Valores de retorno de los comandos</a> <br>
+<a href="#Grave">El operador grave</a> <br>
+<a href="#Secuencia">Secuencias de comandos</a> <br>
+<a href="#Redirecci%F3n">Redirecci&oacute;n del shell</a> <br>
+<a href="#Fin">Fin</a> <br>
+<a href="#Referencias">Bibliograf&iacute;a y Referencias</a> <br>
+&nbsp; </p>
+<p>El int&eacute;rprete de comandos o "shell" act&uacute;a entre el sistema 
+operativo y el operador. Provee al usuario una interfaz hacia el sistema operativo.
+El usuario dialoga con el int&eacute;rprete de comandos, y &eacute;ste transfiere
+las &oacute;rdenes al sistema operativo, que las ejecuta sobre la m&aacute;quina. 
+</p>
+<h3> <a name="CrearDos"></a>Crear dos archivos de prueba.</h3>
+ Con el comando <tt>cat</tt> puede crearse un archivo aceptando el teclado 
+como entrada est&aacute;ndar y direccionando la salida est&aacute;ndar hacia
+un archivo: <dt> <tt>&nbsp; cat &gt;nota</tt></dt>
+  <dt> digitar las siguientes l&iacute;neas, tal cual est&aacute;n, terminando 
+cada l&iacute;nea dando &lt;Enter&gt;; finalizar con &lt;Ctrl-D&gt;. Digitar 
+con cuidado: una vez pasados al rengl&oacute;n siguiente, no puede volverse 
+atr&aacute;s para corregir.</dt>
+  
+<dl>
+  <dt> <tt>&nbsp; El shell es un int&eacute;rprete de comandos.</tt></dt>
+  <dt> <tt>&nbsp; Es tambi&eacute;n un lenguaje de programaci&oacute;n.</tt></dt>
+  <dt> <tt>&nbsp; Los programas escritos con el shell se llaman scripts.</tt></dt>
+  <dt> &nbsp;</dt>
+  <dt> Digitar &lt;Ctrl-D&gt; para finalizar el ingreso.</dt>
+  <dt> <tt>&nbsp;cat nota</tt></dt>
+  <dt> muestra el contenido digitado.</dt>
+  <dt> &nbsp;</dt>
+  <dt> Crear del mismo modo el archivo LEAME, haciendo</dt>
+  <dl>
+    <dt> <tt>cat &gt; LEAME</tt></dt>
+  </dl>
+  <dt> con este contenido:</dt>
+  <dl>
+    <dt> <tt>Este es el archivo LEAME.</tt></dt>
+    <dt> <tt>Recuerde que UNIX diferencia entre may&uacute;sculas y min&uacute;sculas.</tt></dt>
+    <dt> <tt>El archivo LEAME tendr&aacute; este contenido.</tt></dt>
+  </dl>
+  <dt> <tt>&nbsp;</tt></dt>
+  <dt> <tt>&nbsp; cat LEAME</tt></dt>
+  <dt> para verificar el contenido.</dt>
+</dl>
+  
+<h3> <a name="ComandosUNIX"></a>Comandos en el sistema UNIX.</h3>
+ En UNIX, los comandos son programas ejecutables separados. El shell es un
+int&eacute;rprete de comandos: puede expandir y cambiar la manera en que
+act&uacute;an los comandos, admite el uso de comodines y la interconexi&oacute;n 
+o entubamiento de comandos. 
+<h3> <a name="EstructuraComandos"></a>Estructura de comandos.</h3>
+  
+<dl>
+  <dt> La estructura general de un comando es la siguiente:</dt>
+  <dt> <tt>&nbsp; <i>nombre opciones argumentos</i></tt></dt>
+  <dt> <i><tt>nombre</tt></i> es el nombre del comando. Las <i><tt>opciones</tt></i>
+ o banderas controlan la forma en que act&uacute;a el comando; van precedidas 
+por el signo <tt>-</tt> (menos). Los <i><tt>argumentos</tt></i> son com&uacute;nmente 
+nombres de archivos o nombres de login de usuarios.</dt>
+  <dt> &nbsp;</dt>
+  <dt> <tt>&nbsp;pr -l23 nota</tt></dt>
+  <dt> <tt>&nbsp;pr -l23 LEAME</tt></dt>
+  <dt> da formato y muestra el archivo indicado en p&aacute;ginas de 23 l&iacute;neas 
+de largo para que quepa en la pantalla.</dt>
+  <dt> <tt>&nbsp;pr -d -l23 LEAME</tt></dt>
+  <dt> muestra el archivo <tt>LEAME</tt> a doble espacio, largo de p&aacute;gina 
+23.</dt>
+  <dt> <tt>&nbsp;pr -d -o15 -l23 LEAME</tt></dt>
+  <dt> doble espacio, margen izquierdo de 15 espacios, largo de p&aacute;gina 
+23.</dt>
+  <dt> <tt>&nbsp;pr -l23 nota LEAME | more</tt></dt>
+  <dt> muestra los dos archivos uno tras otro, pero los pagina separados.</dt>
+  <dt> <tt>&nbsp;cat nota LEAME</tt></dt>
+  <dt> concatena los archivos; los presenta uno tras otro.</dt>
+  <dt> <tt>&nbsp;cat nota LEAME | pr -l23</tt></dt>
+  <dt> concatena los archivos y luego les da formato a los dos juntos.</dt>
+</dl>
+  
+<h3> <a name="Expansiones"></a>Expansiones de la l&iacute;nea de comando.</h3>
+ Los comodines son caracteres que sustituyen cadenas de caracteres. <dt> <tt>
+*&nbsp;&nbsp;&nbsp;&nbsp; secuencia de caracteres cualesquiera, 0 o m&aacute;s.</tt></dt>
+  <dt> <tt>?&nbsp;&nbsp;&nbsp;&nbsp; caracter cualquiera, uno y uno s&oacute;lo; 
+debe aparear un caracter.</tt></dt>
+  <dt> <tt>[...] sustituye los caracteres indicados individualmente.</tt></dt>
+  
+<h3> <a name="Variables"></a>Variables de ambiente.</h3>
+  
+<dl>
+  <dt> Las variables de ambiente son cadenas de caracteres de la forma</dt>
+  <dt> <tt><i>&nbsp; nombre</i>=<i>valor</i></tt></dt>
+  <dt> <i><tt>nombre</tt></i> es cualquier cadena de caracteres que no incluya 
+$ ni espacio (\b); <i><tt>valor</tt></i> es cualquier cadena; puede incluir 
+el espacio si el valor est&aacute; entre comillas.</dt>
+  <dt> &nbsp;</dt>
+  <dt> <tt>&nbsp; MUESTRA="hola chicos"</tt></dt>
+  <dt> asigna <tt>"hola chicos"</tt> a la variable <tt>MUESTRA.</tt></dt>
+  <dt> <tt>&nbsp; echo $MUESTRA</tt></dt>
+  <dt> muestra en pantalla el contenido de la variable <tt>MUESTRA</tt>.
+Para exhibir el contenido de una variable de ambiente se escribe <tt>echo
+$<i>nombre-variable</i></tt>.&nbsp; En general, para hacer uso del contenido
+de una variable, se escribe <tt>$<i>nombre-variable.</i></tt></dt>
+  <dt> &nbsp;</dt>
+  <dt> Es una costumbre muy arraigada en UNIX usar may&uacute;sculas para
+los nombres de variable, as&iacute; como es una regla usar min&uacute;sculas 
+para los comandos. Las opciones pueden ser may&uacute;sculas y min&uacute;sculas; 
+la opci&oacute;n -a no es lo mismo que -A.</dt>
+  <dt> &nbsp;</dt>
+  <dt> Las variables de ambiente pueden ser usadas como nombres de comando
+o como argumentos de un comando.</dt>
+  <dt> <tt>&nbsp;XYZ="cat nota"</tt></dt>
+  <dt> <tt>&nbsp;$XYZ</tt></dt>
+  <dt> la variable XYZ contiene un comando, y al ser invocado su contenido,
+el comando es ejecutado.</dt>
+  <dt> <tt>&nbsp;</tt></dt>
+  <dt> <tt>&nbsp; echo hola $MUESTRA chicos</tt></dt>
+  <dt> la variable puede usarse en la formaci&oacute;n de cadenas.</dt>
+  <dt> <tt>&nbsp; echo hola${MUESTRA}chicos</tt></dt>
+  <dt> la variable puede embeberse en una cadena; las llaves delimitan el
+nombre de la variable.</dt>
+</dl>
+  <dt> <tt>&nbsp; env</tt></dt>
+  <dt> muestra las variables de ambiente definidas. Muchas son fijadas en
+el ingreso del usuario al sistema (variables de login); y otras son propias
+del shell (variables del shell).</dt>
+  <dt> <tt>&nbsp; echo $LOGNAME</tt></dt>
+  <dt> muestra el nombre de login del usuario.</dt>
+  <dt> <tt>&nbsp; echo $HOSTNAME</tt></dt>
+  <dt> muestra el nombre de la m&aacute;quina.</dt>
+  <dt> <tt>&nbsp; echo $NOEXISTE</tt></dt>
+  <dt> Las variables no definidas no muestran nada cuando son referenciadas.</dt>
+  
+<h3> <a name="Entrecomillado"></a>Entrecomillado de argumentos en la l&iacute;nea 
+de comandos.</h3>
+ Los espacios separan argumentos. El entrecomillado obliga a tratar una cadena
+con espacios como si fuera un solo argumento. Cuando se usan comillas dobles
+(" ") el shell interpreta las variables de ambiente inclu&iacute;das, actuando
+seg&uacute;n su contenido: <dt> <tt>&nbsp; MUESTRA="Mi nombre de login es
+$LOGNAME"</tt></dt>
+  <dt> <tt>&nbsp; echo $MUESTRA</tt><br>
+</dt>
+<p>Cuando se usan comillas simples (' ') el shell no interpreta las variables 
+de ambiente, tratando sus nombres como cadenas: </p>
+<dt> <tt>&nbsp; MUESTRA='La variable $LOGNAME contiene su nombre de login'</tt></dt>
+  <dt> <tt>&nbsp; echo $MUESTRA</tt></dt>
+  <dt> <tt>&nbsp;</tt></dt>
+  <dt> Las comillas simples permiten usar comillas dobles:</dt>
+  <dt> <tt>&nbsp; echo '"hola chicos"'</tt></dt>
+  
+<h3> <a name="PS1"></a>PS1.</h3>
+ Aunque generalmente los omitimos, en los ejemplos de esta secci&oacute;n 
+mostraremos el indicador de comandos y la salida de ejecuci&oacute;n. 
+<p>La variable s&iacute;mbolo de indicador de comandos nivel 1 PS1 (Prompt 
+Symbol level 1) es un valor de ambiente que puede no aparecer en la salida 
+de env: </p>
+<dt> <tt>&nbsp; <b>$</b> echo $PS1</tt></dt>
+  <dt> <tt>&nbsp; <b>$</b></tt></dt>
+  <dt> responde con el indicador de comandos actual, $.</dt>
+  <dt> <tt>&nbsp; <b>$</b> PS1=hola:</tt></dt>
+  <dt> <tt>&nbsp; <b>hola:</b></tt></dt>
+  <dt> carga un nuevo indicador de comandos; el sistema responde con el nuevo 
+indicador de comandos, hola:.</dt>
+  <dt> <tt><b>&nbsp; hola:</b> MUESTRA="ingrese comando:"</tt></dt>
+  <dt> <tt><b>&nbsp; hola:</b> PS1=$MUESTRA</tt></dt>
+  <dt> <tt><b>&nbsp; ingrese comando:</b> MUESTRA=hola</tt></dt>
+  <dt> <tt><b>&nbsp; ingrese comando:</b> echo $MUESTRA</tt></dt>
+  <dt> <tt>&nbsp; hola</tt></dt>
+  <dt> <b><tt>&nbsp; ingrese comando:</tt></b></dt>
+  <dt> la variable MUESTRA cambi&oacute; pero el indicador no cambi&oacute;;</dt>
+  <dt> <tt>&nbsp; <b>ingrese comando:</b> PS1='$'</tt></dt>
+  <dt> <tt>&nbsp; <b>$</b></tt></dt>
+  <dt> repone el indicador de comandos.</dt>
+  
+<h3> <a name="EntradaSalida"></a>Entrada est&aacute;ndar y salida est&aacute;ndar.</h3>
+ Los comandos leen como entrada una secuencia de caracteres (flujo de entrada 
+o "input stream"), y escriben a la salida otra secuencia de caracteres (flujo
+de salida o "output stream"). Estas secuencias no tienen estructura interna
+alguna, y se les llama entrada est&aacute;ndar y salida est&aacute;ndar. <dt>
+ <tt>&nbsp; cat nota &gt; nota2</tt></dt>
+  <dt> redirige la salida est&aacute;ndar a un archivo que crea o sobreescribe, 
+en vez de a la pantalla.</dt>
+  <dt> <tt>&nbsp; mail juan &lt; nota</tt></dt>
+  <dt> toma la entrada est&aacute;ndar de un archivo en vez del teclado.</dt>
+  <dt> <tt>&nbsp; pr &lt; nota &gt; nueva.nota</tt></dt>
+  <dt> el archivo nota es la entrada, el archivo nueva.nota es la salida.</dt>
+  <dt> <tt>&nbsp; cat nueva.nota</tt></dt>
+  <dt> muestra el archivo donde se grab&oacute; la salida con formato.</dt>
+  <dt> &nbsp;</dt>
+  <dt> Los s&iacute;mbolos &lt; y &gt; redirigen entrada y salida est&aacute;ndar:</dt>
+  <dt> <tt>&nbsp; &lt; nombre_entrada&nbsp;&nbsp;&nbsp; </tt>redirige la
+entrada est&aacute;ndar</dt>
+  <dt> <tt>&nbsp; &gt; nombre_salida&nbsp;&nbsp;&nbsp;&nbsp; </tt>redirige
+la salida est&aacute;ndar</dt>
+  <dt> <tt>&nbsp;</tt></dt>
+  <dt> <tt>&nbsp; MUESTRA=/etc/passwd</tt></dt>
+  <dt> <tt>&nbsp; pr &lt; $MUESTRA &gt; lista.usuarios</tt></dt>
+  <dt> <tt>&nbsp; more lista.usuarios</tt></dt>
+  <dt> <tt>&nbsp;</tt></dt>
+  <dt> Los comandos y los archivos tienen una estructura orientada a caracter. 
+En muchos comandos se puede intercambiar teclado por archivos o dispositivos 
+de hardware.</dt>
+  <dt> <tt>&nbsp;</tt></dt>
+  <dt> <tt>&nbsp; cat nota</tt></dt>
+  <dt> <tt>&nbsp; cat &lt; nota</tt></dt>
+  <dt> son comandos equivalentes porque <tt>cat</tt> opera sobre un archivo
+y tambi&eacute;n sobre la entrada est&aacute;ndar.</dt>
+  
+<dl>
+  <dt> <tt>&nbsp; cat nota LEAME nueva.nota</tt></dt>
+  <dt> <tt>&nbsp; cat nota - nueva.nota &lt; LEAME</tt></dt>
+  <dt> son comandos equivalentes. El signo menos (-) aislado equivale a tomar 
+en ese punto la entrada est&aacute;ndar, que usualmente est&aacute; asignada 
+al teclado.</dt>
+</dl>
+  
+<h3> <a name="MarcaFinArchivo"></a>Fin de flujo.</h3>
+ El ingreso de datos desde el teclado, as&iacute; como el despliegue en pantalla,
+se manejan en UNIX como "flujos de caracteres", una serie de caracteres uno
+tras otro. Para indicar en el teclado el fin de un flujo de caracteres se
+usa Ctrl-D. Este s&iacute;mbolo no forma parte del ingreso; simplemente indica
+el final del ingreso, que ya no se escribir&aacute; m&aacute;s. En UNIX no
+hay un caracter especial para indicar fin de archivo; el sistema sabe cuando
+termina un archivo por medio de contadores. <dt> <tt>&nbsp;</tt></dt>
+  <dt> <tt>&nbsp;cat nota - nueva.nota &gt; arch.salida</tt></dt>
+  <dt> procesa el archivo nota, lee lo que se digite en el teclado hasta
+recibir un Ctrl-D, procesa nueva.copia y escribe todo en el archivo arch.salida; 
+se re&uacute;nen tres fuentes distintas en una &uacute;nica salida.</dt>
+  <dt> <tt>&nbsp; cat arch.salida</tt></dt>
+  <dt> muestra todo lo reunido.</dt>
+  
+<h3> <a name="AgregarSalida"></a>Agregar la salida est&aacute;ndar a un archivo.</h3>
+  <dt> <tt>&nbsp; cat &lt; nota &gt; nota.copia</tt></dt>
+  <dt> <tt>&nbsp; cat nota nota.copia &gt; doble.nota</tt></dt>
+  <dt> <tt>&nbsp; rm nota.copia</tt></dt>
+  <dt> <tt>doble.nota</tt> contiene <tt>nota</tt> dos veces. Se logra lo
+mismo con</dt>
+  <dt> <tt>&nbsp; cat nota &gt; dup.nota</tt></dt>
+  <dt> <tt>&nbsp; cat nota &gt;&gt; dup.nota</tt></dt>
+  <dt> El s&iacute;mbolo &gt;&gt; redirige la salida est&aacute;ndar a un
+archivo, pero agregando al final del mismo en lugar de reemplazar su contenido.</dt>
+  
+<h3> <a name="Error"></a>Error est&aacute;ndar.</h3>
+ Adem&aacute;s de los flujos de entrada y salida est&aacute;ndar, existe un
+tercer flujo de caracteres, el error est&aacute;ndar, hacia donde se dirigen
+los mensajes de error. El error est&aacute;ndar est&aacute; dirigido habitualmente
+a la pantalla, pero mediante 2&gt; o 2&gt;&gt; se redirige el error est&aacute;ndar
+hacia un archivo de errores. Los flujos est&aacute;ndar se reconocen por
+los siguientes n&uacute;meros: 
+<dl>
+  <dt> <tt>&nbsp; 0&nbsp;&nbsp; la entrada est&aacute;ndar, usualmente el
+teclado;</tt></dt>
+  <dt> <tt>&nbsp; 1&nbsp;&nbsp; la salida est&aacute;ndar, usualmente la
+pantalla;</tt></dt>
+  <dt> <tt>&nbsp; 2&nbsp;&nbsp; el error est&aacute;ndar, usualmente la pantalla.</tt></dt>
+  <dt> <tt>&nbsp;</tt></dt>
+  <dt> <tt>&nbsp; echo Archivo de errores &gt; salida.error</tt></dt>
+  <dt> <tt>&nbsp; cat noexiste 2&gt;&gt;salida.error</tt></dt>
+  <dt> <tt>&nbsp; cat salida.error</tt></dt>
+  <dt> el archivo <tt>salida.error</tt> contiene el mensaje inicial y el
+de error.</dt>
+  <dt> <tt>&nbsp; ls noexiste 2&gt;&gt;salida.error</tt></dt>
+  <dt> <tt>&nbsp; rm noexiste 2&gt;&gt;salida.error</tt></dt>
+  <dt> <tt>&nbsp; cat salida.error</tt></dt>
+  <dt> re&uacute;ne los mensajes de error en el archivo <tt>salida.error</tt>
+.</dt>
+</dl>
+  
+<h3> <a name="Interconexi&oacute;n"></a>Interconexi&oacute;n de comandos (entubamiento).</h3>
+ El operador | hace que la salida del comando precedente sea la entrada del
+comando siguiente, creando un entubamiento o interconexi&oacute;n de comandos. 
+<br>
+&nbsp; <dt> <tt>&nbsp; cat nota LEAME | pr &gt; salida</tt></dt>
+  <dt> hace que la concatenacion de los archivos nota y LEAME sea servida
+al comando <tt>pr</tt>, cuya salida est&aacute; redirigida a un archivo.</dt>
+  <dt> <tt>&nbsp; cat - LEAME &lt; nota | pr &gt; salida</tt></dt>
+  <dt> tiene el mismo efecto. Notar la posicion de redireccion &lt;.</dt>
+  <dt> &nbsp;</dt>
+  <dt> Los operadores &lt; y &gt; redirigen, | conecta comandos.</dt>
+  
+<h3> <a name="Filtros"></a>Filtros.</h3>
+ Muchos comandos est&aacute;n pensados para ser interconectados, pasando simplemente
+la entrada hacia la salida, por lo que se les llama habitualmente filtros. 
+<dt> <tt>&nbsp; echo 'hola chicos' | tr l p</tt></dt>
+  <dt> <tt>tr</tt> traduce caracteres y produce 'hopa chicos'.</dt>
+  <dt> <tt>&nbsp; echo 'hola chicos' | tr lo pa</tt></dt>
+  <dt> produce 'hapa chicas'.</dt>
+  
+<h3> <a name="CamposDelim"></a>Campos y delimitadores.</h3>
+ Un campo es una cadena de caracteres separada por un caracter delimitador. 
+El archivo /etc/passwd tiene en cada l&iacute;nea una serie de campos separados 
+por dos puntos (:) . <dt> <tt>&nbsp; more /etc/passwd</tt></dt>
+  <dt> muestra el contenido de /etc/passwd.</dt>
+  <dt> <tt>&nbsp; cut -f1 -d: &lt; /etc/passwd</tt></dt>
+  <dt> <tt>&nbsp; cut -f1,3,5 -d: &lt; /etc/passwd</tt></dt>
+  <dt> muestra los campos pedidos usando el delimitador : (dos puntos).</dt>
+  <dt> <tt>&nbsp; cut -c1-8 &lt; /etc/passwd</tt></dt>
+  <dt> muestra columnas 1 a 8.</dt>
+  <dt> <tt>&nbsp; ls -l | cut -c56-</tt></dt>
+  <dt> corta el listado de archivos desde donde empieza el nombre al final.</dt>
+  <dt> <tt>&nbsp; sort &lt; /etc/passwd | cut -f1 -d: | more</tt></dt>
+  <dt> ordena las l&iacute;neas, corta el primer campo y presenta los nombres 
+de usuarios habilitados en el sistema.</dt>
+  <dt> <tt>&nbsp; env | cut -f1 -d= | sort</tt></dt>
+  <dt> muestra nombres de variables de ambiente ordenadas; el separador es
+=.</dt>
+  
+<h3> <a name="Retorno"></a>Valores de retorno de los comandos.</h3>
+ Los comandos devuelven un c&oacute;digo de retorno 0 si el comando termina 
+correctamente, o un n&uacute;mero entre 1 y 255 seg&uacute;n la raz&oacute;n 
+de falla. El c&oacute;digo de retorno del &uacute;ltimo comando queda en una
+variable llamada '?', que se interroga como $?. <dt> <tt>&nbsp; cat noexiste</tt></dt>
+  <dt> <tt>&nbsp; ERROR=$?</tt></dt>
+  <dt> <tt>&nbsp; echo $?</tt></dt>
+  <dt> <tt>&nbsp; echo $ERROR</tt></dt>
+  <dt> guarda el c&oacute;digo de error; la asignaci&oacute;n termina bien,
+por lo que en $? queda 0, pero en <tt>ERROR</tt> qued&oacute; el n&uacute;mero 
+de error de la operaci&oacute;n fallida. $? es una 'variable de shell' mantenida
+internamente por el propio int&eacute;rprete. Otras variables de shell son:</dt>
+  <dt> &nbsp;</dt>
+  <dt> <tt>#&nbsp; n&uacute;mero de argumentos en el comando para la shell
+actual</tt></dt>
+  <dt> <tt>$&nbsp; n&uacute;mero de proceso para el shell actual</tt></dt>
+  <dt> &nbsp;</dt>
+  <dt> Estas variables se interrogan como <tt>$# </tt>y<tt> $$</tt>.</dt>
+  
+<dl>
+  <h3> <a name="Grave"></a>El operador grave.</h3>
+</dl>
+ El acento grave (<tt>`</tt>) asigna a una variable de ambiente la salida 
+est&aacute;ndar de un comando. El largo de la variable es limitado, pero usualmente
+&gt; 5120 en SVR4. <dt> <tt>&nbsp; MUESTRA=`echo $LOGNAME`</tt></dt>
+  <dt> <tt>&nbsp; echo $MUESTRA</tt></dt>
+  <dt> escribe el nombre de login del usuario.</dt>
+  <dt> <tt>&nbsp; wc /etc/passw</tt></dt>
+  <dt> cuenta l&iacute;neas, palabras y caracteres.</dt>
+  <dt> &nbsp;</dt>
+  <dt> El comando <tt>wc</tt> (word count) acepta opciones -l para l&iacute;neas, 
+-w para palabras y -c para caracteres.</dt>
+  <dt> <tt>&nbsp; TOTALPALABRAS=`cat * | wc -w`</tt></dt>
+  <dt> <tt>&nbsp; echo $TOTALPALABRAS</tt></dt>
+  <dt> cuenta las palabras en todos los archivos del directorio. Tambi&eacute;n</dt>
+  <dt> <tt>&nbsp; echo `cat * | wc -w`</tt></dt>
+  <dt> <tt>&nbsp; echo Total de palabras en el directorio: `cat * | wc -w`</tt></dt>
+  <dt> &nbsp;</dt>
+  <dt> El&nbsp; acento grave permite ejecutar un comando dentro de otro,
+encerrando el comando anidado entre acentos graves.</dt>
+  
+<h3> <a name="Secuencia"></a>Secuencias de comandos.</h3>
+ El shell es tambi&eacute;n un lenguaje de programaci&oacute;n. Pueden escribirse 
+varios comandos en una misma l&iacute;nea separ&aacute;ndolos con ; (punto 
+y coma). <dt> <tt>&nbsp; date ; echo Hola ; echo $LOGNAME</tt></dt>
+  <dt> <tt>&nbsp; MUESTRA=`date ; echo Hola ; echo $LOGNAME`;echo $MUESTRA</tt></dt>
+  
+<h3> <a name="Redirecci&oacute;n"></a>Redirecci&oacute;n del shell.</h3>
+ El shell que atiende los comandos del usuario es el login shell; arranca 
+cuando el usuario ingresa al sistema y termina cuando sale. Escribir <tt>
+sh</tt> como comando invoca una segunda instancia del shell, que puede terminarse 
+con el comando <tt>exit</tt> o con &lt;Ctrl-D&gt;. <br>
+&nbsp; <dt> Puede crearse un archivo de comandos haciendo</dt>
+  <dt> <tt>&nbsp; cat &gt; datos.usuario</tt></dt>
+  <dt> y escribiendo las siguientes l&iacute;neas. Pueden omitirse los comentarios 
+(de # en adelante)</dt>
+  <dt> <tt>&nbsp; echo Salida del comando datos.usuario</tt></dt>
+  <dt> <tt>&nbsp; echo Fecha: `date `&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # fecha
+y hora</tt></dt>
+  <dt> <tt>&nbsp; echo Usuario: $LOGNAME&nbsp;&nbsp; # nombre de login del
+usuario</tt></dt>
+  <dt> <tt>&nbsp; ps&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+# procesos corriendo del usuario</tt></dt>
+  <dt> <tt>&nbsp; echo Shell actual: $$&nbsp;&nbsp;&nbsp; # n&uacute;mero
+de proceso para el shell actual</tt></dt>
+  <dt> finalizar con &lt;Ctrl-D&gt;. Los # indican comentario.</dt>
+  <dt> Para convertir el archivo en ejecutable para el usuario, hacer</dt>
+  <dt> <tt>&nbsp;chmod u+x datos.usuario</tt></dt>
+  <dt> Verificar con <tt>ls -l</tt>. Los comandos ingresados en el archivo
+pueden ejecutarse con</dt>
+  <dt> <tt>&nbsp;sh datos.usuario</tt></dt>
+  <dt> Este comando invoca una nueva instancia de shell que no es la del
+ingreso al sistema.</dt>
+  <dt> &nbsp;</dt>
+  <dt> Agregar una l&iacute;nea m&aacute;s haciendo</dt>
+  <dt> <tt>&nbsp; cat datos.usuario - &gt;&gt; masdatos.usuario</tt></dt>
+  <dt> y escribiendo</dt>
+  <dt> <tt>&nbsp; cat noexiste&nbsp;&nbsp; # intenta mostrar un archivo inexistente</tt></dt>
+  <dt> Finalizar con &lt;Ctrl-D&gt;.</dt>
+  <dt> &nbsp;</dt>
+  <dt> <tt>&nbsp; echo "Archivo de errores del usuario" &gt; errores.usuario</tt></dt>
+  <dt> coloca una l&iacute;nea descriptiva en el archivo errores.usuario.</dt>
+  <dt> <tt>&nbsp; cat errores.usuario</tt></dt>
+  <dt> verifica su contenido.</dt>
+  <dt> &nbsp;</dt>
+  <dt> <tt>&nbsp; sh &lt;masdatos.usuario &gt;salida.usuario 2&gt;&gt;errores.usuario</tt></dt>
+  <dt> lee los comandos del archivo masdatos.usuario en la entrada est&aacute;ndar, 
+redirige la salida est&aacute;ndar al archivo salida.usuario y redirige la
+salida del error est&aacute;ndar al archivo errores.usuario.</dt>
+  <dt> <tt>&nbsp; cat salida.usuario</tt></dt>
+  <dt> <tt>&nbsp; cat errores.usuario</tt></dt>
+  
+<h3> <a name="Fin"></a>Fin.</h3>
+ Borrar con el comando <tt>rm</tt> los archivos auxiliares; conservar para 
+referencia los archivos <tt>nota</tt>, <tt>LEAME</tt>, <tt>datos.usuario</tt>
+, <tt>masdatos.usuario</tt> y eventualmente otros que le interesen. 
+<h3> <a href="intshej.htm">Preguntas y Ejercicios</a></h3>
+<a href="intshej2.htm">Ejercicios Complementarios</a><br>
+  
+<h3> <a name="Referencias"></a><b>Bibliograf&iacute;a y Referencias:</b></h3>
+ <b>Comandos:</b> <tt>cat chmod pr echo env tr cut sort wc ps</tt> <dt> <b>
+Referencias:</b></dt>
+  <dt> Coffin[1989], Greenfield[].</dt>
+  <br>
+P&aacute;ginas man/info de Linux "bash" ("Bourne-Again SHell"). 
+<address> &nbsp;</address>
+  
+<address>  </address>
+<hr width="100%">V&iacute;ctor A. Gonz&aacute;lez Barbone <a
+ href="mailto:%20vagonbar en fing edu uy">vagonbar en fing edu uy</a>  
+<address> <a href="http://iie.fing.edu.uy">Instituto de Ingenier&iacute;a
+El&eacute;ctrica</a> - <a href="http://www.fing.edu.uy">Facultad de Ingenier&iacute;a</a>
+ - Montevideo, Uruguay.</address>
+  
+</body>
+</html>

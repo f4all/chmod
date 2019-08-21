@@ -1,0 +1,256 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+                              
+  <meta http-equiv="Content-Type"
+ content="text/html; charset=iso-8859-1">
+                              
+  <meta name="GENERATOR"
+ content="Mozilla/4.07 [en] (X11; I; Linux 2.0.36 i586) [Netscape]">
+                                
+  <meta name="Author" content="Victor Gonz&aacute;lez-Barbone">
+                                
+  <meta name="Description" content="Ejercicios de Introducci&oacute;n al shell">
+                                
+  <meta name="KeyWords" content="UNIX, Linux, tutorial, curso">
+  <title>Curso B&aacute;sico de UNIX- Introducci&oacute;n al shell - Ejercicios</title>
+</head>
+  <body text="#000000" bgcolor="#ffffff" link="#0000ff" vlink="#ff0000"
+ alink="#000088">
+           
+<address> <a href="index.htm">Curso&nbsp; B&aacute;sico de UNIX</a></address>
+          
+<center>     
+<h2></h2>
+  </center>
+                
+<center>        
+<h2> Preguntas y Ejercicios.&nbsp;<br>
+        Ficha Referencia: Introducci&oacute;n al Shell</h2>
+       </center>
+          &nbsp;<br>
+          <b>Estructura de archivos.</b><br>
+      Estructura del archivo /etc/passwd:<br>
+  <tt>&nbsp; #nombre:contrase&ntilde;a:UID:GID:comentarios:dir_propio:shell</tt><br>
+  <tt>&nbsp; jperez:Xdio0IKLLP:1130:103:Juan P&eacute;rez:/home/jperez:/bin/bash</tt><br>
+      Estructura del archivo /etc/group:<br>
+  <tt>&nbsp; #grupo:GID:lista_usuarios  <br>
+  </tt><tt>&nbsp; docentes:103:victor,german,fernando</tt><br>
+  Estructura  del archivo /etc/hosts:<br>
+  <tt>&nbsp; #n&uacute;mero_IP nombre_m&aacute;quina alias</tt><br>
+  <tt>&nbsp; 10.137.137.250&nbsp;&nbsp;&nbsp; liebre.cdi.edu.uy liebre localhost
+  mailhost</tt><br>
+  Todos los archivos anteriores pueden tener comentarios (l&iacute;neas 
+ comenzadas por #).<br>
+          <br>
+             
+<ol>
+         <li><b>COMANDOS.</b> Cambiar hacia el directorio <tt>/etc</tt>,
+verificar    que se est&aacute; all&iacute; mostrando el nombre del directorio
+actual,    desplegar la lista de archivos en ese directorio, volver al directorio 
+propio,   verificar.&nbsp;</li>
+         <li><b>COMANDOS.</b> Estudiar en la rese&ntilde;a de comandos el 
+comando        <tt>more</tt>, asegur&aacute;ndose de conocer la forma de avanzar
+una    p&aacute;gina, retroceder una p&aacute;gina, avanzar y retroceder una
+l&iacute;nea,    y salir de <tt>more</tt>. Sugerencia: usar el comando<tt>
+  man ls </tt>para    mostrar la p&aacute;gina man del comando <tt>ls</tt>
+ ; las p&aacute;ginas   man se paginan con <tt>more</tt> autom&aacute;ticamente. 
+&nbsp;Repetir con <tt>less</tt>, anotando las diferencias.</li>
+         <li><b>FILTROS.</b> Crear el archivo <tt>hosts.tx</tt>t con las
+10  primeras   l&iacute;neas del archivo<tt> /etc/hosts</tt>; crear el archivo 
+     <tt>group.txt</tt>     con las 10 &uacute;ltimas l&iacute;neas del archivo 
+     <tt>/etc/group</tt>   .  Verificar su contenido. Concatenar ambos archivos 
+ present&aacute;ndolos  juntos en pantalla.&nbsp;</li>
+         <li><b>FILTROS.</b> Presentar el archivo largo <tt>/etc/inetd.conf 
+     </tt>    con formato de impresi&oacute;n fijando el largo de p&aacute;gina 
+ en 23;   paginar la presentaci&oacute;n en pantalla para poder examinarlo.&nbsp;</li>
+         <li><b>REDIRECCION.</b> Crear el archivo <tt>lineas</tt> con el
+texto    "Archivo  lineas" como contenido. Verificar con listado largo sus
+caracter&iacute;sticas     de creaci&oacute;n, explicando la salida del comando
+    <tt>ls -l</tt>. Agregar     al archivo creado una l&iacute;nea de texto,
+por ejemplo "Esta es la l&iacute;nea    1", y mostrar su contenido.&nbsp;
+Repetir agregando otra l&iacute;nea similar,    y mostrar el contenido del
+archivo.</li>
+         <li><b>COMANDOS.</b> Analizar la salida de los siguientes comandos:<tt>
+        who, who am i, whoami </tt>e indicar las direrencias. Analizar la 
+salida    de los comandos<tt> hostname, id</tt>.&nbsp;</li>
+         <li><b>COMANDOS.</b> Analizar la salida del comando <tt>finger <i>
+  nombre-usuario</i></tt>     . Use primero su propio nombre de usuario,
+luego  el de otro usuario del   sistema.  &iquest;Qu&eacute; informaci&oacute;n
+brinda?&nbsp;</li>
+         <li><b>COMANDOS.</b> Usando el directorio <tt>/bin</tt>, mostrar 
+todos   los nombres de archivo que empiecen con c; mostrar luego todos losnombres
+   de archivo que terminen con t; mostrar finalmente los nombres de archivo
+  que empiecen con c y terminen con t.</li>
+         <li><b>VARIABLES.</b><br>
+      a) Asignar el valor "Lunes" a la variable DIA1, el valor "Martes" 
+a  la  variable DIA2, hasta asignar "Domingo" a la variable DIA7.<br>
+      b) mostrar el valor de todas para verificar.<br>
+      c) Usando estas variables, obtener la salida<br>
+      Semana: Lunes Martes Mi&eacute;rcoles Jueves Viernes S&aacute;bado
+ Domingo<br>
+      d) Usando s&oacute;lo las variables definidas, cargar en la variable
+ SEMANA   la lista de d&iacute;as, separados por espacios. Mostrar el contenido
+ de  SEMANA para verificar.<br>
+        </li>
+         <li><b>VARIABLES.</b><br>
+      Usando variables del ambiente del usuario (variables de login), mostrar<br>
+       a) v&iacute;a del directorio propio del usuario;<br>
+      b) nombre de login del usuario;<br>
+      c) nombre de la terminal en uso en la sesi&oacute;n actual;<br>
+      d) nombre del int&eacute;rprete de comandos actual.<br>
+      e) v&iacute;a de b&uacute;squeda de ejecutables.<br>
+      f) Mostrar todas las variables de ambiente. &iquest;Cu&aacute;les 
+puede    reconocer?<br>
+        </li>
+           <li> <b>VARIABLES.</b><br>
+      a) Fijar el valor de la variable VIAS en "/usr/doc:/var/lib/dpkg";
+ mostrar   su contenido.<br>
+      b) agregar a la variable VIAS el directorio <tt>/usr/doc/HOWTO</tt>
+  al  final, y <tt>/usr/doc/FAQ</tt> al principio.<br>
+        </li>
+           <li> <b>ERROR.</b><br>
+      a) &iquest;Qu&eacute; muestra el shell para la variable <tt> NOEXISTO</tt>
+      ? &iquest;Qu&eacute; c&oacute;digo de error devuelve?<br>
+      b) Asignar a la variable <tt>NULA</tt> la cadena nula. &iquest;Qu&eacute;
+    muestra el shell para esta variable? &iquest;Qu&eacute; codigo de error
+  devuelve? Repetir asignando blancos.<br>
+      c) Asignar a la variable <tt>BLANCOS</tt> una cadena con blancos  embebidos,
+   por ejemplo "Esta cadena contiene blancos". &iquest;Qu&eacute;  pasa si
+ no  se usan comillas al asignar?&nbsp; Explicar el comportamiento.  Mostrar
+ el  c&oacute;digo de error devuelto en cada caso.<br>
+      d) Mostrar el contenido del archivo <tt>/etc/group</tt>. &iquest;Qu&eacute;
+    c&oacute;digo de error devuelve el comando?<br>
+      e) Mostrar el contenido del archivo <tt>noexiste</tt>. &iquest;Qu&eacute;
+    c&oacute;digo de error devuelve el comando</li>
+   <li><b>REDIRECCION.</b><br>
+ a) Con el comando <tt>cat</tt>, mostrar en pantalla el archivo /etc/services.<br>
+ b) Escribir el comando <tt>cat</tt> de modo redireccionando la entrada est&aacute;ndar 
+desde el archivo /etc/services y la salida est&aacute;ndar hacia el archivo 
+servicios.txt. Visualizar servicios.txt.<br>
+ c) Usando echo, crear un archivo errores.txt con contenido "Archivo de Errores".<br>
+ d) Con el comando <tt>cat</tt>, intentar mostrar el archivo noexiste.xxx 
+sin redireccionar entrada est&aacute;ndar, pero redireccionando la salida 
+est&aacute;ndar hacia noexiste.txt y el error est&aacute;ndar para&nbsp; agregar
+al archivo errores.txt. Visualizar errores.txt.<br>
+   </li>
+           <li><b>REDIRECCION (te&oacute;rico).</b><br>
+ a) Haciendo uso del shell bash invocar el script <tt>comotodo</tt>  para
+  que lea desde el archivo <tt>larguisimo</tt>, no muestre ni grabe su salida
+   y grabe los errores en el archivo <tt>errores</tt>.<br>
+      b) Repetir para que no muestre ni grabe los errores.<br>
+        </li>
+           <li> <b>VARIABLES.</b><br>
+      Predecir y explicar la salida de los siguientes comandos:<br>
+        </li>
+          <tt>&nbsp; echo $LOGNAME</tt><br>
+          <tt>&nbsp; echo "$LOGNAME"</tt><br>
+          <tt>&nbsp; echo '$LOGNAME'</tt><br>
+          <tt>&nbsp; echo \"$LOGNAME\"</tt><br>
+          <tt>&nbsp; echo "Mi login es $LOGNAME"</tt><br>
+          <tt>&nbsp; echo 'Mi login es $LOGNAME'</tt><br>
+         <li><b> EXPANSIONES DEL SHELL (te&oacute;rico).</b><br>
+      Escribir expresiones para englobar todos los nombres de archivos que<br>
+      a) comiencen con un d&iacute;gito.<br>
+      b) terminen con una vocal.<br>
+      c) terminen con una letra may&uacute;scula.<br>
+      d) de 6 caracteres terminados en dos d&iacute;gitos.<br>
+      e) formados por tres letras: una min&uacute;scula, una may&uacute;scula 
+   o min&uacute;scula, una vocal min&uacute;scula. Ejemplos: sTa, bta, mbu, 
+  tTo.<br>
+      f) empezados con letra min&uacute;scula, terminados con un punto y
+tres   d&iacute;gitos.<br>
+        </li>
+           <li><b>VARIABLES DE AMBIENTE.</b><br>
+      a) visualizar el contenido de la variable que guarda el indicador 
+de  comandos;  copiar en un papel su valor actual.<br>
+      b) Cambiar el indicador de comandos para que se muestre as&iacute;:<br>
+          <tt>&nbsp; UNIX listo&gt;</tt><br>
+      Recordar que &gt; es un caracter de redirecci&oacute;n del shell; es
+ interpretado   por el shell.<br>
+      c) Inicializar la variable <tt>VAR1</tt> con la cadena "shell bash
+1".   Mostrar  su contenido. Invocar ahora el shell <tt>csh</tt>. Mostrar
+ contenido   de la variable <tt>VAR1</tt>. Explique.<br>
+      d) Salga de <tt>csh</tt>. &iquest;Qu&eacute; valor tiene <tt> VAR1</tt>
+    ?  Explique.<br>
+      e) En el primer shell (shell de login), ejecute el comando<tt><br>
+ &nbsp; export   VAR1</tt><br>
+        </li>
+          y repita el paso anterior. &iquest;Qu&eacute; ha pasado?<br>
+          &nbsp; f) Si en lugar de <tt>csh</tt> invocamos una nueva instancia 
+  de   <tt>bash</tt>, &iquest;ocurrir&aacute; lo mismo?<br>
+           <li><b>FILTROS.</b><br>
+  a) Obtener una lista de los usuarios habilitados en el sistema,    usando
+ el archivo <tt>/etc/passwd</tt>. Sugerencia: filtrar las l&iacute;neas de
+comentario conectando la salida del listado con el comando de filtro <tt>
+grep -v "^#"</tt>, que elimina las l&iacute;neas empezadas con "#".<br>
+  b) Repetir, pero mostrando s&oacute;lo nombre de login y nombre    en la
+ vida real.<br>
+  c) Repetir, ordenando alfab&eacute;ticamente.<br>
+  d) Crear el archivo <tt>usuarios.txt</tt> con la lista, con un  encabezado
+ similar a &eacute;ste:<tt><br>
+           </tt></li>
+    <tt>&nbsp;&nbsp; &nbsp;===================================</tt><br>
+         <tt>&nbsp;&nbsp;&nbsp; Usuarios en el Sistema.</tt> <br>
+                                                           <tt>&nbsp;&nbsp; 
+ &nbsp;Lunes   23 de Agosto de 1999, 20:45</tt> <br>
+         <tt>&nbsp;&nbsp;&nbsp; ==================================</tt><br>
+       e) Presentar el contenido del archivo en formato de impresi&oacute;n,
+    con encabezado en cada p&aacute;gina diciendo "Lista de Usuarios", longitud
+    de p&aacute;gina 23 y margen izquierdo 12.<br>
+         <li><b>FILTROS.</b></li>
+  a) Contar la cantidad de l&iacute;neas, palabras y caracteres  en  el archivo
+  <a href="historia.txt"><tt>historia.txt</tt></a>.<br>
+  b) Contar la cantidad de usuarios habilitados en el sistema.<br>
+  c) Contar la cantidad de archivos en el directorio <tt>/bin</tt> usando 
+el comando <tt>ls</tt>.<br>
+  d) Repetir usando el comando <tt>ls -l</tt>. Explicar la diferencia.<br>
+  <li><b>FILTROS.</b></li>
+  a) Mostrar el archivo <a href="historia.txt"><tt>historia.txt</tt></a>
+todo en may&uacute;sculas. Resolver bien la &ntilde; y las vocales acentuadas.<br>
+  b) Repetir, pero dejando las vocales acentuadas min&uacute;sculas como
+vocales no acentuadas may&uacute;sculas.<br>
+  c) Transformar todos los espacios en subrayas (_). Contar ahora las  palabras. 
+&iquest;Cu&aacute;ntas hab&iacute;a en el archivo sin transformar?<br>
+  <li><b>OPERADOR GRAVE.</b></li>
+  a) Escribir comandos para cargar la variable <tt>LISTA</tt> con los  nombres 
+de los archivos del directorio actual.<br>
+  b) Crear el archivo <tt>usuarios.txt</tt> con 4 o 5 nombre propios, uno 
+en cada l&iacute;nea. Cargar en la variable <tt>USUARIOS</tt> el contenido 
+del archivo <tt>usuarios.txt</tt>. Mostrar contenido de <tt>USUARIOS</tt><br>
+  c) Sin editar el archivo <tt>usuarios.txt</tt>, agregar al final del mismo 
+la fecha y hora del d&iacute;a.<br>
+d) &iquest;C&oacute;mo har&iacute;a para agregar la fecha y hora del d&iacute;a
+al principio del archivo?<br>
+  <li><b>PROCESOS.</b></li>
+  a) Mostrar los procesos propios corriendo en el sistema.<br>
+  b) Explicar la salida del comando <tt>ps auxw</tt>.<br>
+  c) Idem para <tt>ps ajxw</tt>.<br>
+  d) Si estamos corriendo varias instancias de bash, &iquest;c&oacute;mo
+sabemos cu&aacute;l es el shell de login?<br>
+  <br>
+  <br>
+             
+</ol>
+  <b>Nota.</b> Para estos ejercicios, el archivo&nbsp;<tt><a
+ href="historia.txt">historia.txt</a></tt> puede ser sustitu&iacute;do por 
+cualquier archivo de texto en espa&ntilde;ol.                <br>
+  <br>
+              
+<address> </address>
+             
+<hr width="100%">         
+<address>V&iacute;ctor A. Gonz&aacute;lez Barbone&nbsp; <a
+ href="http://iie.fing.edu.uy/~vagonbar/unixbas/vagonbar en fing edu uy">vagonbar en fing edu uy</a></address>
+                
+<address><a href="http://iie.fing.edu.uy">Instituto de Ingenier&iacute;a El&eacute;ctrica</a>
+    - <a href="http://www.fing.edu.uy">Facultad de Ingenier&iacute;a</a>
+     - Montevideo, Uruguay.</address>
+             
+<p><br>
+       <br>
+       <br>
+       </p>
+             
+</body>
+</html>

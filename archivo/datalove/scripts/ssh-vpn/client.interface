@@ -1,0 +1,14 @@
+#TCX Roadwarrior client config /etc/network/interface
+#Replace: this.is.an.ip
+iface tun0 inet static
+        pre-up ssh -f -w 0:0 this.is.an.ip 'ifdown tun0; ifup tun0'
+        pre-up sleep 5
+        address 10.0.0.200
+        pointopoint 10.0.0.100
+        netmask 255.255.255.255
+        up ip route add 10.0.0.0/24 via 10.0.0.200
+        up ip route add this.is.an.ip/32 via 192.168.0.1
+        up ip route replace default via 10.0.0.1
+        down ip route replace default via 192.168.0.1
+        down ip route del 10.0.0.0/24 via 10.0.0.200
+        down ip route del this.is.an.ip/32 via 192.168.0.1

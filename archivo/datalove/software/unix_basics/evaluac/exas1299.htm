@@ -1,0 +1,333 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+   <META NAME="GENERATOR" CONTENT="Mozilla/4.07 [en] (X11; I; Linux 2.0.36 i586) [Netscape]">
+   <META NAME="AUTHOR" CONTENT="Victor Gonzalez-Barbone">
+   <META NAME="CREATED" CONTENT="19990225;10362500">
+   <META NAME="CHANGEDBY" CONTENT="Victor Gonzalez-Barbone">
+   <META NAME="CHANGED" CONTENT="19990225;10362500">
+<STYLE>
+	<!--
+		@page { margin-left: 2.50cm; margin-right: 1.50cm; margin-top: 1.50cm; margin-bottom: 1.50cm }
+	-->
+	</STYLE>
+</HEAD>
+<BODY TEXT="#000000" BGCOLOR="#FFFFFF" LINK="#0000EF" VLINK="#51188E" ALINK="#FF0000">
+
+<H5>
+Centro de Inform&aacute;tica<BR>
+Sistemas Operativos II</H5>
+
+<CENTER>
+<H2>
+Examen Diciembre 1999.</H2></CENTER>
+
+<CENTER><B>Soluci&oacute;n de scripts.</B></CENTER>
+
+<BR>&nbsp;
+<DT>
+<FONT SIZE=+2>1.</FONT> El comando <TT>last</TT> muestra una l&iacute;nea
+por cada login:</DT>
+
+<DT>
+<TT>&nbsp;&nbsp;victor&nbsp;&nbsp; :0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+console&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Fri Dec 17
+15:57&nbsp;&nbsp; still logged in</TT></DT>
+
+<DT>
+<TT>&nbsp;&nbsp;reboot&nbsp;&nbsp; system boot&nbsp; 2.0.36&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Fri Dec 17 15:57&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+(00:51)</TT></DT>
+
+<DT>
+<TT>&nbsp;&nbsp;victor&nbsp;&nbsp; :0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+console&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Sat Dec&nbsp;
+4 19:53 - 20:21&nbsp; (00:27)</TT></DT>
+
+<DT>
+<TT>&nbsp;&nbsp;victor&nbsp;&nbsp; :0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+console&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Sat Dec&nbsp;
+4 19:31 - 19:53&nbsp; (00:22)</TT></DT>
+
+<DT>
+<TT>&nbsp;&nbsp;cristina :0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+console&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Sat Dec&nbsp;
+4 19:17 - 19:31&nbsp; (00:13)</TT></DT>
+
+<DT>
+<TT>&nbsp;&nbsp;victor&nbsp;&nbsp; :0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+console&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Sat Dec&nbsp;
+4 15:08 - 15:10&nbsp; (00:01)</TT></DT>
+
+<DT>
+En el primer campo&nbsp; (columnas 1 a 9, incluyendo espacios al final)
+est&aacute; el nombre del usuario; en el &uacute;ltimo campo, encerrado
+entre par&eacute;ntesis, est&aacute; el tiempo de conexi&oacute;n de ese
+usuario (columnas 67 a 71, formato hh:mm).&nbsp; Crear un archivo <TT>horas.tmp</TT>
+con el siguiente formato:</DT>
+
+<DT>
+<TT>&nbsp;&nbsp;reboot:8:51</TT></DT>
+
+<DT>
+<TT>&nbsp;&nbsp;cristina:04:07</TT></DT>
+
+<DT>
+<TT>&nbsp;&nbsp;victor:06:00</TT></DT>
+
+<DT>
+<TT>&nbsp;&nbsp;victor:10:19</TT></DT>
+
+<DT>
+<TT>&nbsp;&nbsp;cristina:00:13</TT></DT>
+
+<DT>
+<TT>&nbsp;&nbsp;reboot:18:01</TT></DT>
+
+<BR>&nbsp;
+<DT>
+<TT># Examen Dic. 1999</TT></DT>
+
+<DT>
+<TT># prob1: crea archivo horas.tmp con nombres y horas de conexi&oacute;n</TT></DT>
+
+<DT>
+<TT>last | grep "(.*)" | cut -c1-9,67-71 | \<BR>
+&nbsp;&nbsp; tr -s " " | tr " " ":" > horas.tmp<BR>
+<BR>
+</TT><FONT SIZE=+2>2.</FONT> El archivo horas.tmp contiene informaci&oacute;n
+de tiempo de login de los usuarios. Sus campos son, en este orden: nombre
+de login, horas de conexi&oacute;n, minutos de conexi&oacute;n. El separador
+es :. El archivo contiene registros en desorden de muchos usuarios. Escribir
+un script que acumule el tiempo de conexi&oacute;n por usuario, y presente
+una salida de la forma</DT>
+
+<DT>
+<TT>&nbsp;&nbsp;Nombre: cristina - horas: 0, minutos: 22</TT></DT>
+
+<DT>
+<TT>&nbsp;&nbsp;Nombre: reboot - horas: 76, minutos: 0</TT></DT>
+
+<DT>
+<TT>&nbsp;&nbsp;Nombre: root - horas: 3, minutos: 54</TT></DT>
+
+<DT>
+<TT>&nbsp;&nbsp;Nombre: victor - horas: 53, minutos: 21</TT></DT>
+
+<DT>
+Se deber&aacute; extraer de la suma de minutos, las horas enteras, sum&aacute;ndolas
+al conteo de horas, mostrando el resto de minutos (operador % en <TT>expr</TT>).</DT>
+
+<BR><TT></TT>&nbsp;
+<DT>
+<TT># Examen Dic. 1999</TT></DT>
+
+<DT>
+<TT># prob2: suma horas de conexi&oacute;n a partir de horas.tmp</TT></DT>
+
+<DT>
+<TT></TT></DT>
+
+<DT>
+<TT># extrae lista de nombres</TT></DT>
+
+<DT>
+<TT>NOMBRES=`cat horas.tmp | cut -f1 -d: | sort | uniq`<BR>
+<BR>
+for NOM in $NOMBRES<BR>
+do<BR>
+&nbsp; THORAS=0<BR>
+&nbsp; TMINS=0<BR>
+</TT></DT>
+
+<DT>
+<TT>&nbsp;&nbsp;# extrae l&iacute;neas correspondientes a nombre</TT></DT>
+
+<DT>
+<TT>&nbsp; HRSNOM=`grep $NOM horas.tmp`<BR>
+</TT></DT>
+
+<DT>
+<TT>&nbsp; for I in $HRSNOM<BR>
+&nbsp; do<BR>
+&nbsp;&nbsp;&nbsp;&nbsp; HORA=`echo $I | cut -d: -f2`<BR>
+&nbsp;&nbsp;&nbsp;&nbsp; MIN=`echo $I | cut -d: -f3`<BR>
+&nbsp;&nbsp;&nbsp;&nbsp; THORAS=`expr $THORAS + $HORA`<BR>
+&nbsp;&nbsp;&nbsp;&nbsp; TMINS=`expr $TMINS + $MIN`<BR>
+&nbsp; done<BR>
+</TT></DT>
+
+<DT>
+<TT>&nbsp; # suma las horas contenidas en TMINS<BR>
+&nbsp; THORAS=`expr $THORAS + $TMINS / 60`</TT></DT>
+
+<DT>
+<TT>&nbsp;&nbsp;&nbsp;# obtiene el resto de minutos&nbsp;<BR>
+&nbsp; TMINS=`expr $TMINS % 60`</TT></DT>
+
+<DT>
+<TT></TT></DT>
+
+<DT>
+<TT>&nbsp; # presenta horas y minutos de conexi&oacute;n<BR>
+&nbsp; echo Nombre: $NOM - horas: $THORAS, minutos: $TMINS<BR>
+done</TT><BR>
+<BR></DT>
+
+<DT>
+<BR>
+<FONT SIZE=+2>3.</FONT> Para establecer una conexi&oacute;n PPP v&iacute;a
+modem, se dispone del comando <TT>pon uruguaynet</TT>; luego de esperar
+30 segundos, la conexi&oacute;n estar&aacute; establecida. Para cortarla,
+se usa el comando <TT>poff</TT>. Inmediatamente que se establece la conexi&oacute;n,
+se activa el agente de transporte de correo <TT>exim</TT>, para enviar
+los correos en cola, un proceso que puede demorar un tiempo indeterminado.
+Escribir un script que inicie la conexi&oacute;n, esperre que se establezca,
+emita el comando <TT>fetchmail </TT>para traer los correos en el servidor
+remoto, y corte la conexi&oacute;n luego de asegurarse que el proceso <TT>exim</TT>
+haya finalizado. Si el proceso <TT>exim</TT> a&uacute;n est&aacute; corriendo,
+se debe esperar 10 segundos, tantas veces como sea necesario.</DT>
+
+<DT>
+<B>Sugerencia:</B> el comando <TT>ps -ax</TT> muestra los procesos corriendo.
+Notar que si se usa <TT>grep</TT>, este proceso tambi&eacute;n puede estar
+en la salida de <TT>ps</TT>.</DT>
+
+<DT>
+</DT>
+
+<DT>
+<TT># Examen Dic. 1999</TT></DT>
+
+<DT>
+<TT># prob3: establece y corta conexi&oacute;n PPP, duerme mientras ejecuta
+exim</TT></DT>
+
+<DT>
+<TT></TT></DT>
+
+<DT>
+<TT>pon uruguaynet</TT></DT>
+
+<DT>
+<TT>sleep 30</TT></DT>
+
+<DT>
+<TT></TT></DT>
+
+<DT>
+<TT>fetchmail</TT></DT>
+
+<DT>
+<TT></TT></DT>
+
+<BR><TT>while [ "`ps ax | grep -v grep | grep exim`" ]</TT>
+<BR><TT>do</TT>
+<BR><TT>&nbsp; sleep 10</TT>
+<BR><TT>done</TT><TT></TT>
+<P><TT>poff</TT>
+<BR><TT></TT>&nbsp;
+<DT>
+</DT>
+
+<DT>
+<FONT SIZE=+2>4.</FONT> Una empresa usa el campo de comentario de /etc/passwd
+(campo 5) para guardar informaci&oacute;n de sus usuarios: nombre en la
+vida real, tel&eacute;fono interno en la empresa, direcci&oacute;n particular,
+tel&eacute;fono particular. Estos campos est&aacute;n separados por ",".
+Escribir un script que pregunte al usuario un nombre de login y muestre
+los datos del usuario, o un mensaje indicando que el usuario no existe.
+El formato ser&aacute; similar a &eacute;ste:</DT>
+
+<DT>
+</DT>
+
+<BR><TT>&nbsp; Nombre: victor</TT>
+<BR><TT>&nbsp; Nombre real:&nbsp; V&iacute;ctor Gonz&aacute;lez-Barbone</TT>
+<BR><TT>&nbsp; Interno:&nbsp; 114</TT>
+<BR><TT>&nbsp; Direcci&oacute;n:&nbsp; J.Su&aacute;rez 3023 bis ap. 801</TT>
+<BR><TT>&nbsp; Tel&eacute;fono:&nbsp; 2096368</TT>
+<BR><TT></TT>&nbsp;
+<BR><TT></TT>&nbsp;
+<DT>
+<TT># Examen Dic. 1999</TT></DT>
+
+<DT>
+<TT># prob4: interroga campo de comentario en /etc/passwd</TT></DT>
+
+<DT>
+<TT></TT></DT>
+
+<DT>
+<TT>clear</TT></DT>
+
+<DT>
+<TT>echo</TT></DT>
+
+<DT>
+<TT>echo -n "Nombre: "</TT></DT>
+
+<DT>
+<TT>read NOMLOGIN</TT></DT>
+
+<DT>
+<TT></TT></DT>
+
+<DT>
+<TT>RENGLON=`grep $NOMLOGIN /etc/passwd`</TT></DT>
+
+<DT>
+<TT></TT></DT>
+
+<DT>
+<TT>if [ ! "$RENGLON" ]</TT></DT>
+
+<DT>
+<TT>then</TT></DT>
+
+<DT>
+<TT>&nbsp; echo "El nombre no existe"</TT></DT>
+
+<DT>
+<TT>else</TT></DT>
+
+<DT>
+<TT>&nbsp; DATOS=`echo $RENGLON | cut -d: -f5`</TT></DT>
+
+<DT>
+<TT>&nbsp; NOMBRE=`echo $DATOS | cut -d, -f1`</TT></DT>
+
+<DT>
+<TT>&nbsp; INTERNO=`echo $DATOS | cut -d, -f2`</TT></DT>
+
+<DT>
+<TT>&nbsp; DIRECCION=`echo $DATOS | cut -d, -f3`</TT></DT>
+
+<DT>
+<TT>&nbsp; TELEFONO=`echo $DATOS | cut -d, -f4`</TT></DT>
+
+<DT>
+<TT>&nbsp; echo "Nombre Real: " $NOMBRE</TT></DT>
+
+<DT>
+<TT>&nbsp; echo "Interno: " $INTERNO</TT></DT>
+
+<DT>
+<TT>&nbsp; echo "Direcci&oacute;n: " $DIRECCION</TT></DT>
+
+<DT>
+<TT>&nbsp; echo "Tel&eacute;fono: " $TELEFONO</TT></DT>
+
+<DT>
+<TT>&nbsp; echo</TT></DT>
+
+<DT>
+<TT>fi</TT></DT>
+
+<DT>
+<TT></TT></DT>
+
+<BR><TT></TT>&nbsp;
+</BODY>
+</HTML>

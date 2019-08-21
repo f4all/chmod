@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en"> <!--<![endif]-->
+
+<!-- Mirrored from learnpythonthehardway.org/book/appendix-a-cli/ex1.html by HTTrack Website Copier/3.x [XR&CO'2013], Sat, 28 Dec 2013 20:46:36 GMT -->
+<head>
+    <meta charset="utf-8" />
+
+    <!-- Set the viewport width to device width for mobile -->
+    <meta name="viewport" content="width=device-width" />
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Docutils 0.10: http://docutils.sourceforge.net/" />
+    <title></title>
+
+    <!-- Included CSS Files (Compressed) -->
+    <link rel="stylesheet" href="stylesheets/foundation.html">
+    <link rel="stylesheet" href="stylesheets/normalize.html">
+    <link rel="stylesheet" href="stylesheets/app.html">
+    <link rel="stylesheet" href="stylesheets/pygments.html">
+
+    <script src="javascripts/vendor/jquery.html"></script>
+  <script src="javascripts/foundation/foundation.html"></script>
+    <script src="javascripts/vendor/custom.modernizr.html"></script>
+  
+  <!-- Initialize JS Plugins -->
+  <script src="javascripts/app.html"></script>
+
+    <!-- IE Fix for HTML5 Tags -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.10: http://docutils.sourceforge.net/" />
+<title>Exercise 1: The Setup</title>
+
+</head>
+<body>
+    <nav class="top-bar">
+        <ul class="title-area">
+            <!-- Title Area -->
+            <li class="name">
+              <h1><a href="http://learnpythonthehardway.org/">Learn Python The Hard Way</a></h1>
+            </li>
+        </ul>
+
+        <section class="top-bar-section">
+            <!-- Right Nav Section -->
+            <ul class="right">
+                <li> <a href="#video">Watch The Video</a></li>
+            </ul>
+        </section>
+
+        <section class="top-bar-section">
+            <!-- Right Nav Section -->
+            <ul class="right">
+                <li><a href="https://paydiv.io/products/contents/2/">See All The Content</a></li>
+            </ul>
+        </section>
+
+        <section class="top-bar-section">
+            <!-- Right Nav Section -->
+            <ul class="right">
+                <li><a href="https://paydiv.io/access/buy/2/">Purchase The Videos+PDF For $29.59</a></li>
+            </ul>
+        </section>
+    </nav>
+
+  <div class="row">
+    <div class="large-11 columns">
+        <h1 class="title">Exercise 1: The Setup</h1>
+
+        <p>In this appendix you will be instructed to do three things:</p>
+<ul class="simple">
+<li>Do some things in your shell (command line, Terminal, PowerShell).</li>
+<li>Learn about what you just did.</li>
+<li>Do more on your own.</li>
+</ul>
+<p>For this first exercise you'll be expected to get your Terminal open and working so that you can do the rest of the appendix.</p>
+<div class="section" id="do-this">
+<h1>Do This</h1>
+<p>Get your Terminal, shell, or PowerShell working so you can access it quickly and know that it works.</p>
+<div class="section" id="mac-osx">
+<h2>Mac OSX</h2>
+<p>For Mac OSX you'll need to do this:</p>
+<ul class="simple">
+<li>Hold down the <tt class="docutils literal">command</tt> key and hit the spacebar.</li>
+<li>In the top right the blue &quot;search bar&quot; will pop up.</li>
+<li>Type:  terminal</li>
+<li>Click on the Terminal application that looks kind of like a black box.</li>
+<li>This will open Terminal.</li>
+<li>You can now go to your dock and CTRL-click to pull up the menu, then select <tt class="docutils literal"><span class="pre">Options-&gt;Keep</span></tt> In dock.</li>
+</ul>
+<p>Now you have your Terminal open and it's in your dock so you can get to it.</p>
+</div>
+<div class="section" id="linux">
+<h2>Linux</h2>
+<p>I'm assuming that if you have Linux then you already know how to get at your Terminal.  Look through the menu for your window manager for anything named &quot;Shell&quot; or &quot;Terminal.&quot;</p>
+</div>
+<div class="section" id="windows">
+<h2>Windows</h2>
+<p>On Windows we're going to use PowerShell. People used to work with a program called <tt class="docutils literal">cmd.exe</tt>, but it's not nearly as usable as PowerShell. If you have Windows 7 or later, do this:</p>
+<ul class="simple">
+<li>Click Start.</li>
+<li>In &quot;Search programs and files&quot; type: powershell</li>
+<li>Hit Enter.</li>
+</ul>
+<p>If you don't have Windows 7, you should <em>seriously</em> consider upgrading. If you still insist on not upgrading then you can try installing it from Microsoft's download center.  Search online to find &quot;powershell downloads&quot; for your version of Windows.  You are on your own, though, since I don't have Windows XP, but hopefully the PowerShell experience is the same.</p>
+</div>
+</div>
+<div class="section" id="you-learned-this">
+<h1>You Learned This</h1>
+<p>You learned how to get your Terminal open so you can do the rest of this appendix.</p>
+<div class="note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you have that really smart friend who already knows Linux, ignore him when he tells you to use something other than Bash.  I'm teaching you bash.  That's it.  He will claim that zsh will give you 30 more IQ points and win you millions in the stock market.  Ignore him.  Your goal is to get capable enough and at this level it doesn't matter which shell you use.  The next warning is stay off IRC or other places where &quot;hackers&quot; hang out.  They think it's funny to hand you commands that can destroy your computer.  The command <tt class="docutils literal">rm <span class="pre">-rf</span> /</tt> is a classic that you <em>must never type</em>.  Just avoid them.  If you need help, make sure you get it from someone you trust and not from random idiots on the internet.</p>
+</div>
+</div>
+<div class="section" id="do-more">
+<h1>Do More</h1>
+<p>This exercise has a large &quot;do more&quot; part.  The other exercises are not as involved as this one, but I'm having you prime your brain for the rest of the appendix by doing some memorization.  Just trust me: this will make things silky smooth later on.</p>
+<div class="section" id="linux-mac-osx">
+<h2>Linux/Mac OSX</h2>
+<p>Take this list of commands and create index cards with the names on the left on one side, and the definitions on the other side.  Drill them every day while continuing with the lessons in this appendix.</p>
+<dl class="docutils">
+<dt>pwd</dt>
+<dd>print working directory</dd>
+<dt>hostname</dt>
+<dd>my computer's network name</dd>
+<dt>mkdir</dt>
+<dd>make directory</dd>
+<dt>cd</dt>
+<dd>change directory</dd>
+<dt>ls</dt>
+<dd>list directory</dd>
+<dt>rmdir</dt>
+<dd>remove directory</dd>
+<dt>pushd</dt>
+<dd>push directory</dd>
+<dt>popd</dt>
+<dd>pop directory</dd>
+<dt>cp</dt>
+<dd>copy a file or directory</dd>
+<dt>mv</dt>
+<dd>move a file or directory</dd>
+<dt>less</dt>
+<dd>page through a file</dd>
+<dt>cat</dt>
+<dd>print the whole file</dd>
+<dt>xargs</dt>
+<dd>execute arguments</dd>
+<dt>find</dt>
+<dd>find files</dd>
+<dt>grep</dt>
+<dd>find things inside files</dd>
+<dt>man</dt>
+<dd>read a manual page</dd>
+<dt>apropos</dt>
+<dd>find what man page is appropriate</dd>
+<dt>env</dt>
+<dd>look at your environment</dd>
+<dt>echo</dt>
+<dd>print some arguments</dd>
+<dt>export</dt>
+<dd>export/set a new environment variable</dd>
+<dt>exit</dt>
+<dd>exit the shell</dd>
+<dt>sudo</dt>
+<dd>DANGER! become super user root DANGER!</dd>
+</dl>
+</div>
+<div class="section" id="id1">
+<h2>Windows</h2>
+<p>If you're using Windows then here's your list of commands:</p>
+<dl class="docutils">
+<dt>pwd</dt>
+<dd>print working directory</dd>
+<dt>hostname</dt>
+<dd>my computer's network name</dd>
+<dt>mkdir</dt>
+<dd>make directory</dd>
+<dt>cd</dt>
+<dd>change directory</dd>
+<dt>ls</dt>
+<dd>list directory</dd>
+<dt>rmdir</dt>
+<dd>remove directory</dd>
+<dt>pushd</dt>
+<dd>push directory</dd>
+<dt>popd</dt>
+<dd>pop directory</dd>
+<dt>cp</dt>
+<dd>copy a file or directory</dd>
+<dt>robocopy</dt>
+<dd>robust copy</dd>
+<dt>mv</dt>
+<dd>move a file or directory</dd>
+<dt>more</dt>
+<dd>page through a file</dd>
+<dt>type</dt>
+<dd>print the whole file</dd>
+<dt>forfiles</dt>
+<dd>run a command on lots of files</dd>
+<dt>dir -r</dt>
+<dd>find files</dd>
+<dt>select-string</dt>
+<dd>find things inside files</dd>
+<dt>help</dt>
+<dd>read a manual page</dd>
+<dt>helpctr</dt>
+<dd>find what man page is appropriate</dd>
+<dt>echo</dt>
+<dd>print some arguments</dd>
+<dt>set</dt>
+<dd>export/set a new environment variable</dd>
+<dt>exit</dt>
+<dd>exit the shell</dd>
+<dt>runas</dt>
+<dd>DANGER! become super user root DANGER!</dd>
+</dl>
+<p>Drill, drill, drill! Drill until you can say these phrases right away when you see that word.  Then drill the inverse, so that you read the phrase and know what command will do that.  You're building your vocabulary by doing this, but don't spend so much time you go nuts and get bored.</p>
+</div>
+</div>
+
+        <div class="section" id="video">
+            <div class="large-12 columns panel">
+                <div data-paydiv_product="2" id='paydiv'>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="large-1 columns" id="right-nav">
+        <center>
+        <p><a href="../index.html"><img src="images/48_structure.html"></a></p>
+        <p><a href="mailto:help@learncodethehardway.org"><img src="images/48_email.html"></a></p>
+        <p><a href="#common-student-questions"><img src="images/48_faq.html"></a></p>
+        <p><a href="#video"><img src="images/48_video.html"></a></p>
+        </center>
+    </div>
+
+    <div class="twelve columns" id="footer">
+        <div class="large-4 columns" id="footer-block">
+            <p>
+            <a href="http://learncodethehardway.org/">Copyright (C) 2010 Zed. A. Shaw</a>
+            </p>
+        </div>
+        <div class="large-4 columns" id="footer-block">
+            <p>
+            </p>
+        </div>
+        <div class="large-3 columns" id="footer-block">
+            <p>
+            </p>
+        </div>
+        <div class="one columns">
+            &nbsp;
+        </div>
+    </div>
+
+
+
+    <script src="https://paydiv.io/static/js/videojs/video.js"></script>
+    <link rel="stylesheet" href="https://paydiv.io/static/js/videojs/video-js.css">
+    <script src="https://paydiv.io/static/api/v1/paydiv.js"></script>
+
+  <!-- Included JS Files (Compressed) -->
+  <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-24168052-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script>
+
+</body>
+
+<!-- Mirrored from learnpythonthehardway.org/book/appendix-a-cli/ex1.html by HTTrack Website Copier/3.x [XR&CO'2013], Sat, 28 Dec 2013 20:46:36 GMT -->
+</html>

@@ -1,0 +1,171 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.7 [en] (Win95; I) [Netscape]">
+   <title>Curso B&aacute;sico de UNIX - UNIX y C</title>
+</head>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000FF" vlink="#FF0000" alink="#000088">
+
+<address>
+<a href="index.htm">Curso&nbsp; B&aacute;sico de UNIX</a></address>
+
+<center>
+<h2>
+UNIX y C</h2></center>
+
+<dt>
+El sistema operativo UNIX suele venir acompa&ntilde;ado de un compilador
+para lenguaje C. Escribiendo programas en lenguaje C es posible crear comandos
+indistinguibles de los propios de UNIX. Como ejemplo, puede crearse el
+siguiente archivo, usando un editor de texto sencillo como el <tt>ae</tt>,
+o el comando <tt>cat</tt> si se tiene f&eacute; en la propia digitaci&oacute;n.</dt>
+
+<dt>
+&nbsp;</dt>
+
+<dt>
+Contenido del archivo hola.c:</dt>
+
+<dt>
+&nbsp;</dt>
+
+<dt>
+<tt>&nbsp; /* hola.c: programa de saludo */</tt></dt>
+
+<br><tt>&nbsp; #include &lt;stdio.h></tt>
+<br><tt>&nbsp; main()</tt>
+<br><tt>&nbsp; {</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; printf("Hola, mundo\n");</tt>
+<br><tt>&nbsp; }</tt>
+<br>&nbsp;
+<dt>
+Compilar el contenido de este archivo con el comando</dt>
+
+<dt>
+<tt>&nbsp; cc hola.c -o hola</tt></dt>
+
+<dt>
+Esto crea el archivo de salida <tt>hola</tt>, ejecutable en UNIX mediante
+el comando</dt>
+
+<dt>
+<tt>&nbsp; ./hola</tt></dt>
+
+<dt>
+Imprime, como es de suponer, la frase "Hola mundo".</dt>
+
+<dt>
+Un ejemplo m&aacute;s interesante, con uso de llamadas a la biblioteca
+del sistema, es el ejemplo siguiente, una versi&oacute;n muy m&iacute;nima
+del comando <tt>cat</tt>, que llamaremos <tt>cati</tt>.</dt>
+
+<dt>
+&nbsp;</dt>
+
+<dt>
+Contenido del archivo <tt>cati.c</tt>:</dt>
+
+<br><tt>&nbsp;</tt>
+<br><tt>/* cati: cat versi&oacute;n m&iacute;nima */</tt>
+<br><tt># define LARGO 1024&nbsp;&nbsp; /* define valor de variable LARGO
+*/</tt>
+<p><tt>main()</tt>
+<br><tt>{</tt>
+<br><tt>char bufer[LARGO];&nbsp;&nbsp;&nbsp; /* declara un arreglo de caracteres
+*/</tt>
+<br><tt>&nbsp; int n;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+/* para contar caracteres le&iacute;dos */</tt>
+<p><tt>&nbsp; /* llamada al sistema para leer caracteres desde la entrada</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp; est&aacute;ndar (0), hacia el arreglo
+bufer, en cantidad igual al</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp; tama&ntilde;o del arreglo bufer</tt>
+<br><tt>&nbsp; */</tt>
+<br><tt>&nbsp; n = read(0, bufer, sizeof bufer);&nbsp;&nbsp;&nbsp;&nbsp;
+/* primera lectura */</tt>
+<p><tt>&nbsp; /* repite mientras haya caracteres le&iacute;dos, es decir,
+n>0 */</tt>
+<br><tt>&nbsp; while (n > 0)</tt>
+<br><tt>&nbsp; {</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; /* llamada al sistema para escribir caracteres
+en salida</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; est&aacute;ndar (1), en cantidad
+n, extrayendo desde arreglo</tt>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; bufer</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; */</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; write(1, bufer, n);</tt>
+<p><tt>&nbsp;&nbsp;&nbsp; n = read(0, bufer, sizeof bufer);&nbsp;&nbsp;
+/* siguientes lecturas */</tt>
+<br><tt>&nbsp; }</tt>
+<p><tt>&nbsp; exit(0);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; /* sale devolviendo
+c&cent;digo de retorno 0 */</tt>
+<br><tt>}</tt>
+<dt>
+&nbsp;</dt>
+
+<dt>
+Los extensos comentarios explican el funcionamiento. Compilar este programa
+con el comando</dt>
+
+<dt>
+<tt>&nbsp; cc cati.c -o cati</tt></dt>
+
+<dt>
+Esto crea el archivo de salida <tt>cati</tt>, ejecutable en UNIX. El comando</dt>
+
+<dt>
+<tt>&nbsp; ./cati &lt;hola.c</tt></dt>
+
+<dt>
+muestra el contenido del programa hola.c. Esta versi&oacute;n m&iacute;nima
+s&oacute;lo funciona redireccionando la entrada est&aacute;ndar. Puede
+probarse su funcionamiento ingresando datos desde el teclado, finalizando
+con Ctrl-D. El programa puede interrumpirse con Ctrl-C. &iquest;Qu&eacute;
+diferencia hay?</dt>
+
+<dt>
+Es un problema de programaci&oacute;n algo m&aacute;s complejo asimilar
+un nombre de archivo como par&aacute;metro y hacer que el programa despliegue
+el contenido de este archivo.</dt>
+
+<dt>
+&nbsp;</dt>
+
+<br>La raz&oacute;n por la que estos programa se invocan como <tt>./hola</tt>
+y no simplemente <tt>hola</tt> es que el directorio actual no est&aacute;
+habitualmente en la v&iacute;a de b&uacute;squeda de ejecutables&nbsp;
+(variable PATH). Colocando las versiones ejecutables de los programas <tt>hola</tt>
+o <tt>cati</tt> en un directorio como <tt>/bin</tt> los har&iacute;a ejecutables
+directamente como cualquier comando de UNIX.
+<dt>
+&nbsp;</dt>
+
+<dt>
+Estos ejemplos muestran la versatilidad de UNIX como sistema operativo:
+puede uno ampliarlo con comandos constru&iacute;dos por uno mismo que se
+integran perfectamente a los comandos propios del sistema. En las distribuciones
+de UNIX de dominio p&uacute;blico suelen venir los fuentes en C de todos
+los comandos, lo cual permite, al usuario con conocimento suficiente, modificar
+o corregir estos programas.</dt>
+
+<dt>
+&nbsp;</dt>
+
+<dt>
+&nbsp;</dt>
+
+<br>&nbsp;
+<address>
+
+<hr WIDTH="100%"></address>
+
+<address>
+V&iacute;ctor A. Gonz&aacute;lez Barbone&nbsp; <a href="vagonbar en fing edu uy">vagonbar en fing edu uy</a></address>
+
+<address>
+<a href="http://iie.fing.edu.uy">Instituto de Ingenier&iacute;a El&eacute;ctrica</a>
+- <a href="/www.fing.edu.uy">Facultad de Ingenier&iacute;a</a> - Montevideo,
+Uruguay.</address>
+
+</body>
+</html>

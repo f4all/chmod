@@ -1,0 +1,546 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+   <META NAME="GENERATOR" CONTENT="Mozilla/4.06 [es] (Win95; I) [Netscape]">
+   <META NAME="CREATED" CONTENT="19980914;10054500">
+   <META NAME="CHANGED" CONTENT="16010101;0">
+   <META NAME="Author" CONTENT="Víctor González-Barbone">
+   <META NAME="Description" CONTENT="Uso del editor vi">
+   <META NAME="KeyWords" CONTENT="UNIX, curso, tutorial, Linux">
+   <TITLE>Curso B&aacute;sico de UNIX - Editor vi</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+
+<ADDRESS>
+<A HREF="index.htm">Curso B&aacute;sico de UNIX</A></ADDRESS>
+
+<CENTER>
+<H1>
+Editor vi.</H1></CENTER>
+
+<DT>
+<A HREF="#BasicoVI">Uso b&aacute;sico de <TT>vi</TT></A></DT>
+
+<DD>
+<A HREF="#ModosVI">Modos de <TT>vi</TT></A></DD>
+
+<DD>
+<A HREF="#GuiaSuperVI">Gu&iacute;a de Supervivencia</A></DD>
+
+<DT>
+<A HREF="#AvanzadoVI">Uso avanzado de <TT>vi</TT></A></DT>
+
+<DD>
+<A HREF="#ModoComando">Modo Comando</A></DD>
+
+<DD>
+<A HREF="#ModoTexto">Modo Texto</A></DD>
+
+<DD>
+<A HREF="#ModoEX">Modo "ex" o &uacute;ltima l&iacute;nea</A></DD>
+
+<DD>
+<A HREF="#TiposTerminal">Tipos de Terminal</A></DD>
+
+<DT>
+<A HREF="#Ejercicios">Preguntas y Ejercicios</A></DT>
+
+<DT>
+<A HREF="#Bibliografia">Bibliograf&iacute;a y Referencias</A></DT>
+
+<H2>
+<A NAME="BasicoVI"></A>Uso b&aacute;sico de <TT>vi</TT>.</H2>
+El editor vi es un editor de texto de pantalla completa que maneja en memoria
+el texto entero de un archivo. Es el editor cl&aacute;sico de UNIX; est&aacute;
+en todas las versiones. Puede usarse en cualquier tipo de terminal con
+un m&iacute;nimo de teclas; esto lo hace dif&iacute;cil de usar hasta que
+uno se acostumbra.
+<P>Existe un editor vi ampliado llamado vim que contiene facilidades adicionales,
+as&iacute; como diversas versiones del vi original. En todos los casos,
+el conjunto de comandos b&aacute;sicos es el mismo.
+<P>Existen en UNIX otros editores m&aacute;s potentes y vers&aacute;tiles,
+como emacs, que provee un ambiente de trabajo completo; tambi&eacute;n
+versiones f&aacute;ciles de manejar como jove o pico, o a&uacute;n m&iacute;nimas
+e inmediatas como ae. En ambiente X-Windows hay muchos editores amigables,
+f&aacute;ciles de usar y con m&uacute;ltiples capacidades. No obstante,
+vi est&aacute; en todos los UNIX, requiere pocos recursos, se usa mucho
+en administraci&oacute;n, para programar y en situaciones de emergencia.
+En casos de roturas de discos, corrupci&oacute;n de sistemas de archivos,
+errores en el arranque y otras cat&aacute;strofes, puede ser el &uacute;nico
+editor disponible. Como la mayor&iacute;a de las configuraciones en UNIX
+se manejan editando archivos, disponer de esta capacidad es esencial en
+la administraci&oacute;n de un sistema.
+<H3>
+<A NAME="ModosVI"></A>Modos de <TT>vi</TT>.</H3>
+Existen tres modos o estados en <TT>vi</TT>:
+<UL>
+<LI>
+modo comando: las teclas ejecutan acciones que permiten desplazar el cursor,
+recorrer el archivo, ejecutar comandos de manejo del texto y salir del
+editor. Es el modo inicial de vi.</LI>
+
+<LI>
+modo texto o modo inserci&oacute;n: las teclas ingresan caracteres en el
+texto.</LI>
+
+<LI>
+modo &uacute;ltima l&iacute;nea o ex: las teclas se usan para escribir
+comandos en la &uacute;ltima l&iacute;nea al final de la pantalla.</LI>
+</UL>
+
+<H3>
+<A NAME="GuiaSuperVI"></A>Gu&iacute;a de supervivencia.</H3>
+Con unos pocos comandos b&aacute;sicos se puede ya trabajar en vi editando
+y salvando un texto:
+<PRE>vi arch1&nbsp; arranca en modo comando editando el archivo arch1
+i&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; inserta texto a la izquierda del cursor
+a&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; agrega texto a la derecha del cursor
+ESC&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; vuelve a modo comando
+x&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; borra el caracter bajo el cursor
+dd&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; borra una l&iacute;nea
+h o flecha izquierda&nbsp;&nbsp;&nbsp;&nbsp; mueve el cursor un caracter a la izquierda
+j o flecha abajo&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mueve el cursor una l&iacute;nea hacia abajo
+k o flecha arriba&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mueve el cursor una l&iacute;nea hacia arriba
+l o flecha derecha&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mueve el cursor un caracter a la derecha
+:w&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; salva el archivo (graba en disco)
+:q&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sale del editor (debe salvarse primero)</PRE>
+
+<H2>
+<A NAME="AvanzadoVI"></A>Uso avanzado de <TT>vi</TT>.</H2>
+
+<H3>
+Invocaci&oacute;n de <TT>vi</TT>.</H3>
+
+<DT>
+<TT>&nbsp; vi</TT></DT>
+
+<DT>
+abre la ventana de edici&oacute;n sin abrir ning&uacute;n archivo.</DT>
+
+<DT>
+<TT>&nbsp; vi arch1</TT></DT>
+
+<DT>
+edita el archivo arch1 si existe; si no, lo crea.</DT>
+
+<DT>
+<TT>&nbsp; vi arch1 arch2</TT></DT>
+
+<DT>
+edita sucesivamente los archivos arch1 y luego arch2.</DT>
+
+<DT>
+<TT>&nbsp; vi +45 arch1</TT></DT>
+
+<DT>
+edita el archivo arch1 posicionando el cursor en la l&iacute;nea 45.</DT>
+
+<DT>
+<TT>&nbsp; vi +$ arch1</TT></DT>
+
+<DT>
+edita el archivo arch1 posicionando el cursor al final del archivo.</DT>
+
+<DT>
+<TT>&nbsp; vi +/Habia arch1</TT></DT>
+
+<DT>
+edita el archivo arch1 en la primera ocurrencia de la palabra "Habia".</DT>
+
+<H3>
+Cambio de modo.</H3>
+
+<DT>
+<B><TT>comando a texto:</TT></B></DT>
+
+<DT>
+<TT>&nbsp;&nbsp; teclas de inserci&oacute;n i I a A o O, o</TT></DT>
+
+<BR><TT>&nbsp;&nbsp; tecla de sobreescritura R.</TT>
+<DT>
+<B><TT>texto a comando:</TT></B></DT>
+
+<DT>
+<TT>&nbsp;&nbsp; tecla ESC.</TT></DT>
+
+<DT>
+<B><TT>comando a &uacute;ltima l&iacute;nea:</TT></B></DT>
+
+<DT>
+<TT>&nbsp;&nbsp; teclas : / ?</TT></DT>
+
+<DT>
+<B><TT>&uacute;ltima l&iacute;nea a comando:</TT></B></DT>
+
+<DT>
+<TT>&nbsp;&nbsp; tecla ENTER (al finalizar el comando), o</TT></DT>
+
+<DT>
+<TT>&nbsp;&nbsp; tecla ESC (interrumpe el comando).</TT></DT>
+
+<BR>&nbsp;
+<DT>
+Confundir un modo con otro la de mayor dificultades para el manejo de vi.
+Puede activarse un indicador de modo escribiendo</DT>
+
+<DT>
+<TT>&nbsp; :set showmode</TT></DT>
+
+<DT>
+Esto hace aparecer una leyenda que indica si se est&aacute; en modo comando
+o inserci&oacute;n.</DT>
+
+<H3>
+<A NAME="ModoComando"></A>Modo Comando.</H3>
+El editor <TT>vi</TT>, al igual que todo UNIX, diferencia may&uacute;sculas
+y min&uacute;sculas. <I>Confundir un comando en min&uacute;scula digitando
+uno en may&uacute;scula suele tener consecuencias catastr&oacute;ficas</I>.
+Se aconseja <I>evitar sistem&aacute;ticamente el uso de la traba de may&uacute;sculas</I>;
+mantener el teclado en min&uacute;sculas.
+<H4>
+N&uacute;meros multiplicadores.</H4>
+Muchos comandos aceptan un n&uacute;mero multiplicador antes del comando.
+La acci&oacute;n es id&eacute;ntica a invocar el comando tantas veces como
+indica el multiplicador. Ejemplos:
+<DT>
+<TT>&nbsp; 10j</TT></DT>
+
+<DT>
+en modo comando avanza 10 l&iacute;neas;</DT>
+
+<DT>
+<TT>&nbsp; 5Y</TT></DT>
+
+<DT>
+copia 5 l&iacute;neas y las retiene para luego pegar.</DT>
+
+<H4>
+Ejemplos de manejo.</H4>
+Los siguientes ejemplos de manejo asumen que el editor se encuentra en
+modo comando.
+<DL>
+<DT>
+<TT>flechas&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mueven el cursor (si el
+terminal lo permite)</TT></DT>
+
+<BR><TT>h j k l&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mueven el cursor (igual
+que las flechas)</TT>
+<BR><TT>i<I>texto</I>ESC&nbsp;&nbsp;&nbsp;&nbsp; inserta la palabra "texto"
+y vuelve a comando</TT>
+<BR><TT>x&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+borra el caracter sobre el cursor</TT>
+<BR><TT>dw&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+borra una palabra</TT>
+<BR><TT>dd&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+borra una l&iacute;nea</TT>
+<BR><TT>3dd&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+borra las 3 l&iacute;neas siguientes</TT>
+<BR><TT>u&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+deshace &uacute;ltimo cambio</TT>
+<BR><TT>ZZ&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+graba cambios y sale de vi</TT>
+<BR><TT>:q!ENTER&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sale de vi sin grabar cambios</TT>
+<BR><TT>/<I>expresi&oacute;n</I>ENTER&nbsp;&nbsp;&nbsp;&nbsp; busca la
+expresi&oacute;n indicada</TT>
+<BR><TT>3Y&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+copia 3 l&iacute;neas para luego pegar</TT>
+<BR><TT>:6r arch3&nbsp;&nbsp;&nbsp;&nbsp; inserta debajo de la l&iacute;ne
+6 el archivo arch3</TT></DL>
+
+<H4>
+Movimiento del cursor:</H4>
+
+<DL>
+<DT>
+<TT>flechas&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mover en distintas direcciones</TT></DT>
+
+<BR><TT>h o BS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; una posici&oacute;n
+hacia la izquierda</TT>
+<BR><TT>l o SP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; una posici&oacute;n
+hacia la derecha</TT>
+<BR><TT>k o -&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; una l&iacute;nea
+hacia arriba</TT>
+<BR><TT>j o +&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; una l&iacute;nea
+hacia abajo</TT>
+<BR><TT>$&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+fin de l&iacute;nea</TT>
+<BR><TT>0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+principio de l&iacute;nea</TT>
+<BR><TT>1G&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+comienzo del archivo</TT>
+<BR><TT>G&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+fin del archivo</TT>
+<BR><TT>18G&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; l&iacute;nea
+n&uacute;mero 18</TT>
+<BR><TT>Ctrl-G&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mostrar n&uacute;mero
+de l&iacute;nea actual</TT>
+<BR><TT>w&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+comienzo de la palabra siguiente</TT>
+<BR><TT>e&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+fin de la palabra siguiente</TT>
+<BR><TT>E&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+fin de la palabra siguiente antes de espacio</TT>
+<BR><TT>b&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+principio de la palabra anterior</TT>
+<BR><TT>^&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+primera palabra de la l&iacute;nea</TT>
+<BR><TT>%&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+hasta el par&eacute;ntesis que aparea</TT>
+<BR><TT>H&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+parte superior de la pantalla</TT>
+<BR><TT>L&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+parte inferior de la pantalla</TT>
+<BR><TT>M&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+al medio de la pantalla</TT>
+<BR><TT>23|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cursor
+a la columna 23</TT></DL>
+
+<H4>
+Control de pantalla.</H4>
+
+<DL>
+<DT>
+<TT>Ctrl-f&nbsp;&nbsp;&nbsp; una pantalla adelante</TT></DT>
+
+<BR><TT>Ctrl-b&nbsp;&nbsp;&nbsp; una pantalla atr&aacute;s</TT>
+<BR><TT>Ctrl-l&nbsp;&nbsp;&nbsp; redibujar la pantalla</TT>
+<BR><TT>Ctrl-d&nbsp;&nbsp;&nbsp; media pantalla adelante</TT>
+<DT>
+<TT>Ctrl-u&nbsp;&nbsp;&nbsp; media pantalla atr&aacute;s</TT></DT>
+</DL>
+
+<H4>
+Ingreso en modo texto:</H4>
+
+<PRE>i&nbsp;&nbsp;&nbsp; insertar antes del cursor
+I&nbsp;&nbsp;&nbsp; insertar al principio de la l&iacute;nea
+a&nbsp;&nbsp;&nbsp; insertar despu&eacute;s del cursor
+A&nbsp;&nbsp;&nbsp; insertar al final de la l&iacute;nea
+o&nbsp;&nbsp;&nbsp; abrir l&iacute;nea debajo de la actual
+O&nbsp;&nbsp;&nbsp; abrir l&iacute;nea encima de la actual
+R&nbsp;&nbsp;&nbsp; sobreescribir (cambiar) texto</PRE>
+
+<H4>
+Borrar</H4>
+
+<DL>
+<DT>
+<TT>x&nbsp;&nbsp;&nbsp;&nbsp; borrar caracter bajo el cursor</TT></DT>
+
+<BR><TT>dd&nbsp;&nbsp;&nbsp; borrar l&iacute;nea, queda guardada</TT>
+<BR><TT>D&nbsp;&nbsp;&nbsp;&nbsp; borrar desde cursor a fin de l&iacute;nea</TT>
+<BR><TT>dw&nbsp;&nbsp;&nbsp; borrar desde cursor a fin de palabra</TT>
+<DT>
+<TT>d$&nbsp;&nbsp;&nbsp; borrar desde cursor a fin de l&iacute;nea</TT></DT>
+
+<DT>
+<TT>d0&nbsp;&nbsp;&nbsp; borrar desde cursor a principio de l&iacute;nea</TT></DT>
+</DL>
+
+<H4>
+Copiar y pegar</H4>
+
+<DL>
+<DT>
+<TT>Y o yy&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; copiar l&iacute;nea</TT></DT>
+
+<BR><TT>P&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pegar
+antes del cursor</TT>
+<BR><TT>p&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pegar
+despu&eacute;s del cursor</TT>
+<BR><TT>yw&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; copiar
+palabra</TT>
+<BR><TT>y$&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; copiar
+de cursor a fin de l&iacute;nea</TT>
+<BR><TT>"ayy o "aY&nbsp; copiar l&iacute;nea en buffer llamado 'a'</TT>
+<BR><TT>'a' "ayw&nbsp;&nbsp;&nbsp; copiar palabra en buffer llamado</TT>
+<BR><TT>"ap&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pegar desde
+buffer 'a', a la derecha del cursor</TT>
+<BR><TT>"aP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pegar desde
+buffer 'a', a la izquierda del cursor</TT>
+<BR><TT>"bdd&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; borrar l&iacute;nea
+y guardar en buffer 'b'</TT>
+<BR><TT>"bdw&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; borrar palabra y
+guardar en buffer 'b'</TT></DL>
+
+<H4>
+B&uacute;squeda</H4>
+
+<DL>
+<DT>
+<TT>/str&nbsp;&nbsp;&nbsp; buscar hacia adelante cadena de caracteres 'str'</TT></DT>
+
+<BR><TT>?str&nbsp;&nbsp;&nbsp; buscar hacia atr&aacute;s cadena de caracteres
+'str'</TT>
+<BR><TT>n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; repetir &uacute;ltimo comando
+/ o ?</TT>
+<BR><TT>N&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; repetir &uacute;ltimo comando
+/ o ? para el otro lado</TT>
+<BR><TT>fc&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; buscar el siguiente caracter 'c'
+en la l&iacute;nea</TT>
+<BR><TT>Fc&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; buscar el anterior caracter 'c'
+en la l&iacute;nea</TT>
+<BR><TT>tc&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ir al caracter anterior al siguiente
+'c'</TT>
+<BR><TT>Tc&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ir al caracter posterior al precedente
+'c'</TT>
+<BR><TT>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; repetir el &uacute;ltimo
+comando f, F, t, o T</TT>
+<BR><TT>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &uacute;ltimo comando f,
+F, t, o T para el otro lado</TT></DL>
+La cadena a buscar en / o ? puede ser una expresi&oacute;n regular.
+<BR>La acci&oacute;n de f, F, t y T alcanza s&oacute;lo a la l&iacute;nea
+actual; si el caracter buscado no est&aacute; en esa l&iacute;nea el cursor
+no se mueve.
+<H4>
+Reemplazo</H4>
+Estos comandos admiten multiplicadores: un n&uacute;mero delante del comando.
+Al dar un comando de reemplazo el editor coloca un s&iacute;mbolo $ en
+donde termina el pedido de reemplazo. El usuario escribe normalmente, sobreescribiendo,
+hasta donde necesite, y sale con ESC. Estos comandos admiten multiplicadores:
+3cw abre un &aacute;rea de reemplazo para 3 palabras.
+<DL>
+<DT>
+<TT>c&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; reemplaza caracteres</TT></DT>
+
+<DT>
+<TT>cw&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; reemplaza palabras</TT></DT>
+
+<DT>
+<TT>C o c$&nbsp;&nbsp;&nbsp; reemplaza hasta el fin de l&iacute;nea</TT></DT>
+
+<DT>
+<TT>c0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; reemplaza desde el comienzo
+de l&iacute;nea</TT></DT>
+</DL>
+
+<H4>
+Otros</H4>
+
+<DL>
+<DT>
+<TT>J&nbsp;&nbsp;&nbsp;&nbsp; unir dos l&iacute;neas en una</TT></DT>
+
+<BR><TT>ZZ&nbsp;&nbsp;&nbsp; grabar cambios si los hubo y salir</TT>
+<BR><TT>u&nbsp;&nbsp;&nbsp;&nbsp; deshacer &uacute;ltima acci&oacute;n</TT>
+<BR><TT>U&nbsp;&nbsp;&nbsp;&nbsp; deshacer todos los cambios en una l&iacute;nea</TT></DL>
+
+<H3>
+<A NAME="ModoTexto"></A>Modo Texto.</H3>
+
+<DL>
+<DT>
+<TT>BS&nbsp;&nbsp;&nbsp; borrar caracter hacia la izquierda</TT></DT>
+
+<BR><TT>ESC&nbsp;&nbsp; pasar a modo comando</TT></DL>
+
+<H3>
+<A NAME="ModoEX"></A>Modo ex o &uacute;ltima l&iacute;nea.</H3>
+
+<PRE>:q&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; salir si no hubo cambios
+:q!&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; salir sin guardar cambios
+:w&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; guardar cambios
+:w arch1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; guardar cambios en archivo arch1
+:wq&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; guardar cambios y salir
+:r arch2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; insertar un archivo
+:e arch2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; editar un nuevo archivo
+:e! arch2&nbsp;&nbsp;&nbsp;&nbsp; idem sin salvar anterior
+:r! comando&nbsp;&nbsp; insertar salida de comando
+:shell&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; salir al shell (vuelve con exit)</PRE>
+
+<H4>
+Mover</H4>
+
+<PRE>:1&nbsp;&nbsp;&nbsp; mueve a l&iacute;nea 1&nbsp;
+:15&nbsp;&nbsp; mueve a l&iacute;nea 15&nbsp;
+:$&nbsp;&nbsp;&nbsp; mueve a &uacute;ltima l&iacute;nea</PRE>
+
+<H4>
+Opciones</H4>
+
+<PRE>:set&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cambio de opciones&nbsp;
+:set nu&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mostrar n&uacute;meros de l&iacute;nea&nbsp;
+:set nonu&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; no mostrar n&uacute;meros de l&iacute;nea&nbsp;
+:set showmode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mostrar modo actual de vi&nbsp;
+:set noshowmode&nbsp;&nbsp;&nbsp;&nbsp; no mostrar modo actual de vi</PRE>
+
+<H4>
+Reemplazo</H4>
+
+<DT>
+La sintaxis del comando de b&uacute;squeda y reemplazo es la siguiente:</DT>
+
+<DT>
+<TT>&nbsp; :&lt;desde>,&lt;hasta>s/&lt;buscar>/&lt;reemplazar>/g</TT></DT>
+
+<DT>
+<TT>&lt;desde></TT>, <TT>&lt;hasta></TT> indican l&iacute;neas en el archivo;
+<TT>&lt;buscar></TT> y <TT>&lt;reemplazar></TT> son cadenas de caracteres
+o expresiones regulares; <TT>/</TT> es un separador,
+<TT>s</TT> (sustituir)
+y <TT>g</TT> (global) son letras de comando para el manejo de expresiones
+regulares.</DT>
+
+<DT>
+&nbsp;</DT>
+
+<BR><TT>&nbsp;:1,$s/Martes/martes/g</TT>
+<DT>
+cambia Martes por martes en todo el archivo.</DT>
+
+<DT>
+<TT>&nbsp; :.,5s/ayuda/&amp;ndo/g</TT></DT>
+
+<DT>
+cambia ayuda por ayudando desde l&iacute;nea actual hasta la 5a. l&iacute;nea.</DT>
+
+<H3>
+<A NAME="TiposTerminal"></A>Tipo de terminal.</H3>
+<TT>vi</TT> es independiente del tipo de terminal, pero la variable de
+ambiente TERM debe estar fijada correctamente. Si no se conoce o no existe
+el tipo exacto de terminal, en la mayor&iacute;a de los terminales remotos
+el tipo ansi da buenos resultados. Para fijar el terminal en tipo ansi,
+digitar
+<DL>
+<DT>
+<TT>TERM=ansi;export TERM</TT></DT>
+</DL>
+Algunos comandos, especialmente <TT>more</TT> y a veces <TT>vi</TT>, pueden
+no responder bien en la terminal o el emulador que se est&aacute; usando.
+En estos casos, puede usarse Ctrl-L para refrescar la pantalla.
+<BR>&nbsp;
+<BR>&nbsp;
+<H2>
+<A NAME="Ejercicios"></A><A HREF="editviej.htm">Preguntas y Ejercicios.</A></H2>
+
+<H2>
+<A NAME="Bibliografia"></A>Bibliograf&iacute;a y Referencias.</H2>
+<B>Comandos:</B><TT> vi, ed, vim</TT>
+<P><B>Referencias:</B>
+<DT>
+Coffin[1989], Greenfield[].</DT>
+
+<DT>
+P&aacute;ginas man/info de Linux <TT>vi</TT> y <TT>ed</TT>; en ed se definen
+y explican expresiones regulares.</DT>
+
+<DT>
+Documentaci&oacute;n en l&iacute;nea de Linux, <TT>/usr/doc/vim</TT> (editor
+<TT>vim</TT>, un vi extendido), y p&aacute;gina man/info de <TT>vim</TT>.</DT>
+
+<BR>&nbsp;
+<ADDRESS>
+
+<HR WIDTH="100%"></ADDRESS>
+
+<ADDRESS>
+V&iacute;ctor A. Gonz&aacute;lez Barbone <A HREF="mailto: vagonbar en fing edu uy">vagonbar en fing edu uy</A></ADDRESS>
+
+<ADDRESS>
+<A HREF="http://iie.fing.edu.uy">Instituto de Ingenier&iacute;a El&eacute;ctrica</A>
+- <A HREF="http://www.fing.edu.uy">Facultad de Ingenier&iacute;a</A> -
+Montevideo, Uruguay.</ADDRESS>
+
+</BODY>
+</HTML>

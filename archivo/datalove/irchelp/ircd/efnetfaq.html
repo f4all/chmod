@@ -1,0 +1,744 @@
+<!doctype html>
+<html>
+
+<!-- Mirrored from www.irchelp.org/irchelp/ircd/efnetfaq.html by HTTrack Website Copier/3.x [XR&CO'2013], Sun, 29 Dec 2013 06:58:00 GMT -->
+<head>
+    <title>IRCHelp.org &mdash; Untitled Page</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="description" content="Comprehensive information on everything Internet Relay Chat" />
+    <meta name="author" content="irchelpers" />
+    <meta name="generator" content="PieCrust 1.0.0-dev" />
+    <meta name="template-engine" content="Twig" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,
+      initial-scale=1.0">
+    <!-- Le styles -->
+    <link href="http://www.irchelp.org/css/bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+    </style>
+    <link href="http://www.irchelp.org/css/bootstrap-responsive.css" rel="stylesheet">
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144"
+      href="http://www.irchelp.org/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114"
+      href="http://www.irchelp.org/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72"
+      href="http://www.irchelp.org/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed"
+      href="http://www.irchelp.org/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="http://www.irchelp.org/ico/favicon.png">
+</head>
+<body>
+    <!--Start of navigation-->
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container"> <a class="btn btn-navbar"
+            data-toggle="collapse" data-target=".nav-collapse"> <span
+              class="icon-bar"></span> <span class="icon-bar"></span> <span
+              class="icon-bar"></span> </a> <a class="brand" href="http://www.irchelp.org/">#irchelp</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class="active"><a href="http://www.irchelp.org/">Home</a></li>
+              <li><a href="../credit.html">About</a></li>
+              <li class="dropdown"> <a href="../clients/index.html" class="dropdown-toggle"
+                  data-toggle="dropdown">Clients </a>
+                <ul class="dropdown-menu">
+                  <li><a href="../clients/index.html">All Clients</a></li>
+                  <li class="divider"></li>
+                  <li class="nav-header">Windows</li>
+                  <li><a href="../clients/windows/mirc/index.html">mIRC</a></li>
+                  <li><a href="../clients/windows/xchat.html">XChat</a></li>
+                  <li><a href="../clients/windows.html">All Windows Clients</a></li>
+                  <li class="divider"></li>
+                  <li class="nav-header">MacOS X</li>
+                  <li><a href="../clients/mac/textual.html">Textual</a></li>
+                  <li><a href="../clients/mac/colloquy.html">Colloquy</a></li>
+                  <li><a href="../clients/mac/snak.html">Snak</a></li>
+                  <li><a href="../clients/mac.html">All MacOS X Clients</a></li>
+                  <li class="divider"></li>
+                  <li class="nav-header">Linux/Unix Terminal</li>
+                  <li><a href="../clients/unix/irssi/index.html">irssi</a></li>
+                  <li><a href="../clients/unix/epic.html">EPIC</a></li>
+                  <li><a href="../clients/unix/ircii/index.html">ircII</a></li>
+                  <li><a href="../clients/unix/index.html#terminal">All Linux/Unix Terminal Clients</a></li>
+                  <li class="divider"></li>
+                  <li class="nav-header">Linux/Unix Graphical</li>
+                  <li><a href="../clients/unix/xchat.html">XChat</a></li>
+                  <li><a href="../clients/unix/konversation.html">Konversation</a></li>
+                  <li><a href="../clients/unix/index.html#gui">All Linux/Unix Graphical Clients</a></li>
+                  <li class="nav-header">Smartphones</li>
+                  <li><a href="../clients/mobile/android/index.html">Clients for Android</a></li>
+                  <li><a href="../clients/mobile/ios.html">Clients for iOS</a></li>
+                  <li><a href="../clients/mobile.html">All Smartphone Clients</a></li>
+                  <li class="nav-header">Other OS and Crossplatform</li>
+                  <li><a href="../clients/cross/java.html">Clients writting in Java</a></li>
+                  <li><a href="../clients/cross.html">Other Crossplatform Clients</a></li>
+                  <li><a href="../clients/otheros/index.html">Clients for other Operating Systems</a></li>
+                  <li><a href="../clients/webclients.html">Web-based clients</a></li>
+
+                </ul>
+              </li>
+              <li class="dropdown"> <a href="../networks/index.html" class="dropdown-toggle"
+                  data-toggle="dropdown">Networks </a>
+                <ul class="dropdown-menu">
+                  <li><a href="../networks/popular.html">Major Networks</a></li>
+                  <li><a href="../networks/regional.html">Regional Networks</a></li>
+                  <li><a href="../networks/topical.html">Topical Networks</a></li>
+                  <li><a href="../networks/index.html">All Networks</a></li>
+                  <li class="divider"></li>
+                  <li class="nav-header">Major Networks</li>
+                  <li><a href="../networks/efnet/index.html">EFNet</a></li>
+                  <li><a href="../networks/undernet.html">Undernet</a></li>
+                  <li><a href="../networks/dalnet.html">Dalnet</a></li>
+                  <li><a href="../networks/quakenet.html">Quakenet</a></li>
+                  <li><a href="../networks/freenode.html">Freenode</a></li>
+                </ul>
+              </li>
+              <li class="dropdown"> <a href="../security/index.html" class="dropdown-toggle"
+                  data-toggle="dropdown">Security </a>
+                <ul class="dropdown-menu">
+                  <li><a href="../security/index.html">General Security</a></li>
+                  <li><a href="../security/privacy.html">Privacy</a></li>
+                  <li><a href="../security/nuke.html">Denial of Service</a></li>
+                  <li><a href="../security/trojan.html">Trojan Horses and Other Malware</a></li>
+                  <li><a href="../security/socialeng.html">Social Engineering</a></li>
+                </ul>
+              </li>
+              <li class="dropdown"> <a href="index.html" class="dropdown-toggle"
+                  data-toggle="dropdown">Servers </a>
+                <ul class="dropdown-menu">
+                  <li><a href="index.html">General ircd information</a></li>
+                  <li class="divider"></li>
+                  <li class="nav-header">EFNet IRCDs</li>
+                  <li><a href="ratbox/index.html">ircd-ratbox</a></li>
+                  <li><a href="hybrid/index.html">ircd-hybrid</a></li>
+                </ul>
+              </li>
+              <li class="dropdown"> <a href="#" class="dropdown-toggle"
+                  data-toggle="dropdown">FAQs </a>
+                <ul class="dropdown-menu">
+                  <li><a href="../new2irc.html">New user introduction</a></li>
+<!--
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li class="divider"></li>
+                  <li class="nav-header">Nav header</li>
+                  <li><a href="#">Separated link</a></li>
+                  <li><a href="#">One more separated link</a></li>
+-->
+                </ul>
+              </li>
+              <li class="dropdown"> <a href="../library.html" class="dropdown-toggle"
+                  data-toggle="dropdown">Library </a>
+                <ul class="dropdown-menu">
+                  <li><a href="../library.html">Index</a></li>
+<!--
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li class="divider"></li>
+                  <li class="nav-header">Nav header</li>
+                  <li><a href="#">Separated link</a></li>
+                  <li><a href="#">One more separated link</a></li>
+-->
+                </ul>
+              </li>
+            </ul>
+            <form class="navbar-form pull-right"> <input class="span2"
+                placeholder="Search" type="text"> <button type="submit"
+                class="btn">Search</button> </form>
+          </div>
+          <!--/.nav-collapse --> </div>
+      </div>
+    </div>
+<!--end of navigation-->
+
+    <div id="container" class="container">
+<!--
+                        <h1><a href="/">Untitled Page</a></h1>
+            -->        
+        
+            <div class="content">
+                                <p>The EFNet Frequently Asked Questions - By Disciple</p>
+
+<p>The Official and most recent copy can be obtained from:</p>
+
+<p>[http://www.irchelp.org/irchelp/ircd/efnetfaq.html](http://www.irchelp.org/irc
+help/ircd/efnetfaq.html)</p>
+
+<p>All other copies may be old and/or obsolete.</p>
+
+<p>Last Updated: May 30, 2002</p>
+
+<hr />
+
+<p>Many of the answers to these questions were obtained from
+<a href="http://www.irchelp.org/">http://www.irchelp.org/</a> and [http://www.the-
+project.org/efnet/opermyth.html](http://www.the-
+project.org/efnet/opermyth.html). Most of these questions are answered
+elsewhere, but not all in one place, hence this text. These are the questions
+that I&#8217;ve seen asked multiple times, and instead of sending people to a bunch
+of different places, I decided to compile them into one text. This text will
+become more detailed as time goes on, but if I have left anything out, or I
+have made a mistake, you may /msg me (Disciple) on efnet.</p>
+
+<p>This FAQ may be distributed freely. You may use parts from it for anything
+else, or for another FAQ, as long as due credit is given.</p>
+
+<hr />
+
+<p>QUESTION INDEX:</p>
+
+<ol>
+<li><p>What are servers I can run bots on?</p></li>
+<li><p>Why can&#8217;t I register a channel or nickname?</p></li>
+<li><p>Can an IRC Operator help me with a taken over channel or opless channel?
+<strong>and/or</strong> What is CHANFIX?</p></li>
+<li><p>My channel is opless and there are a few idle people in there, can an
+operator get rid of them for us?</p></li>
+<li><p>How do I find an active operator?</p></li>
+<li><p>How do I see a list of all the operators on the server I&#8217;m on?</p></li>
+<li><p>I was killed and I want to know why, but when I ask no one gives me an
+answer or tells me to go away.</p></li>
+<li><p>what are all the /stats commands I can use?</p></li>
+<li><p>What are all the user modes and what do they do?</p></li>
+<li><p>Will operators kill spammers and flooders?</p></li>
+<li><p>Will operators kill or kline for my nick?</p></li>
+<li><p>I was talking to someone and they changed their nick. Can an operator tell
+me what their new nick is?</p></li>
+<li><p>Will operators kill or kline because someone is &#8220;nuking&#8221; me?</p></li>
+<li><p>Is there a way I can see operwalls without being an operator?</p></li>
+<li><p>How do I become an IRC Operator?</p></li>
+<li><p>How do I link my own efnet server?</p></li>
+<li><p>New server guidelines clarification.</p></li>
+<li><p>Where can I get the actual IRC server itself?</p></li>
+<li><p>Where can I get Hybserv?</p></li>
+<li><p>If I decide to send in a server application, where will the discussion and
+voting of it take place?</p></li>
+<li><p>Are there any other mailing lists like the Routing one?</p></li>
+<li><p>What is a TCM, and what is a TCM Oper?</p></li>
+<li><p>Where can I get TCM Dianora and help/information about it?</p></li>
+<li><p>Where can I get OOMon and help/information about it?</p></li>
+<li><p>What are the new features in Hybrid6?</p></li>
+<li><p>Someone has banned be from a channel, is there anything an oper can do?</p></li>
+<li><p>I need help setting up my irc server, will someone help me?</p></li>
+<li><p>I&#8217;m looking for a small irc network to chat and maybe link a server to.
+Where can I find one?</p></li>
+<li><p>What is timestamp and what does it do?</p></li>
+<li><p>When I do /list I get disconnected. What can I do to see a list of
+channels?</p></li>
+<li><p>What is a wallop/operwall and a locop message?</p></li>
+<li><p>Someone is bothering/spamming/flooding/etc. me, and there are no active
+opers on the server they are on. What do I do?</p></li>
+<li><p>I would like to find out more about efnet and how it&#8217;s run. Where can I
+find this information?</p></li>
+</ol>
+
+<hr />
+
+<p>QUESTIONS AND ANSWERS:</p>
+
+<p>Question 1:</p>
+
+<p>Q: What are servers I can run bots on?</p>
+
+<p>A: Most servers allow non-abusive bots. To check which servers allow (non-
+abusive) bots, do /motd [server name here] and look for their bot policies.</p>
+
+<p>Question Index</p>
+
+<p>Question 2:</p>
+
+<p>Q: Why can&#8217;t I register a channel or nickname?</p>
+
+<p>A: It is a common belief on efnet that nicks and channels are not owned. They
+are simply &#8220;occupied&#8221; or &#8220;in use&#8221;. The debate whether to add services to efnet
+has gone on for many years, but there are no services on efnet, and there
+probably never will be services. If you would like an irc server with
+services, dalnet offers both chanserv and nickserv.</p>
+
+<p>Question Index</p>
+
+<p>Question 3:</p>
+
+<p>Q: Can an IRC Operator help me with a taken over channel or opless channel?</p>
+
+<p>A: It depends. If your channel was taken over by people whom you&#8217;ve never
+seen, then IRC Operators may be able to assist you in getting your channel
+back.</p>
+
+<p>EFnet has a service called &#8220;CHANFIX&#8221; that keeps a record of the top 10 ops in
+a channel over a recent period of time. If a channel becomes opless, CHANFIX
+will automatically join the channel and re-op the correct ops, based on the
+record of who&#8217;s been op&#8217;d longest previously.</p>
+
+<p>If a &#8220;normal op&#8221; (someone who is usually op&#8217;d in a channel) decides to &#8220;take
+control&#8221; of a channel - it is an internal matter and no IRC Operator can help
+you in this instance.</p>
+
+<p>If you believe you need assistance with CHANFIX, please see the <a href="chanfix.html">CHANFIX
+guide</a> which contains more information on how CHANFIX works and
+how to seek help with it.</p>
+
+<p>If you need an IRC Operator to have a CHANFIX issued, please /stats p [your
+server] and /msg the least idle operator for assistance.</p>
+
+<p>Please note that IRC Operators and Administrators can <strong>NOT</strong> choose who to
+op. Who CHANFIX op&#8217;s is dependent upon who has been op&#8217;d previously.</p>
+
+<p>For more information on services.int and CHANFIX, please see the following:</p>
+
+<p><a href="chanfix.html">CHANFIX guide at
+http://www.irchelp.org/irchelp/ircd/chanfix.html</a></p>
+
+<p><a href="http://www.demolished.org/qurve/efnet/jupes-faq.txt"> http://www.demolished.org/qurve/efnet/jupes-
+faq.txt</a></p>
+
+<p>[https://voting.blackened.com/pastvotes/index.shtml](https://voting.blackened.
+com/pastvotes/index.shtml)</p>
+
+<p>Question Index</p>
+
+<p>Question 4:</p>
+
+<p>Q: My channel is opless - what do I do?</p>
+
+<p>A: If your channel becomes opless, CHANFIX should automatically join your
+channel and op the correct ops based on the recorded scores (see question #3).
+If for some reason, CHANFIX does not join an opless channel, please do /stats
+p [your server here] and /msg an active operator for assistance.</p>
+
+<p>Question Index</p>
+
+<p>Question 5:</p>
+
+<p>Q: How do I find an active operator?</p>
+
+<p>A: use &#8220;/stats p [irc server]&#8221;. The number by the operators name tells you how
+long, in seconds, they have been idle.</p>
+
+<p>Question Index</p>
+
+<p>Question 6:</p>
+
+<p>Q: How do I see a list of all the operators on the server I&#8217;m on?</p>
+
+<p>A: &#8220;/stats o&#8221; will show you the list of all the operators in the conf file. If
+the server is running tcm-hybrid you may also see the TCM Operators. Some
+servers have disables users ability to do &#8220;/stats o&#8221;. If this is the case, you
+will not be able to easily obtain an oper list from that server. Question
+Index</p>
+
+<p>Question 7:</p>
+
+<p>Q: I was killed and I want to know why, but when I ask no one gives me an
+answer or tells me to go away.</p>
+
+<p>A: If you were killed, you were either pissing someone off or breaking one or
+more of the servers rules. Read the servers /motd to see if you were in
+violation of any of their rules. Operators do not have to answer for their
+actions to users however. EFNet is a private network, run by private servers
+and not a democracy. If however you feel an operator was out of line, feel
+free to do &#8220;/admin [irc server]&#8221; and contact their Administrators.</p>
+
+<p>Question Index</p>
+
+<p>Question 8:</p>
+
+<p>Q: What are all the /stats commands I can use?</p>
+
+<p>A: The modes are (use /stats [letter]):</p>
+
+<pre><code>   (Some of these are no longer available to non-opers) 
+      ?   Server connection statistics  
+      b   B-lines   
+      c   C/N-lines 
+      d   D-lines   
+      e   E-lines
+      h   H/L-lines 
+      i   I-lines   
+      k   K-lines   
+      l   Data transfer statistics by connection
+          The numeric fields are as follows:            
+                  sendQ (outgoing message queue)
+          sendM (protocol messages sent)            
+                  sendK (total kilobytes sent)
+              receiveM (protocol messages received)         
+                  receiveK (total kilobytes received)
+          time in seconds since the connection was created
+      L   Same as STATS l, except shows IP address instead of host  
+      m   Command statistics
+      o   O/o-lines 
+      p   Current opers online  
+      t   General server statistics 
+      u   Server uptime
+      v   Server link information   
+      y   Y-lines   
+      z   More server statistics
+</code></pre>
+
+<p>For more information see [http://www.irchelp.org/irchelp/ircd/ircopguide.html]
+(http://www.irchelp.org/irchelp/ircd/ircopguide.html) section: VIII. Server
+Information Commands (TRACE, STATS, LINKS, and HTM), or the documentation
+included in ircd-hybrid. For more information on what some of these modes do
+see section: VII. IRCD and Associated Files on the same page.</p>
+
+<p>Question Index</p>
+
+<p>Question 9:</p>
+
+<p>Q: What are all the user modes and what do they do?</p>
+
+<p>A: Below are the usermodes for ircd-hybrid at the time of this FAQ.</p>
+
+<pre><code>      +O - Designates this client is a local IRC Operator.
+           Use the /oper command to attain this.
+      +o - Designates this client is a global IRC Operator.
+           Use the /oper command to attain this.
+      +i - Designates this client 'invisible'.
+      +w - Can see server wallops.
+    * +z - Can see oper wallops (operwalls).
+      +s - Can see generic server messages and oper kills.
+    * +c - Can see client connections and exits.
+    * +r - Can see 'rejected' client notices.
+      +k - Can see server kill messages.
+    * +f - Can see 'I-line is full' notices.
+    * +y - Can see stats/links/admin requests to name a few.
+    * +d - Can see server debug messages.
+    * +n - Can see client nick changes.
+    * +b - Can see possible bot warnings.
+    * +x - Can see new server introduction and server split
+           messages.
+
+    * Oper-Only usermodes
+</code></pre>
+
+<p>Question Index</p>
+
+<p>Question 10:</p>
+
+<p>Q: Will operators kill spammers and flooders?</p>
+
+<p>A: Usually. If you /whois the spammer/flooder, /stats p [the server they are
+on], and /msg an active oper, they will usually handle them.</p>
+
+<p>Question Index</p>
+
+<p>Question 11:</p>
+
+<p>Q: Will operators kill or kline for my nick?</p>
+
+<p>A: No. It is a general belief that nicks are not owned on efnet.</p>
+
+<p>Question Index</p>
+
+<p>Question 12:</p>
+
+<p>Q: I was talking to someone and they changed their nick. Can an operator tell
+me what their new nick is?</p>
+
+<p>A: No. Not only would this be an invasion of privacy, but it is outside the
+realm of IRC Operators duties.</p>
+
+<p>Question Index</p>
+
+<p>Question 13:</p>
+
+<p>Q: Will operators kill or kline because someone is &#8220;nuking&#8221; or &#8220;DoS&#8217;ing&#8221; me?</p>
+
+<p>A: Usually Not. All logs are fakable, and it is in IRC Operators and
+Administrators best interests to stay out of user-to-user disagreements.</p>
+
+<p>Question Index</p>
+
+<p>Question 14:</p>
+
+<p>Q: Is there a way I can see operwalls without being an operator?</p>
+
+<p>A: No. Only IRC Operators can see them.</p>
+
+<p>Question Index</p>
+
+<p>Question 15:</p>
+
+<p>Q: How do I become an IRC Operator?</p>
+
+<p>A: In short, you don&#8217;t. Becoming an IRC Operator requires not only a strong
+working knowledge of IRC and this IRC network, but also a working relationship
+with server admins and other opers. Opers are selected when there is a need,
+and never given based on who is asking for it. See <a href="ircopguide.html">http://www.irchelp.org/irc
+help/ircd/ircopguide.html</a> section VI for more details.</p>
+
+<p>Question Index</p>
+
+<p>Question 16:</p>
+
+<p>Q: How do I link my own efnet server?</p>
+
+<p>A: A general rule of thumb is, if you have to ask &#8220;how&#8221;, you&#8217;re probably not
+ready to run an efnet server. If you do not already know how efnet works, and
+how to link a server, it is a pretty safe bet that your server will not be
+linked. Never the less, if you feel you are ready, the new server guidelines
+and server application are at <a href="ftp://ftp.blackened.com/pub/irc/new-server-guidelines">ftp://ftp.blackened.com/pub/irc/new-server-
+guidelines</a>.</p>
+
+<p>Question Index</p>
+
+<p>Question 17:</p>
+
+<p>Q: In the new server guidelines, it says &#8220;it is in the applicant&#8217;s best
+interest to do some homework on what applications have been approved in the
+past and which ones haven&#8217;t and, more importantly, why they were approved or
+denied.&#8221; What does this mean, and where can I find this information?</p>
+
+<p>A: This means you need to go through some of the applications that have been
+submitted and see what works and what doesn&#8217;t. You can view past applications
+at [http://www.the-project.org/efnet/votes/closed.votes/](http://www.the-
+project.org/efnet/votes/closed.votes/), and the discussion about them at
+<a href="http://www.the-project.org/routing/">http://www.the-project.org/routing/</a>.</p>
+
+<p>Question Index</p>
+
+<p>Question 18:</p>
+
+<p>Q: Where can I get the actual IRC server itself?</p>
+
+<p>A: Hybrid is archived at [ftp://ftp.blackened.com/pub/irc/hybrid/](ftp://ftp.b
+lackened.com/pub/irc/hybrid/), and IRCD Comstud is archived at
+<a href="http://www.codestud.com/ircd/">http://www.codestud.com/ircd/</a>.</p>
+
+<p>Question Index</p>
+
+<p>Question 19:</p>
+
+<p>Q: Where can I get Hybserv?</p>
+
+<p>A: [http://www.srce.hr/~kreator/projects/tarballs/](http://www.srce.hr/~kreato
+r/projects/tarballs/).</p>
+
+<p>Question Index</p>
+
+<p>Question 20:</p>
+
+<p>Q: If I decide to send in a server application, where will the discussion and
+voting of it take place?</p>
+
+<p>A: The Routing List. It is archived at <a href="http://www.the-project.org/routing/current/">http://www.the-
+project.org/routing/current/</a>.
+Most of efnets routing/connection &#8220;issues&#8221; are discussed there.</p>
+
+<p>Question Index</p>
+
+<p>Question 21:</p>
+
+<p>Q: Are there any other mailing lists like the Routing one?</p>
+
+<p>A: Yes. There is the IRC3 mailing list that is archived at <a href="http://www.the-project.org/ircd/">http://www.the-
+project.org/ircd/</a>, and (the old) Operlist
+which is at [http://www.the-
+project.org/operlist/current/threads.html](http://www.the-
+project.org/operlist/current/threads.html).</p>
+
+<p>Question Index</p>
+
+<p>Question 22:</p>
+
+<p>Q: What is a TCM, and what is a TCM Oper?</p>
+
+<p>A: TCM stands for Texas Connection Monitor. It is a connection monitor bot. It
+checks for clones, flooders, and other abusive clients. A TCM Oper is someone
+with oper access to this bot. A TCM Oper has the same power as a local oper,
+with the exception that they cannot /squit or /connect their server.</p>
+
+<p>Question Index</p>
+
+<p>Question 23:</p>
+
+<p>Q: Where can I get TCM-hybrid and help/information about it?</p>
+
+<p>A: <a href="http://www.ircd-hybrid.org/tcm/">http://www.ircd-hybrid.org/tcm/</a>.</p>
+
+<p>Question Index</p>
+
+<p>Question 24:</p>
+
+<p>Q: Where can I get OOMon and help/information about it?</p>
+
+<p>A: <a href="http://toast.blackened.com/oomon/">http://toast.blackened.com/oomon/</a>.</p>
+
+<p>Question Index</p>
+
+<p>Question 25:</p>
+
+<p>Q: What are the new features in Hybrid-6?</p>
+
+<p>A: A list of all the new features and changes in Hybrid-6 are available at [ht
+tp://www.irchelp.org/irchelp/ircd/hybrid6.html](http://www.irchelp.org/irchelp
+/ircd/hybrid6.html), or in the ircd-hybrid documentation.</p>
+
+<p>Question Index</p>
+
+<p>Question 26:</p>
+
+<p>Q: Someone has banned be from a channel, is there anything an oper can do?</p>
+
+<p>A: No. EFnet IRC Operators do not have any kind of &#8220;special&#8221; control over
+other peoples channels. This is something you will have to work out with the
+the channel ops of that channel.</p>
+
+<p>Question Index</p>
+
+<p>Question 27:</p>
+
+<p>Q: I need help setting up my irc server, will someone help me?</p>
+
+<p>A: If you need help setting up, your irc server, try reading the help files
+first, and if you still need help after that, try asking on the ircd-hybrid
+mailing list.</p>
+
+<p>Question Index</p>
+
+<p>Question 28:</p>
+
+<p>Q: I&#8217;m looking for a small irc network to chat and maybe link a server to.
+Where can I find one?</p>
+
+<p>A: There is a list of IRC networks by size at <a href="../networks/index.html">http://www.irchelp.org/irchelp/
+networks/</a>.</p>
+
+<p>Question Index</p>
+
+<p>Question 29:</p>
+
+<p>Q: What is timestamp and what does it do?</p>
+
+<p>A: Timestamp is a protocol which disallows netsplit ops and channel desynchs.
+EFnet has implemented TS5, which makes it impossible for any user (Oper or
+&#8220;normal user&#8221;) to &#8220;hack&#8221; ops in a channel via a server split. For more
+information on TS5, see [https://voting.blackened.com/docs/ts5.txt](https://vo
+ting.blackened.com/docs/ts5.txt).</p>
+
+<p>Question Index</p>
+
+<p>Question 30:</p>
+
+<p>Q: When I do /list I get disconnected. What can I do to see a list of
+channels?</p>
+
+<p>A: Use the efnet channel list at [http://www.efnet.org/index.php?p=channels](h
+ttp://www.efnet.org/index.php?p=channels).</p>
+
+<p>Question Index</p>
+
+<p>Question 31:</p>
+
+<p>Q: What is a wallop/operwall and a locop message?</p>
+
+<p>A: A Wallop has been made obsolete on EFnet. An Operwall, is a message that is
+sent to all other opers on the entire network. Only operators can see these
+messages. A locop is the same thing, but it only sends the message to the
+opers on the same server you are currently connected to.</p>
+
+<p>Question Index</p>
+
+<p>Question 32:</p>
+
+<p>Q: Someone is bothering/spamming/flooding/etc. me, and there are no active
+opers on the server they are on. What do I do?</p>
+
+<p>A: Opers generally will not kill or kline someone if they are merely
+&#8220;bothering&#8221; you, but if somone is spamming and/or flooding and there are no
+active operators on the server to take care of them. The best thing you can do
+is /ignore them until either an oper becomes active or they /quit.</p>
+
+<p>Question Index</p>
+
+<p>Question 33:</p>
+
+<p>Q: I would like to find out more about efnet and how it&#8217;s run. Where can I
+find this information?</p>
+
+<p>A: The easiest way to learn how efnet works is to just stick around. It takes
+time, but reading these url&#8217;s will give you a &#8220;heads up&#8221;. Some of these url&#8217;s
+have been stated in above questions. Think of it as a basic overview/crash
+course/reference guide, of how things work on efnet.</p>
+
+<p><a href="http://www.efnet.org/">http://www.efnet.org/</a> - Official EFNet Website</p>
+
+<p>[http://www.the-project.org/efnet/opermyth.html](http://www.the-
+project.org/efnet/opermyth.html) - List of what efnet opers do and don&#8217;t do
+(IRC Bible)</p>
+
+<p>[http://www.the-project.org/routing/current/](http://www.the-
+project.org/routing/current/) - US Routing archive</p>
+
+<p>[http://www.the-project.org/ircd/current/](http://www.the-
+project.org/ircd/current/) - IRC3 Mailing list</p>
+
+<p>[http://www.irchelp.org/irchelp/ircd/efnetfaq.html](http://www.irchelp.org/irc
+help/ircd/efnetfaq.html) - EFnet FAQ (This Document)</p>
+
+<p>[http://www.irchelp.org/irchelp/ircd/ircopguide.html](http://www.irchelp.org/i
+rchelp/ircd/ircopguide.html) - A basic but very informative guide for irc
+operators</p>
+
+<p><a href="ftp://ftp.blackened.com/pub/irc/new-server-guidelines">ftp://ftp.blackened.com/pub/irc/new-server-
+guidelines</a> - New
+server guidelines and server application</p>
+
+<p>[http://www.efnet.org/ircdb/servers.php](http://www.efnet.org/ircdb/servers.ph
+p) EFNet servers and stats</p>
+
+<p><a href="http://www.ircd-hybrid.org/tcm/">http://www.ircd-hybrid.org/tcm/</a> - tcm-
+dianora help and information</p>
+
+<p><a href="http://toast.blackened.com/oomon/">http://www.toast.blackened.com/oomon/</a> -
+OOMon help and information</p>
+
+<p><a href="http://www.efnet.org/">http://www.efnet.org</a> - Misc. EFNet information</p>
+
+<p>Question Index</p>
+
+<hr />
+
+<p>[ <a href="../index.html">go back</a> | <a href="../search_engine.html">search</a> |
+<a href="../help.html">help</a> | <a href="../mail.html">send email</a> ]</p>
+
+<p><a href="../credit.html">all pages (C) IRCHELP.ORG or original authors</a></p>
+
+                            </div>
+        
+        <footer>
+
+                        <p>All documents © irchelp.org or original authors 2012 <br />Baked with <em><a href="http://bolt80.com/piecrust/">PieCrust</a> 1.0.0-dev</em>.</p>
+                    </footer>
+    </div>
+    
+        <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="http://www.irchelp.org/js/jquery.js"></script>
+    <script src="http://www.irchelp.org/js/bootstrap-transition.js"></script>
+    <script src="http://www.irchelp.org/js/bootstrap-alert.js"></script>
+    <script src="http://www.irchelp.org/js/bootstrap-modal.js"></script>
+    <script src="http://www.irchelp.org/js/bootstrap-dropdown.js"></script>
+    <script src="http://www.irchelp.org/js/bootstrap-scrollspy.js"></script>
+    <script src="http://www.irchelp.org/js/bootstrap-tab.js"></script>
+    <script src="http://www.irchelp.org/js/bootstrap-tooltip.js"></script>
+    <script src="http://www.irchelp.org/js/bootstrap-popover.js"></script>
+    <script src="http://www.irchelp.org/js/bootstrap-button.js"></script>
+    <script src="http://www.irchelp.org/js/bootstrap-collapse.js"></script>
+    <script src="http://www.irchelp.org/js/bootstrap-carousel.js"></script>
+    <script src="http://www.irchelp.org/js/bootstrap-typeahead.js"></script>
+</body>
+
+<!-- Mirrored from www.irchelp.org/irchelp/ircd/efnetfaq.html by HTTrack Website Copier/3.x [XR&CO'2013], Sun, 29 Dec 2013 06:58:00 GMT -->
+</html>

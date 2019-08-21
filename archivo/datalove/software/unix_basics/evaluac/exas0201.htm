@@ -1,0 +1,135 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta http-equiv="CONTENT-TYPE" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.75 [en] (X11; U; Linux 2.2.17 i586) [Netscape]">
+   <meta name="AUTHOR" content="Víctor González Barbone">
+   <meta name="CREATED" content="20001220;19120600">
+   <meta name="CHANGEDBY" content="Víctor González Barbone">
+   <meta name="CHANGED" content="20001220;21040500">
+<style>
+	<!--
+		@page { size: 8.27in 11.69in; margin-left: 0.69in; margin-right: 0.69in; margin-top: 0.45in; margin-bottom: 0.45in }
+	-->
+	</style>
+</head>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EF" vlink="#51188E" alink="#FF0000">
+
+<h5>
+Centro de Inform&aacute;tica<br>
+Sistemas Operativos II</h5>
+
+<center>
+<h2>
+Examen Febrero 2001.</h2></center>
+
+<center><b>Soluci&oacute;n de scripts.</b></center>
+
+
+<p STYLE="margin-bottom: 0in"><b><font size=+1>Con libre consulta de material.</font></b>
+
+<p STYLE="margin-bottom: 0in"><font size=+2>1.</font> Escribir un script
+para encontrar usuarios que haga m&aacute;s de cierto n&uacute;mero de
+d&iacute;as que no ingresan al sistema. Se dispone para ello de los siguientes
+comandos:
+<br><font face="Courier, monospace"><font size=-1>&nbsp;&nbsp; ypcat passwd</font></font>
+<br>da un listado de todos los usuarios en el sistema.
+<br><font face="Courier, monospace"><font size=-1>&nbsp;&nbsp; lastlog
+-t$DIAS</font></font>
+<br>da un listado de quienes han ingresan al sistema hace <i>menos</i>
+de $DIAS. DIAS es una variable inicializada al principio del script, para
+poder cambiarla f&aacute;cilmente; fijarla en 30 d&iacute;as. El formato
+de salida de <font face="Courier, monospace"><font size=-1>lastlog</font></font>
+es el siguiente:
+<pre>&nbsp; Username&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Port&nbsp;&nbsp;&nbsp;&nbsp; From&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Latest
+&nbsp; victor&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pts/2&nbsp;&nbsp;&nbsp; :0.0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mi&eacute; dic 20 19:29:15 -0300 2000
+&nbsp; cristina&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; console&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; lun dic 18 14:49:51 -0300 2000
+&nbsp; root&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tty2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; dom dic 17 20:34:25 -0300 2000</pre>
+
+<div STYLE="margin-bottom: 0in">Los separadores son espacios. (20 puntos)</div>
+
+<pre>#!/bin/bash
+# prob2: usuarios sin ingreso en los &uacute;ltimos $DIAS
+#&nbsp; DIAS: cantidad de d&iacute;as.
+
+DIAS=30
+
+# lista ordenada de usuarios con ingreso en los ultimos $DIAS
+lastlog -t$DIAS | grep -v ^Username | cut -d" " -f1 | \
+&nbsp; sort > lastlog.tmp
+
+# usuarios en /etc/passwd y no en lastlog.tmp
+cat /etc/passwd | grep -v "#" | sort | cut -d: -f1 | \
+&nbsp; diff - lastlog.txt | grep "&lt;"
+
+# elimina archivo temporal
+rm lastlog.tmp</pre>
+<font size=+2>2.</font> A partir del comando ypcat passwd filtrar las cuentas
+de usuarios del sistema (con UID menores que 1000) para mostrar s&oacute;lo
+los usuarios verdaderos (con UID 1000 en adelante). (10 puntos)
+<pre STYLE="margin-bottom: 0.2in">ypcat /etc/passwd | grep -E -v "[^:]+:[^:]*:[0-9]{1,3}:"</pre>
+<font size=+2>3.</font> Escribir un script de arranque <tt><font size=-1>tango</font></tt>
+para un sofware llamado tango que funciona en base a un demonio
+<tt><font face="Courier, monospace"><font size=-1>tangod.</font></font></tt>
+El script deber&aacute; aceptar los par&aacute;metros siguientes y realizar
+las acciones indicadas:
+<br>&nbsp;&nbsp;&nbsp; start - arrancar el demonio <tt><font size=-1>tangod</font></tt>
+<br>&nbsp;&nbsp;&nbsp; stop - detener el demonio <tt><font size=-1>tangod,</font></tt>
+con se&ntilde;al 15
+<br>&nbsp;&nbsp;&nbsp; restart - detener y volver a arrancar <tt><font face="Courier, monospace"><font size=-1>tangod</font></font></tt>
+<br>&nbsp;&nbsp;&nbsp; reload - releer la configuraci&oacute;n enviando
+una se&ntilde;al 1 al proceso <tt>tangod.</tt>
+<br><font face="times, serif"><b>Sugerencia.</b> El comando <tt>ps ax</tt>
+muestra el PID de los procesos en sus primeros 6 caracteres, con relleno
+de blancos sobre la izquierda. <tt>(20 puntos).</tt></font>
+<br><b>Nota para prueba en m&aacute;quina.</b> El proceso
+<font size=-1>tangod</font>
+puede simularse con el siguiente script:
+<pre><font face="Courier, monospace">#!/bin/bash&nbsp;
+# tangod: emulaci&oacute;n de demonio para tango&nbsp;
+# arrancarlo en background&nbsp;
+echo tangod: corriendo...&nbsp;
+trap "echo recibida se&ntilde;al 1" 1&nbsp;
+trap "echo recibida se&ntilde;al 15,terminando ; exit" 15&nbsp;
+while true&nbsp;
+do&nbsp;
+&nbsp;sleep 6&nbsp;
+done&nbsp;
+###
+<font size=-1>#!/bin/bash&nbsp;
+# tango: script de arranque para tango.&nbsp;
+#&nbsp;
+# sleep 3 da tiempo a mensajes del script emulador.&nbsp;
+PID=`ps ax | grep tangod | grep -v grep | cut -c1-6 | tr -d " "`&nbsp;
+case "$1" in&nbsp;
+start)&nbsp;
+&nbsp;/tmp/tangod &amp;&nbsp;
+&nbsp;sleep 3&nbsp;
+&nbsp;;;&nbsp;
+stop)&nbsp;
+&nbsp;kill -15 $PID&nbsp;
+&nbsp;sleep 3&nbsp;
+&nbsp;;;&nbsp;
+restart)&nbsp;
+&nbsp;./tango stop&nbsp;
+&nbsp;sleep 3&nbsp;
+&nbsp;./tango start&nbsp;
+&nbsp;sleep 3&nbsp;
+&nbsp;;;&nbsp;
+reload)&nbsp;
+&nbsp;kill -1 $PID&nbsp;
+&nbsp;sleep 3&nbsp;
+&nbsp;;;&nbsp;
+*)&nbsp;
+&nbsp;echo "uso de tango: tango { start | stop | restart | reload }"&nbsp;
+&nbsp;;;&nbsp;
+esac</font></font></pre>
+&nbsp;
+<p>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+   <META NAME="GENERATOR" CONTENT="Mozilla/4.06 [es] (Win95; I) [Netscape]">
+   <META NAME="AUTHOR" CONTENT="Victor Gonzalez-Barbone">
+   <META NAME="CREATED" CONTENT="20000724;9342600">
+   <META NAME="CHANGEDBY" CONTENT="Víctor González Barbone">
+   <META NAME="CHANGED" CONTENT="20000724;14423100">
+<STYLE>
+	<!--
+		@page { margin-left: 2.4cm; margin-right: 2.4cm; margin-top: 2cm; margin-bottom: 1cm }
+	-->
+	</STYLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+
+<ADDRESS>
+Centro de Inform&aacute;tica. Sistemas Operativos II. Curso 2000.</ADDRESS>
+
+<BR>
+<HR>
+<CENTER>
+<H2>
+Prueba parcial 2/2.</H2></CENTER>
+
+<H4>
+<B>Con libre consulta de material.</B></H4>
+
+<DIV STYLE="margin-bottom: 0cm"><FONT SIZE=+2>1.</FONT> Escribir un script
+que revise cada 5 minutos el correo del usuario que lo invoca, e informe
+si ha recibido nuevo correo. El nuevo correo se guarda en el archivo /var/spool/mail/<I>usuario.</I>
+Este archivo tiene longitud mayor que 0 cuando se ha recibido nuevo correo;
+la longitud queda en 0 despu&eacute;s que el usuario lee su correo. Este
+script correr&aacute; en forma permanente. &iquest;C&oacute;mo debe invocarse
+para poder seguir trabajando normalmente ? (15 puntos).</DIV>
+
+<DIV STYLE="margin-bottom: 0cm">&nbsp;</DIV>
+
+<DIV STYLE="margin-bottom: 0cm"><FONT SIZE=+2>2.</FONT> Escribir un script
+para listar todos los usuarios correspondientes a un &aacute;rea de inter&eacute;s.
+Se dispone de un archivo de datos de la forma</DIV>
+
+<DIV STYLE="margin-bottom: 0cm"><FONT FACE="courier, monospace">&nbsp;
+# datos para el ejercicio 2</FONT></DIV>
+
+<DIV STYLE="margin-bottom: 0cm"><FONT FACE="courier, monospace">&nbsp;
+# nombre:c&eacute;dula:areas de inter&eacute;s:direcci&oacute;n electr&oacute;nica</FONT></DIV>
+
+<DIV STYLE="margin-bottom: 0cm"><FONT FACE="courier, monospace">&nbsp;
+#</FONT></DIV>
+
+<DIV STYLE="margin-bottom: 0cm"><FONT FACE="courier, monospace">&nbsp;
+Juan P&eacute;rez:1111111-1:DiGraf,WinNT:juan@cdi.edu.uy</FONT></DIV>
+
+<DIV STYLE="margin-bottom: 0cm"><FONT FACE="courier, monospace">&nbsp;
+Mar&iacute;a Garc&iacute;a:2222222-2:UNIX,Digraf,WinNT:pedro@cdi.edu.uy</FONT></DIV>
+
+<DIV STYLE="margin-bottom: 0cm"><FONT FACE="courier, monospace">&nbsp;
+Jos&eacute; Rodr&iacute;guez:3333333-3:StarOffice,WinNT,UNIX:jose@cdi.edu.uy</FONT></DIV>
+
+<DIV STYLE="margin-bottom: 0cm">El script recibe como par&aacute;metro
+el nombre de un &aacute;rea de inter&eacute;s (DiGraf, WinNT, etc.), y
+lista nombre y direcci&oacute;n electr&oacute;nica de las personas que
+tienen esta &aacute;rea de inter&eacute;s en su lista. Si no hay ninguna
+persona, o no existe el &aacute;rea, emite un mensaje informativo. <B>Advertencia:</B>
+los nombres y apellidos de las personas est&aacute;n separados por espacio
+en blanco. (15 puntos)</DIV>
+
+<DIV STYLE="margin-bottom: 0cm">&nbsp;</DIV>
+
+<DIV STYLE="margin-bottom: 0cm"><FONT SIZE=+2>3.</FONT> Se desea sumar
+el espacio ocupado por un usuario en un directorio y todos sus subdirectorio.
+Para ello, deben sumarse los tama&ntilde;os de todos los archivos de ese
+usuario en esa rama de directorios. El script recibir&aacute; como par&aacute;metros
+el nombre del usuario y el nombre del directorio. Validar&aacute; que el
+usuario pertenezca al sistema, y que el nombre de directorio recibido sea
+efectivamente un directorio. Presentar&aacute; el resultado total en bytes,
+Kbytes y Mbytes enteros. <B>Sugerencia:</B> usar el comando <TT>find</TT>
+con listado largo; el tama&ntilde;o de archivo en el listado largo est&aacute;
+entre las columnas 47 y 56. (20 puntos)</DIV>
+
+<BR>&nbsp;
+</BODY>
+</HTML>

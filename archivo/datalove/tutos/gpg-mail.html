@@ -1,0 +1,51 @@
+<title>GPG-enabled email TOR OSX</title>
+<style type="text/css">
+body,td,th {
+	font-family: Verdana, Geneva, sans-serif;
+}
+.red {
+	color: #F00;
+}
+.green {
+	color: #0F0;
+}
+</style>
+<h2>Set up GPG-enabled email client with TOR on OSX.</h2>
+<p>&nbsp;</p>
+<p>Set up GPG-enabled email client on OSX.</p>
+<p>1- Download and install thunderbird. <a href="http://www.mozilla.org/en-US/thunderbird/all.html">http://www.mozilla.org/en-US/thunderbird/all.html</a> (select language and OS)</p>
+<p>2- Download and install GPGTools. <a href="https://github.com/downloads/GPGTools/GPGTools/GPGTools-20120318.dmg">https://github.com/downloads/GPGTools/GPGTools/GPGTools-20120318.dmg</a></p>
+<p>3- Open GPG keychain access:<br />
+  a- create new key.<br />
+  b- add proper information. (name and email address)<br />
+  c- click Generate key.<br />
+  d- create secure password and  confirm.<br />
+  e- close Open GPG keychain access.</p>
+<p>4- Open Thunderbird:<br />
+  a- Configure your email account when asked.<br />
+  b- Go to menu &gt; tools &gt; add ons.<br />
+  c- search for Enigmail, install it.<br />
+  d- Go to menu &gt; tools &gt; account settings.<br />
+  e- Select the email account you setup on the beginning. <br />
+  f-  Select OpenPGP security and activate OpenPGP support (Enigmail).<br />
+  g- Select second option (use specific OpenPGP ID key)<br />
+  h- Click &quot;Select key…&quot;, select the key generated on step 3c and accept.<br />
+  i-  On the default options for message redaction activate all options.</p>
+<p>5- Open GPG keychain access:<br />
+  a- Select your previously generated key.<br />
+  b- Right click it and export it with your desired name.<br />
+  c- Share your public key with other trusted parties.<br />
+  d- Send encrypted e-mail to trusted parties in possession of your public key.</p>
+<p>6- <span class="red">BE SAFE ALWAYS SEND YOUR EMAILS WITH TOR ENABLED.</span><br />
+  a- in Thunderbird go to menu &gt; tools &gt; add ons.<br />
+  b- search for TorBirdy, install it.<br />
+  d- download and install Tor Browser Bundle. <a href="https://www.torproject.org/download/download-easy.html.en">https://www.torproject.org/download/download-easy.html.en</a><br />
+  e- run Tor Browser bundle, you will not use it, but you will use TOR which is enabled with Vidalia automatically <br />
+when Tor browser bundle starts.</p>
+<p> <br />
+  (JUST WAIT UNTIL YOU SEE ON TOR BROWSER BUNDLE : <span class="green">Congratulations. Your browser is configured to use Tor.</span> THIS MUST APEAR ON THIS URL: <a href="https://check.torproject.org">https://check.torproject.org</a>.)</p>
+<p><br />
+  f- Activate TorBirdy on Thunderbird, this will force all connections made by thunderbird to go through the TOR network.<br />
+  g- Send your encrypted e-mails securely through the TOR network.</p>
+<p></p>
+<p>with love, chmod.</p>

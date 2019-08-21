@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+   <META NAME="GENERATOR" CONTENT="Mozilla/4.06 [es] (Win95; I) [Netscape]">
+   <META NAME="Author" CONTENT="Víctor González-Barbone">
+   <META NAME="Description" CONTENT="Preguntas y Ejercicios de Expresiones Regulares.">
+   <META NAME="KeyWords" CONTENT="UNIX, curso, tutorial, Linux">
+   <TITLE>Curso B&aacute;sico de UNIX - Expresiones Regulares</TITLE>
+</HEAD>
+<BODY TEXT="#000000" BGCOLOR="#FFFFFF" LINK="#0000FF" VLINK="#FF0000" ALINK="#000088">
+
+<ADDRESS>
+<A HREF="index.htm">Curso&nbsp; B&aacute;sico de UNIX</A></ADDRESS>
+
+<CENTER>
+<H2>
+Preguntas y Ejercicios.&nbsp;<BR>
+Ficha Referencia: Expresiones Regulares</H2></CENTER>
+
+<DT>
+&nbsp;</DT>
+
+<BR>En algunos de los ejercicios que siguen se pide usar el archivo <TT><A HREF="uy_hist1.txt">uy_hist1.txt</A></TT>.
+Copiarlo en el directorio de trabajo antes de comenzar. Los comandos <TT>grep</TT>
+y <TT>grep -E </TT>buscan l&iacute;neas que contengan expresiones regulares
+b&aacute;sicas y extendidas, respectivamente.
+<P><B>1.</B> El archivo <TT>uy_hist1.txt</TT> fue obtenido de Internet
+con un navegador en DOS. Usar el editor vi en s&oacute;lo lectura, para
+verificar la presencia del caracter visualizado como "^M", correspondiente
+a retorno de carro (CR). Crear el archivo <TT>historia1.txt</TT>, eliminando
+el caracter CR. Verificar con vi.
+<P><B>2.</B> Abrir el archivo <TT>historia1.txt</TT> con el editor vi,
+en s&oacute;lo lectura. Buscar hacia adelante (comando /), la palabra "Uruguay".
+Reiterar la b&uacute;squeda (comando n) hasta verificar que recomienza
+al principio del archivo. Repetir hacia atr&aacute;s (comando ?).
+<P><B>3.</B> Con el comando <TT>grep</TT>, extraer del archivo <TT>historia1.txt</TT>
+l&iacute;neas que empiecen con la cadena "es". Buscar luego l&iacute;neas
+que terminen con la cadena "del".
+<P><B>4. </B>Crear el archivo <TT>palabras.txt</TT>, que contiene todas
+las palabras del archivo <TT>historia1.txt</TT>, una por l&iacute;nea.
+Recordar que en espa&ntilde;ol existen la &ntilde; y las vocales acentuadas.
+Verificar con <TT>vi -R</TT> o <TT>more</TT>.
+<P><B>5.</B> Una misma palabra puede a veces contener una may&uacute;scula,
+o estar escrita totalmente en may&uacute;sculas, lo que la har&aacute;&nbsp;
+aparecer como palabras distintas. Crear el archivo <TT>palabras.min</TT>
+con todas las palabras del archivo <TT>palabras.txt</TT> en min&uacute;sculas.
+<P><B>6.</B> En el archivo <TT>historia1.txt</TT> mostrar
+<BR>a) l&iacute;neas que empiecen con "a";
+<BR>b) l&iacute;neas que terminen con "l";
+<BR>c) l&iacute;neas que empiecen con "e" y terminen con "l".
+<P><B>7.</B> En el archivo <TT>historia1.txt</TT> mostrar
+<BR>a) l&iacute;neas que contengan la palabra "ganado";
+<BR>b) l&iacute;neas que contengan la palabra "gaucho" y "ganado";
+<BR>c) l&iacute;neas que contengan la palabra "ganado" pero no la palabra
+"vacuno".
+<P><B>8.</B> En un archivo de texto se debe determinar
+<BR>a) cantidad de l&iacute;neas que contengan la cadena "se".
+<BR>b) cantidad de l&iacute;neas que contengan la palabra "se".
+<BR>c) cantidad de l&iacute;neas que contengan "se" dentro de una palabra.
+<BR>d) l&iacute;neas que contengan al mismo tiempo la palabra "se" separada
+y la cadena "se" como parte de palabra.
+<BR>Construir primero un "juego de prueba" (un archivo de texto) contemplando
+todas las posiblidades de ubicaci&oacute;n de los caracteres "se" como
+palabra y como cadena, en el medio y a los extremos de palabra, al principio
+de l&iacute;nea o al final de l&iacute;nea, etc. Verificar la correcta
+detecci&oacute;n en todos los casos pedidos. Verificar finalmente que la
+suma "cierra".
+<P><B>9.</B> Crear el archivo <TT>histo1.txt </TT>con las primeras 5 l&iacute;neas
+del archivo <TT>historia1.txt </TT>que contengan s&oacute;lo min&uacute;sculas
+y eliminando las l&iacute;neas en blanco. Eliminar la primera l&iacute;nea
+en blanco parece dif&iacute;cil. &iquest;Puede hacerse?
+<P><B>10.</B> Sin considerar vocales acentuadas, mostrar el archivo <TT>histo1.txt</TT>
+<BR>a) con las vocales en may&uacute;sculas y las consonantes en min&uacute;sculas;
+<BR>b) con las vocales en min&uacute;scula y las consonantes en may&uacute;scula.
+<P><B>11.</B> Mostrar el archivo <TT>historia1.txt</TT> eliminando todas
+las vocales, sean &eacute;stas may&uacute;sculas o min&uacute;sculas y
+est&eacute;n acentuadas o no. &iquest;Puede leerse el texto tal como queda?
+<P><B>12.</B> Un diptongo est&aacute;&nbsp; formado por dos vocales, una
+fuerte y una d&eacute;bil, o dos d&eacute;biles. Las vocales fuertes son
+a, e, o; las vocales d&eacute;biles son i, u. La acentuaci&oacute;n de
+u o i destruye el diptongo. En el archivo <TT>historia1.txt</TT>
+<BR>a) mostrar todas las palabras con diptongo formado por dos vocales
+d&eacute;biles, ordenadas y sin repetir;
+<BR>b) mostrar del mismo modo todos los diptongos con a;
+<BR>c) buscar una expresi&oacute;n regular m&iacute;nima que despliegue
+todos los diptongos.
+<P><B>13.</B> Usando el archivo <TT>/etc/passwd,</TT> y el listado de usuarios
+con&nbsp; <TT>ypcat passwd</TT> si el sistema usa NIS, extraer los siguientes
+registros:
+<BR>a) usuarios con la palabra "Unix" al principio del campo de comentario.
+<BR>b) usuarios del grupo 101.
+<BR>c) usuarios de los grupos 100, 101 o 105.
+<BR>d) usuarios con directorio propio de la forma "/home/un*".
+<BR>e) usando /etc/passwd, listar usuarios con UID de 1 digitos.
+<BR>f) usando /etc/passwd, listar usuarios con UID de 1 o 2 digitos
+<BR>g) usuarios con nombre de exactamente 4 caracteres.
+<BR>h) usuarios con nombre de 4 caracteres empezando con r.
+<BR>&nbsp;
+<BR>&nbsp;
+<ADDRESS>
+
+<HR WIDTH="100%"></ADDRESS>
+
+<ADDRESS>
+V&iacute;ctor A. Gonz&aacute;lez Barbone&nbsp; <A HREF="mailto:vagonbar en fing edu uy">vagonbar en fing edu uy</A></ADDRESS>
+
+<ADDRESS>
+<A HREF="http://iie.fing.edu.uy">Instituto de Ingenier&iacute;a El&eacute;ctrica</A>
+- <A HREF="http://www.fing.edu.uy">Facultad de Ingenier&iacute;a</A> -
+Montevideo, Uruguay.</ADDRESS>
+
+</BODY>
+</HTML>

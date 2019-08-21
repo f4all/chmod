@@ -1,0 +1,119 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.7 [en] (Win95; I) [Netscape]">
+   <meta name="AUTHOR" content="Victor Gonzalez-Barbone">
+   <meta name="CREATED" content="19981218;11082600">
+   <meta name="CHANGEDBY" content="Victor Gonzalez-Barbone">
+   <meta name="CHANGED" content="19981218;11154900">
+   <title>Curso B&aacute;sico de UNIX - Ex&aacute;menes</title>
+</head>
+<body>
+
+<address>
+Centro de Inform&aacute;tica / Sistemas Operativos II./ Ing. V&iacute;ctor
+Gonz&aacute;lez Barbone.</address>
+
+<address>
+
+<hr WIDTH="100%"></address>
+
+<center>
+<h2>
+Examen Diciembre 1998</h2></center>
+
+<center>
+<h3>
+<font size=+0>Scripts.</font></h3></center>
+
+<dt>
+<font size=+2>1.</font> Construir un script para crear usuarios. Deber&aacute;
+leer un archivo nuevos.txt con los campos nombre login, uid, grupo, comentario,
+directorio propio, separados por ":". Se dispone del comando de sistema
+useradd, con sintaxis</dt>
+
+<dt>
+<tt>&nbsp; useradd [-u uid] [-g grupo] [-c comentario] [-d dir_propio]
+nombre_login</tt></dt>
+
+<dt>
+Ejemplo de archivo <tt>nuevos.txt</tt>:</dt>
+
+<dt>
+<tt>&nbsp; nombre1:2001:prueba:Usuario_1:/home/prueba/nombre1</tt></dt>
+
+<dt>
+<tt>&nbsp; nombre2:2002:prueba:Usuario_2:/home/prueba/nombre2</tt></dt>
+
+<dt>
+<tt>&nbsp; nombre3:2003:prueba:Usuario_3:/home/prueba/nombre3<font face="courier"></font></tt></dt>
+
+<dt>
+&nbsp;</dt>
+
+<dt>
+<font size=+2>2.</font> a) Escribir un script para mostrar los nombres
+de login de usuarios y sus directorios propios para aquellos usuarios con
+grupo primario GID 201.</dt>
+
+<dt>
+&nbsp; b) Escribir un script que reciba como par&aacute;metro un nombre
+de login de usario, extraiga su directorio propio y verifique si tiene
+all&iacute; un subdirectorio de nombre ".netscape". De no ser as&iacute;,
+copiar&aacute; hacia el directorio propio del usuario el directorio modelo
+/etc/skel/docentes/netscape y todos sus archivos.</dt>
+
+<dt>
+&nbsp; c) reunir ambos scripts en uno solo que agregue la configuraci&oacute;n
+personal modelo ".netscape" a todos los usuarios que a&uacute;n no lo tengan.</dt>
+
+<dt>
+&nbsp;</dt>
+
+<dt>
+<font size=+2>3.</font> a) Construir un script <tt>conec.cmd</tt> para
+establecer conexi&oacute;n discada a una red de datos. Se dispone de los
+siguientes scripts:</dt>
+
+<dt>
+<tt>&nbsp; urugnet.dip</tt> para conectar a UruguayNet;</dt>
+
+<dt>
+<tt>&nbsp; urupac.dip</tt> para conectar a URUPAC;</dt>
+
+<dt>
+<tt>&nbsp; iie.dip</tt> para acceder al Instituto de Ingenier&iacute;a
+El&eacute;ctrica;</dt>
+
+<dt>
+<tt>&nbsp; adinet.dip</tt> para conectar a Adinet.</dt>
+
+<dt>
+Estos scripts se invocan con el comando <tt>dip</tt>; por ejemplo:</dt>
+
+<dt>
+<tt>&nbsp; dip urugnet.dip</tt></dt>
+
+<dt>
+El script recibir&aacute; uno de los nombres (urugnet, urupac, iie, adinet)
+e invocara el script correspondiente al discado. Por ejemplo,</dt>
+
+<dt>
+<tt>&nbsp; conec urupac</tt></dt>
+
+<dt>
+invocar&aacute; el script de conexi&oacute;n a URUPAC.</dt>
+
+<dt>
+&nbsp; b) Agregar al script un control de &eacute;xito, mostrando un mensaje
+"Conexi&oacute;n establecida" o "No se pudo establecer conexi&oacute;n".
+Cuando se ha establecido un enlace PPP, el comando <tt>/sbin/ifconfig</tt>
+da una salida de varias l&iacute;neas, una de las cuales contiene la cadena
+"ppp0". El establecimiento de la conexi&oacute;n debe esperarse 40 segundos.</dt>
+
+<dt>
+<font face="courier">&nbsp;</font></dt>
+
+</body>
+</html>

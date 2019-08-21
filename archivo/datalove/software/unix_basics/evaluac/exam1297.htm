@@ -1,0 +1,84 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.7 [en] (Win95; I) [Netscape]">
+   <title>Curso B&aacute;sico de UNIX - Resoluci&oacute;n de Examen</title>
+</head>
+<body bgcolor="#FFFFFF">
+
+<dl>
+<dt>
+<b>Centro de Inform&aacute;tica</b></dt>
+
+<dt>
+<b>Sistemas Operativos II (UNIX)</b></dt>
+</dl>
+
+<center>
+<h3>
+Examen Diciembre 1997</h3></center>
+
+<h4>
+PARTE I. Sin consulta de material.</h4>
+1. &iquest;Para qu&eacute; sirve el operador grave?
+<p>2. Al escribir comandos, &iquest;qu&eacute; diferencia hay entre usar
+comillas dobles y simples?
+<p>3. Ejecutar el comando nodigo de modo que no produzca ninguna salida
+ni muestre ning&uacute;n error.
+<p>4. &iquest;Qu&eacute; son los procesos? &iquest;Qu&eacute; son las se&ntilde;ales?
+<p>5. &iquest;Qu&eacute; son BSD y SYSTEM V? &iquest;Qu&eacute; es POSIX?
+<p>6. &iquest;Puede haber un enlace hard hacia un directorio? &iquest;Puede
+haber un enlace simb&oacute;lico hacia un directorio? &iquest;Qu&eacute;
+diferencia hay?
+<p>7. &iquest;Con qu&eacute; comando se borra un archivo? &iquest;Y un
+directorio? &iquest;Con qu&eacute; comando se borra un enlace simb&oacute;lico
+hacia un archivo? &iquest;Con qu&eacute; comando se borra un enlace simb&oacute;lico
+hacia un directorio?
+<p>8. &iquest;Qu&eacute; es el "shell"? &iquest;Qu&eacute; hace? En un
+mismo sistema UNIX, &iquest;puede haber m&aacute;s de un shell? Explicar.
+<p>9. Escribir un comando y uno solo para ejecutar cada una de las siguientes
+tareas, en el directorio actual:
+<br>- crear directorios trab1, trab2, trab3;
+<br>- asignar los tres directorios al usuario gerente;
+<br>- asignar los tres directorios al grupo trabajos;
+<br>- fijarles permiso total para el usuario y el grupo, pero s&oacute;lo
+lectura y recorrido para otros.
+<p>10. Escribir un comando (uno solo) para ejecutar cada una de las tareas
+siguientes en los directorios trab1, trab2 y trab3 del directorio actual,
+en forma simult&aacute;nea:
+<br>- crear en los tres directorios archivos resumen.txt.
+<br>- crear en los tres directorios enlaces simb&oacute;licos tmp hacia
+el directorio /tmp.
+<br>- crear en los tres directorios archivos 00indice con fecha y hora
+actuales.
+<br>- agregar a los tres archivos 00indice la leyenda "Montevideo, URUGUAY".
+<br>- eliminar en los tres directorios los subdirectorios basura y todos
+los archivos y subdirectorios bajo basura.
+<h4>
+PARTE II: Con libre consulta de material.</h4>
+Escribir scripts para realizar las siguientes tareas.
+<p>1. Dado un archivo de texto cuyo nombre se recibe como par&aacute;metro,
+crear un archivo diccionario.txt que contenga todas las palabras de ese
+texto sin repetir, ordenadas y en may&uacute;scula. Deber&aacute;n extraerse
+del texto s&oacute;lo las palabras, evitando s&iacute;mbolos y n&uacute;meros.
+<p>2. Un archivo de registro de eventos en un sistema UNIX tiene en su
+primer campo el nombre del evento, en el campo 2 el nombre de login del
+usuario y en el campo 5 la cantidad de minutos en sesi&oacute;n; el separador
+de campos es ":". Escribir un script que reciba un nombre de login, extraiga
+los registros del evento "login" del usuario indicado, y calcule el total
+de minutos en sesi&oacute;n de ese usuario. El archivo de registro es /var/log/events.log.
+Si el usuario no tiene ning&uacute;n login, deber&aacute; dar un mensaje
+adecuado.
+<p>3. Usando el archivo /etc/group, escribir un script que reciba el nombre
+de un grupo como par&aacute;metro y presente el n&uacute;mero de grupo,
+el nombre del grupo, la lista de usuarios y la cantidad de usuarios.
+<p>4. Escribir un script que reciba el nombre de un directorio como par&aacute;metro,
+verifique que existe y que es un directorio, determine si est&aacute; ya
+contenido en la variable PATH, y si no est&aacute; lo agregue; en ambos
+casos emitir&aacute; un mensaje indicando la condici&oacute;n y mostrar&aacute;
+el contenido de la variable PATH.
+<br>&nbsp;
+<br>&nbsp;
+</body>
+</html>

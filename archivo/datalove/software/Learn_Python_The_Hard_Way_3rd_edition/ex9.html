@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en"> <!--<![endif]-->
+
+<!-- Mirrored from learnpythonthehardway.org/book/ex9.html by HTTrack Website Copier/3.x [XR&CO'2013], Sat, 28 Dec 2013 20:46:02 GMT -->
+<head>
+    <meta charset="utf-8" />
+
+    <!-- Set the viewport width to device width for mobile -->
+    <meta name="viewport" content="width=device-width" />
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Docutils 0.10: http://docutils.sourceforge.net/" />
+    <title></title>
+
+    <!-- Included CSS Files (Compressed) -->
+    <link rel="stylesheet" href="stylesheets/foundation.css">
+    <link rel="stylesheet" href="stylesheets/normalize.css">
+    <link rel="stylesheet" href="stylesheets/app.css">
+    <link rel="stylesheet" href="stylesheets/pygments.css">
+
+    <script src="javascripts/vendor/jquery.js"></script>
+  <script src="javascripts/foundation/foundation.js"></script>
+    <script src="javascripts/vendor/custom.modernizr.js"></script>
+  
+  <!-- Initialize JS Plugins -->
+  <script src="javascripts/app.js"></script>
+
+    <!-- IE Fix for HTML5 Tags -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.10: http://docutils.sourceforge.net/" />
+<title>Exercise 9: Printing, Printing, Printing</title>
+
+</head>
+<body>
+    <nav class="top-bar">
+        <ul class="title-area">
+            <!-- Title Area -->
+            <li class="name">
+              <h1><a href="http://learnpythonthehardway.org/">Learn Python The Hard Way</a></h1>
+            </li>
+        </ul>
+
+        <section class="top-bar-section">
+            <!-- Right Nav Section -->
+            <ul class="right">
+                <li> <a href="#video">Watch The Video</a></li>
+            </ul>
+        </section>
+
+        <section class="top-bar-section">
+            <!-- Right Nav Section -->
+            <ul class="right">
+                <li><a href="https://paydiv.io/products/contents/2/">See All The Content</a></li>
+            </ul>
+        </section>
+
+        <section class="top-bar-section">
+            <!-- Right Nav Section -->
+            <ul class="right">
+                <li><a href="https://paydiv.io/access/buy/2/">Purchase The Videos+PDF For $29.59</a></li>
+            </ul>
+        </section>
+    </nav>
+
+  <div class="row">
+    <div class="large-11 columns">
+        <h1 class="title">Exercise 9: Printing, Printing, Printing</h1>
+
+        <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><a name="ex--ex9.py-idio.html-1"></a><span class="c"># Here&#39;s some new strange stuff, remember type it exactly.</span>
+<a name="ex--ex9.py-idio.html-2"></a>
+<a name="ex--ex9.py-idio.html-3"></a><span class="n">days</span> <span class="o">=</span> <span class="s">&quot;Mon Tue Wed Thu Fri Sat Sun&quot;</span>
+<a name="ex--ex9.py-idio.html-4"></a><span class="n">months</span> <span class="o">=</span> <span class="s">&quot;Jan</span><span class="se">\n</span><span class="s">Feb</span><span class="se">\n</span><span class="s">Mar</span><span class="se">\n</span><span class="s">Apr</span><span class="se">\n</span><span class="s">May</span><span class="se">\n</span><span class="s">Jun</span><span class="se">\n</span><span class="s">Jul</span><span class="se">\n</span><span class="s">Aug&quot;</span>
+<a name="ex--ex9.py-idio.html-5"></a>
+<a name="ex--ex9.py-idio.html-6"></a><span class="k">print</span> <span class="s">&quot;Here are the days: &quot;</span><span class="p">,</span> <span class="n">days</span>
+<a name="ex--ex9.py-idio.html-7"></a><span class="k">print</span> <span class="s">&quot;Here are the months: &quot;</span><span class="p">,</span> <span class="n">months</span>
+<a name="ex--ex9.py-idio.html-8"></a>
+<a name="ex--ex9.py-idio.html-9"></a><span class="k">print</span> <span class="s">&quot;&quot;&quot;</span>
+<a name="ex--ex9.py-idio.html-10"></a><span class="s">There&#39;s something going on here.</span>
+<a name="ex--ex9.py-idio.html-11"></a><span class="s">With the three double-quotes.</span>
+<a name="ex--ex9.py-idio.html-12"></a><span class="s">We&#39;ll be able to type as much as we like.</span>
+<a name="ex--ex9.py-idio.html-13"></a><span class="s">Even 4 lines if we want, or 5, or 6.</span>
+<a name="ex--ex9.py-idio.html-14"></a><span class="s">&quot;&quot;&quot;</span>
+</pre></div>
+</td></tr></table><div class="section" id="what-you-should-see">
+<h1>What You Should See</h1>
+<div class="highlight"><pre><a name="ex--ex9.sh-idio-shint-pyg.html-1"></a><span class="gp">$</span> python ex9.py
+<a name="ex--ex9.sh-idio-shint-pyg.html-2"></a><span class="go">Here are the days:  Mon Tue Wed Thu Fri Sat Sun</span>
+<a name="ex--ex9.sh-idio-shint-pyg.html-3"></a><span class="go">Here are the months:  Jan</span>
+<a name="ex--ex9.sh-idio-shint-pyg.html-4"></a><span class="go">Feb</span>
+<a name="ex--ex9.sh-idio-shint-pyg.html-5"></a><span class="go">Mar</span>
+<a name="ex--ex9.sh-idio-shint-pyg.html-6"></a><span class="go">Apr</span>
+<a name="ex--ex9.sh-idio-shint-pyg.html-7"></a><span class="go">May</span>
+<a name="ex--ex9.sh-idio-shint-pyg.html-8"></a><span class="go">Jun</span>
+<a name="ex--ex9.sh-idio-shint-pyg.html-9"></a><span class="go">Jul</span>
+<a name="ex--ex9.sh-idio-shint-pyg.html-10"></a><span class="go">Aug</span>
+<a name="ex--ex9.sh-idio-shint-pyg.html-11"></a>
+<a name="ex--ex9.sh-idio-shint-pyg.html-12"></a><span class="go">There&#39;s something going on here.</span>
+<a name="ex--ex9.sh-idio-shint-pyg.html-13"></a><span class="go">With the three double-quotes.</span>
+<a name="ex--ex9.sh-idio-shint-pyg.html-14"></a><span class="go">We&#39;ll be able to type as much as we like.</span>
+<a name="ex--ex9.sh-idio-shint-pyg.html-15"></a><span class="go">Even 4 lines if we want, or 5, or 6.</span>
+</pre></div></div>
+<div class="section" id="study-drills">
+<h1>Study Drills</h1>
+<ol class="arabic simple">
+<li>Do your checks of your work, write down your mistakes, try not to make them on the next exercise.</li>
+</ol>
+</div>
+<div class="section" id="common-student-questions">
+<h1>Common Student Questions</h1>
+<dl class="docutils">
+<dt>What if I wanted to start the months on a new line?</dt>
+<dd><p class="first">You simply start the string with <tt class="docutils literal">\n</tt> like this:</p>
+<pre class="last literal-block">
+&quot;\nJan\nFeb\nMar\nApr\nMay\nJun\nJul\nAug&quot;
+</pre>
+</dd>
+<dt>Why do the <tt class="docutils literal">\n</tt> newlines not work when I use <tt class="docutils literal">%r</tt>?</dt>
+<dd>That's how <tt class="docutils literal">%r</tt> formatting works; it prints it the way you wrote it (or close to it).  It's the &quot;raw&quot; format for debugging.</dd>
+<dt>Why do I get an error when I put spaces between the three double-quotes?</dt>
+<dd>You have to type them like <tt class="docutils literal">&quot;&quot;&quot;</tt> and not <tt class="docutils literal">&quot; &quot; &quot;</tt>, meaning with <em>no</em> spaces between each one.</dd>
+<dt>Is it bad that my errors are always spelling mistakes?</dt>
+<dd>Most programming errors in the beginning (and even later) are simple spelling mistakes, typos, or getting simple things out of order.</dd>
+</dl>
+</div>
+
+        <div class="section" id="video">
+            <div class="large-12 columns panel">
+                <div data-paydiv_product="2" id='paydiv'>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="large-1 columns" id="right-nav">
+        <center>
+        <p><a href="index.html"><img src="images/48_structure.png"></a></p>
+        <p><a href="mailto:help@learncodethehardway.org"><img src="images/48_email.png"></a></p>
+        <p><a href="#common-student-questions"><img src="images/48_faq.png"></a></p>
+        <p><a href="#video"><img src="images/48_video.png"></a></p>
+        </center>
+    </div>
+
+    <div class="twelve columns" id="footer">
+        <div class="large-4 columns" id="footer-block">
+            <p>
+            <a href="http://learncodethehardway.org/">Copyright (C) 2010 Zed. A. Shaw</a>
+            </p>
+        </div>
+        <div class="large-4 columns" id="footer-block">
+            <p>
+            </p>
+        </div>
+        <div class="large-3 columns" id="footer-block">
+            <p>
+            </p>
+        </div>
+        <div class="one columns">
+            &nbsp;
+        </div>
+    </div>
+
+
+
+    <script src="https://paydiv.io/static/js/videojs/video.js"></script>
+    <link rel="stylesheet" href="https://paydiv.io/static/js/videojs/video-js.css">
+    <script src="https://paydiv.io/static/api/v1/paydiv.js"></script>
+
+  <!-- Included JS Files (Compressed) -->
+  <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-24168052-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script>
+
+</body>
+
+<!-- Mirrored from learnpythonthehardway.org/book/ex9.html by HTTrack Website Copier/3.x [XR&CO'2013], Sat, 28 Dec 2013 20:46:02 GMT -->
+</html>

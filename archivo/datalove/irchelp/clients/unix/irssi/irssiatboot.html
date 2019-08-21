@@ -1,0 +1,412 @@
+<!doctype html>
+<html>
+
+<!-- Mirrored from www.irchelp.org/irchelp/clients/unix/irssi/irssiatboot.html by HTTrack Website Copier/3.x [XR&CO'2013], Sun, 29 Dec 2013 06:57:18 GMT -->
+<head>
+    <title>IRCHelp.org &mdash; Auto Start &amp; Auto Connect Single or Multi Irssi Sessions in a Terminal or Screen</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="description" content="Comprehensive information on everything Internet Relay Chat" />
+    <meta name="author" content="irchelpers" />
+    <meta name="generator" content="PieCrust 1.0.0-dev" />
+    <meta name="template-engine" content="Twig" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,
+      initial-scale=1.0">
+    <!-- Le styles -->
+    <link href="http://www.irchelp.org/css/bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+    </style>
+    <link href="http://www.irchelp.org/css/bootstrap-responsive.css" rel="stylesheet">
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144"
+      href="http://www.irchelp.org/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114"
+      href="http://www.irchelp.org/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72"
+      href="http://www.irchelp.org/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed"
+      href="http://www.irchelp.org/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="http://www.irchelp.org/ico/favicon.png">
+</head>
+<body>
+    <!--Start of navigation-->
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container"> <a class="btn btn-navbar"
+            data-toggle="collapse" data-target=".nav-collapse"> <span
+              class="icon-bar"></span> <span class="icon-bar"></span> <span
+              class="icon-bar"></span> </a> <a class="brand" href="http://www.irchelp.org/">#irchelp</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class="active"><a href="http://www.irchelp.org/">Home</a></li>
+              <li><a href="../../../credit.html">About</a></li>
+              <li class="dropdown"> <a href="../../index.html" class="dropdown-toggle"
+                  data-toggle="dropdown">Clients </a>
+                <ul class="dropdown-menu">
+                  <li><a href="../../index.html">All Clients</a></li>
+                  <li class="divider"></li>
+                  <li class="nav-header">Windows</li>
+                  <li><a href="../../windows/mirc/index.html">mIRC</a></li>
+                  <li><a href="../../windows/xchat.html">XChat</a></li>
+                  <li><a href="../../windows.html">All Windows Clients</a></li>
+                  <li class="divider"></li>
+                  <li class="nav-header">MacOS X</li>
+                  <li><a href="../../mac/textual.html">Textual</a></li>
+                  <li><a href="../../mac/colloquy.html">Colloquy</a></li>
+                  <li><a href="../../mac/snak.html">Snak</a></li>
+                  <li><a href="../../mac.html">All MacOS X Clients</a></li>
+                  <li class="divider"></li>
+                  <li class="nav-header">Linux/Unix Terminal</li>
+                  <li><a href="index.html">irssi</a></li>
+                  <li><a href="../epic.html">EPIC</a></li>
+                  <li><a href="../ircii/index.html">ircII</a></li>
+                  <li><a href="../index.html#terminal">All Linux/Unix Terminal Clients</a></li>
+                  <li class="divider"></li>
+                  <li class="nav-header">Linux/Unix Graphical</li>
+                  <li><a href="../xchat.html">XChat</a></li>
+                  <li><a href="../konversation.html">Konversation</a></li>
+                  <li><a href="../index.html#gui">All Linux/Unix Graphical Clients</a></li>
+                  <li class="nav-header">Smartphones</li>
+                  <li><a href="../../mobile/android/index.html">Clients for Android</a></li>
+                  <li><a href="../../mobile/ios.html">Clients for iOS</a></li>
+                  <li><a href="../../mobile.html">All Smartphone Clients</a></li>
+                  <li class="nav-header">Other OS and Crossplatform</li>
+                  <li><a href="../../cross/java.html">Clients writting in Java</a></li>
+                  <li><a href="../../cross.html">Other Crossplatform Clients</a></li>
+                  <li><a href="../../otheros/index.html">Clients for other Operating Systems</a></li>
+                  <li><a href="../../webclients.html">Web-based clients</a></li>
+
+                </ul>
+              </li>
+              <li class="dropdown"> <a href="../../../networks/index.html" class="dropdown-toggle"
+                  data-toggle="dropdown">Networks </a>
+                <ul class="dropdown-menu">
+                  <li><a href="../../../networks/popular.html">Major Networks</a></li>
+                  <li><a href="../../../networks/regional.html">Regional Networks</a></li>
+                  <li><a href="../../../networks/topical.html">Topical Networks</a></li>
+                  <li><a href="../../../networks/index.html">All Networks</a></li>
+                  <li class="divider"></li>
+                  <li class="nav-header">Major Networks</li>
+                  <li><a href="../../../networks/efnet/index.html">EFNet</a></li>
+                  <li><a href="../../../networks/undernet.html">Undernet</a></li>
+                  <li><a href="../../../networks/dalnet.html">Dalnet</a></li>
+                  <li><a href="../../../networks/quakenet.html">Quakenet</a></li>
+                  <li><a href="../../../networks/freenode.html">Freenode</a></li>
+                </ul>
+              </li>
+              <li class="dropdown"> <a href="../../../security/index.html" class="dropdown-toggle"
+                  data-toggle="dropdown">Security </a>
+                <ul class="dropdown-menu">
+                  <li><a href="../../../security/index.html">General Security</a></li>
+                  <li><a href="../../../security/privacy.html">Privacy</a></li>
+                  <li><a href="../../../security/nuke.html">Denial of Service</a></li>
+                  <li><a href="../../../security/trojan.html">Trojan Horses and Other Malware</a></li>
+                  <li><a href="../../../security/socialeng.html">Social Engineering</a></li>
+                </ul>
+              </li>
+              <li class="dropdown"> <a href="../../../ircd/index.html" class="dropdown-toggle"
+                  data-toggle="dropdown">Servers </a>
+                <ul class="dropdown-menu">
+                  <li><a href="../../../ircd/index.html">General ircd information</a></li>
+                  <li class="divider"></li>
+                  <li class="nav-header">EFNet IRCDs</li>
+                  <li><a href="../../../ircd/ratbox/index.html">ircd-ratbox</a></li>
+                  <li><a href="../../../ircd/hybrid/index.html">ircd-hybrid</a></li>
+                </ul>
+              </li>
+              <li class="dropdown"> <a href="#" class="dropdown-toggle"
+                  data-toggle="dropdown">FAQs </a>
+                <ul class="dropdown-menu">
+                  <li><a href="../../../new2irc.html">New user introduction</a></li>
+<!--
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li class="divider"></li>
+                  <li class="nav-header">Nav header</li>
+                  <li><a href="#">Separated link</a></li>
+                  <li><a href="#">One more separated link</a></li>
+-->
+                </ul>
+              </li>
+              <li class="dropdown"> <a href="../../../library.html" class="dropdown-toggle"
+                  data-toggle="dropdown">Library </a>
+                <ul class="dropdown-menu">
+                  <li><a href="../../../library.html">Index</a></li>
+<!--
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li class="divider"></li>
+                  <li class="nav-header">Nav header</li>
+                  <li><a href="#">Separated link</a></li>
+                  <li><a href="#">One more separated link</a></li>
+-->
+                </ul>
+              </li>
+            </ul>
+            <form class="navbar-form pull-right"> <input class="span2"
+                placeholder="Search" type="text"> <button type="submit"
+                class="btn">Search</button> </form>
+          </div>
+          <!--/.nav-collapse --> </div>
+      </div>
+    </div>
+<!--end of navigation-->
+
+    <div id="container" class="container">
+<!--
+                        <h1><a href="/">Auto Start &amp; Auto Connect Single or Multi Irssi Sessions in a Terminal or Screen</a></h1>
+            -->        
+        
+            <div class="content">
+                                <h1>Auto Start &amp; Auto Connect Single or Multi Irssi Sessions in a Terminal or Screen</h1>
+
+<p>28 November 2012 &#8212; rough draft 4</p>
+
+<p>By EmleyMoor, ShadowDog, and Jupiter/Mangelo</p>
+
+<p>A. Auto Connecting to an IRC Server and Some Channels on Irssi startup.</p>
+
+<p>B. Setting Up Multiple Irssi Configurations.</p>
+
+<p>C. Starting a Particular Irssi Session.</p>
+
+<p>D. Additional Configurations.</p>
+
+<p>E. Using Screen to Run Single or Multiple Irssi Sessions on a Remote Computer.</p>
+
+<p>F. Using Cron to Set the Irssi/Screen Session to Automatically Start on Boot or Reboot.</p>
+
+<p>This tutorial shows you how to have Irssi automatically connect to a server and automatically join one or more channels simply by typing “irssi” on the command line in a Linux terminal &#8212; on a local or remote computer. It also shows you how to do this in a Screen process.</p>
+
+<p>Additionally, the tutorial shows you how to do all the above as a cron job so that when you boot or reboot your Linux-based computer, Irssi  automatically will start, connect to a server, and join channels in a Screen process.</p>
+
+<p>Irssi is a robustly configurable IRC client. And it has a rich and comprehensive script library. So, to start this project, we will configure a single Irssi session to automatically connect to a server and automatically join a channel or list of channels.</p>
+
+<p>It is assumed that you already are familiar with Irssi and know how to connect to an IRC server with Irssi and how to join channels. If not, you will find basic instructions for using Irssi at irssi.org.</p>
+
+<p>A. Auto Connecting to an IRC Server and Some Channels on Irssi startup.</p>
+
+<ol>
+<li><p>Start Irssi from a Linux terminal command line by typing Irssi on the command line and pressing enter.  (You must have Irssi installed on your Linux-based computer. If not, you can download Irssi from irssi.org.)</p></li>
+<li><p>Take a look at the list of servers already in the Irssi config file by typing /server list.</p></li>
+</ol>
+
+<p>a. The default server list should look something like this:</p>
+
+<pre><code>Server               Port  Network    Settings
+eu.irc6.net                IRCnet
+irc.open-ircnet.net        IRCnet
+irc.efnet.org              EFNet
+irc.undernet.org           Undernet
+irc.dal.net                DALnet
+irc.quakenet.org           QuakeNet
+irc.oftc.net               OFTC
+irc.gamesurge.net          GameSurge
+irc.webchat.org            WebChat
+irc.rizon.net              Rizon
+irc.link-net.org           LinkNet
+</code></pre>
+
+<ol>
+<li><p>Now, let’s set Irssi to connect to the default EFNet server when Irssi is started. To do this simply type at the command line and enter:</p>
+
+<p>/server add -auto -network EFNet irc.efnet.org</p></li>
+</ol>
+
+<p>Then type /save to save this new addition.</p>
+
+<p>Now, your server list should look like this:</p>
+
+<pre><code>Server               Port   Network   Settings
+eu.irc6.net                 IRCnet
+irc.open-ircnet.net         IRCnet
+irc.efnet.org               EFNet     autoconnect
+irc.undernet.org            Undernet
+irc.dal.net                 DALnet
+irc.quakenet.org            QuakeNet
+irc.oftc.net                OFTC
+irc.gamesurge.net           GameSurge
+irc.webchat.org             WebChat
+irc.rizon.net               Rizon
+irc.link-net.org            LinkNet
+</code></pre>
+
+<p>Please notice that the irc.efnet.org entry now shows the autoconnect setting.</p>
+
+<ol>
+<li><p>Next let’s set the config so that on connecting to irc.efnet.org, Irssi will automatically join some channels &#8212; for example #irssi and #irchelp. To do that start Irssi and connect to an IRC server. Then type these lines at the command line and enter them:</p>
+
+<p>/channel add -auto #irssi EFNet
+/channel add -auto #irchelp EFNet</p></li>
+</ol>
+
+<p>Then type /save to save this new addition.</p>
+
+<p>Now, when you start Irssi, it will automatically connect to the generic EFNet server, irc.efnet.org and join channels #irssi and #irchelp.</p>
+
+<p>B. Setting Up Multiple Irssi Configurations.</p>
+
+<ol>
+<li>To do this trick, we will set up a unique Irssi config for each Irssi session we want to have. The Irssi config file is located in your home directory, for example,</li>
+</ol>
+
+<p>~/.irssi/config  “~/” represents the home directory for your account, which is usually /home/username</p>
+
+<ol>
+<li><p>Now start Irssi, telling it to use a different path for its configuration</p>
+
+<p>irssi &#8212;home=~/.irssi-1/</p></li>
+</ol>
+
+<p>Where “~/” is the home directory for your account</p>
+
+<p>This should start Irssi with a default config file stored in the new location that you gave.</p>
+
+<ol>
+<li><p>With Irssi opened and using the  ~/.irssi-1/ directory, repeat the steps in Section A to set up an autoconnection and auto join scenario. However, use another server, not the generic irc.efnet.org server. This server can be another EFNet server of your choice or a server on a different IRC network, For example:</p>
+
+<p>/server add -auto -network DALnet irc.dal.net</p></li>
+<li><p>Next set the config to autojoin some channels:</p>
+
+<p>/channel add -auto #irssi EFNet
+/channel add -auto #irchelp EFNet</p></li>
+</ol>
+
+<p>Then type /save to save this new addition.</p>
+
+<p>C. Starting a Particular Irssi Session.</p>
+
+<p>Now you can start your original Irssi configuration simply by typeing “irssi” at the command line in your Linux terminal.</p>
+
+<p>However, if you want to start your irssi-1 configuration, type this on the Linux terminal command line:</p>
+
+<pre><code>irssi --home=~/.irssi-1/config
+</code></pre>
+
+<p>Where “~/” is the home directory for your account</p>
+
+<p>D. Additional Configurations.</p>
+
+<p>You can have more that just two Irssi confgurations. To create additional Irssi configurations, simply follow the steps outlined in Part B, above. Just make sure each config has it’s own unique irssi directory name such as ~/.irssi-1/, ~/.irssi-2/, ~/.irssi-3/ etc.</p>
+
+<p>E. Using Screen to Run Single or Multiple Irssi Sessions on a Remote Computer.</p>
+
+<p>Screen is a powerful Linux tool that let’s you open a “screen” and run one or more programs from within the screen. You can detach from the screen, leaving the programs running in the screen. And then you can later re-attach to the screen and interact with the programs you have running in screen.</p>
+
+<p>You can take advantage of the Screen process by running Irssi sessions in a screen on a remote computer. This lets you detach from the screen, close your connection to the remote computer, yet let your Irssi sessions run as background processes even though you are not connected to the remote computer.</p>
+
+<p>Then at a later time you can re-connect to the remote computer, re-attach to the screen, and carry on your IRC chatting.</p>
+
+<ol>
+<li><p>Start by connecting to a remote Linux-based computer on which you have an account.</p></li>
+<li><p>Open Screen by typing “screen” on the Linux terminal command line. This will open screen window 0.</p></li>
+<li><p>After you have opened Screen, type “irssi” on the command line to start Irssi. Now it’s just like you were running Irssi on your own local computer. And you can configure Irssi to auto-connect to an irc server and to join channels just the way we did in Part A, above.</p></li>
+<li><p>Now open a new window in screen by pressing the Ctrl+a then c keys. Then again start Irssi by typing “irssi” on the command line in what is now screen window 1. You can switch screen windows by pressing Ctrl+a then 0 to move to screen window 0 and Ctrl+a then 1 to switch to screen window 1.</p></li>
+<li><p>Next, detach from the screen by pressing Ctrl+a then d.</p></li>
+<li><p>That should take you out of the screen and put you back in the Linux terminal. Now, re-attach to the screen by typing and entering “screen -r”. Now you should be back in whatever Irssi screen window you were in before you detached from the screen.</p></li>
+<li><p>Now kill the screen process by typing /quit in the irssi command line and then exit. This should kill the screen and put you back in the original Linux terminal command line.</p></li>
+<li><p>Follow the steps in Part B to set up your ~/.irssi-1/ directory.</p></li>
+<li><p>Then type “screen” to start a screen process. When in the first screen window, window 0, start Irssi by typing “irssi” on the command line. Now configure this irssi config the way you did in Part A..</p></li>
+<li><p>Now open screen window 1 by pressing Ctrl+a then c. In this window open the .irssi-1 config by typing</p>
+
+<pre><code>irssi --home=~/.irssi-1/
+</code></pre></li>
+<li><p>Next configure the ~/.irssi-1/ configuration the way you did it in Part B.</p></li>
+</ol>
+
+<p>F. Using Cron to set the Irssi/Screen Session to Automatically Start on Boot or Reboot.</p>
+
+<p>This is the really slick part of this procedure. A shell script is used to to start a Screen process and then to open Irssi sessions in the Screen process. This is then added to your crontab. By using the procedures set forth above, when cron does this, Irssi  automatically will connect to the selected servers and join the selected channels.</p>
+
+<ol>
+<li>The shell Script to Start Irssi in a Screen Session.</li>
+</ol>
+
+<p>You will need a shell script. This should be kept in your home directory – you can create it with the text editor of your choice, such as vi.</p>
+
+<p>The example below starts three Irssi sessions in one screen session, each with a different config.</p>
+
+<pre><code>#!/bin/bash
+screen -dmS irssi irssi
+screen -S irssi -X screen 1 irssi --home=~/.irssi-1/
+screen -S irssi -X screen 2 irssi --home=~/.irssi-2/
+</code></pre>
+
+<p>Call this file “startirssi” in your home directory, and do</p>
+
+<pre><code>chmod u+x startirssi
+</code></pre>
+
+<p>to make it executable.</p>
+
+<p>Next time you need to start irssi, do</p>
+
+<pre><code>./startirssi
+</code></pre>
+
+<p>in your home directory, then</p>
+
+<pre><code>screen -r irssi
+</code></pre>
+
+<p>will take you into the screen session, where you will find all three instances running.</p>
+
+<ol>
+<li>The Cron Job to Start Irssi in a Screen on Boot/Reboot.</li>
+</ol>
+
+<p>Now, suppose you want this to run automatically if the machine is rebooted. Provided it is just a simple reboot, rather than a power failure or crash, this is quite easy to do with cron, provided of course you have the necessary permissions. If it&#8217;s your own machine, you probably do, and if not, you can ask the owner of the system.</p>
+
+<p>Assuming you do have the permissions, do</p>
+
+<pre><code>crontab -e
+</code></pre>
+
+<p>and your crontab file will be opened in your default editor. It may be full of comments (lines beginning #, which are ignored. Go to the end of the file and add a line that reads:</p>
+
+<pre><code>@reboot ~/startirssi
+</code></pre>
+
+<p>Make sure there is a blank line visible in the file after this line.</p>
+
+<p>If the system crashes or has a power failure, for example, this will not work – you will need to log in and run “startirssi” yourself. However, on a simple reboot, it should be run automatically, and you will be able to get into it with “screen -r irssi” right away.</p>
+
+<p>Good luck &#8212; enjoy. :-)</p>
+
+                            </div>
+        
+        <footer>
+
+                        <p>All documents © irchelp.org or original authors 2012 <br />Baked with <em><a href="http://bolt80.com/piecrust/">PieCrust</a> 1.0.0-dev</em>.</p>
+                    </footer>
+    </div>
+    
+        <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="http://www.irchelp.org/js/jquery.js"></script>
+    <script src="http://www.irchelp.org/js/bootstrap-transition.js"></script>
+    <script src="http://www.irchelp.org/js/bootstrap-alert.js"></script>
+    <script src="http://www.irchelp.org/js/bootstrap-modal.js"></script>
+    <script src="http://www.irchelp.org/js/bootstrap-dropdown.js"></script>
+    <script src="http://www.irchelp.org/js/bootstrap-scrollspy.js"></script>
+    <script src="http://www.irchelp.org/js/bootstrap-tab.js"></script>
+    <script src="http://www.irchelp.org/js/bootstrap-tooltip.js"></script>
+    <script src="http://www.irchelp.org/js/bootstrap-popover.js"></script>
+    <script src="http://www.irchelp.org/js/bootstrap-button.js"></script>
+    <script src="http://www.irchelp.org/js/bootstrap-collapse.js"></script>
+    <script src="http://www.irchelp.org/js/bootstrap-carousel.js"></script>
+    <script src="http://www.irchelp.org/js/bootstrap-typeahead.js"></script>
+</body>
+
+<!-- Mirrored from www.irchelp.org/irchelp/clients/unix/irssi/irssiatboot.html by HTTrack Website Copier/3.x [XR&CO'2013], Sun, 29 Dec 2013 06:57:18 GMT -->
+</html>

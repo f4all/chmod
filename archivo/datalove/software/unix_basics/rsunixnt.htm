@@ -1,0 +1,278 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+   <META NAME="GENERATOR" CONTENT="Mozilla/4.06 [es] (Win95; I) [Netscape]">
+   <META NAME="Author" CONTENT="Victor González-Barbone">
+   <META NAME="Description" CONTENT="Comparación de UNIX y NT como servidores; adaptado del artículo homónimo de John Kirch">
+   <META NAME="KeyWords" CONTENT="Linux, UNIX, tutorial, curso">
+   <TITLE>Curso B&aacute;sico de UNIX - UNIX versus NT</TITLE>
+</HEAD>
+<BODY TEXT="#000000" BGCOLOR="#FFFFFF" LINK="#0000FF" VLINK="#FF0000" ALINK="#000088">
+
+<ADDRESS>
+<A HREF="index.htm">Curso B&aacute;sico de UNIX</A></ADDRESS>
+
+<CENTER>
+<ADDRESS>
+</ADDRESS></CENTER>
+
+<CENTER>
+<H1>
+UNIX versus NT</H1></CENTER>
+
+<CENTER>
+<H4>
+Adaptado del art&iacute;culo de John Kirch, versi&oacute;n del 7-8-1999.<BR>
+(<A HREF="http://www.unix-vs-nt.org">http://www.unix-vs-nt.org</A>)</H4></CENTER>
+
+<H3>
+Objetivo.</H3>
+El prop&oacute;sito del art&iacute;culo de Kirch es comparar Windows NT
+con UNIX como servidores. Contiene una enorme cantidad de enlaces a documentos,
+estudios de casos y opiniones de profesionales sobre todos los t&oacute;picos
+tratados. Este resumen adaptado no sustituye en modo alguno la lectura
+completa del art&iacute;culo.
+<H3>
+Costos.</H3>
+Windows NT para 5 usuarios, U$ 809; para 50 usuarios, U$ 4800. Linux o
+FreeBSD en CD-ROM, U$ 50. NT no dispone de servidor telnet, servidor SMTP
+(para correo), cuotas, servidor de noticias, y su servidor de nombres (DNS)
+no siempre conforma; estas capacidades vienen en todos los UNIX. Para lograr
+una funcionalidad equivalente, una soluci&oacute;n NT tiene un costo estimado
+entre U$ 4000 y U$ 4600.
+<H3>
+Funcionalidad.</H3>
+Ambos sistemas operativos ofrecen capacidades b&aacute;sicas como sistemas
+operativos de red: comunicaci&oacute;n con otros computadores, seguridad
+para los datos almacenados. Un sistema operativo UNIX hace todo lo que
+hace un NT, y m&aacute;s.
+<BLOCKQUOTE>
+<LI>
+NT no es multiusuario: valida usuarios y sirve archivos e impresi&oacute;n,
+pero los usuarios no pueden <I>ejecutar</I> sobre la m&aacute;quina NT
+para aprovechar sus mayores capacidades.</LI>
+
+<LI>
+NT no dispone de facilidades de manejo de correo (MTA, Mail Transport Agent);
+debe adquirirse Microsoft Exchange Server a U$ 3500 para 25 usuarios.</LI>
+
+<LI>
+NT ofrece seguridad a nivel de archivos s&oacute;lo en su sistema de archivos
+propietario, NTFS.</LI>
+
+<LI>
+NT no dispone de cuotas para controlar uso del espacio en disco.</LI>
+
+<LI>
+NT mantiene el uso (anticuado) de letras de unidad para las unidades de
+disco (F:, G:, etc.). UNIX monta todo tipo de dispositivos f&iacute;sicos,
+a&uacute;n unidades remotas en otros computadores, sobre un mismo &aacute;rbol
+de directorios, haciendo totalmente transparente el medio f&iacute;sico.</LI>
+
+<LI>
+NT dispone de facilidades elementales de ejecuci&oacute;n diferida, a trav&eacute;s
+de un Scheduler y el comando at; &eacute;stos son muy pobres frente a las
+posibilidades de cron y los lenguajes de programaci&oacute;n de scripts
+en UNIX.</LI>
+
+<LI>
+NT soporta Perl, un lenguaje de programaci&oacute;n de scripts, pero los
+administradores NT baratos no lo manejan. Perl viene con UNIX, adem&aacute;s
+de ser el propio UNIX un lenguaje de programaci&oacute;n; casi todos los
+administradores UNIX manejan alg&uacute;n lenguaje de programaci&oacute;n
+de scripts, o m&aacute;s de uno.</LI>
+
+<LI>
+NT es fijo en su n&uacute;cleo; Linux puede cargar m&oacute;dulos en el
+n&uacute;cleo (kernel) seg&uacute;n las necesidades, descarg&aacute;ndolos
+al finalizar el uso; esto aligera mucho el sistema en el momento de ejecutar.</LI>
+
+<LI>
+NT requiere arrancar de nuevo el sistema (se trata de un servidor) ante
+cambios triviales como el n&uacute;mero IP del gateway o el modem para
+discar un enlace PPP; las m&aacute;quinas UNIX pueden realizar todos estos
+cambios, y muchos m&aacute;s, sin dejar de brindar servicio.</LI>
+</BLOCKQUOTE>
+
+<H3>
+Confiabilidad.</H3>
+
+<BLOCKQUOTE>
+<LI>
+NT se cuelga con excesiva frecuencia para un servidor. Existen informes
+de fallas masivas de m&aacute;quinas NT, bloqueando las operaciones de
+red de 10000 m&aacute;quinas.</LI>
+
+<LI>
+En una encuesta sobre aplicaciones de misi&oacute;n cr&iacute;tica, pr&aacute;cticamente
+nadie conf&iacute;a en NT.</LI>
+
+<LI>
+Existen casos documentados de m&aacute;quinas UNIX con a&ntilde;os sin
+un arranque ni una ca&iacute;da.&nbsp; Las m&aacute;quinas UNIX se caen
+por fallas de hardware o cortes prolongados de energ&iacute;a que agotaron
+las UPSs; la enorme mayor&iacute;a de las veces las anomal&iacute;as se
+pueden arreglar eliminando procesos.</LI>
+
+<LI>
+NT es una decisi&oacute;n de los gerentes m&aacute;s que de los t&eacute;cnicos;
+el mandato corporativo es "compren Microsoft" como antes era "compren IBM".
+Los gerentes involucrados en estas decisiones se resisten a volver atr&aacute;s,
+a&uacute;n frente a los inconvenientes de NT, para no comprometer sus posiciones.</LI>
+
+<LI>
+La Pantalla Azul de la Muerte (Blue Screen Of Death, BSOD) es una pantalla
+azul con n&uacute;meros hexadecimales que aparece cuando NT se cuelga sin
+remedio; s&oacute;lo queda apagar el computador.&nbsp; Esto es bastante
+frecuente; las causas son numerosas; las hay identificadas y misteriosas.
+Los administradores NT, resignados, ruegan por la soluci&oacute;n del problema
+en NT 5.0.&nbsp; En UNIX se han reportado algunas incompatibilidades con
+algunos tipos de hardware (error por signal 11), generalmente al recompilar
+el kernel, atribu&iacute;dos a una respuesta pobre de la memoria RAM.</LI>
+
+<LI>
+NT es sensible a virus en el Master Boot Record (MBR) del disco; no tiene
+la posibilidad, como muchos UNIX, de cargar un kernel comprimido desde
+un disquete para arreglar el problema.</LI>
+
+<LI>
+El equivalente de la Pantalla Azul de la Muerte en UNIX es el "kernel panic",&nbsp;
+generalmente debido a fallas de hardware. Es muy infrecuente, al punto
+que administradores de a&ntilde;os jam&aacute;s lo vieron. Los problemas
+de software se resuelven generalmente eliminando o re-arrancando procesos,
+sin bajar el equipo.</LI>
+</BLOCKQUOTE>
+
+<H3>
+Administraci&oacute;n del Sistema.</H3>
+La afirmaci&oacute;n de que un GUI es m&aacute;s f&aacute;cil de administrar
+que un CLI es al menos cuestionable. Adjudicar una ventaja a NT por tener
+GUI es falso: UNIX tambi&eacute;n tiene GUI. NT es un sistema monousuario,
+no permite accesos remotos, una s&oacute;la persona trabaja en la m&aacute;quina
+NT a la vez; el resto es servicio de archivos e impresi&oacute;n.
+<H3>
+Rendimiento.</H3>
+UNIX trabaja en todo tipo de hardware, hasta en supercomputadoras. NT est&aacute;
+limitado a las m&aacute;quinas x86, esencialmente computadores personales
+o estaciones de trabajo. Las grandes corporaciones no pueden, aunque lo
+desearan, migrar a NT: su hardware no es soportado. Una m&aacute;quina
+SGI con IRIX y Samba 2.0 es un servidor de archivos m&aacute;s r&aacute;pido
+que un NT, e indistinguible del NT para los usuarios finales. La comparaci&oacute;n
+justa para Microsoft es restringirse a plataformas Intel: Linux es m&aacute;s
+r&aacute;pido que NT, ya que puede ser recompilado espec&iacute;ficamente
+para las tareas a realizar. El servidor Web m&aacute;s r&aacute;pido al
+d&iacute;a de hoy es el S70 de IBM sobre un RS6000 con PowerPC RS64-II.
+<H3>
+Seguridad.</H3>
+Es un tema demasiado complejo para tratar en el art&iacute;culo, donde
+hay enlaces a diversos documentos relativos al tema. Todos los sistemas
+tienen brechas de seguridad. En todo caso, tanto UNIX como NT ofrecen buenas
+capacidades para usos normales.
+<H3>
+Errores de concepto.</H3>
+
+<BLOCKQUOTE>
+<LI>
+<I>NT es un sistema operativo de juguete, chico, sencillo.</I></LI>
+
+<BR>Windows NT se puede usar en sitios con hasta 250 usuarios, sin aplicaciones
+de misi&oacute;n cr&iacute;tica, sin aplicaciones como correo y otras.
+Requiere 3 servidores: un PDC y dos BDCs.
+<LI>
+<I>NT elimina la heterogeneidad en la red.</I></LI>
+
+<BR>La coexistencia de diversos sistemas operativos no es necesariamente
+inconveniente; cada uno tiene sus &aacute;reas espec&iacute;ficas de aplicaci&oacute;n,
+donde es mejor.
+<LI>
+<I>UNIX es oscuro, anticuado, basado en l&iacute;nea de comando.</I></LI>
+
+<BR>Linux ofrece 4 GUIs en las distribuciones corrientes, m&aacute;s otros
+opcionales: twm, fvwm, fvwm-95, openlook. UNIX sigue siendo elecci&oacute;n
+obligada en ciencia, ingenier&iacute;a, investigaci&oacute;n y educaci&oacute;n
+superior.
+<LI>
+<I>Todos migran para NT.</I></LI>
+
+<BR>Las grandes corporaciones simplemente no pueden hacerlo; NT no corre
+en el hardware potente que estas empresas necesitan. Hotmail, propiedad
+de Microsoft, usa UNIX Solaris y el servidor web Apache; el intento de
+migraci&oacute;n a NT fracas&oacute; ante sus 10 millones de usuarios.</BLOCKQUOTE>
+
+<H3>
+Conclusiones:</H3>
+NT resulta adecuado para organizaciones chicas y medianas, con pocas aplicaciones
+de misi&oacute;n cr&iacute;tica, dispuesta a contratar administradores
+adicionales para Microsoft Exchange e Internet&nbsp; Information Server,
+dispone de un presupuesto amplio para pagar licencias. Tambi&eacute;n para
+gerentes necesitados de consumir su presupuesto; generalmente no se requiere
+venia para adquirir productos Microsoft, as&iacute; como antes no se requer&iacute;a
+para adquirir productos IBM, y en cambio s&iacute; se requiere para adquirir
+hardware donde no corre Windows o un sistema operativo distinto de Windows.
+<P>FreeBSD o Linux es la elecci&oacute;n para peque&ntilde;os comercios
+o talleres, usuarios exigentes, empresas medianas,&nbsp; o a&uacute;n empresas
+grandes donde se ha abandonado la mentalidad anticuada de juzgar el rendimiento
+por el precio. FreeBSD o Linux pueden superar f&aacute;cilmente el rendimiento
+y funcionalidad de una soluci&oacute;n basada en NT, a precio nulo.&nbsp;
+Existe una fuerte tradici&oacute;n de administradores UNIX, generalmente
+m&aacute;s capaces y con dominiuo de al menos una forma de programaci&oacute;n,
+caracter&iacute;stica rara vez hallada en la nueva generaci&oacute;n de
+administradores NT. MS Exchange cuesta $ 5000 para 50 usuarios; sendmail
+no cuesta nada y soporta miles de cuentas de correo, adem&aacute;s de estar
+extensamente probado y difundido.
+<P>Los UNIX comerciales son la elecci&oacute;n obligada en empresas grandes,
+corporaciones, instituciones gubernamentales con miles o decenas de miles
+de empleados.
+<P>UNIX no ofrece peligros de monopolio, hay muchos proveedores; es escalable;
+usa m&aacute;s eficientemente los recursos;&nbsp; permite administraci&oacute;n
+remota y ejecuci&oacute;n remota, ofrece capacidades multiusuario, gran
+variedad de software profesional, se rige por est&aacute;ndares independientes
+de proveedores (POSIX), permite control de uso de disco (cuotas), es pr&aacute;cticamente
+inmune a virus.
+<P>UNIX brinda <B>posibilidades</B>: todo tipo de hardware, CLI o GUI,
+comercial o GNU, muchos proveedores. Es <B>din&aacute;mico</B>: permite
+personalizar el kernel para necesidades espec&iacute;ficas. NT impone <B>restricciones</B>:
+s&oacute;lo plataformas Intel o Alpha, no hay CLI, s&oacute;lo GUI, y un
+s&oacute;lo GUI; s&oacute;lo MTAs comerciales; s&oacute;lo Microsoft como
+proveedor. NT es <B>est&aacute;tico</B>, no puede adaptarse a diferentes
+necesidades: un s&oacute;lo talle le queda bien a pocos.
+<P>En la mayor parte de los casos, son los gerentes quienes insisten en
+imponer NT. Hay casos (Cisco Systems) donde los informaticos se negaron
+a cumplir &oacute;rdenes de cambiar a NT, arriesgando sus puestos.
+<P>Un gerente decidiendo respecto del sistema inform&aacute;tico de su
+empresa deber&iacute;a:
+<BLOCKQUOTE>
+<LI>
+consultar al personal t&eacute;cnico: con qu&eacute; software han trabajado,
+qu&eacute; resultados han obtenido, qu&eacute; funciona;</LI>
+
+<LI>
+evitar ser enga&ntilde;ado por vendedores llenos de palabras cuyo significado
+no son capaces de explicar;</LI>
+
+<LI>
+conectarse con compa&ntilde;&iacute;as que hayan implementado soluciones
+basadas en servidores Microsoft y UNIX, en aplicaciones similares.</LI>
+
+<LI>
+conectarse con el personal t&eacute;cnico de esas empresas para obtener
+informaci&oacute;n objetiva, de primera mano, sobre las dificultades de
+implementaci&oacute;n, costos iniciales y de mantenimento posterior, asociados
+a la soluci&oacute;n propuesta.</LI>
+</BLOCKQUOTE>
+
+<ADDRESS>
+
+<HR WIDTH="100%"></ADDRESS>
+
+<ADDRESS>
+V&iacute;ctor Gonz&aacute;lez Barbone <A HREF="mailto: vagonbar en fing edu uy">vagonbar en fing edu uy</A></ADDRESS>
+
+<ADDRESS>
+<A HREF="http://iie.fing.edu.uy">Instituto de Ingenier&iacute;a El&eacute;ctrica</A>
+- <A HREF="http://www.fing.edu.uy">Facultad de Ingenier&iacute;a</A> -
+Montevideo - Uruguay</ADDRESS>
+
+</BODY>
+</HTML>

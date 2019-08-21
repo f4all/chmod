@@ -1,0 +1,162 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>Curso B&aacute;sico de Unix</title>
+                                  
+  <meta http-equiv="content-type"
+ content="text/html; charset=ISO-8859-1">
+</head>
+  <body>
+         
+<address> <a href="http://iie.fing.edu.uy/~vagonbar/unixbas/index.htm">Curso&nbsp; 
+  B&aacute;sico de UNIX</a></address>
+            
+<center>      
+<h2>Manejo de Archivos<br>
+    <small> Ejercicios complementarios</small><br>
+     </h2>
+     </center>
+         
+<div align="left">     
+<p><b> Fichas referencia:</b> Manejo de Archivos, Rese&ntilde;a   de Comandos.<br>
+     </p>
+         
+<ol>
+       <li>Actualizar la fecha del archivo /tmp/control.tmp.</li>
+   <li>Borrar el enlace simb&oacute;lico liga1.</li>
+   <li>Borrar el enlace simb&oacute;lido nota1.txt que apunta al archivo
+../carta.txt.</li>
+   <li>Cambiar de nombre el directorio sumarios.textos por el de resumenes.</li>
+   <li>Cambiar de nombre el archivo /export/trabajos/nota.txt por el de carta.txt 
+en el mismo directorio.</li>
+   <li>Mover el archivo nota.txt del subdirectorio trabajos del directorio 
+padre del actual hacia el directorio actual.</li>
+   <li>&iquest;Con qu&eacute; comando se borra un archivo? &iquest;Y un directorio? 
+&iquest;Con qu&eacute; comando se borra un enlace hard? &iquest;Y un enlace 
+simb&oacute;lico? &iquest;Con qu&eacute; comando se borra un enlace simb&oacute;lico 
+a un directorio?</li>
+   <li>Copiar, desde el directorio /parte2/aplics1/conf el archivo .exrc
+hacia el directorio actual. Actualizar su fecha.</li>
+   <li>Copiar, desde el directorio /usr/local/conf todos los archivos de
+nombre terminados en ".cnf" hacia el&nbsp; directorio /grupos/admin/config.</li>
+   <li>Crear en el subdirectorio bin del directorio propio, un enlace hard 
+hacia el script may2min ubicado bajo utils en el directorio propio.</li>
+   <li>Crear, en el subdirectorio bin del directorio propio, un enlace simb&oacute;lico 
+al script /usr/local/bin/conectar con nombre conec.</li>
+   <li>Crear los siguientes enlaces, o indicar si no es posible: 1) lnarch3, 
+enlace simb&oacute;lico hacia el archivo arch3; 2) lharch3, enlace hard hacia 
+el archivo arch3; 3) lndir3, enlace simb&oacute;lico hacia el directorio dir3;
+4) lhdir3, enlace hard hacia el directorio dir3.</li>
+   <li>Crear un enlace del directorio /var/admin (a crear) hacia el directorio 
+/var/log (existente).</li>
+   <li>Crear un enlace hard de nombre carta.hard en el subdirectorio cartas.varias 
+del directorio actual, hacia el archivo carta.txt del directorio actual. Crear
+un enlace simb&oacute;lico carta.sim en el directorio /grupos/cartas/pedroso 
+hacia el archivo carta.txt del directorio actual.</li>
+   <li>Crear un archivo vac&iacute;o arch1 en el directorio actual. Crear 
+un enlace hard liga0 hacia el archivo arch1. &iquest;C&oacute;mo s&eacute; 
+que esos archivos tienen enlaces hard?</li>
+   <li>Crear un enlace simb&oacute;lico liga1 hacia el archivo arch1 del
+directorio actual. &iquest;C&oacute;mo s&eacute; que el archivo liga1 es
+un enlace simb&oacute;lico?</li>
+   <li>Determinar la v&iacute;a completa del comando <tt>xeyes</tt>.</li>
+   <li>Determinar la v&iacute;a completa del comando <tt>vim</tt> (es una 
+versi&oacute;n del editor <tt>vi</tt> ampliado en sus capacidades). Sin ejecutarlo, 
+determinar si es posible escribir solamente <tt>vim</tt> para invocarlo, o
+ser&aacute; necesario indicar su ruta completa.</li>
+   <li>El archivo ejecutable <tt>idprint</tt> es ejecutable para todos. Fijar 
+sus permisos para que corra con los permisos del due&ntilde;o del archivo 
+y del grupo al que pertenece el archivo, y no con los permisos de quien lo 
+invoca.</li>
+   <li>Eliminar el directorio propio y todos los archivos y subdirectorios 
+del usuario pedrogom, ubicados bajo el directorio /home.</li>
+   <li>Eliminar el subdirectorio basura que est&aacute; bajo el subdirectorio 
+home del directorio export: a) si est&aacute; vac&iacute;o, b) si tiene archivos, 
+c) si tiene archivos ocultos.</li>
+   <li>Eliminar recursivamente todos los archivos y subdirectorios bajo el 
+directorio hardware ubicado bajo el directorio material del directorio export: 
+a) inclu&iacute;do el propio directorio hardware; b) dejando el directorio 
+hardware vac&iacute;o.</li>
+   <li>En el directorio /export/novela se encuentran los archivos indice.txt, 
+cap1.txt a cap33.txt y biblio.txt. Copiar hacia el directorio actual los archivos
+cap1.txt a cap33.txt. Usar un solo comando.</li>
+   <li>Escribir comandos para borrar: 1) arch1, un archivo; 2) lharch2, un 
+enlace hard al archivo arch2; 3) lnarch2, un enlace simb&oacute;lico al archivo 
+arch1; 4) dir 1, un directorio vac&iacute;o; 5) dir2, un directorio lleno, 
+junto con todos sus archivos; 6) lndir3, enlace al directorio dir3.</li>
+   <li>Escribir un comando (uno solo) para ejecutar cada una de las tareas 
+siguientes en los directorios trab1, trab2 y trab3 del directorio actual, 
+en forma simult&aacute;nea: 1) crear en los tres directorios archivos resumen.txt; 
+2) crear en los tres directorios enlaces simb&oacute;licos tmp hacia el directorio 
+/tmp; 3) crear en los tres directorios archivos 00indice con fecha y hora 
+actuales; 4) agregar a los tres archivos 00indice la leyenda "Montevideo, 
+URUGUAY"; 5) eliminar en los tres directorios los subdirectorios basura y 
+todos los archivos y subdirectorios bajo basura.</li>
+   <li>Escribir un comando y uno solo para ejecutar cada una de las tareas 
+siguientes:<br>
+a) fijar, en modo absoluto, el archivo arch1 en modo rwxr-x--x.<br>
+ b) fijar, en modo simb&oacute;lico, el arch1 en modo 754.</li>
+   <li>Fijar, en modo simb&oacute;lico y absoluto, los siguientes permisos:<br>
+ a) del archivo /usr/local/bin/conectar de modo que todos lo puedan ejecutar, 
+el usuario lo pueda leer y escribir, y el grupo lo pueda leer.<br>
+ b) del archivo resumen.txt para que el due&ntilde;o pueda leer y escribir, 
+el grupo pueda leer y el resto no pueda nada.<br>
+ d) del directorio varios para que el due&ntilde;o pueda ver, recorrer y
+borrar archivos, el grupo pueda ver y recorrer, y el resto s&oacute;lo pueda
+recorrer. Usar modo absoluto y modo simb&oacute;lico.<br>
+ e) del directorio yugo de modo que todos puedan ejecutar los programas contenidos 
+en &eacute;l, pero s&oacute;lo pueda verlos y modificarlos el due&ntilde;o 
+del directorio.<br>
+ f) del archivo vlub, ejecuci&oacute;n para todos, lectura y modificaci&oacute;n 
+para el due&ntilde;o, lectura para el grupo, en el archivo vlub.</li>
+      <li>del directorio /grupos/digrafico para permitir a todos ver la lista 
+de archivos contenidos  e ingresar al directorio, pero modificar permisos 
+o borrar archivos contenidos solamente al due&ntilde;o y al grupo.  En modo 
+simb&oacute;ico y absoluto.</li>
+   <li>Fijar en modo simb&oacute;lico y absoluto los siguientes permisos:<br>
+a) totales para todos en el directorio /temporal, pero de modo que un usuario
+pueda borrar solamente sus propios archivos.<br>
+ b) del archivo hagoalgo de modo que sea ejecutable por todos y corra con 
+los permisos del due&ntilde;o del archivo y no de quien lo invoca.<br>
+   </li>
+   <li>Listar las caracter&iacute;sticas del directorio /var/spool/mail (no 
+su contenido) y agregar esta l&iacute;nea al final del archivo logdirs.txt.</li>
+   <li>Marque todos los tipos de enlace (hard, simb&oacute;lico o ninguno) 
+que pueden establecerse en los siguientes casos:<br>
+  a) enlace hacia un archivo en el mismo directorio;<br>
+  b) enlace hacia un archivo en el mismo sistema de archivos;<br>
+  c) enlace hacia un archivo en otro sistema de archivos; <br>
+ d) enlace hacia un directorio en el mismo sistema de archivos; <br>
+ e) enlace hacia un directorio en otro sistema de archivos.</li>
+   <li>Mostrar, uno tras otro, el contenido de los archivo arch1 y arch2, 
+con todas sus letras en may&uacute;sculas, paginando la salida. No hay vocales 
+acentuadas ni &ntilde;.</li>
+   <li>&iquest;Qu&eacute; es el "sticky bit? &iquest;Para qu&eacute; sirve? 
+&iquest;Se aplica a directorios, a archivos o a ambos? &iquest;Qu&eacute; 
+permisos debe tener un archivo o directorio para que tenga sentido colocar 
+un "sticky bit"?</li>
+   <li>&iquest;Qu&eacute; significa el permiso "s" para el due&ntilde;o de 
+un archivo? &iquest;Y para el grupo? Si se trata de un directorio, &iquest;c&oacute;mo 
+se responden las preguntas anteriores?</li>
+   <li>&iquest;Qu&eacute; significa el permiso "x" en un archivo? &iquest;Y 
+en un directorio?</li>
+   <li>Transformar los siguientes permisos:<br>
+ a) absolutos en simb&oacute;licos: 644, 610.<br>
+ b) simb&oacute;licos en absolutos: rwxr-xr-x, rw-r-----.  </li>
+              
+</ol>
+     </div>
+     <br>
+     <br>
+         
+<hr width="100%">       
+<address> V&iacute;ctor A. Gonz&aacute;lez Barbone&nbsp; <a
+ href="mailto:%20vagonbar en fing edu uy">vagonbar en fing edu uy</a></address>
+            
+<address> <a href="http://iie.fing.edu.uy">Instituto de Ingenier&iacute;a El&eacute;ctrica</a>
+   - <a href="http://www.fing.edu.uy">Facultad de Ingenier&iacute;a</a> 
+  - Montevideo, Uruguay.</address>
+     <br>
+         
+</body>
+</html>

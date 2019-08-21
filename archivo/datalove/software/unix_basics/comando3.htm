@@ -1,0 +1,551 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+   <META NAME="GENERATOR" CONTENT="Mozilla/4.07 [en] (X11; I; Linux 2.0.36 i586) [Netscape]">
+   <META NAME="Author" CONTENT="Víctor González-Barbone">
+   <META NAME="Description" CONTENT="Reseña de comandos de filtro">
+   <META NAME="KeyWords" CONTENT="UNIX, Linux, curso, tutorial">
+   <TITLE>Curso B&aacute;sico de UNIX - Comandos de Filtro</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+
+<ADDRESS>
+<A HREF="UNIXNTS/index.htm">Curso B&aacute;sico de UNIX</A></ADDRESS>
+
+<DT>
+
+<HR WIDTH="100%"></DT>
+
+<CENTER>
+<H1>
+Comandos de Filtro</H1></CENTER>
+<TT><A HREF="#Referencias">Referencias</A></TT>
+<P><TT><A HREF="#dd">dd</A> <A HREF="#find">find</A> <A HREF="#grep">grep,
+fgrep, egrep</A> <A HREF="#sort">sort</A> <A HREF="#tr">tr</A> <A HREF="#uniq">uniq</A></TT>
+<BR>&nbsp;
+<BR>&nbsp;
+<H3>
+<A NAME="dd"></A>dd</H3>
+<TT>dd OPCION ...</TT>
+<P>copia un archivo, de entrada est&aacute;ndar a salida est&aacute;ndar
+por defecto, opcionalmente cambiando tama&ntilde;o de bloques de entrada
+salida y realizando diversas conversiones.
+<DT>
+<TT>if=ARCHIVO&nbsp; leer la entrada del archivo indicado.</TT></DT>
+
+<DT>
+<TT>of=ARCHIVO&nbsp; dirigir la salida al archivo indicado.</TT></DT>
+
+<DT>
+<TT>ibs=BYTES&nbsp;&nbsp; leer la entrada en bloques de BYTES bytes.</TT></DT>
+
+<DT>
+<TT>obs=BYTES&nbsp;&nbsp; grabar la salida en bloques de BYTES bytes.</TT></DT>
+
+<DT>
+<TT>bs=BYTES&nbsp;&nbsp;&nbsp; leer y grabar entrada y salida en bloques.</TT></DT>
+
+<DT>
+<TT>conv=CONVERSION[,CONVERSION]... convertir seg&uacute;n argumentos.</TT></DT>
+
+<P><BR>Las opciones num&eacute;ricas admiten los multiplicadores b para
+512, k para 1024.
+<P>Los argumentos de conversi&oacute;n se separan por comas sin espacios;
+incluyen:
+<DT>
+<TT>ascii&nbsp; convierte EBCDIC a ASCII.</TT></DT>
+
+<DT>
+<TT>ebcdic&nbsp;&nbsp; convierte ASCII a EBCDIC.</TT></DT>
+
+<DT>
+<TT>ibm&nbsp;&nbsp;&nbsp; convierte ASCII a EBCDIC alternativo.</TT></DT>
+
+<DT>
+<TT>block&nbsp; embloca cada l&iacute;nea de entrada en 'cbs' bytes, reemplaza</TT></DT>
+
+<DT>
+<TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; nueva l&iacute;nea por espacio,
+rellena con espacios.</TT></DT>
+
+<DT>
+<TT>unblock&nbsp; reemplaza espacios finales de cada bloque con nueva l&iacute;nea.</TT></DT>
+
+<DT>
+<TT>lcase&nbsp; convierte may&uacute;sculas a min&uacute;sculas</TT></DT>
+
+<DT>
+<TT>ucase&nbsp; convierte min&uacute;sculas a may&uacute;sculas.</TT></DT>
+
+<DT>
+<TT>notrunc&nbsp; no truncar el archivo de salida.</TT></DT>
+
+<H3>
+<A NAME="find"></A>find</H3>
+<TT>find [DIRECTORIO...] [EXPRESION]</TT>
+<P>Recorre una jerarqu&iacute;a de directorios buscando archivos seleccionados
+seg&uacute;n cierta expresi&oacute;n y muestra informaci&oacute;n sobre
+los encontrados.
+<P>Argumentos num&eacute;ricos:
+<DT>
+<TT>+N&nbsp; mayor que N</TT></DT>
+
+<DT>
+<TT>-N&nbsp; menor que N</TT></DT>
+
+<DT>
+<TT>&nbsp;N&nbsp; exactamente N.</TT></DT>
+
+<P><BR>Criterios de b&uacute;squeda:
+<DT>
+<TT>-name PATRON&nbsp;&nbsp; el nombre aparea con PATRON;</TT></DT>
+
+<DT>
+<TT>-iname PATRON&nbsp; idem,insensible a may&uacute;culas;</TT></DT>
+
+<DT>
+<TT>-path PATRON&nbsp;&nbsp; nombre con v&iacute;a completa;</TT></DT>
+
+<DT>
+<TT>-ipath PATRON&nbsp; idem, insensible a may&uacute;stulas;</TT></DT>
+
+<DT>
+<TT>-regexp EXP&nbsp;&nbsp;&nbsp; nombre aparea con expresi&oacute;n regular
+EXP</TT></DT>
+
+<DT>
+<TT>-iregexp EXP&nbsp;&nbsp; idem, insensible a may&uacute;sculas;</TT></DT>
+
+<DT>
+<TT>-lname PATRON&nbsp; archivo es un enlace simb&oacute;lico;</TT></DT>
+
+<DT>
+<TT>-ilname PATRON idem, insensible a may&uacute;sculas;</TT></DT>
+
+<DT>
+<TT>-atime N&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &uacute;ltimo acceso N*24
+horas atr&aacute;s</TT></DT>
+
+<DT>
+<TT>-ctime N&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &uacute;ltimo cambio de
+estado N*24 horas atr&aacute;s</TT></DT>
+
+<DT>
+<TT>-mtime N&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &uacute;ltima modificaci&oacute;n
+N*24 horas atr&aacute;s</TT></DT>
+
+<DT>
+<TT>-amin N&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &uacute;ltimo acceso
+N minutos atr&aacute;s</TT></DT>
+
+<DT>
+<TT>-cmin N&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &uacute;ltimo cambio
+de estado N minutos horas atr&aacute;s</TT></DT>
+
+<DT>
+<TT>-mmin N&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &uacute;ltima modificaci&oacute;n
+N minutos atr&aacute;s</TT></DT>
+
+<DT>
+<TT>-daystart&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mide tiempos desde las 0 horas
+de hoy</TT></DT>
+
+<DT>
+<TT>-size N[bckw]&nbsp; tama&ntilde;o de N bloques, caracteres, KB o palabras
+(2 bytes)</TT></DT>
+
+<DT>
+<TT>-empty&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; archivo vac&iacute;o,
+regular o directorio</TT></DT>
+
+<DT>
+<TT>-user UNAME&nbsp;&nbsp;&nbsp; archivo del usuario UNAME</TT></DT>
+
+<DT>
+<TT>-group GNAME&nbsp;&nbsp; archivo del grupo GNAME</TT></DT>
+
+<DT>
+<TT>-uid N&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; archivo del
+usuario de n&uacute;mero N</TT></DT>
+
+<DT>
+<TT>-gid N&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; archivo del
+grupo de n&uacute;mero N</TT></DT>
+
+<DT>
+<TT>-nouser&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; archivo sin due&ntilde;o
+asignado</TT></DT>
+
+<DT>
+<TT>-nogroup&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; archivo sin grupo asignado</TT></DT>
+
+<P><BR>Acciones:
+<DT>
+<TT>-print&nbsp;&nbsp; imprime la ruta completa de los archivos encontrados.</TT></DT>
+
+<DT>
+<TT>-ls&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; lista los archivos encontrados en
+formato ls -dils</TT></DT>
+
+<DT>
+<TT>-exec COMANDO {} \; ejecuta COMANDO sobre los archivos encontrados</TT></DT>
+
+<DT>
+<TT>&nbsp; find /usr/local/doc -name '*.texi'</TT></DT>
+
+<DT>
+busca en el directorio indicado los archivos de nombre indicado.</DT>
+
+<DT>
+<TT>&nbsp; find /usr/src -name '*.c' -size +100k -print</TT></DT>
+
+<DT>
+muestra nombres de archivos terminados en .c con tama&ntilde;o mayor de
+100 K.</DT>
+
+<DT>
+<TT>&nbsp; find . -lname '*sysdep.c'</TT></DT>
+
+<DT>
+busca enlaces simb&oacute;licos del nombre indicado.</DT>
+
+<DT>
+<TT>&nbsp; find /u/bill -amin +2 -amin -6</TT></DT>
+
+<DT>
+archivos que fueron le&iacute;dos entre 2 y 6 minutos atr&aacute;s.</DT>
+
+<DT>
+La medici&oacute;n de tiempos se hace desde 24 horas atr&aacute;s (1 d&iacute;a
+atr&aacute;s); para medir tiempos desde las 0 horas del d&iacute;a de hoy,
+usar la opci&oacute;n <TT>-daystart</TT>.</DT>
+
+<DT>
+<TT>&nbsp; find ~ -daystart -type f -mtime 1</TT></DT>
+
+<DT>
+archivos que fueron modificados ayer.</DT>
+
+<DT>
+<TT>&nbsp; find / -empty -exec rm -rf '{}' ';'</TT></DT>
+
+<DT>
+busca archivos o directorios vac&iacute;os y los elimina.</DT>
+
+<DT>
+<TT>&nbsp; find . -name '*.h' -exec diff -u '{}' /tmp/master ';'</TT></DT>
+
+<DT>
+compara archivos de "header" (*.h) del directorio corriente contra el archivo
+/tmp/master.</DT>
+
+<H3>
+<A NAME="grep"></A>grep, egrep, fgrep</H3>
+<TT>grep [ -e PATRON | -f ARCHIVO | PATRON ] OPCIONES ARCHIVO ...</TT>
+<P>recorre los archivos indicados extrayendo las l&iacute;neas que aparean
+con un patr&oacute;n de cadena de caracteres.
+<DT>
+<TT>-G&nbsp; el patr&oacute;n es una expresi&oacute;n regular b&aacute;sica;
+opci&oacute;n por defecto</TT></DT>
+
+<DT>
+<TT>-E&nbsp; el patr&oacute;n es una expresi&oacute;n regular extendida</TT></DT>
+
+<DT>
+<TT>-F&nbsp; el patr&oacute;n es una cadena fija</TT></DT>
+
+<P><BR>Existen dos variantes: <TT>egrep</TT>, similar a <TT>grep -E</TT>,
+y
+<TT>fgrep</TT>, igual a <TT>grep -F</TT>.
+<DT>
+<TT>-c&nbsp; s&oacute;lo muestra la cantidad de l&iacute;neas</TT></DT>
+
+<DT>
+<TT>-e PATRON usa el patr&oacute;n indicado; &uacute;til cuando el patr&oacute;n
+empieza con -</TT></DT>
+
+<DT>
+<TT>-f ARCHIVO obtiene los patrones del archivo, uno por l&iacute;nea</TT></DT>
+
+<DT>
+<TT>-h&nbsp; suprime indicaci&oacute;n de archivo cuando se busca en varios
+archivos</TT></DT>
+
+<DT>
+<TT>-i&nbsp; ignora may&uacute;sculas y min&uacute;sculas en el patr&oacute;n
+y en los archivos</TT></DT>
+
+<DT>
+<TT>-n&nbsp; indicar n&uacute;mero de l&iacute;nea</TT></DT>
+
+<DT>
+<TT>-v&nbsp; muestra las l&iacute;neas que no aparean con el patr&oacute;n</TT></DT>
+
+<DT>
+<TT>-w&nbsp; aparea el patr&oacute;n como una palabra</TT></DT>
+
+<DT>
+<TT>-x&nbsp; el patr&oacute;n aparea con toda la l&iacute;nea</TT></DT>
+
+<H3>
+<A NAME="sort"></A>sort</H3>
+
+<DT>
+<TT>sort [OPCIONES] [ARCHIVO...]</TT></DT>
+
+<DT>
+&nbsp;</DT>
+
+<DT>
+ordena, mezcla o compara todas las l&iacute;neas de los archivos indicados
+o de la entrada est&aacute;ndar. Tiene 3 modos de operaci&oacute;n: ordenar,
+verificar orden, mezclar archivos.</DT>
+
+<DT>
+<TT>&nbsp;</TT></DT>
+
+<DT>
+<TT>-c&nbsp; verifica si los archivos ya est&aacute;n ordenados</TT></DT>
+
+<DT>
+<TT>-m&nbsp; mezcla archivos ordenados en uno solo, ordenado</TT></DT>
+
+<DT>
+<TT>&nbsp;</TT></DT>
+
+<DT>
+<TT>-b&nbsp; ignora blancos adelante en la ordenaci&oacute;n</TT></DT>
+
+<DT>
+<TT>-d&nbsp; ordena considerando s&oacute;lo letras, n&uacute;meros y blancos</TT></DT>
+
+<DT>
+<TT>-f&nbsp; ordena como si todas fueran may&uacute;sculas</TT></DT>
+
+<DT>
+<TT>-i&nbsp; ignora caracteres no imprimibles (fuera de 040-0176 octal)</TT></DT>
+
+<DT>
+<TT>-n&nbsp; ordena como valores num&eacute;ricos y no como ASCII</TT></DT>
+
+<DT>
+<TT>-r&nbsp; invertir el sentido de la ordenaci&oacute;n</TT></DT>
+
+<DT>
+<TT>-o arch&nbsp; archivo de salida; puede ser el de entrada</TT></DT>
+
+<DT>
+<TT>-t&nbsp; usar el caracter indicado como separador de campos</TT></DT>
+
+<DT>
+<TT>-k POS1[,POS2] campos de ordenaci&oacute;n, POS1 hasta POS2 inclusive;</TT></DT>
+
+<DT>
+<TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+o hasta el final si no hay POS2</TT></DT>
+
+<DT>
+&nbsp;</DT>
+
+<DT>
+Las posiciones <TT>POS1</TT> y <TT>POS2</TT> son de la forma<TT> F.C</TT>
+donde F es el n&uacute;mero del campo y C es el primer caracter desde el
+comienzo del campo (para <TT>POS1</TT>) o desde el final del campo (para
+<TT>POS2</TT>);
+si se omite C se ordena tomando en cuenta el primer caracter del campo.</DT>
+
+<DT>
+<TT>&nbsp;</TT></DT>
+
+<DT>
+<TT>&nbsp; cat /etc/passwd | sort -t:</TT></DT>
+
+<DT>
+<TT>&nbsp; cat /etc/passwd | sort -t: +4 -f | cut -d: -f5</TT></DT>
+
+<DT>
+<TT>&nbsp; cat /etc/passwd | sort -t: +5 | cut -d: -f6</TT></DT>
+
+<DT>
+<TT>&nbsp; cat /etc/passwd | sort -t: -n -k3,5 | cut -d: -f4,5</TT></DT>
+
+<H3>
+<A NAME="tr"></A>tr</H3>
+<TT>tr [OPCION]... CONJ1 [CONJ2]</TT>
+<P>copia entrada en salida traduciendo, comprimiendo o borrando caracteres.
+CONJ1 y CONJ2 definen un conjunto ordenado de caracteres a transformar.
+La opci&oacute;n -c reemplaza CONJ1 por su complemento, los caracteres
+no especificados en el conjunto.
+<DT>
+<TT>-d&nbsp; elimina los caracteres de CONJ1.</TT></DT>
+
+<DT>
+<TT>-s&nbsp; comprime caracteres repetidos en CONJ1 en una sola ocurrencia.</TT></DT>
+
+<DT>
+<TT>-ds primero borra seg&uacute;n CONJ1 y despu&eacute;s comprime seg&uacute;n
+CONJ2.</TT></DT>
+
+<P><BR>El formato de CONJ1 y CONJ2 se parece al de las expresiones regulares,
+pero son s&oacute;lo listas de caracteres. La mayor&iacute;a de los caracteres
+se representan a s&iacute; mismos, pero existen las siguientes abreviaturas:
+<DT>
+<TT>\a&nbsp; Control-G,</TT></DT>
+
+<DT>
+<TT>\b&nbsp; Control-H,</TT></DT>
+
+<DT>
+<TT>\f&nbsp; Control-L,</TT></DT>
+
+<DT>
+<TT>\'&nbsp; Control-J,</TT></DT>
+
+<DT>
+<TT>\r&nbsp; Control-M,</TT></DT>
+
+<DT>
+<TT>\t&nbsp; Control-I,</TT></DT>
+
+<DT>
+<TT>\v&nbsp; Control-K,</TT></DT>
+
+<DT>
+<TT>\OOO&nbsp; caracter representado por d&iacute;gitos octales</TT></DT>
+
+<DT>
+<TT>\\&nbsp; barra inversa.</TT></DT>
+
+<DT>
+<TT>&nbsp;</TT></DT>
+
+<DT>
+<TT>M-N&nbsp; intervalo de caracteres desde el M al N (M anterior al N)</TT></DT>
+
+<DT>
+<TT>0-9&nbsp; equivale a 0123456789</TT></DT>
+
+<P><BR>La notaci&oacute;n <TT>[:CLASE:]</TT> expande a los caracteres predefinidos
+en las clases:
+<DT>
+<TT>alnum&nbsp; letras y n&uacute;meros.</TT></DT>
+
+<DT>
+<TT>alpha&nbsp; letras.</TT></DT>
+
+<DT>
+<TT>blank&nbsp; espacio.</TT></DT>
+
+<DT>
+<TT>cntrl&nbsp; caracteres de control.</TT></DT>
+
+<DT>
+<TT>digit&nbsp;&nbsp; n&uacute;meros.</TT></DT>
+
+<DT>
+<TT>graph&nbsp; caracteres imprimibles, exclu&iacute;do el espacio.</TT></DT>
+
+<DT>
+<TT>lower&nbsp; min&uacute;sculas</TT></DT>
+
+<DT>
+<TT>print&nbsp; caracteres imprimibles, inclu&iacute;do el espacio.</TT></DT>
+
+<DT>
+<TT>punct&nbsp; signos de puntuaci&oacute;n.</TT></DT>
+
+<DT>
+<TT>space&nbsp; espacio</TT></DT>
+
+<DT>
+<TT>upper&nbsp; may&uacute;sculas.</TT></DT>
+
+<DT>
+<TT>xdigit&nbsp; d&iacute;gitos hexadecimales.</TT></DT>
+
+<P><BR>La traducci&oacute;n se realiza cambiando el primer caracter de
+CONJ1 por el primer caracter de CONJ2, el 2o. de CON1 por el 2o. de CONJ2,
+etc. Los caracteres no indicados en CONJ1 pasan incambiados.
+<DT>
+<TT>&nbsp; tr abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ</TT></DT>
+
+<DT>
+<TT>&nbsp; tr a-z A-Z</TT></DT>
+
+<DT>
+<TT>&nbsp; tr '[:lower:]' '[:upper:]'</TT></DT>
+
+<DT>
+convierten min&uacute;sculas en may&uacute;sculas.</DT>
+
+<DT>
+<TT>&nbsp; tr -d '\000'</TT></DT>
+
+<DT>
+elimina caracteres nulos (octal 000).</DT>
+
+<DT>
+<TT>&nbsp; tr -cs '[a-zA-Z0-9]' '[\n*]'</TT></DT>
+
+<DT>
+separa las palabras una por l&iacute;nea.</DT>
+
+<DT>
+<TT>&nbsp; tr -s '\n'</TT></DT>
+
+<DT>
+comprime caracteres nueva l&iacute;nea en uno solo (elimina l&iacute;neas
+en blanco).</DT>
+
+<H3>
+<A NAME="uniq"></A>uniq</H3>
+<TT>uniq [OPCION]... [ENTRADA [SALIDA]]</TT>
+<P>muestra una &uacute;nica l&iacute;nea para una entrada ordenada, eliminando
+l&iacute;neas repetidas sucesivas. Opcionalmente, puede mostrar solo l&iacute;neas
+que aparecen una vez, o s&oacute;lo l&iacute;neas que aparecen varias veces.
+La entrada debe estar ya ordenada; si no lo est&aacute;, puede usars <TT>sort
+-u</TT> para lograr un efecto similar.
+<DT>
+<TT>-f N&nbsp; saltear N campos antes de verificar unicidad.</TT></DT>
+
+<DT>
+<TT>-s N&nbsp; saltear N caracteres antes de verificar unicidad.</TT></DT>
+
+<DT>
+<TT>-c&nbsp;&nbsp;&nbsp; indicar junto a cada l&iacute;nea el n&uacute;mero
+de veces que aparece.</TT></DT>
+
+<DT>
+<TT>-i&nbsp;&nbsp;&nbsp; ignorar may&uacute;sculas y min&uacute;sculas
+al comparar.</TT></DT>
+
+<DT>
+<TT>-d&nbsp;&nbsp;&nbsp; mostrar s&oacute;lo l&iacute;neas repetidas.</TT></DT>
+
+<DT>
+<TT>-u&nbsp;&nbsp;&nbsp; mostrar s&oacute;lo l&iacute;neas &uacute;nicas.</TT></DT>
+
+<P><BR>Los campos son cadenas de caracteres separadas por uno o m&aacute;s
+blancos (espacios o tabuladores). Si se indican saltear campos y caracteres,
+los campos se saltean primero.
+<H3>
+<A NAME="Referencias"></A><B>Referencias:</B></H3>
+
+<LI>
+Linux Debian/GNU. P&aacute;ginas man, info.</LI>
+
+<ADDRESS>
+&nbsp;
+<HR WIDTH="100%"></ADDRESS>
+
+<ADDRESS>
+V&iacute;ctor A. Gonz&aacute;lez Barbone&nbsp; <A HREF="mailto: vagonbar en fing edu uy">vagonbar en fing edu uy</A></ADDRESS>
+
+<ADDRESS>
+<A HREF="http://iie.fing.edu.uy">Instituto de Ingenier&iacute;a El&eacute;ctrica</A>
+- <A HREF="/www.fing.edu.uy">Facultad de Ingenier&iacute;a</A> - Montevideo,
+Uruguay.</ADDRESS>
+
+</BODY>
+</HTML>

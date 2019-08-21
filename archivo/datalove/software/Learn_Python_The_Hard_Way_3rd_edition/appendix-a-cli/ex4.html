@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en"> <!--<![endif]-->
+
+<!-- Mirrored from learnpythonthehardway.org/book/appendix-a-cli/ex4.html by HTTrack Website Copier/3.x [XR&CO'2013], Sat, 28 Dec 2013 20:46:36 GMT -->
+<head>
+    <meta charset="utf-8" />
+
+    <!-- Set the viewport width to device width for mobile -->
+    <meta name="viewport" content="width=device-width" />
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Docutils 0.10: http://docutils.sourceforge.net/" />
+    <title></title>
+
+    <!-- Included CSS Files (Compressed) -->
+    <link rel="stylesheet" href="stylesheets/foundation.html">
+    <link rel="stylesheet" href="stylesheets/normalize.html">
+    <link rel="stylesheet" href="stylesheets/app.html">
+    <link rel="stylesheet" href="stylesheets/pygments.html">
+
+    <script src="javascripts/vendor/jquery.html"></script>
+  <script src="javascripts/foundation/foundation.html"></script>
+    <script src="javascripts/vendor/custom.modernizr.html"></script>
+  
+  <!-- Initialize JS Plugins -->
+  <script src="javascripts/app.html"></script>
+
+    <!-- IE Fix for HTML5 Tags -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.10: http://docutils.sourceforge.net/" />
+<title>Exercise 4: Make A Directory (mkdir)</title>
+
+</head>
+<body>
+    <nav class="top-bar">
+        <ul class="title-area">
+            <!-- Title Area -->
+            <li class="name">
+              <h1><a href="http://learnpythonthehardway.org/">Learn Python The Hard Way</a></h1>
+            </li>
+        </ul>
+
+        <section class="top-bar-section">
+            <!-- Right Nav Section -->
+            <ul class="right">
+                <li> <a href="#video">Watch The Video</a></li>
+            </ul>
+        </section>
+
+        <section class="top-bar-section">
+            <!-- Right Nav Section -->
+            <ul class="right">
+                <li><a href="https://paydiv.io/products/contents/2/">See All The Content</a></li>
+            </ul>
+        </section>
+
+        <section class="top-bar-section">
+            <!-- Right Nav Section -->
+            <ul class="right">
+                <li><a href="https://paydiv.io/access/buy/2/">Purchase The Videos+PDF For $29.59</a></li>
+            </ul>
+        </section>
+    </nav>
+
+  <div class="row">
+    <div class="large-11 columns">
+        <h1 class="title">Exercise 4: Make A Directory (mkdir)</h1>
+
+        <p>In this exercise you learn how to make a new directory (folder) using the <tt class="docutils literal">mkdir</tt> command.</p>
+<div class="section" id="do-this">
+<h1>Do This</h1>
+<p>Remember! <em>You need to go home first!</em> Do your <tt class="docutils literal">pwd</tt> then <tt class="docutils literal">cd ~</tt> before doing this exercise.  Before you do <em>all</em> exercises in this appendix, always go home first!</p>
+<div class="highlight"><pre><a name="appendix-a-cli--code--ex4.sh-session-pyg.html-1"></a><span class="gp">$</span> <span class="nb">pwd</span>
+<a name="appendix-a-cli--code--ex4.sh-session-pyg.html-2"></a><span class="gp">$</span><span class="nb"> cd</span> ~
+<a name="appendix-a-cli--code--ex4.sh-session-pyg.html-3"></a><span class="gp">$</span> mkdir temp
+<a name="appendix-a-cli--code--ex4.sh-session-pyg.html-4"></a><span class="gp">$</span> mkdir temp/stuff
+<a name="appendix-a-cli--code--ex4.sh-session-pyg.html-5"></a><span class="gp">$</span> mkdir temp/stuff/things
+<a name="appendix-a-cli--code--ex4.sh-session-pyg.html-6"></a><span class="gp">$</span> mkdir -p temp/stuff/things/frank/joe/alex/john
+<a name="appendix-a-cli--code--ex4.sh-session-pyg.html-7"></a><span class="gp">$</span>
+</pre></div><div class="highlight"><pre><a name="appendix-a-cli--code--ex4-win.sh-session-pyg.html-1"></a><span class="gp">&gt;</span> <span class="nb">pwd</span>
+<a name="appendix-a-cli--code--ex4-win.sh-session-pyg.html-2"></a><span class="gp">&gt;</span><span class="nb"> cd</span> ~
+<a name="appendix-a-cli--code--ex4-win.sh-session-pyg.html-3"></a><span class="gp">&gt;</span> mkdir temp
+<a name="appendix-a-cli--code--ex4-win.sh-session-pyg.html-4"></a>
+<a name="appendix-a-cli--code--ex4-win.sh-session-pyg.html-5"></a>
+<a name="appendix-a-cli--code--ex4-win.sh-session-pyg.html-6"></a><span class="go">    Directory: C:\Users\zed</span>
+<a name="appendix-a-cli--code--ex4-win.sh-session-pyg.html-7"></a>
+<a name="appendix-a-cli--code--ex4-win.sh-session-pyg.html-8"></a>
+<a name="appendix-a-cli--code--ex4-win.sh-session-pyg.html-9"></a><span class="go">Mode                LastWriteTime     Length Name</span>
+<a name="appendix-a-cli--code--ex4-win.sh-session-pyg.html-10"></a><span class="go">----                -------------     ------ ----</span>
+<a name="appendix-a-cli--code--ex4-win.sh-session-pyg.html-11"></a><span class="go">d----        12/17/2011   9:02 AM            temp</span>
+<a name="appendix-a-cli--code--ex4-win.sh-session-pyg.html-12"></a>
+<a name="appendix-a-cli--code--ex4-win.sh-session-pyg.html-13"></a>
+<a name="appendix-a-cli--code--ex4-win.sh-session-pyg.html-14"></a><span class="gp">&gt;</span> mkdir temp/stuff
+<a name="appendix-a-cli--code--ex4-win.sh-session-pyg.html-15"></a>
+<a name="appendix-a-cli--code--ex4-win.sh-session-pyg.html-16"></a>
+<a name="appendix-a-cli--code--ex4-win.sh-session-pyg.html-17"></a><span class="go">    Directory: C:\Users\zed\temp</span>
+<a name="appendix-a-cli--code--ex4-win.sh-session-pyg.html-18"></a>
+<a name="appendix-a-cli--code--ex4-win.sh-session-pyg.html-19"></a>
+<a name="appendix-a-cli--code--ex4-win.sh-session-pyg.html-20"></a><span class="go">Mode                LastWriteTime     Length Name</span>
+<a name="appendix-a-cli--code--ex4-win.sh-session-pyg.html-21"></a><span class="go">----                -------------     ------ ----</span>
+<a name="appendix-a-cli--code--ex4-win.sh-session-pyg.html-22"></a><span class="go">d----        12/17/2011   9:02 AM            stuff</span>
+<a name="appendix-a-cli--code--ex4-win.sh-session-pyg.html-23"></a>
+<a name="appendix-a-cli--code--ex4-win.sh-session-pyg.html-24"></a>
+<a name="appendix-a-cli--code--ex4-win.sh-session-pyg.html-25"></a><span class="gp">&gt;</span> mkdir temp/stuff/things
+<a name="appendix-a-cli--code--ex4-win.sh-session-pyg.html-26"></a>
+<a name="appendix-a-cli--code--ex4-win.sh-session-pyg.html-27"></a>
+<a name="appendix-a-cli--code--ex4-win.sh-session-pyg.html-28"></a><span class="go">    Directory: C:\Users\zed\temp\stuff</span>
+<a name="appendix-a-cli--code--ex4-win.sh-session-pyg.html-29"></a>
+<a name="appendix-a-cli--code--ex4-win.sh-session-pyg.html-30"></a><span class="go">Mode                LastWriteTime     Length Name</span>
+<a name="appendix-a-cli--code--ex4-win.sh-session-pyg.html-31"></a><span class="go">----                -------------     ------ ----</span>
+<a name="appendix-a-cli--code--ex4-win.sh-session-pyg.html-32"></a><span class="go">d----        12/17/2011   9:03 AM            things</span>
+<a name="appendix-a-cli--code--ex4-win.sh-session-pyg.html-33"></a>
+<a name="appendix-a-cli--code--ex4-win.sh-session-pyg.html-34"></a>
+<a name="appendix-a-cli--code--ex4-win.sh-session-pyg.html-35"></a><span class="gp">&gt;</span> mkdir temp/stuff/things/frank/joe/alex/john
+<a name="appendix-a-cli--code--ex4-win.sh-session-pyg.html-36"></a>
+<a name="appendix-a-cli--code--ex4-win.sh-session-pyg.html-37"></a>
+<a name="appendix-a-cli--code--ex4-win.sh-session-pyg.html-38"></a><span class="go">    Directory: C:\Users\zed\temp\stuff\things\frank\joe\alex</span>
+<a name="appendix-a-cli--code--ex4-win.sh-session-pyg.html-39"></a>
+<a name="appendix-a-cli--code--ex4-win.sh-session-pyg.html-40"></a>
+<a name="appendix-a-cli--code--ex4-win.sh-session-pyg.html-41"></a><span class="go">Mode                LastWriteTime     Length Name</span>
+<a name="appendix-a-cli--code--ex4-win.sh-session-pyg.html-42"></a><span class="go">----                -------------     ------ ----</span>
+<a name="appendix-a-cli--code--ex4-win.sh-session-pyg.html-43"></a><span class="go">d----        12/17/2011   9:03 AM            john</span>
+<a name="appendix-a-cli--code--ex4-win.sh-session-pyg.html-44"></a>
+<a name="appendix-a-cli--code--ex4-win.sh-session-pyg.html-45"></a>
+<a name="appendix-a-cli--code--ex4-win.sh-session-pyg.html-46"></a><span class="gp">&gt;</span>
+</pre></div><p>This is the only time I'll list the <tt class="docutils literal">pwd</tt> and <tt class="docutils literal">cd ~</tt> commands.  They are expected in the exercises <em>every time</em>.  Do them all the time.</p>
+</div>
+<div class="section" id="you-learned-this">
+<h1>You Learned This</h1>
+<p>Now we get into typing more than one command.  These are all the different ways you can run <tt class="docutils literal">mkdir</tt>.  What does <tt class="docutils literal">mkdir</tt> do?  It make directories.  Why are you asking that?  You should be doing your index cards and getting your commands memorized.  If you don't know that &quot;<tt class="docutils literal">mkdir</tt> makes directories&quot; then keep working the index cards.</p>
+<p>What does it mean to make a directory?  You might call directories &quot;folders.&quot; They're the same thing.  All you did above is create directories inside directories inside of more directories.  This is called a &quot;path&quot; and it's a way of saying &quot;first temp, then stuff, then things and that's where I want it.&quot; It's a set of directions to the computer of where you want to put something in the tree of folders (directories) that make up your computer's hard disk.</p>
+<div class="note">
+<p class="first admonition-title">Note</p>
+<p class="last">In this appendix I'm using the <tt class="docutils literal">/</tt> (slash) character for all paths since they work the same on all computers now.  However, Windows users will need to know that you can also use the <tt class="docutils literal">\</tt> (backslash) character and other Windows users will typically expect that at times.</p>
+</div>
+</div>
+<div class="section" id="do-more">
+<h1>Do More</h1>
+<ul class="simple">
+<li>The concept of a &quot;path&quot; might confuse you at this point.  Don't worry. We'll do a lot more with them and then you'll get it.</li>
+<li>Make 20 other directories inside the temp directory in various levels.  Go look at them with a graphical file browser.</li>
+<li>Make a directory with a space in the name by putting quotes around it: <tt class="docutils literal">mkdir &quot;I Have Fun&quot;</tt></li>
+<li>If the <tt class="docutils literal">temp</tt> directory already exists then you'll get an error.  Use <tt class="docutils literal">cd</tt> to change to a work directory that you can control and try it there.  On Windows Desktop is a good place.</li>
+</ul>
+</div>
+
+        <div class="section" id="video">
+            <div class="large-12 columns panel">
+                <div data-paydiv_product="2" id='paydiv'>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="large-1 columns" id="right-nav">
+        <center>
+        <p><a href="../index.html"><img src="images/48_structure.html"></a></p>
+        <p><a href="mailto:help@learncodethehardway.org"><img src="images/48_email.html"></a></p>
+        <p><a href="#common-student-questions"><img src="images/48_faq.html"></a></p>
+        <p><a href="#video"><img src="images/48_video.html"></a></p>
+        </center>
+    </div>
+
+    <div class="twelve columns" id="footer">
+        <div class="large-4 columns" id="footer-block">
+            <p>
+            <a href="http://learncodethehardway.org/">Copyright (C) 2010 Zed. A. Shaw</a>
+            </p>
+        </div>
+        <div class="large-4 columns" id="footer-block">
+            <p>
+            </p>
+        </div>
+        <div class="large-3 columns" id="footer-block">
+            <p>
+            </p>
+        </div>
+        <div class="one columns">
+            &nbsp;
+        </div>
+    </div>
+
+
+
+    <script src="https://paydiv.io/static/js/videojs/video.js"></script>
+    <link rel="stylesheet" href="https://paydiv.io/static/js/videojs/video-js.css">
+    <script src="https://paydiv.io/static/api/v1/paydiv.js"></script>
+
+  <!-- Included JS Files (Compressed) -->
+  <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-24168052-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script>
+
+</body>
+
+<!-- Mirrored from learnpythonthehardway.org/book/appendix-a-cli/ex4.html by HTTrack Website Copier/3.x [XR&CO'2013], Sat, 28 Dec 2013 20:46:36 GMT -->
+</html>

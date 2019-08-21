@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en"> <!--<![endif]-->
+
+<!-- Mirrored from learnpythonthehardway.org/book/ex11.html by HTTrack Website Copier/3.x [XR&CO'2013], Sat, 28 Dec 2013 20:46:02 GMT -->
+<head>
+    <meta charset="utf-8" />
+
+    <!-- Set the viewport width to device width for mobile -->
+    <meta name="viewport" content="width=device-width" />
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Docutils 0.10: http://docutils.sourceforge.net/" />
+    <title></title>
+
+    <!-- Included CSS Files (Compressed) -->
+    <link rel="stylesheet" href="stylesheets/foundation.css">
+    <link rel="stylesheet" href="stylesheets/normalize.css">
+    <link rel="stylesheet" href="stylesheets/app.css">
+    <link rel="stylesheet" href="stylesheets/pygments.css">
+
+    <script src="javascripts/vendor/jquery.js"></script>
+  <script src="javascripts/foundation/foundation.js"></script>
+    <script src="javascripts/vendor/custom.modernizr.js"></script>
+  
+  <!-- Initialize JS Plugins -->
+  <script src="javascripts/app.js"></script>
+
+    <!-- IE Fix for HTML5 Tags -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.10: http://docutils.sourceforge.net/" />
+<title>Exercise 11: Asking Questions</title>
+
+</head>
+<body>
+    <nav class="top-bar">
+        <ul class="title-area">
+            <!-- Title Area -->
+            <li class="name">
+              <h1><a href="http://learnpythonthehardway.org/">Learn Python The Hard Way</a></h1>
+            </li>
+        </ul>
+
+        <section class="top-bar-section">
+            <!-- Right Nav Section -->
+            <ul class="right">
+                <li> <a href="#video">Watch The Video</a></li>
+            </ul>
+        </section>
+
+        <section class="top-bar-section">
+            <!-- Right Nav Section -->
+            <ul class="right">
+                <li><a href="https://paydiv.io/products/contents/2/">See All The Content</a></li>
+            </ul>
+        </section>
+
+        <section class="top-bar-section">
+            <!-- Right Nav Section -->
+            <ul class="right">
+                <li><a href="https://paydiv.io/access/buy/2/">Purchase The Videos+PDF For $29.59</a></li>
+            </ul>
+        </section>
+    </nav>
+
+  <div class="row">
+    <div class="large-11 columns">
+        <h1 class="title">Exercise 11: Asking Questions</h1>
+
+        <p>Now it is time to pick up the pace.  I have got you doing a lot of printing so that you get used to typing simple things, but those simple things are fairly boring.  What we want to do now is get data into your programs.  This is a little tricky because you have to learn to do two things that may not make sense right away, but trust me and do it anyway.  It will make sense in a few exercises.</p>
+<p>Most of what software does is the following:</p>
+<ol class="arabic simple">
+<li>Take some kind of input from a person.</li>
+<li>Change it.</li>
+<li>Print out something to show how it changed.</li>
+</ol>
+<p>So far you have only been printing, but you haven't been able to get any input from a person, or change it.  You may not even know what &quot;input&quot; means, so rather than talk about it, let's have you do some and see if you get it.  In the next exercise we'll do more to explain it.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><a name="ex--ex11.py-idio.html-1"></a><span class="k">print</span> <span class="s">&quot;How old are you?&quot;</span><span class="p">,</span>
+<a name="ex--ex11.py-idio.html-2"></a><span class="n">age</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">()</span>
+<a name="ex--ex11.py-idio.html-3"></a><span class="k">print</span> <span class="s">&quot;How tall are you?&quot;</span><span class="p">,</span>
+<a name="ex--ex11.py-idio.html-4"></a><span class="n">height</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">()</span>
+<a name="ex--ex11.py-idio.html-5"></a><span class="k">print</span> <span class="s">&quot;How much do you weigh?&quot;</span><span class="p">,</span>
+<a name="ex--ex11.py-idio.html-6"></a><span class="n">weight</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">()</span>
+<a name="ex--ex11.py-idio.html-7"></a>
+<a name="ex--ex11.py-idio.html-8"></a><span class="k">print</span> <span class="s">&quot;So, you&#39;re </span><span class="si">%r</span><span class="s"> old, </span><span class="si">%r</span><span class="s"> tall and </span><span class="si">%r</span><span class="s"> heavy.&quot;</span> <span class="o">%</span> <span class="p">(</span>
+<a name="ex--ex11.py-idio.html-9"></a>    <span class="n">age</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">weight</span><span class="p">)</span>
+</pre></div>
+</td></tr></table><div class="note">
+<p class="first admonition-title">Note</p>
+<p class="last">Notice that we put a <tt class="docutils literal">,</tt> (comma) at the end of each <tt class="docutils literal">print</tt> line.
+This is so that <tt class="docutils literal">print</tt> doesn't end the line with a newline character and go
+to the next line.</p>
+</div>
+<div class="section" id="what-you-should-see">
+<h1>What You Should See</h1>
+<div class="highlight"><pre><a name="ex--ex11.sh-idio-shint-pyg.html-1"></a><span class="gp">$</span> python ex11.py
+<a name="ex--ex11.sh-idio-shint-pyg.html-2"></a><span class="go">How old are you? 38</span>
+<a name="ex--ex11.sh-idio-shint-pyg.html-3"></a><span class="go">How tall are you? 6&#39;2&quot;</span>
+<a name="ex--ex11.sh-idio-shint-pyg.html-4"></a><span class="go">How much do you weigh? 180lbs</span>
+<a name="ex--ex11.sh-idio-shint-pyg.html-5"></a><span class="go">So, you&#39;re &#39;38&#39; old, &#39;6\&#39;2&quot;&#39; tall and &#39;180lbs&#39; heavy.</span>
+</pre></div></div>
+<div class="section" id="study-drills">
+<h1>Study Drills</h1>
+<ol class="arabic simple">
+<li>Go online and find out what Python's <tt class="docutils literal">raw_input</tt> does.</li>
+<li>Can you find other ways to use it?  Try some of the samples you find.</li>
+<li>Write another &quot;form&quot; like this to ask some other questions.</li>
+<li>Related to escape sequences, try to find out why the last line has <tt class="docutils literal"><span class="pre">'6\'2&quot;'</span></tt> with that <tt class="docutils literal">\'</tt> sequence.  See how the single-quote needs to be escaped because otherwise it would end the string?</li>
+</ol>
+</div>
+<div class="section" id="common-student-questions">
+<h1>Common Student Questions</h1>
+<dl class="docutils">
+<dt>How do I get a number from someone so I can do math?</dt>
+<dd>That's a little advanced, but try <tt class="docutils literal">x = <span class="pre">int(raw_input())</span></tt> which gets the number as a string from <tt class="docutils literal">raw_input()</tt> then converts it to an integer using <tt class="docutils literal">int()</tt>.</dd>
+<dt>I put my height into raw input like this <tt class="docutils literal"><span class="pre">raw_input(&quot;6'2&quot;)</span></tt> but it doesn't work.</dt>
+<dd>You don't put your height in there, you type it directly into your Terminal.  First thing is, go back and make the code exactly like mine.  Next, run the script, and when it pauses, type your height in at your keyboard.  That's all there is to it.</dd>
+<dt>Why do you have a newline on line 8 instead of putting it on one line?</dt>
+<dd>That's so that the line is less than 80 characters long, which is a style that Python programmers like.  You could put it on one line if you like.</dd>
+<dt>What's the difference between <tt class="docutils literal">input()</tt> and <tt class="docutils literal">raw_input()</tt>?</dt>
+<dd>The <tt class="docutils literal">input()</tt> function will try to convert things you enter as if they were Python code, but it has security problems so you should avoid it.</dd>
+<dt>When my strings print out there's a <tt class="docutils literal">u</tt> in front of them, as in <tt class="docutils literal">u'35'</tt>.</dt>
+<dd>That's how Python tells you that the string is Unicode.  Use a <tt class="docutils literal">%s</tt> format instead and you'll see it printed like normal.</dd>
+</dl>
+</div>
+
+        <div class="section" id="video">
+            <div class="large-12 columns panel">
+                <div data-paydiv_product="2" id='paydiv'>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="large-1 columns" id="right-nav">
+        <center>
+        <p><a href="index.html"><img src="images/48_structure.png"></a></p>
+        <p><a href="mailto:help@learncodethehardway.org"><img src="images/48_email.png"></a></p>
+        <p><a href="#common-student-questions"><img src="images/48_faq.png"></a></p>
+        <p><a href="#video"><img src="images/48_video.png"></a></p>
+        </center>
+    </div>
+
+    <div class="twelve columns" id="footer">
+        <div class="large-4 columns" id="footer-block">
+            <p>
+            <a href="http://learncodethehardway.org/">Copyright (C) 2010 Zed. A. Shaw</a>
+            </p>
+        </div>
+        <div class="large-4 columns" id="footer-block">
+            <p>
+            </p>
+        </div>
+        <div class="large-3 columns" id="footer-block">
+            <p>
+            </p>
+        </div>
+        <div class="one columns">
+            &nbsp;
+        </div>
+    </div>
+
+
+
+    <script src="https://paydiv.io/static/js/videojs/video.js"></script>
+    <link rel="stylesheet" href="https://paydiv.io/static/js/videojs/video-js.css">
+    <script src="https://paydiv.io/static/api/v1/paydiv.js"></script>
+
+  <!-- Included JS Files (Compressed) -->
+  <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-24168052-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script>
+
+</body>
+
+<!-- Mirrored from learnpythonthehardway.org/book/ex11.html by HTTrack Website Copier/3.x [XR&CO'2013], Sat, 28 Dec 2013 20:46:02 GMT -->
+</html>

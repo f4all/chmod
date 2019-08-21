@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="StarOffice/5.1 (Linux)">
+	<META NAME="AUTHOR" CONTENT="Victor Gonzalez-Barbone">
+	<META NAME="CREATED" CONTENT="20000724;9342600">
+	<META NAME="CHANGEDBY" CONTENT="Victor Gonzalez-Barbone">
+	<META NAME="CHANGED" CONTENT="20001211;20334500">
+	<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+	<STYLE>
+	<!--
+		@page { margin-left: 2cm; margin-right: 2cm; margin-top: 1.5cm; margin-bottom: 1.5cm }
+		P { font-size: 11pt }
+	-->
+	</STYLE>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<ADDRESS>Centro de Inform&aacute;tica. Sistemas Operativos II. Curso
+2000, reedici&oacute;n 2o. semestre</ADDRESS>
+<HR>
+<H3 ALIGN=CENTER>Prueba parcial 2/2</H3>
+<H4>Libre consulta de material.</H4>
+<P STYLE="margin-bottom: 0cm"><FONT SIZE=5>1.</FONT> La lista de
+correos electr&oacute;nicos de interesados en recibir un bolet&iacute;n
+mensual de novedades se encuentra en un archivo de este formato: <BR><TT>&nbsp;&nbsp;#
+LISTA ENVIO BOLETIN ELECTRONICO</TT> <BR><TT>&nbsp;&nbsp;# nombre
+alumno:direcci&oacute;n e-mail:situaci&oacute;n</TT> <BR><TT>&nbsp;&nbsp;Julio
+P&eacute;rez:jperez@adinet.com.uy:enlista</TT> <BR><TT>&nbsp;&nbsp;Mariela
+Lombardo::notiene</TT> <BR><TT>&nbsp;&nbsp;Ad&aacute;n
+Paz:apaz@netgate.com.uy:noenvio</TT> <BR><TT>&nbsp;&nbsp;Gabriel
+Gim&eacute;nez:ggime@multi.com.uy:enlista</TT> <BR>Las categor&iacute;as
+son: <TT>enlista</TT> (desea recibir el bolet&iacute;n), <TT>noenvio</TT>
+(no desea recibir el bolet&iacute;n),<TT> notiene</TT> (no tiene
+correo electr&oacute;nico). Escribir un script que muestre cantidad y
+porcentaje de cada categor&iacute;a. &iquest;Qu&eacute; modificaci&oacute;n
+habr&iacute;a que hacer al script si no se conocen a priori los
+nombres de las categor&iacute;as? (15 puntos).</P>
+<P STYLE="margin-bottom: 0cm"> <BR>&nbsp;</P>
+<P STYLE="margin-bottom: 0cm"><FONT SIZE=5>2.</FONT> Los intentos
+fallidos de login se registran con l&iacute;neas del tipo <BR><TT><FONT SIZE=2>&nbsp;&nbsp;Set
+5 6:29:57 liebre login[486]: invalid password for `UNKNOWN' on
+`ttyp2' from `tero'</FONT></TT> <BR><TT><FONT SIZE=2>&nbsp;&nbsp;Oct
+11 16:33:48 liebre login[492]: invalid password for `victor' on
+`ttyp2' from `liebre'</FONT></TT> <BR><TT><FONT SIZE=2>&nbsp;&nbsp;Dec
+15 19:49:01 liebre login[492]: invalid password for `cristina' on
+`ttyp2' from `nutria'</FONT></TT> <BR>en el archivo auth.log en el
+directorio /var/log. Cuando este archivo se hace muy grande, se
+aplica una rotaci&oacute;n de archivos que genera auth.log.0,
+authlog.1.gz, auth.log.2.gz, ..., auth.log.9.gz. Los archivos
+terminados en .gz est&aacute;n comprimidos, pero pueden visualizarse
+con zcat, comando an&aacute;logo a cat. <BR>Construir un script que
+examine todos los archivos auth.log* y emita un listado de nombres de
+login fallidos (mensaje &quot;invalid password&quot;) y su cantidad,
+en un listado del tipo <BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 9
+UNKNOWN</TT> <BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3 cristina</TT>
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 6 root</TT> <BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+3 victor</TT> <BR>(15&nbsp; puntos). 
+</P>
+<P STYLE="margin-bottom: 0cm">&nbsp;&nbsp;</P>
+<P STYLE="margin-bottom: 0cm"><BR>
+</P>
+<P STYLE="margin-bottom: 0cm"><FONT SIZE=5>3.</FONT> Escribir un
+script de arranque <TT>tango</TT> para un sofware llamado tango que
+funciona en base a un demonio <TT>tangod.</TT> El script deber&aacute;
+aceptar los par&aacute;metros siguientes y realizar las acciones
+indicadas: <BR>&nbsp;&nbsp;&nbsp; start - arrancar el demonio <TT>tangod</TT>
+<BR>&nbsp;&nbsp;&nbsp; stop - detener el demonio <TT>tangod,</TT> con
+se&ntilde;al 15 <BR>&nbsp;&nbsp;&nbsp; restart - detener y volver a
+arrancar <TT>tangod</TT> <BR>&nbsp;&nbsp;&nbsp; reload - releer la
+configuraci&oacute;n enviando una se&ntilde;al 1 al proceso <TT>tangod.</TT>
+<BR><FONT FACE="times, serif"><B>Sugerencia.</B> El comando </FONT><TT><FONT FACE="times, serif">ps
+ax</FONT></TT><FONT FACE="times, serif"> muestra el PID de los
+procesos en sus primeros 6 caracteres, con relleno de blancos sobre
+la izquierda. </FONT><TT><FONT FACE="times, serif">(20 puntos).</FONT></TT><FONT FACE="times, serif">
+</FONT>
+</P>
+<P STYLE="margin-bottom: 0cm"><B>Nota para prueba en m&aacute;quina.</B>
+El proceso <TT>tangod</TT> puede simularse con el siguiente script: 
+</P>
+<P STYLE="margin-bottom: 0cm"><TT>#!/bin/bash</TT> <BR><TT># tangod:
+emulaci&oacute;n de demonio para tango</TT> <BR><TT>#&nbsp;&nbsp;
+arrancarlo en background</TT> 
+</P>
+<P STYLE="margin-bottom: 0cm"><TT>echo tangod: corriendo...</TT>
+<BR><TT>trap &quot;echo recibida se&ntilde;al 1&quot; 1</TT> <BR><TT>trap
+&quot;echo recibida se&ntilde;al 15,terminando ; exit&quot; 15</TT>
+<BR><TT>while true</TT> <BR><TT>do</TT> <BR><TT>&nbsp; sleep 6</TT>
+<BR><TT>done</TT> <BR><TT>###</TT> <BR><BR>
+</P>
+</BODY>
+</HTML>

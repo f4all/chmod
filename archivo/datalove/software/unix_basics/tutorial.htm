@@ -1,0 +1,406 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+    
+  <meta http-equiv="Content-Type"
+ content="text/html; charset=iso-8859-1">
+    
+  <meta name="GENERATOR"
+ content="Mozilla/4.06 [es] (Win95; I) [Netscape]">
+    
+  <meta name="Author" content="V&iacute;ctor Gonz&aacute;lez Barbone">
+    
+  <meta name="Description"
+ content="Tutorial de una sesi&oacute;n en UNIX, comandos b&aacute;sicos">
+    
+  <meta name="KeyWords" content="UNIX, curso, tutorial, Linux">
+  <title>Curso B&aacute;sico de UNIX - Tutorial</title>
+</head>
+  <body bgcolor="#ffffff">
+  
+<address> <a href="index.htm">Curso B&aacute;sico de UNIX</a></address>
+  
+<address>  </address>
+<hr width="100%">  
+<center> 
+<h1> Tutorial</h1>
+</center>
+  
+<dl>
+  <dt> <a href="#Emulador">Emulador de Terminal</a></dt>
+  <dt> <a href="#Login">Ingreso al sistema (login)</a></dt>
+  <dt> <a href="#Directorios">Directorios</a></dt>
+  <dt> <a href="#ListadoArchivos">Listado de archivos</a></dt>
+  <dt> <a href="#Man">Manual de UNIX</a></dt>
+  <dt> <a href="#ContenidoArchivo">Contenido de un archivo</a></dt>
+  <dt> <a href="#CrearBorrar">Crear y borrar un archivo</a></dt>
+  <dt> <a href="#Correo">Correo electr&oacute;nico de UNIX</a></dt>
+  <dt> <a href="#Usuarios">Usuarios en el sistema</a></dt>
+  <dt> <a href="#Talk">Talk</a></dt>
+  <dt> <a href="#CambioContrase%F1a">Cambio de contrase&ntilde;a</a></dt>
+  <dt> <a href="#Fin">Fin de Sesi&oacute;n</a></dt>
+  <dt> <a href="#Otros">Otros</a></dt>
+  <dt> <a href="#Bibliografia">Bibliograf&iacute;a y Referencias</a></dt>
+</dl>
+  
+<h3> <a name="Emulador"></a>Emulador de Terminal.</h3>
+ Para ingresar a un sistema UNIX remoto desde un PC se usa habitualmente un
+"emulador de terminal". Este programa permite al PC comportarse como una
+terminal (teclado y pantalla, sin procesador) conectada directamente a la
+m&aacute;quina UNIX. En el emulador de terminal se deben fijar los siguientes
+par&aacute;metros: 
+<ul>
+ <li> Nombre descriptivo de la conexi&oacute;n a establecer (arbitrario).</li>
+  <li> Nombre en la red de la m&aacute;quina a la que se quiere conectar.</li>
+  <li> Tipo de terminal que se emular&aacute; (VT100 es el m&aacute;s conocido).</li>
+  <li> Conexi&oacute;n v&iacute;a TCP/IP, protocolo de comunicaci&oacute;n
+en la red.</li>
+ 
+</ul>
+  
+<h3> <a name="Login"></a>Ingreso al sistema (login).</h3>
+  <dt> <tt>&nbsp; login: <i>id-usuario</i></tt></dt>
+  <dt> <tt>&nbsp; password:</tt></dt>
+  <dt> <i>id-usuario</i> es el nombre identificador del usuario para ingreso
+al sistema, proceso que se denomina "login". Este nombre de usuario suele 
+tener hasta 8 caracteres (letras, n&uacute;meros y algunos s&iacute;mbolos), 
+debe comenzar con min&uacute;scula. UNIX distingue entre may&uacute;sculas 
+y min&uacute;sculas. En el ingreso al sistema, no se permiten correcciones.</dt>
+  <dt> &nbsp;</dt>
+  <dt> <tt>&nbsp; &lt;mensaje del d&iacute;a&gt;</tt></dt>
+  <dt> se despliega siempre despu&eacute;s del login, es puesto por el administrador 
+del sistema para informaci&oacute;n o bienvenida.</dt>
+  <dt> &nbsp;</dt>
+  <dt> <tt>&nbsp;&nbsp;&nbsp; &lt;noticias&gt;</tt></dt>
+  <dt> aviso de noticias nuevas. Las noticias se usan para informaciones
+generales de mayor tiempo de validez. Las noticias no aparecen m&aacute;s
+despu&eacute;s de haber sido le&iacute;das. Para leer las noticias debe digitarse
+el comando <tt>news</tt>.</dt>
+  <dt> &nbsp;</dt>
+  <dt> <tt>&nbsp; You have mail</tt></dt>
+  <dt> indica que hay mensajes de otros usuarios, o del sistema. El correo
+electr&oacute;nico permite a cualquier usuario enviar y recibir mensajes.</dt>
+  <dt> <tt>&nbsp;</tt></dt>
+  <dt> <tt>&nbsp; $</tt></dt>
+  <dt> es el indicador de comandos del sistema; indica que el sistema est&aacute; 
+listo y aguarda una orden del operador, que debe ser escrita a continuaci&oacute;n 
+de $ y finalizada con la tecla &lt;Enter&gt;.</dt>
+  <dt> <tt>&nbsp;</tt></dt>
+  <dt> En los siguientes ejemplos debe escribirse el comando tal cual se
+muestra, digitando la tecla &lt;Enter&gt; al final.</dt>
+  <dt> <tt>&nbsp; date</tt></dt>
+  <dt> comando que muestra la fecha y hora.</dt>
+  <dt> <tt>&nbsp; who</tt></dt>
+  <dt> muestra los nombres de usuarios conectados al sistema en este momento.</dt>
+  <dt> <tt>&nbsp; hostname</tt></dt>
+  <dt> muestra el nombre de la m&aacute;quina UNIX.</dt>
+  
+<h3> <a name="Directorios"></a>Directorios.</h3>
+ Cada usuario tiene un directorio propio, llamado a veces "directorio home". 
+Cuando el usuario ingresa al sistema ya est&aacute; ubicado en su directorio 
+propio. El comando <dt> <tt>&nbsp; pwd</tt></dt>
+  <dt> muestra el directorio actual.</dt>
+  <dt> <tt>&nbsp; cd /home</tt></dt>
+  <dt> cambia hacia el directorio /home, lo que puede verificarse con el
+comando <tt>pwd</tt>.</dt>
+  <dt> <tt>&nbsp; cd</tt></dt>
+  <dt> sin par&aacute;metros devuelve al usuario a su directorio propio,
+desde cualquier lugar donde est&eacute;. Este comando es &uacute;til cuando
+se han hecho varios cambios de directorio y se quiere retornar a una situaci&oacute;n 
+conocida, ubic&aacute;ndose en el directorio propio.</dt>
+  
+<h3> <a name="ListadoArchivos"></a>Listado de archivos.</h3>
+  <dt> Ensayemos el comando ls:</dt>
+  <dt> <tt>&nbsp; ls</tt></dt>
+  <dt> lista archivos del directorio actual.</dt>
+  <dt> <tt>&nbsp; ls -l /bin</tt></dt>
+  <dt> lista archivos en el directorio /bin; aqu&iacute; se encuentran los
+archivos de comandos ejecutables del sistema. No cambia de directorio; el
+directorio actual sigue siendo el mismo.</dt>
+  <dt> <tt>&nbsp; ls -l</tt></dt>
+  <dt> lista archivos en formato largo, dando detalles. El -l se llama opci&oacute;n 
+o bandera; se lee "menos ele".</dt>
+  <dt> La salida obtenida consta de renglones parecidos a</dt>
+  <dt> <tt>&nbsp; -rw-rw-rw- 1 esteban users 138 Apr 5 19:34 leame</tt></dt>
+  <dt> y se interpretan as&iacute;:</dt>
+  <dt> <tt>&nbsp;</tt></dt>
+  <dt> <tt>&nbsp; -</tt></dt>
+  <dt> indica el tipo de archivo de que se trata, con esta convenci&oacute;n:</dt>
+  <dt> <tt>&nbsp; - archivo com&uacute;n,</tt></dt>
+  <dt> <tt>&nbsp; d directorio,</tt></dt>
+  <dt> <tt>&nbsp; l enlace o referencia a otro archivo.</tt></dt>
+  <dt> <tt>&nbsp;</tt></dt>
+  <dt> <tt>&nbsp; rw-rw-rw</tt></dt>
+  <dt> son los permisos del archivo;</dt>
+  <dt> <tt>&nbsp; r (read) permiso para leer el archivo</tt></dt>
+  <dt> <tt>&nbsp; w (write) permiso para modificar o eliminar el archivo</tt></dt>
+  <dt> <tt>&nbsp; x (execute) si se trata de un archivo, permiso para ejecutarlo 
+como</tt></dt>
+  <dt> <tt>&nbsp;&nbsp;&nbsp; programa; si se trata de un directorio, permiso 
+para ingresar</tt></dt>
+  <dt> <tt>&nbsp;&nbsp;&nbsp; en &eacute;l y recorrerlo.</tt></dt>
+  <dt> Los tres grupos de 3 caracteres indican permisos para el due&ntilde;o
+del archivo (esteban), su grupo (users) y el resto del mundo.</dt>
+  <dt> &nbsp;</dt>
+  <dt> &nbsp;<tt> 1</tt></dt>
+  <dt> cantidad de enlaces, referencias a este archivo desde otros archivos
+ubicados en diferentes lugares.</dt>
+  <dt> <tt>&nbsp; esteban</tt></dt>
+  <dt> nombre del usuario due&ntilde;o del archivo.</dt>
+  <dt> <tt>&nbsp; users</tt></dt>
+  <dt> nombre del grupo al que pertenece el archivo</dt>
+  <dt> <tt>&nbsp; 138</tt></dt>
+  <dt> tama&ntilde;o en bytes del archivo. Si se trata de un directorio,
+este n&uacute;mero es de control del sistema, sin interpretaci&oacute;n inmediata 
+para el usuario.</dt>
+  <dt> &nbsp;</dt>
+  <dt> <tt>&nbsp; Apr 5 19:34</tt></dt>
+  <dt> fecha y hora de &uacute;ltima modificaci&oacute;n. Si no aparece el
+a&ntilde;o, se asume el a&ntilde;o corriente.</dt>
+  <dt> &nbsp;</dt>
+  <dt> &nbsp;<tt> leame</tt></dt>
+  <dt> nombre del archivo. Notar que el nombre del archivo est&aacute; siempre 
+al final.</dt>
+  <dt> <tt>&nbsp;</tt></dt>
+  <dt> <tt>&nbsp; ls -a</tt></dt>
+  <dt> muestra tambi&eacute;n archivos ocultos, normalmente no visibles en
+el listado. Los archivos cuyo nombre empieza con un punto son ocultos, en 
+este sentido. Las entradas<b><tt> . </tt></b>y<b><tt> .. </tt></b>representan 
+el directorio actual y el directorio padre, respectivamente.</dt>
+  <dt> <tt>&nbsp; ls -la</tt></dt>
+  <dt> formato largo y archivos ocultos.</dt>
+  <dt> <tt>&nbsp; ls -la /var</tt></dt>
+  <dt> listado de archivos visibles y ocultos en formato largo del directorio 
+/var.</dt>
+  
+<h3> <a name="Man"></a>Manual de UNIX.</h3>
+ UNIX dispone de un manual en l&iacute;nea o "p&aacute;ginas man" con informaci&oacute;n 
+sobre comandos, archivos y otros elementos del sistema operativo. Aunque muy
+t&eacute;cnicas y a veces dif&iacute;ciles de comprender, son una referencia 
+obligada para operar con solvencia. <dt> <tt>&nbsp; man ls</tt></dt>
+  <dt> muestra la p&aacute;gina man del comando <tt>ls</tt>, paginada para
+poder leer una pantalla por vez. Para salir antes de terminar, digitar 'q'.</dt>
+  <dt> <tt>&nbsp; man man</tt></dt>
+  <dt> muestra la p&aacute;gina man del propio comando <tt>man</tt>.</dt>
+  <dt> <tt>&nbsp; man man &gt; man.txt</tt></dt>
+  <dt> redirecciona la salida y graba el contenido de la p&aacute;gina man
+en el archivo man.txt, lo que se puede verificar con <tt>ls</tt>.</dt>
+  
+<h3> <a name="ContenidoArchivo"></a>Contenido de un archivo.</h3>
+  <dt> <tt>&nbsp; cat man.txt</tt></dt>
+  <dt> muestra el contenido del archivo. El archivo man.txt, por provenir
+de una p&aacute;gina man, contiene muchos caracteres de control para regular
+su despliegue en pantalla. El comando <tt>cat</tt> no intrepreta estos caracteres 
+de control. El comando <tt>cat</tt> permite tambi&eacute;n concatenar archivos, 
+seg&uacute;n se ver&aacute;.</dt>
+  <dt> <tt>&nbsp; head man.txt</tt></dt>
+  <dt> muestra las primeras 10 l&iacute;neas de un archivo.</dt>
+  <dt> <tt>&nbsp; tail man.txt</tt></dt>
+  <dt> muestra las 10 l&iacute;neas finales de un archivo.</dt>
+  <dt> <tt>&nbsp; cat man.txt | more</tt></dt>
+  <dt> lee una nota larga paginando; la salida de <tt>cat</tt> es tomada
+por <tt>more</tt>, que presenta la informaci&oacute;n p&aacute;gina por p&aacute;gina.
+Para interrumpir el paginado de <tt>more</tt>, digitar 'q'. La tecla espaciadora 
+avanza una pantalla, la combinaci&oacute;n de teclas Ctrl-B retrocede una 
+pantalla.</dt>
+  <dt> <tt>&nbsp; more man.txt</tt></dt>
+  <dt> presenta la informaci&oacute;n de <tt>man.txt</tt> ya paginada.</dt>
+  <dt> <tt>&nbsp; ls -l /etc | more</tt></dt>
+  <dt> muestra el extenso contenido del directorio <tt>/etc</tt> paginando
+la salida.</dt>
+  
+<h3> <a name="CrearBorrar"></a>Crear y borrar un archivo.</h3>
+  <dt> <tt>&nbsp; touch nota.vacia</tt></dt>
+  <dt> crea el archivo <tt>nota.vacia</tt>, sin contenido alguno.</dt>
+  <dt> <tt>&nbsp; ls -l nota.vacia</tt></dt>
+  <dt> muestra datos del archivo creado.</dt>
+  <dt> <tt>&nbsp; cat nota.vacia</tt></dt>
+  <dt> no muestra nada, el archivo est&aacute; vac&iacute;o.</dt>
+  <dt> &nbsp;</dt>
+  <dt> <tt>&nbsp; touch .archivo_oculto</tt></dt>
+  <dt> crea un archivo vac&iacute;o y oculto.</dt>
+  <dt> <tt>&nbsp; ls</tt></dt>
+  <dt> no muestra el archivo oculto creado, pero</dt>
+  <dt> <tt>&nbsp; ls -a</tt></dt>
+  <dt> s&iacute; lo muestra.</dt>
+  <dt> <tt>&nbsp; ls -la</tt></dt>
+  <dt> muestra datos en formato largo del archivo oculto.</dt>
+  <dt> &nbsp;</dt>
+  <dt> <tt>&nbsp; rm nota.vacia</tt></dt>
+  <dt> borra el archivo <tt>nota.vacia</tt>. Como muchos comandos de UNIX,
+su nombre deriva de palabras inglesas: rm proviene de "remove", eliminar
+o borrar.</dt>
+  <dt> &nbsp;</dt>
+  <dt> <tt>&nbsp; rm -i man.txt</tt></dt>
+  <dt> borrado interactivo, pide confirmaci&oacute;n antes de actuar.</dt>
+  <dt> <tt>&nbsp;</tt></dt>
+  <dt> <tt>&nbsp; rm .archivo_oculto</tt></dt>
+  <dt> <tt>&nbsp; ls -la</tt></dt>
+  <dt> borra el archivo oculto y verifica listando los archivos del directorio.</dt>
+  <dt> &nbsp;</dt>
+  <dt> <tt>&nbsp; echo Mensaje en pantalla</tt></dt>
+  <dt> muestra en la pantalla la leyenda indicada.</dt>
+  <dt> <tt>&nbsp; echo Este es el archivo mensaje1 &gt; mensaje1</tt></dt>
+  <dt> direcciona la salida del comando echo y graba la leyenda en el archivo 
+mensaje1.</dt>
+  <dt> <tt>&nbsp; ls -l mensaje1</tt></dt>
+  <dt> <tt>&nbsp; cat mensaje1</tt></dt>
+  <dt> muestra datos del archivo y verifica su contenido.</dt>
+  <dt> <tt>&nbsp; echo Esta l&iacute;nea es agregada &gt;&gt; mensaje1</tt></dt>
+  <dt> <tt>&nbsp; echo Esta es otra l&iacute;nea agregada &gt;&gt; mensaje1</tt></dt>
+  <dt> <tt>&nbsp; cat mensaje1</tt></dt>
+  <dt> redirecciona la salida de <tt>echo</tt> para agregar dos l&iacute;neas 
+m&aacute;s al archivo ya existente <tt>mensaje1</tt>. Verifica el contenido 
+con <tt>cat</tt>.</dt>
+  
+<h3> <a name="Correo"></a>Correo electr&oacute;nico de UNIX.</h3>
+  <dt> Para leer el correo, digitar</dt>
+  <dt> <tt>&nbsp; mail</tt></dt>
+  <dt> Este comando ingresa al usuario en el sistema de correo electr&oacute;nico 
+de UNIX. Revisa la casilla de entrada de mensajes mostrando la lista de recibidos.
+De ahora en adelante, s&oacute;lo se aceptan los comandos propios de mail.
+El indicador de comandos de <tt>mail</tt> es</dt>
+  <dt> <tt>&nbsp; &amp;</tt></dt>
+  <dt> Comandos disponibles dentro del sistema de correo:</dt>
+  <dt> <tt>&nbsp; d borra mensaje corriente, marcado con '&gt;'</tt></dt>
+  <dt> <tt>&nbsp; ? muestra lista de comandos para manejo de mensajes</tt></dt>
+  <dt> <tt>&nbsp; 5 muestra el mensaje 5</tt></dt>
+  <dt> <tt>&nbsp; h muestra la lista de mensajes</tt></dt>
+  <dt> <tt>&nbsp; h 3 muestra la lista de mensajes comenzando en el 3</tt></dt>
+  <dt> <tt>&nbsp; q sale del programa de correo</tt></dt>
+  <dt> Para enviar un correo al usuario juan, desde la l&iacute;nea de comando 
+de UNIX digitar</dt>
+  <dt> <tt>&nbsp; mail juan</tt></dt>
+  <dt> Escribir entonces el texto del mensaje. Antes de llegar al fin de
+la pantalla, digitar &lt;Enter&gt; para que cambie al otro rengl&oacute;n.
+El comando <tt>mail</tt> no es un editor: no arregla las l&iacute;neas ni
+permite corregir l&iacute;neas anteriores. Al finalizar de escribir el mensaje,
+digitar</dt>
+  <dt> <b><tt>&nbsp; .</tt></b></dt>
+  <dt> (un punto solo en una l&iacute;nea) y dar &lt;Enter&gt;. Un punto
+solo en la l&iacute;nea termina el mensaje y devuelve al usuario a la l&iacute;nea 
+de comandos de UNIX.</dt>
+  <dt> El usuario puede probar el correo envi&aacute;ndose un mensaje a s&iacute; 
+mismo y luego ley&eacute;ndolo.</dt>
+  <dt> &nbsp;</dt>
+  <dt> <tt>&nbsp; mail juan esteban</tt></dt>
+  <dt> env&iacute;a mensaje al usuario juan y al usuario esteban.</dt>
+  <dt> <tt>&nbsp; mail -s "Mensaje de prueba" juan</tt></dt>
+  <dt> env&iacute;a un mensaje de prueba al usuario juan con el t&iacute;tulo 
+"Mensaje de prueba". Es de cortes&iacute;a indicar siempre el tema del mensaje,
+para que el destinatario sepa inmediatamente de qu&eacute; se trata.</dt>
+  <dt> &nbsp;</dt>
+  <dt> Existen en UNIX muchos programas para manejo de correo, m&aacute;s
+potentes y sofisticados; aqu&iacute; nos limitamos a <tt>mail</tt> como ejemplo 
+de un comando de UNIX m&aacute;s bien artesanal, pero siempre presente y
+&uacute;til para mensajer&iacute;a sencilla.</dt>
+  
+<h3> <a name="Usuarios"></a>Usuarios en el sistema.</h3>
+  <dt> <tt>&nbsp; who</tt></dt>
+  <dt> muestra los usuarios que est&aacute;n actualmente en el sistema. Indica 
+identificador de usuario, terminal en que est&aacute; conectado, fecha y
+hora de ingreso al sistema.</dt>
+  <dt> <tt>&nbsp; who am i</tt></dt>
+  <dt> da informaci&oacute;n sobre el usuario que est&aacute; trabajando,
+indicando su m&aacute;quina y nombre de usuario, terminal, fecha y hora.</dt>
+  <dt> <tt>&nbsp; whoami</tt></dt>
+  <dt> presenta s&oacute;lo el nombre del usuario que est&aacute; operando.</dt>
+  <dt> <tt>&nbsp; id</tt></dt>
+  <dt> proporciona la identificaci&oacute;n del usuario invocante, dando
+el nombre de usuario y su n&uacute;mero (UID), nombre de grupo primario y
+su n&uacute;mero (GID), nombres de otros grupos a los cuales pertenece (si
+los hay) y sus n&uacute;meros.</dt>
+  <dt> <tt>&nbsp; id jperez</tt></dt>
+  <dt> proporciona datos de identificaci&oacute;n del usuario indicado (jperez).</dt>
+  <dt> <tt>&nbsp; finger</tt></dt>
+  <dt> proporciona nombre del usuario en el sistema, nombre en la vida real
+y otros datos del usuario invocante, indicando si est&aacute; en este momento 
+en el sistema, y si tiene correo por leer.</dt>
+  <dt> <tt>&nbsp; finger jperez</tt></dt>
+  <dt> proporciona informaci&oacute;n sobre&nbsp; el usuario indicado.</dt>
+  
+<h3> <a name="Talk"></a>Talk.</h3>
+  <dt> Talk es un programa que permite a dos usuarios en el sistema comunicarse 
+escribiendo en el teclado. Al invocar <tt>talk</tt> la pantalla se divide 
+en dos partes, cada una correspondiente a uno de los usuarios. Ambos pueden 
+escribir simult&aacute;neamente, y ambos ven la salida en su parte correspondiente 
+de la pantalla.</dt>
+  <dt> <tt>&nbsp; talk usuario1</tt></dt>
+  <dt> solicita apertura de una sesi&oacute;n de <tt>talk</tt> al usuario1,
+que debe responder con otro comando similar cuando recibe el pedido.</dt>
+  <dt> Para terminar la sesi&oacute;n de <tt>talk</tt>, cualquiera de los
+usuarios puede digitar Ctrl-C.</dt>
+  <dt> El comando <tt>mesg</tt> permite regular si se desea recibir mensajes
+o no. Para evitar recibir mensajes de <tt>talk</tt> es posible bloquear a 
+otros usuarios el acceso a la terminal donde uno est&aacute; trabajando; quienes
+intenten iniciar una sesi&oacute;n recibir&aacute;n un mensaje indicando
+que la terminal destino no est&aacute; habilitada para recibir mensajes.</dt>
+  <dt> <tt>&nbsp; mesg n</tt></dt>
+  <dt> deshabilita recepci&oacute;n de mensajes,</dt>
+  <dt> <tt>&nbsp; mesg y</tt></dt>
+  <dt> habilita recepci&oacute;n de mensajes.</dt>
+  <dt> &nbsp; mesg</dt>
+  <dt> muestra el estado: si responde "y" est&aacute; habilitada la recepci&oacute;n, 
+si responde "n" se rechazan los pedidos de conexi&oacute;n.</dt>
+  
+<h3> <a name="CambioContrase&ntilde;a"></a>Cambio de contrase&ntilde;a.</h3>
+  <dt> <tt>&nbsp; passwd</tt></dt>
+  <dt> pide la vieja contrase&ntilde;a y luego la nueva; la nueva contrase&ntilde;a 
+deber&aacute; ingresarse dos veces, para evitar posibles errores de digitaci&oacute;n. 
+En sistemas con servicio de informaci&oacute;n de red (NIS), el comando es</dt>
+  <dt> <tt>&nbsp; yppasswd</tt></dt>
+  <dt> El administrador del sistema indicar&aacute; cu&aacute;l de estos
+comandos debe usar.</dt>
+  
+<h3> <a name="Fin"></a>Fin de sesi&oacute;n.</h3>
+  <dt> <tt>&nbsp; exit</tt></dt>
+  <dt> termina la sesi&oacute;n con UNIX, vuelve a presentar el mensaje inicial</dt>
+  <dt> <tt>&nbsp; login:</tt></dt>
+  <dt> habilitando a un nuevo usuario a ingresar al sistema. Las teclas &lt;Ctrl-D&gt; 
+tambi&eacute;n terminan la sesi&oacute;n.</dt>
+  
+<h3> <a name="Otros"></a>Otros.</h3>
+ Las teclas <tt>Ctrl-C</tt> interrumpen la ejecuci&oacute;n de un comando. 
+Las teclas <tt>Ctrl-D</tt> indican un fin de ingreso; si se dan en el indicador 
+de comandos, termina la sesi&oacute;n UNIX. En UNIX no hay un caracter reservado
+para fin de archivo; <tt>Ctrl-D</tt> simplemente indica la terminaci&oacute;n 
+de un flujo de datos. 
+<p>En UNIX, la tecla &lt;Enter&gt; coloca un caracter nueva l&iacute;nea, 
+que en ASCII es &lt;Ctrl-J&gt;; con la tecla &lt;Enter&gt; DOS o MS-Windows
+colocan dos caracteres al final de una l&iacute;nea: un nueva l&iacute;nea
+&lt;Ctrl-J&gt; y un retorno &lt;Ctrl-M&gt;. Al mirar un archivo creado en
+DOS o MS-Windows con algunos programas UNIX se pueden llegar a ver caracteres
+'^M' al final por esta raz&oacute;n. </p>
+<dt> Algunas terminales adminten un control instant&aacute;neo de la salida, 
+con las teclas</dt>
+  <dt> <tt>&nbsp; &lt;Ctrl-S&gt;&nbsp;&nbsp; detiene despliegue.</tt></dt>
+  <dt> <tt>&nbsp; &lt;Ctrl-Q&gt;&nbsp;&nbsp; contin&uacute;a despliegue.</tt></dt>
+   
+<p>&nbsp; En las m&aacute;quinas UNIX, el terminal de la propia m&aacute;quina 
+UNIX se denomina "consola"; se usa preferentemente para administraci&oacute;n 
+del sistema. Todas las teclas de control funcionan bien en la consola; el
+funcionamiento en los emuladores de terminal depende de la construcci&oacute;n 
+del programa de emulaci&oacute;n. </p>
+<h3> <a href="tutorej.htm">Preguntas y Ejercicios.</a></h3>
+<a href="tutorej2.htm">Ejercicios Complementarios</a><br>
+  
+<h3> <a name="Bibliografia"></a>Bibliograf&iacute;a y Referencias.</h3>
+  
+<h4> <b>Comandos:</b></h4>
+ <tt>apropos cat cd date exit echo finger head hostname id info less ls mail
+man mesg more passwd pwd rm talk tail touch whatis who who am i whoami</tt>
+ 
+<p><b>Referencias:</b> Kernighan-Pike[1987], Coffin[1989] <br>
+&nbsp; <br>
+&nbsp; </p>
+<address>  </address>
+<hr width="100%">  
+<address> V&iacute;ctor A. Gonz&aacute;lez Barbone <a
+ href="mailto:%20vagonbar en fing edu uy">vagonbar en fing edu uy</a></address>
+  
+<address> <a href="http://iie.fing.edu.uy">Instituto de Ingenier&iacute;a
+El&eacute;ctrica</a> - <a href="http://www.fing.edu.uy">Facultad de Ingenier&iacute;a</a>
+ - Montevideo, Uruguay.</address>
+  
+</body>
+</html>

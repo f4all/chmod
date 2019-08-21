@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+   <META NAME="GENERATOR" CONTENT="Mozilla/4.06 [es] (Win95; I) [Netscape]">
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+
+<DL>
+<DT>
+<B>Centro de Inform&aacute;tica.</B></DT>
+
+<DT>
+<B>Sistemas Operativos II (UNIX), Curso 1997.</B></DT>
+</DL>
+
+<H3>
+</H3>
+
+<H3>
+2a. prueba de evaluaci&oacute;n. RESOLUCION.</H3>
+
+<P><BR>Escribir comandos o interconexiones para resolver las situaciones
+que se indican. Cada pregunta vale 4 puntos.
+<P>1. Un archivo acceso.log de registro de accesos de usuarios a un sistema
+UNIX, genera un rengl&oacute;n por acceso, el primer campo es el nombre
+del usuario, y los campos est&aacute;n separados por ":". Escribir comandos
+que muestren el nombre de cada usuario y la cantidad de accesos registrados,
+en orden alfab&eacute;tico.
+<P>cat acceso.log | cut -d: -f1 | sort | uniq -c
+<P>2. Extraer del archivo acceso.log las l&iacute;neas correspondientes
+al usuario jperez del mes de mayo del a&ntilde;o 1997. La fecha figura
+en el formato "1300 15 Mayo 1997"; el primer n&uacute;mero es la hora.
+<P>cat acceso.log | grep jperez | grep Mayo
+<P>3. Extraer del archivo acceso.log las l&iacute;neas que correspondan
+al usuario jperez o al usuario elopez.
+<P>cat acceso.log | egrep "jperez|elopez"
+<P>4. Un archivo de nombres NoMBreS.tXT es tal que un mismo nombre puede
+estar en may&uacute;sculas y min&uacute;sculas, mezcladas y de diferentes
+maneras. Generar una lista de nombres en min&uacute;scula con los 7 nombres
+que aparecen menos veces, sin importar como est&eacute;n escritos.
+<P>cat NoMBreS.tXT | tr [a-z] [A-Z] | sort | uniq -c | \
+<P>sort -nr | head -7
+<P>5. Un archivo palabras.txt contiene palabras distintas una por l&iacute;nea.
+Extrar todas las palabras que empiecen y terminen con vocal, en min&uacute;scula
+o may&uacute;scula.
+<P>cat palabras.txt | greo "^[aeiouAEIOU].*[aeiouAEIOU]"
+<P>6. Escribir comandos para realizar las siguientes tareas:
+<P>- actualizar fecha y hora del archivo LEAME, sin alterarlo.
+<P>touch LEAME
+<P>- cambiar la contrase&ntilde;a propia.
+<P>passwd
+<P>- trasladarse al directorio propio sin escribirlo.
+<P>cd
+<P>- invocar el editor vi en s&oacute;lo lectura del archivo LEAME.
+<P>vi -R LEAME
+<P>7. Usando el archivo /etc/passwd,
+<P>- extraer una l&iacute;nea que muestre directorio propio y shell del
+usuario elopez.
+<P>cat /etc/passwd | grep elopez
+<P>- listar los usuarios que usan el shell /bin/bash.
+<P>cat /etc/passwd | grep /bin/bash
+<P>- listar los usuarios que no usan el shell /bin/bash.
+<P>cat /etc/passwd | grep -v /bin/bash | grep -v '#'
+<P>- contar la cantidad de usuarios
+<P>cat /etc/passwd | grep -v '#' | wc -l
+<P>Recordar que el archivo /etc/passwd suele tener comentarios, y que #
+puede ser interpretado por el shell.
+<P>8. Realizar las tareas siguientes:
+<P>- deshabilitar recepci&oacute;n de mensajes, verificar que as&iacute;
+qued&oacute;.
+<P>mesg n; mesg
+<P>- indicar la ruta completa del comando UNIX nslookup.
+<P>which nslookup
+<P>9. Escribir comandos para ingresar como superusuario, cambiar el archivo
+/etc/group hacia el grupo adm, salir de superusuario.
+<P>su; chgrp adm /etc/group; exit
+<P>10. Presentar el archivo /etc/passwd con formato de p&aacute;gina de
+largo 23 l&iacute;neas, margen de 8 espacios y encabezado por la leyenda
+"Usuarios del Sistema".
+<P>cat /etc/passwd | pr -o8 -l23 -h "Usuarios del Sistema"
+<P>UNIX - 1
+</BODY>
+</HTML>

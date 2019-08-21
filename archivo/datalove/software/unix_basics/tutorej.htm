@@ -1,0 +1,353 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+   <META NAME="GENERATOR" CONTENT="Mozilla/4.06 [es] (Win95; I) [Netscape]">
+   <META NAME="Author" CONTENT="Víctor González-Barbone">
+   <META NAME="Description" CONTENT="Preguntas y Ejercicios para el Tutorial de UNIX">
+   <META NAME="KeyWords" CONTENT="UNIX, Linux, tutorial, curso">
+   <TITLE>Curso B&aacute;sico de UNIX - Tutorial - Ejercicios</TITLE>
+</HEAD>
+<BODY TEXT="#000000" BGCOLOR="#FFFFFF" LINK="#0000FF" VLINK="#FF0000" ALINK="#000088">
+
+<ADDRESS>
+<A HREF="index.htm">Curso&nbsp; B&aacute;sico de UNIX</A></ADDRESS>
+
+<CENTER>
+<H2>
+Preguntas y Ejercicios.<BR>
+Ficha referencia: Tutorial</H2></CENTER>
+Los ejercicios propuestos referencian comandos vistos en esta ficha y anteriores.
+No obstante, algunas de las tareas pedidas exigen conocer opciones no mencionadas.
+Las mismas pueden encontrarse en la "Rese&ntilde;a de Comandos".
+<BR>&nbsp;
+<DT>
+<B>1. LISTADO DE ARCHIVOS (te&oacute;rico).</B></DT>
+
+<DT>
+Estudiar el formato largo de salida del comando <TT>ls</TT>. Interpretar
+las siguientes l&iacute;neas de salida:</DT>
+
+<DT>
+<TT>&nbsp; drwxr-xr-x 5 pedroso prod&nbsp;&nbsp;&nbsp;&nbsp; 512 Sep 11
+15:09 articulos</TT></DT>
+
+<DT>
+<TT>&nbsp; -rw-r--r-- 1 pedroso prod&nbsp;&nbsp;&nbsp; 1430 Ago 10 07:56
+docum1.prod</TT></DT>
+
+<DT>
+<TT>&nbsp; -rwxr-xr-x 3 admin1&nbsp; adminfo 2330 Jan&nbsp; 7 09:34 rv</TT></DT>
+
+<DT>
+<TT>&nbsp; lrwxr--r-- 1 nicasio almacen 9500 Sep 11 10:56 listado.partes</TT></DT>
+
+<DT>
+&nbsp;</DT>
+
+<DT>
+<B>2. LISTADO DE ARCHIVOS.</B></DT>
+
+<DT>
+Estudiar el comando <TT>ls</TT>.</DT>
+
+<DT>
+a) Listar recursivamente todos los archivos bajo el directorio <TT>/etc</TT>
+deteniendo el despliegue en cada pantalla.</DT>
+
+<DT>
+b) Probar otras opciones del comando <TT>ls</TT> usando el directorio <TT>/etc</TT>
+o <TT>/bin</TT>.</DT>
+
+<DT>
+c) Listar archivos visibles e invisibles bajo el directorio corriente,
+en formato largo.</DT>
+
+<DT>
+&nbsp;</DT>
+
+<DT>
+<B>3. REDIRECCION E/S.</B></DT>
+
+<DT>
+&nbsp; a) Crear el archivo <TT>cap1</TT> con el contenido "Este es el cap&iacute;tulo
+1". Repetir con <TT>cap2</TT> y <TT>cap3</TT>. Verificar mostrando cada
+uno con <TT>cat</TT>.</DT>
+
+<DT>
+&nbsp; b) Mostrar en pantalla uno tras otro, de una sola vez, los archivos
+<TT>cap1</TT>, <TT>cap2</TT> y <TT>cap3</TT> creados.</DT>
+
+<DT>
+&nbsp; c) Grabar en un &uacute;nico archivo, llamado <TT>libro</TT>, los
+archivos <TT>cap1</TT>, <TT>cap2</TT> y <TT>cap3</TT>.</DT>
+
+<DT>
+&nbsp;</DT>
+
+<DT>
+<B>4. EDITOR ae.</B></DT>
+
+<DT>
+El editor por excelencia de UNIX es <TT>vi</TT>, presente en todas las
+variedades de UNIX, usado preferentemente para administraci&oacute;n del
+sistema. La distribuci&oacute;n Linux Debian/GNU contiene un editor sencillo
+y peque&ntilde;o llamado <TT>ae</TT>. Invocarlo escribiendo ae. Interpretar
+la ayuda y experimentar con &eacute;l creando y modificando textos breves.</DT>
+
+<DT>
+&nbsp;</DT>
+
+<DT>
+<B>5. SISTEMA DE ARCHIVOS.</B></DT>
+
+<DT>
+&nbsp; a) Trasladarse al directorio <TT>doc</TT>, debajo del directorio
+<TT>usr</TT>, debajo del directorio ra&iacute;z. Mostrar el directorio
+actual.</DT>
+
+<DT>
+&nbsp; b) Trasladarse al directorio local, debajo del directorio <TT>usr</TT>,
+debajo del directorio ra&iacute;z. Mostrar el directorio actual; mostrar
+los archivos contenidos en &eacute;l.</DT>
+
+<DT>
+&nbsp; c) Trasladarse al directorio propio del usuario desde cualquier
+otro directorio.</DT>
+
+<DT>
+&nbsp;</DT>
+
+<DT>
+<B>6. USUARIOS.</B></DT>
+
+<DT>
+&nbsp; a) Mostrar informaci&oacute;n relativa al usuario en la sesi&oacute;n
+actual.</DT>
+
+<DT>
+&nbsp; b) Mostrar qu&eacute; usuarios hay en el sistema en el momento actual.</DT>
+
+<DT>
+&nbsp; c) Mostrar el nombre de la m&aacute;quina.</DT>
+
+<DT>
+&nbsp;</DT>
+
+<DT>
+<B>7. MANUAL.</B></DT>
+
+<DT>
+&nbsp; a) Desplegar en pantalla la p&aacute;gina del manual para el comando
+que muestra en pantalla las p&aacute;ginas del manual.</DT>
+
+<DT>
+&nbsp; b) Guardar en el archivo <TT>pwd.man</TT> del directorio actual,
+la p&aacute;gina del manual <TT>pwd</TT>.</DT>
+
+<DT>
+&nbsp; c) Mostrar el archivo <TT>pwd.man</TT> con el comandos <TT>more</TT>;
+luego visualizarlo con ae. &iquest;Puede explicar las&nbsp; diferencias?</DT>
+
+<DT>
+&nbsp;</DT>
+
+<DT>
+<B>8. FILTROS.</B></DT>
+
+<DT>
+&nbsp; a) Grabar la salida de la p&aacute;gina man del comando <TT>echo</TT>
+en el archivo <TT>echo.man</TT>. Verificar mostrando <TT>echo.man</TT>
+con <TT>more</TT>.</DT>
+
+<DT>
+&nbsp; b) Mostrar las 15 primeras l&iacute;neas del archivo <TT>echo.man</TT>.
+Mostrar las &uacute;ltimas 20 l&iacute;neas del archivo <TT>echo.man</TT>.</DT>
+
+<DT>
+&nbsp; c) Capturar las 15 primeras l&iacute;neas del archivo <TT>echo.man</TT>
+en el archivo <TT>extracto.echo.man</TT>.</DT>
+
+<DT>
+&nbsp; d) Agregar al archivo <TT>extracto.echo.man</TT> las &uacute;ltimas
+20 l&iacute;neas del archivo <TT>echo.man</TT>.</DT>
+
+<DT>
+&nbsp;</DT>
+
+<DT>
+<B>9. MAIL (te&oacute;rico).</B></DT>
+
+<DT>
+Estudiar el comando <TT>mail</TT>. Asegurarse de ser capaz de invocar el
+programa de correo para leer mensajes recibidos, y luego emitir comandos
+internos del programa de correo para</DT>
+
+<DT>
+- mostrar la lista de mensajes recibidos;</DT>
+
+<DT>
+- mostrar la lista de mensajes recibidos comenzando en el 21;</DT>
+
+<DT>
+- leer el mensaje 5;</DT>
+
+<DT>
+- borrar los mensajes 5, 7, 9 al 23;</DT>
+
+<DT>
+- salir del correo actualizando la casilla.</DT>
+
+<DT>
+&nbsp;</DT>
+
+<DT>
+<B>10. MAIL.</B></DT>
+
+<DT>
+&nbsp; a) Env&iacute;ese usted mismo un mensaje de correo con el t&iacute;tulo
+"Mensaje 1" y el siguiente contenido:</DT>
+
+<DT>
+<TT>&nbsp;&nbsp; Este es el mensaje 1.</TT></DT>
+
+<DT>
+<TT>&nbsp;&nbsp; Va dirigido a m&iacute; mismo.</TT></DT>
+
+<DT>
+<TT>&nbsp;&nbsp; Saludos,</TT></DT>
+
+<DT>
+<TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Yo.</TT></DT>
+
+<DT>
+Repita con textos similares para los mensajes de t&iacute;tulo "Mensaje
+2" y "Mensaje 3".</DT>
+
+<DT>
+&nbsp; b) Lea el primero, y s&oacute;lo el primero, de todos estos mensajes
+con el comando <TT>mail</TT>, y salga de <TT>mail</TT>. Vuelva a digitar
+mail. &iquest;Cu&aacute;ntos mensajes tiene? &iquest;Cu&aacute;les han
+quedado? Confirme leyendo el mensaje 2, y s&oacute;lo &eacute;ste.</DT>
+
+<DT>
+&nbsp; c) Digite ahora el comando</DT>
+
+<DT>
+<TT>&nbsp; mail -f mbox</TT></DT>
+
+<DT>
+&iquest;Cu&aacute;l es su contenido? &iquest;Para qu&eacute; servir&aacute;
+el archivo mbox?</DT>
+
+<DT>
+&nbsp; d) Pruebe borrar alg&uacute;n mensaje del archivo mbox, salga de
+<TT>mail</TT> y vuelva a leer los mensajes de mbox con <TT>mail -f mbox</TT>.
+&iquest;Qu&eacute; ha pasado?</DT>
+
+<DT>
+&nbsp; e) Repita estas pruebas hasta asegurarse de comprender bien el funcionamiento
+de <TT>mail</TT>.</DT>
+
+<DT>
+&nbsp;</DT>
+
+<DT>
+<B>11. SISTEMA DE ARCHIVOS.</B></DT>
+
+<DT>
+Estudie el comando <TT>touch</TT>. &iquest;Qu&eacute; har&aacute; el comando
+<TT>touch
+archref </TT>si este archivo no existe? &iquest;Y si ya existe? Verificar
+en m&aacute;quina.</DT>
+
+<DT>
+&nbsp;</DT>
+
+<DT>
+<B>12. SEGURIDAD.</B></DT>
+
+<DT>
+&nbsp; a) El usuario <TT>jperez</TT> desea cambiar su contrase&ntilde;a.
+&iquest;C&oacute;mo hace? &iquest;Qu&eacute; ayuda debe pedir al supervisor?</DT>
+
+<DT>
+&nbsp; b) El usuario <TT>jperez</TT> olvid&oacute; su contrase&ntilde;a.
+&iquest;Qu&eacute; puede hacer por s&iacute; mismo? &iquest;Necesita ayuda
+del supervisor?</DT>
+
+<DT>
+&nbsp; c) Un usuario informa al supervisor que olvid&oacute; su contrase&ntilde;a.
+&iquest;C&oacute;mo puede el supervisor averiguar la contrase&ntilde;a
+que el usuario olvid&oacute;?</DT>
+
+<DT>
+&nbsp; d) &iquest;C&oacute;mo hace el supervisor para cambiar la contrase&ntilde;a
+del usuario <TT>jperez</TT>?</DT>
+
+<DT>
+&nbsp;</DT>
+
+<DT>
+<B>13. DOCUMENTACION.</B></DT>
+
+<DT>
+&nbsp; a) Estudiar las opciones del comando <TT>man</TT> y probarlas.</DT>
+
+<DT>
+&nbsp; b) Estudiar y probar los comandos <TT>whatis</TT> y <TT>apropos</TT>.
+&iquest;Qu&eacute; diferencia hay entre uno y otro?</DT>
+
+<DT>
+&nbsp; c) Debian y otras variedades de Linux traen un programa de documentaci&oacute;n
+en l&iacute;nea m&aacute;s sofisticado llamado <TT>info</TT>. &iquest;C&oacute;mo
+podr&iacute;a obtenerse informaci&oacute;n sobre este comando? Tratar de
+determinar cu&aacute;les son sus capacidades y compararlo con <TT>man</TT>.</DT>
+
+<DT>
+&nbsp;</DT>
+
+<DT>
+<B>14. DOCUMENTACION.</B></DT>
+
+<DT>
+Estudiar en la Rese&ntilde;a de Comandos los comandos mencionados en la
+ficha correspondiente a estos ejercicios. Interpretar, hasta donde sea
+posible con los conocimientos actuales, las opciones ofrecidas. Dise&ntilde;ar
+ejemplos para probarlas. Volver a revisar estas descripciones breves al
+reencontrar los comandos a lo largo del curso.</DT>
+
+<DT>
+&nbsp;</DT>
+
+<DT>
+<B>15. DOCUMENTACION.</B></DT>
+
+<DT>
+Las p&aacute;ginas man pueden ser dif&iacute;ciles de interpretar. No obstantes,
+son la referencia obligada para conocer el sistema, y la autoridad &uacute;ltima
+en cuanto a su funcionamiento. En el trabajo con UNIX es muy frecuente,
+a&uacute;n para usuarios experimentados, consultar estas p&aacute;ginas,
+debido la enorme cantidad de opciones ofrecidas y el control fino que permite
+el sistema. Revisar el contenido de la p&aacute;gina man correspondiente
+a <TT>bash</TT>, el int&eacute;rprete de comandos. Observar su extensi&oacute;n,
+contenido general y forma de redacci&oacute;n.</DT>
+
+<BR>&nbsp;
+<P>&nbsp;
+<BR>&nbsp;
+<BR>&nbsp;
+<ADDRESS>
+
+<HR WIDTH="100%"></ADDRESS>
+
+<ADDRESS>
+V&iacute;ctor A. Gonz&aacute;lez Barbone&nbsp; <A HREF="mailto: vagonbar en fing edu uy">vagonbar en fing edu uy</A></ADDRESS>
+
+<ADDRESS>
+<A HREF="http://iie.fing.edu.uy">Instituto de Ingenier&iacute;a El&eacute;ctrica</A>
+- <A HREF="http://www.fing.edu.uy">Facultad de Ingenier&iacute;a</A> -
+Montevideo, Uruguay.</ADDRESS>
+
+</BODY>
+</HTML>

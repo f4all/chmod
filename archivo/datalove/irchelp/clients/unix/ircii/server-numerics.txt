@@ -1,0 +1,479 @@
+<!doctype html>
+<html>
+<head>
+    <title>IRCHelp.org &mdash; Untitled Page</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="description" content="Comprehensive information on everything Internet Relay Chat" />
+    <meta name="author" content="irchelpers" />
+    <meta name="generator" content="PieCrust 1.0.0-dev" />
+    <meta name="template-engine" content="Twig" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,
+      initial-scale=1.0">
+    <!-- Le styles -->
+    <link href="/css/bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+    </style>
+    <link href="/css/bootstrap-responsive.css" rel="stylesheet">
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144"
+      href="/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114"
+      href="/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72"
+      href="/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed"
+      href="/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="/ico/favicon.png">
+</head>
+<body>
+    <!--Start of navigation-->
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container"> <a class="btn btn-navbar"
+            data-toggle="collapse" data-target=".nav-collapse"> <span
+              class="icon-bar"></span> <span class="icon-bar"></span> <span
+              class="icon-bar"></span> </a> <a class="brand" href="/">#irchelp</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class="active"><a href="/">Home</a></li>
+              <li><a href="/irchelp/credit.html">About</a></li>
+              <li class="dropdown"> <a href="/irchelp/clients" class="dropdown-toggle"
+                  data-toggle="dropdown">Clients </a>
+                <ul class="dropdown-menu">
+                  <li><a href="/irchelp/clients">All Clients</a></li>
+                  <li class="divider"></li>
+                  <li class="nav-header">Windows</li>
+                  <li><a href="/irchelp/clients/windows/mirc">mIRC</a></li>
+                  <li><a href="/irchelp/clients/windows/xchat">XChat</a></li>
+                  <li><a href="/irchelp/clients/windows">All Windows Clients</a></li>
+                  <li class="divider"></li>
+                  <li class="nav-header">MacOS X</li>
+                  <li><a href="/irchelp/clients/mac/textual.html">Textual</a></li>
+                  <li><a href="/irchelp/clients/mac/colloquy.html">Colloquy</a></li>
+                  <li><a href="/irchelp/clients/mac/snak.html">Snak</a></li>
+                  <li><a href="/irchelp/clients/mac">All MacOS X Clients</a></li>
+                  <li class="divider"></li>
+                  <li class="nav-header">Linux/Unix Terminal</li>
+                  <li><a href="/irchelp/clients/unix/irssi">irssi</a></li>
+                  <li><a href="/irchelp/clients/unix/epic.html">EPIC</a></li>
+                  <li><a href="/irchelp/clients/unix/ircii">ircII</a></li>
+                  <li><a href="/irchelp/clients/unix/index.html#terminal">All Linux/Unix Terminal Clients</a></li>
+                  <li class="divider"></li>
+                  <li class="nav-header">Linux/Unix Graphical</li>
+                  <li><a href="/irchelp/clients/unix/xchat.html">XChat</a></li>
+                  <li><a href="/irchelp/clients/unix/konversation.html">Konversation</a></li>
+                  <li><a href="/irchelp/clients/unix/index.html#gui">All Linux/Unix Graphical Clients</a></li>
+                  <li class="nav-header">Smartphones</li>
+                  <li><a href="/irchelp/clients/mobile/android">Clients for Android</a></li>
+                  <li><a href="/irchelp/clients/mobile/ios">Clients for iOS</a></li>
+                  <li><a href="/irchelp/clients/mobile">All Smartphone Clients</a></li>
+                  <li class="nav-header">Other OS and Crossplatform</li>
+                  <li><a href="/irchelp/clients/cross/java">Clients writting in Java</a></li>
+                  <li><a href="/irchelp/clients/cross">Other Crossplatform Clients</a></li>
+                  <li><a href="/irchelp/clients/otheros">Clients for other Operating Systems</a></li>
+                  <li><a href="/irchelp/clients/webclients.html">Web-based clients</a></li>
+
+                </ul>
+              </li>
+              <li class="dropdown"> <a href="/irchelp/networks" class="dropdown-toggle"
+                  data-toggle="dropdown">Networks </a>
+                <ul class="dropdown-menu">
+                  <li><a href="/irchelp/networks/popular.html">Major Networks</a></li>
+                  <li><a href="/irchelp/networks/regional.html">Regional Networks</a></li>
+                  <li><a href="/irchelp/networks/topical.html">Topical Networks</a></li>
+                  <li><a href="/irchelp/networks">All Networks</a></li>
+                  <li class="divider"></li>
+                  <li class="nav-header">Major Networks</li>
+                  <li><a href="/irchelp/networks/efnet/">EFNet</a></li>
+                  <li><a href="/irchelp/networks/undernet.html">Undernet</a></li>
+                  <li><a href="/irchelp/networks/dalnet.html">Dalnet</a></li>
+                  <li><a href="/irchelp/networks/quakenet.html">Quakenet</a></li>
+                  <li><a href="/irchelp/networks/freenode.html">Freenode</a></li>
+                </ul>
+              </li>
+              <li class="dropdown"> <a href="/irchelp/security" class="dropdown-toggle"
+                  data-toggle="dropdown">Security </a>
+                <ul class="dropdown-menu">
+                  <li><a href="/irchelp/security">General Security</a></li>
+                  <li><a href="/irchelp/security/privacy.html">Privacy</a></li>
+                  <li><a href="/irchelp/security/nuke.html">Denial of Service</a></li>
+                  <li><a href="/irchelp/security/trojan.html">Trojan Horses and Other Malware</a></li>
+                  <li><a href="/irchelp/security/socialeng.html">Social Engineering</a></li>
+                </ul>
+              </li>
+              <li class="dropdown"> <a href="/irchelp/ircd" class="dropdown-toggle"
+                  data-toggle="dropdown">Servers </a>
+                <ul class="dropdown-menu">
+                  <li><a href="/irchelp/ircd">General ircd information</a></li>
+                  <li class="divider"></li>
+                  <li class="nav-header">EFNet IRCDs</li>
+                  <li><a href="/irchelp/ircd/ratbox">ircd-ratbox</a></li>
+                  <li><a href="/irchelp/ircd/hybrid">ircd-hybrid</a></li>
+                </ul>
+              </li>
+              <li class="dropdown"> <a href="#" class="dropdown-toggle"
+                  data-toggle="dropdown">FAQs </a>
+                <ul class="dropdown-menu">
+                  <li><a href="/irchelp/new2irc.html">New user introduction</a></li>
+<!--
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li class="divider"></li>
+                  <li class="nav-header">Nav header</li>
+                  <li><a href="#">Separated link</a></li>
+                  <li><a href="#">One more separated link</a></li>
+-->
+                </ul>
+              </li>
+              <li class="dropdown"> <a href="/irchelp/library.html" class="dropdown-toggle"
+                  data-toggle="dropdown">Library </a>
+                <ul class="dropdown-menu">
+                  <li><a href="/irchelp/library.html">Index</a></li>
+<!--
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li class="divider"></li>
+                  <li class="nav-header">Nav header</li>
+                  <li><a href="#">Separated link</a></li>
+                  <li><a href="#">One more separated link</a></li>
+-->
+                </ul>
+              </li>
+            </ul>
+            <form class="navbar-form pull-right"> <input class="span2"
+                placeholder="Search" type="text"> <button type="submit"
+                class="btn">Search</button> </form>
+          </div>
+          <!--/.nav-collapse --> </div>
+      </div>
+    </div>
+<!--end of navigation-->
+
+    <div id="container" class="container">
+<!--
+                        <h1><a href="/">Untitled Page</a></h1>
+            -->        
+        
+            <div class="content">
+                                <p>/************************************************************************
+ *   IRC - Internet Relay Chat, include/numeric.h
+ *   Copyright (C) 1990 Jarkko Oikarinen
+ *
+ *   This program is free software; you can redistribute it and/or modify
+ *   it under the terms of the GNU General Public License as published by
+ *   the Free Software Foundation; either version 1, or (at your option)
+ *   any later version.
+ *
+ *   This program is distributed in the hope that it will be useful,
+ *   but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *   GNU General Public License for more details.
+ *
+ *   You should have received a copy of the GNU General Public License
+ *   along with this program; if not, write to the Free Software
+ *   Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+ */</p>
+
+<p>/*
+ * &#8212; Avalon &#8212; 13 May 1992
+ *
+ * Added RPL_STATSLLINE
+ */</p>
+
+<p>/*
+ * &#8212; Avalon &#8212; 12 Jan 1992
+ *
+ * Added RPL_TRACELINK
+ */</p>
+
+<p>/*
+ * &#8212; Wumpus &#8212; 30 Nov 1991
+ *
+ * It&#8217;s very important that you never change what a numeric means &#8212;
+ * you can delete old ones (maybe) and add new ones, but never ever
+ * take a number and make it suddenly mean something else, or change
+ * an old number just for the hell of it.
+ */</p>
+
+<p>/*
+ * &#8212; avalon &#8212; 19 Nov 1991
+ * Added ERR<em>USERSDONTMATCH 
+ *
+ * &#8212; avalon &#8212; 06 Nov 1991
+ * Added RPL</em>BANLIST, RPL<em>BANLISTEND, ERR</em>BANNEDFROMCHAN
+ *
+ * &#8212; avalon &#8212; 15 Oct 1991
+ * Added RPL<em>TRACEs (201-209)
+ * Added RPL</em>STATSs (211-219)
+ */</p>
+
+<p>/* &#8212; Jto &#8212; 16 Jun 1990
+ * A couple of new numerics added&#8230;
+ */</p>
+
+<p>/* &#8212; Jto &#8212; 03 Jun 1990
+ * Added ERR<em>YOUWILLBEBANNED and Check defines (sigh, had to put &#8216;em here..)
+ * Added ERR</em>UNKNOWNMODE&#8230;
+ * Added ERR_CANNOTSENDTOCHAN&#8230;
+ */</p>
+
+<p>/*
+ * Reserve numerics 000-099 for server-client connections where the client
+ * is local to the server. If any server is passed a numeric in this range
+ * from another server then it is remapped to 100-199. -avalon
+ */</p>
+
+<h1>define RPL_MYINFO           001</h1>
+
+<p>/*
+ * Errors are in the range from 400-599 currently and are grouped by what
+ * commands they come from.
+ */</p>
+
+<h1>define ERR_NOSUCHNICK       401</h1>
+
+<h1>define ERR_NOSUCHSERVER     402</h1>
+
+<h1>define ERR_NOSUCHCHANNEL    403</h1>
+
+<h1>define ERR_CANNOTSENDTOCHAN 404</h1>
+
+<h1>define ERR_TOOMANYCHANNELS  405</h1>
+
+<h1>define ERR_WASNOSUCHNICK    406</h1>
+
+<h1>define ERR_TOOMANYTARGETS   407</h1>
+
+<h1>define ERR_NOSUCHSERVICE    408</h1>
+
+<h1>define ERR_NORECIPIENT      411</h1>
+
+<h1>define ERR_NOTEXTTOSEND     412</h1>
+
+<h1>define ERR_NOTOPLEVEL       413</h1>
+
+<h1>define ERR_WILDTOPLEVEL     414</h1>
+
+<h1>define ERR_UNKNOWNCOMMAND   421</h1>
+
+<h1>define ERR_NONICKNAMEGIVEN  431</h1>
+
+<h1>define ERR_ERRONEUSNICKNAME 432</h1>
+
+<h1>define ERR_NICKNAMEINUSE    433</h1>
+
+<h1>define ERR_SERVICENAMEINUSE 434</h1>
+
+<h1>define ERR_SERVICECONFUSED  435</h1>
+
+<h1>define ERR_USERNOTINCHANNEL 441</h1>
+
+<h1>define ERR_NOTONCHANNEL     442</h1>
+
+<h1>define ERR_USERONCHANNEL    443</h1>
+
+<h1>define ERR_NOTREGISTERED    451</h1>
+
+<h1>define ERR_NEEDMOREPARAMS   461</h1>
+
+<h1>define ERR_ALREADYREGISTRED 462</h1>
+
+<h1>define ERR_NOPERMFORHOST    463</h1>
+
+<h1>define ERR_PASSWDMISMATCH   464</h1>
+
+<h1>define ERR_YOUREBANNEDCREEP 465</h1>
+
+<h1>define ERR_YOUWILLBEBANNED  466</h1>
+
+<h1>define ERR_CHANNELISFULL    471</h1>
+
+<h1>define ERR_UNKNOWNMODE      472</h1>
+
+<h1>define ERR_INVITEONLYCHAN   473</h1>
+
+<h1>define ERR_BANNEDFROMCHAN   474</h1>
+
+<h1>define ERR_NOPRIVILEGES     481</h1>
+
+<h1>define ERR_CHANOPRIVSNEEDED 482</h1>
+
+<h1>define ERR_NOOPERHOST       491</h1>
+
+<h1>define ERR_NOSERVICEHOST    492</h1>
+
+<h1>define ERR_UMODEUNKNOWNFLAG 501</h1>
+
+<h1>define ERR_USERSDONTMATCH   502</h1>
+
+<p>/*
+ * Numberic replies from server commands.
+ * These are currently in the range 200-399.
+ */</p>
+
+<h1>define RPL_AWAY             301</h1>
+
+<h1>define RPL_USERHOST         302</h1>
+
+<h1>define RPL_ISON             303</h1>
+
+<h1>define RPL_TEXT             304</h1>
+
+<h1>define RPL_WHOISUSER        311</h1>
+
+<h1>define RPL_WHOISSERVER      312</h1>
+
+<h1>define RPL_WHOISOPERATOR    313</h1>
+
+<h1>define RPL_WHOWASUSER       314</h1>
+
+<p>/* rpl_endofwho below (315) */</p>
+
+<h1>define RPL_WHOISCHANOP      316 /* redundant and not needed but reserved */</h1>
+
+<h1>define RPL_WHOISIDLE        317</h1>
+
+<h1>define RPL_ENDOFWHOIS       318</h1>
+
+<h1>define RPL_WHOISCHANNELS    319</h1>
+
+<h1>define RPL_LISTSTART        321</h1>
+
+<h1>define RPL_LIST             322</h1>
+
+<h1>define RPL_LISTEND          323</h1>
+
+<h1>define RPL_CHANNELMODEIS    324</h1>
+
+<h1>define RPL_NOTOPIC          331</h1>
+
+<h1>define RPL_TOPIC            332</h1>
+
+<h1>define RPL_INVITING         341</h1>
+
+<h1>define RPL_VERSION          351</h1>
+
+<h1>define RPL_WHOREPLY         352</h1>
+
+<h1>define RPL_ENDOFWHO         315</h1>
+
+<h1>define RPL_NAMREPLY         353</h1>
+
+<h1>define RPL_ENDOFNAMES       366</h1>
+
+<h1>define RPL_KILLDONE         361</h1>
+
+<h1>define RPL_LINKS            364</h1>
+
+<h1>define RPL_ENDOFLINKS       365</h1>
+
+<p>/* rpl_endofnames above (366) */</p>
+
+<h1>define RPL_BANLIST          367</h1>
+
+<h1>define RPL_ENDOFBANLIST     368</h1>
+
+<h1>define RPL_INFO             371</h1>
+
+<h1>define RPL_MOTD             372</h1>
+
+<h1>define RPL_YOUREOPER        381</h1>
+
+<h1>define RPL_REHASHING        382</h1>
+
+<h1>define RPL_YOURESERVICE     383</h1>
+
+<h1>define RPL_MYPORTIS         384</h1>
+
+<h1>define RPL_NOTOPERANYMORE   385</h1>
+
+<h1>define RPL_TIME             391</h1>
+
+<h1>define RPL_TRACELINK        200</h1>
+
+<h1>define RPL_TRACECONNECTING  201</h1>
+
+<h1>define RPL_TRACEHANDSHAKE   202</h1>
+
+<h1>define RPL_TRACEUNKNOWN     203</h1>
+
+<h1>define RPL_TRACEOPERATOR    204</h1>
+
+<h1>define RPL_TRACEUSER        205</h1>
+
+<h1>define RPL_TRACESERVER      206</h1>
+
+<h1>define RPL_TRACESERVICE     207</h1>
+
+<h1>define RPL_TRACENEWTYPE     208</h1>
+
+<h1>define RPL_TRACECLASS       209</h1>
+
+<h1>define RPL_STATSLINKINFO    211</h1>
+
+<h1>define RPL_STATSCOMMANDS    212</h1>
+
+<h1>define RPL_STATSCLINE       213</h1>
+
+<h1>define RPL_STATSNLINE       214</h1>
+
+<h1>define RPL_STATSILINE       215</h1>
+
+<h1>define RPL_STATSKLINE       216</h1>
+
+<h1>define RPL_STATSQLINE       217</h1>
+
+<h1>define RPL_STATSYLINE       218</h1>
+
+<h1>define RPL_ENDOFSTATS       219</h1>
+
+<h1>define RPL_UMODEIS          221</h1>
+
+<h1>define RPL_SERVICEINFO      231</h1>
+
+<h1>define RPL_ENDOFSERVICES    232</h1>
+
+<h1>define RPL_SERVICE          233</h1>
+
+<h1>define RPL_SERVLIST         234</h1>
+
+<h1>define RPL_SERVLISTEND      235</h1>
+
+<h1>define RPL_STATSLLINE       241</h1>
+
+                            </div>
+        
+        <footer>
+
+                        <p>All documents © irchelp.org or original authors 2012 <br />Baked with <em><a href="http://bolt80.com/piecrust/">PieCrust</a> 1.0.0-dev</em>.</p>
+                    </footer>
+    </div>
+    
+        <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/js/jquery.js"></script>
+    <script src="/js/bootstrap-transition.js"></script>
+    <script src="/js/bootstrap-alert.js"></script>
+    <script src="/js/bootstrap-modal.js"></script>
+    <script src="/js/bootstrap-dropdown.js"></script>
+    <script src="/js/bootstrap-scrollspy.js"></script>
+    <script src="/js/bootstrap-tab.js"></script>
+    <script src="/js/bootstrap-tooltip.js"></script>
+    <script src="/js/bootstrap-popover.js"></script>
+    <script src="/js/bootstrap-button.js"></script>
+    <script src="/js/bootstrap-collapse.js"></script>
+    <script src="/js/bootstrap-carousel.js"></script>
+    <script src="/js/bootstrap-typeahead.js"></script>
+</body>
+</html>

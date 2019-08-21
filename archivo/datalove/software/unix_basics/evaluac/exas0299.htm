@@ -1,0 +1,149 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.7 [en] (Win95; I) [Netscape]">
+   <meta name="AUTHOR" content="Victor Gonzalez-Barbone">
+   <meta name="CREATED" content="19990225;10362500">
+   <meta name="CHANGEDBY" content="Victor Gonzalez-Barbone">
+   <meta name="CHANGED" content="19990225;10362500">
+   <meta name="Author" content="Victor Gonzalez-Barbone">
+   <title>Curso B&aacute;sico de UNIX - Ex&aacute;menes</title>
+</head>
+<body>
+
+<address>
+<tt>Centro de Inform&aacute;tica / Sistemas Operativos II</tt>&nbsp;
+<hr WIDTH="100%"></address>
+
+<center>
+<h2>
+<tt>Examen Febrero 1999.</tt></h2></center>
+
+<center>
+<h3>
+<tt>Soluci&oacute;n de Scripts.</tt></h3></center>
+
+<dt>
+<font size=+2>1.</font> Construir un script que</dt>
+
+<dt>
+a) indique los nombres de los diferentes shells asignados a las cuentas
+de usuario en el archivo /etc/passwd y la cantidad de cuentas de cada uno
+de esos shells;</dt>
+
+<dt>
+b) muestre los nombres de cuentas sin shell asignado.</dt>
+
+<dt>
+<tt>&nbsp;</tt></dt>
+
+<dt>
+<tt># prob1.cmd: shells de usuarios, cantidad de usuarios por shell</tt></dt>
+
+<br><tt>#</tt>
+<br><tt>echo; echo</tt>
+<br><tt>echo Examen Feb. 1999</tt>
+<br><tt>echo</tt>
+<br><tt>echo "Shells y cantidad de usuarios:"</tt>
+<br><tt>cat /etc/passwd | cut -d: -f7 | sort | uniq -c</tt>
+<br><tt>echo</tt>
+<br><tt>echo "Usuarios que no tienen shell asignado:"</tt>
+<br><tt>cat /etc/passwd | grep ".*:.*:.*:.*:.*:.*:$" | cut -f1 -d:</tt>
+<br><tt>echo</tt>
+<br>&nbsp;
+<dt>
+<font size=+2>2.</font> Construir un script que a partir de una lista de
+nombres de usuario contenida en el archivo <tt>alumnos.txt</tt>, uno por
+l&iacute;nea, determine si el usuario existe o no. El script emitir&aacute;
+un listado con los usuarios que figuren en el archivo <tt>alumnos.txt</tt>
+pero no existan en el sistema.</dt>
+
+<dt>
+<b>Ayuda:</b> el comando <tt>id usuario</tt> devuelve c&oacute;digo de
+retorno 1 cuando el usuario no existe, 0 si existe. Redireccionar las salidas
+de <tt>id</tt> para no confundir el despliegue.</dt>
+
+<dt>
+<tt>&nbsp;</tt></dt>
+
+<dt>
+<tt># prob2.cmd: verificar si nombres de una lista son usuarios del sistema</tt></dt>
+
+<dt>
+<tt>#</tt></dt>
+
+<dt>
+<tt>clear</tt></dt>
+
+<dt>
+<tt>echo "Alumnos que no existen en el sistema:"</tt></dt>
+
+<dt>
+<tt>LISTA=`cat alumnos.txt`</tt></dt>
+
+<dt>
+<tt>for I in $LISTA</tt></dt>
+
+<dt>
+<tt>do</tt></dt>
+
+<dt>
+<tt>&nbsp; id $I 1>/dev/null 2>&amp;1</tt></dt>
+
+<dt>
+<tt>&nbsp; if [ $? -ne 0 ]</tt></dt>
+
+<dt>
+<tt>&nbsp; then</tt></dt>
+
+<dt>
+<tt>&nbsp;&nbsp;&nbsp; echo $I</tt></dt>
+
+<dt>
+<tt>&nbsp; fi</tt></dt>
+
+<dt>
+<tt>done</tt></dt>
+
+<dt>
+</dt>
+
+<br><font size=+2>3.</font> Un administrador de sistema quiere saber si
+hay accesos a su servidor Web desde m&aacute;quinas desconocidas. Para
+ello dispone de un archivo de log <tt>accesos.log</tt> cuyo primer campo,
+separado por blancos, es el nombre de una m&aacute;quina o su n&uacute;mero
+IP, indistintamente; luego otros dos campos, luego fecha y p&aacute;gina
+solicitada. La lista de m&aacute;quinas de su propio dominio se encuentran
+en el archivo
+<tt>/etc/hosts</tt>. Escribir un script que muestre los nombres
+o n&uacute;meros IP de m&aacute;quinas que accedieron el Web y la fecha,
+omitiendo las m&aacute;quinas del propio dominio.&nbsp; Recordar que el
+archivo <tt>/etc/hosts</tt> puede tener comentarios, y que <tt>accesos.log</tt>
+tiene varios campos.
+<p><tt># prob3.cmd: extraer de una lista de accesos los nombres de m&aacute;quinas</tt>
+<br><tt># que no figuren en /etc/hosts</tt>
+<br><tt>#</tt>
+<dt>
+<tt>clear</tt></dt>
+
+<dt>
+<tt>echo "Accesos desde m&aacute;quinas ajenas:"</tt></dt>
+
+<br><tt>LISTA=`cat accesos.log | cut -f1 -d" "`</tt>
+<br>&nbsp;
+<dt>
+<tt>for I in $LISTA</tt></dt>
+
+<br><tt>do</tt>
+<br><tt>&nbsp; MAQUINA=`cat /etc/hosts | grep -v "#" | grep $I`</tt>
+<br><tt>&nbsp; if [ -z "$MAQUINA" ]</tt>
+<br><tt>&nbsp; then</tt>
+<br><tt>&nbsp;&nbsp;&nbsp; cat accesos.log | grep $I | cut -d" " -f1,4,5,6</tt>
+<br><tt>&nbsp; fi</tt>
+<br><tt>done</tt>
+<dt>
+<tt>&nbsp;</tt></dt>
+
+</body>
+</html>

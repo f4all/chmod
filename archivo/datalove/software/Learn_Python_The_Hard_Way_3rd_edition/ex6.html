@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en"> <!--<![endif]-->
+
+<!-- Mirrored from learnpythonthehardway.org/book/ex6.html by HTTrack Website Copier/3.x [XR&CO'2013], Sat, 28 Dec 2013 20:46:02 GMT -->
+<head>
+    <meta charset="utf-8" />
+
+    <!-- Set the viewport width to device width for mobile -->
+    <meta name="viewport" content="width=device-width" />
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Docutils 0.10: http://docutils.sourceforge.net/" />
+    <title></title>
+
+    <!-- Included CSS Files (Compressed) -->
+    <link rel="stylesheet" href="stylesheets/foundation.css">
+    <link rel="stylesheet" href="stylesheets/normalize.css">
+    <link rel="stylesheet" href="stylesheets/app.css">
+    <link rel="stylesheet" href="stylesheets/pygments.css">
+
+    <script src="javascripts/vendor/jquery.js"></script>
+  <script src="javascripts/foundation/foundation.js"></script>
+    <script src="javascripts/vendor/custom.modernizr.js"></script>
+  
+  <!-- Initialize JS Plugins -->
+  <script src="javascripts/app.js"></script>
+
+    <!-- IE Fix for HTML5 Tags -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.10: http://docutils.sourceforge.net/" />
+<title>Exercise 6: Strings and Text</title>
+
+</head>
+<body>
+    <nav class="top-bar">
+        <ul class="title-area">
+            <!-- Title Area -->
+            <li class="name">
+              <h1><a href="http://learnpythonthehardway.org/">Learn Python The Hard Way</a></h1>
+            </li>
+        </ul>
+
+        <section class="top-bar-section">
+            <!-- Right Nav Section -->
+            <ul class="right">
+                <li> <a href="#video">Watch The Video</a></li>
+            </ul>
+        </section>
+
+        <section class="top-bar-section">
+            <!-- Right Nav Section -->
+            <ul class="right">
+                <li><a href="https://paydiv.io/products/contents/2/">See All The Content</a></li>
+            </ul>
+        </section>
+
+        <section class="top-bar-section">
+            <!-- Right Nav Section -->
+            <ul class="right">
+                <li><a href="https://paydiv.io/access/buy/2/">Purchase The Videos+PDF For $29.59</a></li>
+            </ul>
+        </section>
+    </nav>
+
+  <div class="row">
+    <div class="large-11 columns">
+        <h1 class="title">Exercise 6: Strings and Text</h1>
+
+        <p>While you have already been writing strings, you still do not know what they do.  In this exercise we create a bunch of variables with complex strings so you can see what they are for.  First an explanation of strings.</p>
+<p>A string is usually a bit of text you want to display to someone, or &quot;export&quot; out of the program you are writing.  Python knows you want something to be a string when you put either <tt class="docutils literal">&quot;</tt> (double-quotes) or <tt class="docutils literal">'</tt> (single-quotes) around the text.  You saw this many times with your use of <tt class="docutils literal">print</tt> when you put the text you want to go to the string inside <tt class="docutils literal">&quot;</tt> or <tt class="docutils literal">'</tt> after the <tt class="docutils literal">print</tt>.  Then Python prints it.</p>
+<p>Strings may contain the format characters you have discovered so far.  You simply put the formatted variables in the string, and then a <tt class="docutils literal">%</tt> (percent) character, followed by the variable.  The <em>only</em> catch is that if you want multiple formats in your string to print multiple variables, you need to put them inside <tt class="docutils literal">( )</tt> (parenthesis) separated by <tt class="docutils literal">,</tt> (commas).  It's as if you were telling me to buy you a list of items from the store and you said, &quot;I want milk, eggs, bread, and soup.&quot;  Only as a programmer we say, &quot;(milk, eggs, bread, soup).&quot;</p>
+<p>We will now type in a whole bunch of strings, variables, and formats, and print them.  You will also practice using short abbreviated variable names.  Programmers love saving themselves time at your expense by using annoying cryptic variable names, so let's get you started being able to read and write them early on.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</pre></div></td><td class="code"><div class="highlight"><pre><a name="ex--ex6.py-idio.html-1"></a><span class="n">x</span> <span class="o">=</span> <span class="s">&quot;There are </span><span class="si">%d</span><span class="s"> types of people.&quot;</span> <span class="o">%</span> <span class="mi">10</span>
+<a name="ex--ex6.py-idio.html-2"></a><span class="n">binary</span> <span class="o">=</span> <span class="s">&quot;binary&quot;</span>
+<a name="ex--ex6.py-idio.html-3"></a><span class="n">do_not</span> <span class="o">=</span> <span class="s">&quot;don&#39;t&quot;</span>
+<a name="ex--ex6.py-idio.html-4"></a><span class="n">y</span> <span class="o">=</span> <span class="s">&quot;Those who know </span><span class="si">%s</span><span class="s"> and those who </span><span class="si">%s</span><span class="s">.&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">binary</span><span class="p">,</span> <span class="n">do_not</span><span class="p">)</span>
+<a name="ex--ex6.py-idio.html-5"></a>
+<a name="ex--ex6.py-idio.html-6"></a><span class="k">print</span> <span class="n">x</span>
+<a name="ex--ex6.py-idio.html-7"></a><span class="k">print</span> <span class="n">y</span>
+<a name="ex--ex6.py-idio.html-8"></a>
+<a name="ex--ex6.py-idio.html-9"></a><span class="k">print</span> <span class="s">&quot;I said: </span><span class="si">%r</span><span class="s">.&quot;</span> <span class="o">%</span> <span class="n">x</span>
+<a name="ex--ex6.py-idio.html-10"></a><span class="k">print</span> <span class="s">&quot;I also said: &#39;</span><span class="si">%s</span><span class="s">&#39;.&quot;</span> <span class="o">%</span> <span class="n">y</span>
+<a name="ex--ex6.py-idio.html-11"></a>
+<a name="ex--ex6.py-idio.html-12"></a><span class="n">hilarious</span> <span class="o">=</span> <span class="bp">False</span>
+<a name="ex--ex6.py-idio.html-13"></a><span class="n">joke_evaluation</span> <span class="o">=</span> <span class="s">&quot;Isn&#39;t that joke so funny?! </span><span class="si">%r</span><span class="s">&quot;</span>
+<a name="ex--ex6.py-idio.html-14"></a>
+<a name="ex--ex6.py-idio.html-15"></a><span class="k">print</span> <span class="n">joke_evaluation</span> <span class="o">%</span> <span class="n">hilarious</span>
+<a name="ex--ex6.py-idio.html-16"></a>
+<a name="ex--ex6.py-idio.html-17"></a><span class="n">w</span> <span class="o">=</span> <span class="s">&quot;This is the left side of...&quot;</span>
+<a name="ex--ex6.py-idio.html-18"></a><span class="n">e</span> <span class="o">=</span> <span class="s">&quot;a string with a right side.&quot;</span>
+<a name="ex--ex6.py-idio.html-19"></a>
+<a name="ex--ex6.py-idio.html-20"></a><span class="k">print</span> <span class="n">w</span> <span class="o">+</span> <span class="n">e</span>
+</pre></div>
+</td></tr></table><div class="section" id="what-you-should-see">
+<h1>What You Should See</h1>
+<div class="highlight"><pre><a name="ex--ex6.sh-idio-shint-pyg.html-1"></a><span class="gp">$</span> python ex6.py
+<a name="ex--ex6.sh-idio-shint-pyg.html-2"></a><span class="go">There are 10 types of people.</span>
+<a name="ex--ex6.sh-idio-shint-pyg.html-3"></a><span class="go">Those who know binary and those who don&#39;t.</span>
+<a name="ex--ex6.sh-idio-shint-pyg.html-4"></a><span class="go">I said: &#39;There are 10 types of people.&#39;.</span>
+<a name="ex--ex6.sh-idio-shint-pyg.html-5"></a><span class="go">I also said: &#39;Those who know binary and those who don&#39;t.&#39;.</span>
+<a name="ex--ex6.sh-idio-shint-pyg.html-6"></a><span class="go">Isn&#39;t that joke so funny?! False</span>
+<a name="ex--ex6.sh-idio-shint-pyg.html-7"></a><span class="go">This is the left side of...a string with a right side.</span>
+</pre></div></div>
+<div class="section" id="study-drills">
+<h1>Study Drills</h1>
+<ol class="arabic simple">
+<li>Go through this program and write a comment above each line explaining it.</li>
+<li>Find all the places where a string is put inside a string.  There are four places.</li>
+<li>Are you sure there are only four places?  How do you know?  Maybe I like lying.</li>
+<li>Explain why adding the two strings <tt class="docutils literal">w</tt> and <tt class="docutils literal">e</tt> with <tt class="docutils literal">+</tt> makes a longer string.</li>
+</ol>
+</div>
+<div class="section" id="common-student-questions">
+<h1>Common Student Questions</h1>
+<dl class="docutils">
+<dt>What is the difference between <tt class="docutils literal">%r</tt> and <tt class="docutils literal">%s</tt>?</dt>
+<dd>Use the <tt class="docutils literal">%r</tt> for debugging, since it displays the &quot;raw&quot; data of the variable, but the others are used for displaying to users.</dd>
+<dt>What's the point of <tt class="docutils literal">%s</tt> and <tt class="docutils literal">%d</tt> when you can just use <tt class="docutils literal">%r</tt>?</dt>
+<dd>The <tt class="docutils literal">%r</tt> is best for debugging, and the other formats are for actually displaying variables to users.</dd>
+<dt>If you thought the joke was funny could you write <tt class="docutils literal">hilarious = True</tt>?</dt>
+<dd>Yes, and you'll learn more about these boolean values in Exercise 27.</dd>
+<dt>Why do you put <tt class="docutils literal">'</tt> (single-quotes) around some strings and not others?</dt>
+<dd>Mostly it's because of style, but I'll use a single-quote inside a string that has double-quotes.  Look at line 10 to see how I'm doing that.</dd>
+<dt>I get the error <tt class="docutils literal">TypeError: not all arguments converted during string formatting</tt>.</dt>
+<dd>You need to make sure that the line of code is exactly the same. What happens in this error is you have more <tt class="docutils literal">%</tt> format characters in the string than variables to put in them.  Go back and figure out what you did wrong.</dd>
+</dl>
+</div>
+
+        <div class="section" id="video">
+            <div class="large-12 columns panel">
+                <div data-paydiv_product="2" id='paydiv'>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="large-1 columns" id="right-nav">
+        <center>
+        <p><a href="index.html"><img src="images/48_structure.png"></a></p>
+        <p><a href="mailto:help@learncodethehardway.org"><img src="images/48_email.png"></a></p>
+        <p><a href="#common-student-questions"><img src="images/48_faq.png"></a></p>
+        <p><a href="#video"><img src="images/48_video.png"></a></p>
+        </center>
+    </div>
+
+    <div class="twelve columns" id="footer">
+        <div class="large-4 columns" id="footer-block">
+            <p>
+            <a href="http://learncodethehardway.org/">Copyright (C) 2010 Zed. A. Shaw</a>
+            </p>
+        </div>
+        <div class="large-4 columns" id="footer-block">
+            <p>
+            </p>
+        </div>
+        <div class="large-3 columns" id="footer-block">
+            <p>
+            </p>
+        </div>
+        <div class="one columns">
+            &nbsp;
+        </div>
+    </div>
+
+
+
+    <script src="https://paydiv.io/static/js/videojs/video.js"></script>
+    <link rel="stylesheet" href="https://paydiv.io/static/js/videojs/video-js.css">
+    <script src="https://paydiv.io/static/api/v1/paydiv.js"></script>
+
+  <!-- Included JS Files (Compressed) -->
+  <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-24168052-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script>
+
+</body>
+
+<!-- Mirrored from learnpythonthehardway.org/book/ex6.html by HTTrack Website Copier/3.x [XR&CO'2013], Sat, 28 Dec 2013 20:46:02 GMT -->
+</html>

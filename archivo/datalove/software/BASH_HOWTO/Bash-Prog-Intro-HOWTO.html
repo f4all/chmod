@@ -1,0 +1,203 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Mirrored from www.linuxdoc.org/HOWTO/Bash-Prog-Intro-HOWTO.html by HTTrack Website Copier/3.x [XR&CO'2013], Wed, 15 Jan 2014 08:19:26 GMT -->
+<head>
+  
+  <meta name="GENERATOR" content="SGML-Tools 1.0.9" />
+
+  <title>BASH Programming - Introduction HOW-TO</title>
+  <link href="Bash-Prog-Intro-HOWTO-1.html" rel="next" />
+<link href="http://www.linuxdoc.org/m/default/media/style/howto.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<div id="LinuxDocHead"><a href="http://www.linuxdoc.org/" title="LinuxDoc - Linux Howtos, Help and Community"><img src="http://www.linuxdoc.org/upfiles/linuxdoc-org-logo-new.png" border="0" alt="Linuxdoc Linux Questions"><br />Click here to ask our community of linux experts!</a></div>
+<div id="gsearchform"><style type="text/css">@import url(http://www.google.com/cse/api/branding.css);</style><div class="cse-branding-right" style="background-color:#FFFFFF;color:#000000"><div class="cse-branding-form"><form action="http://www.linuxdoc.org/HOWTO/search.html" id="cse-search-box"><div><input type="hidden" name="cx" value="partner-pub-1660455800231982:yz2e8rfmg8d" /><input type="hidden" name="cof" value="FORID:10" /><input type="hidden" name="ie" value="ISO-8859-1" /><input type="text" name="q" size="31" /><input type="submit" name="sa" value="Search" /></div></form></div><div class="cse-branding-logo"><img src="http://www.google.com/images/poweredby_transparent/poweredby_FFFFFF.gif" alt="Google" /></div><div class="cse-branding-text">Custom Search</div></div></div>
+  <a href="Bash-Prog-Intro-HOWTO-1.html">Next</a> Previous Contents
+  <hr />
+
+  <h1>BASH Programming - Introduction HOW-TO</h1>
+
+  <h2>by Mike G <code>mikkey at dynamo.com.ar</code></h2><!--begin-adsense-->
+<div style="float:left; margin-right:5px; margin-left:5px;">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-8477364103489971";
+/* linuxdoc.org 160x600 HOWTO */
+google_ad_slot = "5138116178";
+google_ad_width = 160;
+google_ad_height = 600;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div><!--end-adsense-->Thu Jul 27 09:36:18 ART 2000
+  <hr />
+  <em>This article intends to help you to start programming basic-intermediate shell scripts. It does not intend to be an advanced document (see the title). I am NOT an expert nor guru shell programmer. I decided to write this because I'll learn a lot and it might be useful to other people. Any feedback will be apreciated, specially in the patch form :)</em>
+  <hr />
+
+  <h2><a name="toc1" id="toc1">1.</a> <a href="Bash-Prog-Intro-HOWTO-1.html">Introduction</a></h2>
+
+  <ul>
+    <li><a href="Bash-Prog-Intro-HOWTO-1.html#ss1.1">1.1 Getting the latest version</a></li>
+
+    <li><a href="Bash-Prog-Intro-HOWTO-1.html#ss1.2">1.2 Requisites</a></li>
+
+    <li><a href="Bash-Prog-Intro-HOWTO-1.html#ss1.3">1.3 Uses of this document</a></li>
+  </ul>
+
+  <h2><a name="toc2" id="toc2">2.</a> <a href="Bash-Prog-Intro-HOWTO-2.html">Very simple Scripts</a></h2>
+
+  <ul>
+    <li><a href="Bash-Prog-Intro-HOWTO-2.html#ss2.1">2.1 Traditional hello world script</a></li>
+
+    <li><a href="Bash-Prog-Intro-HOWTO-2.html#ss2.2">2.2 A very simple backup script</a></li>
+  </ul>
+
+  <h2><a name="toc3" id="toc3">3.</a> <a href="Bash-Prog-Intro-HOWTO-3.html">All about redirection</a></h2>
+
+  <ul>
+    <li><a href="Bash-Prog-Intro-HOWTO-3.html#ss3.1">3.1 Theory and quick reference</a></li>
+
+    <li><a href="Bash-Prog-Intro-HOWTO-3.html#ss3.2">3.2 Sample: stdout 2 file</a></li>
+
+    <li><a href="Bash-Prog-Intro-HOWTO-3.html#ss3.3">3.3 Sample: stderr 2 file</a></li>
+
+    <li><a href="Bash-Prog-Intro-HOWTO-3.html#ss3.4">3.4 Sample: stdout 2 stderr</a></li>
+
+    <li><a href="Bash-Prog-Intro-HOWTO-3.html#ss3.5">3.5 Sample: stderr 2 stdout</a></li>
+
+    <li><a href="Bash-Prog-Intro-HOWTO-3.html#ss3.6">3.6 Sample: stderr and stdout 2 file</a></li>
+  </ul>
+
+  <h2><a name="toc4" id="toc4">4.</a> <a href="Bash-Prog-Intro-HOWTO-4.html">Pipes</a></h2>
+
+  <ul>
+    <li><a href="Bash-Prog-Intro-HOWTO-4.html#ss4.1">4.1 What they are and why you'll want to use them</a></li>
+
+    <li><a href="Bash-Prog-Intro-HOWTO-4.html#ss4.2">4.2 Sample: simple pipe with sed</a></li>
+
+    <li><a href="Bash-Prog-Intro-HOWTO-4.html#ss4.3">4.3 Sample: an alternative to ls -l *.txt</a></li>
+  </ul>
+
+  <h2><a name="toc5" id="toc5">5.</a> <a href="Bash-Prog-Intro-HOWTO-5.html">Variables</a></h2>
+
+  <ul>
+    <li><a href="Bash-Prog-Intro-HOWTO-5.html#ss5.1">5.1 Sample: Hello World! using variables</a></li>
+
+    <li><a href="Bash-Prog-Intro-HOWTO-5.html#ss5.2">5.2 Sample: A very simple backup script (little bit better)</a></li>
+
+    <li><a href="Bash-Prog-Intro-HOWTO-5.html#ss5.3">5.3 Local variables</a></li>
+  </ul>
+
+  <h2><a name="toc6" id="toc6">6.</a> <a href="Bash-Prog-Intro-HOWTO-6.html">Conditionals</a></h2>
+
+  <ul>
+    <li><a href="Bash-Prog-Intro-HOWTO-6.html#ss6.1">6.1 Dry Theory</a></li>
+
+    <li><a href="Bash-Prog-Intro-HOWTO-6.html#ss6.2">6.2 Sample: Basic conditional example if .. then</a></li>
+
+    <li><a href="Bash-Prog-Intro-HOWTO-6.html#ss6.3">6.3 Sample: Basic conditional example if .. then ... else</a></li>
+
+    <li><a href="Bash-Prog-Intro-HOWTO-6.html#ss6.4">6.4 Sample: Conditionals with variables</a></li>
+  </ul>
+
+  <h2><a name="toc7" id="toc7">7.</a> <a href="Bash-Prog-Intro-HOWTO-7.html">Loops for, while and until</a></h2>
+
+  <ul>
+    <li><a href="Bash-Prog-Intro-HOWTO-7.html#ss7.1">7.1 For sample</a></li>
+
+    <li><a href="Bash-Prog-Intro-HOWTO-7.html#ss7.2">7.2 C-like for</a></li>
+
+    <li><a href="Bash-Prog-Intro-HOWTO-7.html#ss7.3">7.3 While sample</a></li>
+
+    <li><a href="Bash-Prog-Intro-HOWTO-7.html#ss7.4">7.4 Until sample</a></li>
+  </ul>
+
+  <h2><a name="toc8" id="toc8">8.</a> <a href="Bash-Prog-Intro-HOWTO-8.html">Functions</a></h2>
+
+  <ul>
+    <li><a href="Bash-Prog-Intro-HOWTO-8.html#ss8.1">8.1 Functions sample</a></li>
+
+    <li><a href="Bash-Prog-Intro-HOWTO-8.html#ss8.2">8.2 Functions with parameters sample</a></li>
+  </ul>
+
+  <h2><a name="toc9" id="toc9">9.</a> <a href="Bash-Prog-Intro-HOWTO-9.html">User interfaces</a></h2>
+
+  <ul>
+    <li><a href="Bash-Prog-Intro-HOWTO-9.html#ss9.1">9.1 Using select to make simple menus</a></li>
+
+    <li><a href="Bash-Prog-Intro-HOWTO-9.html#ss9.2">9.2 Using the command line</a></li>
+  </ul>
+
+  <h2><a name="toc10" id="toc10">10.</a> <a href="Bash-Prog-Intro-HOWTO-10.html">Misc</a></h2>
+
+  <ul>
+    <li><a href="Bash-Prog-Intro-HOWTO-10.html#ss10.1">10.1 Reading user input with read</a></li>
+
+    <li><a href="Bash-Prog-Intro-HOWTO-10.html#ss10.2">10.2 Arithmetic evaluation</a></li>
+
+    <li><a href="Bash-Prog-Intro-HOWTO-10.html#ss10.3">10.3 Finding bash</a></li>
+
+    <li><a href="Bash-Prog-Intro-HOWTO-10.html#ss10.4">10.4 Getting the return value of a program</a></li>
+
+    <li><a href="Bash-Prog-Intro-HOWTO-10.html#ss10.5">10.5 Capturing a commands output</a></li>
+
+    <li><a href="Bash-Prog-Intro-HOWTO-10.html#ss10.6">10.6 Multiple source files</a></li>
+  </ul>
+
+  <h2><a name="toc11" id="toc11">11.</a> <a href="Bash-Prog-Intro-HOWTO-11.html">Tables</a></h2>
+
+  <ul>
+    <li><a href="Bash-Prog-Intro-HOWTO-11.html#ss11.1">11.1 String comparison operators</a></li>
+
+    <li><a href="Bash-Prog-Intro-HOWTO-11.html#ss11.2">11.2 String comparison examples</a></li>
+
+    <li><a href="Bash-Prog-Intro-HOWTO-11.html#ss11.3">11.3 Arithmetic operators</a></li>
+
+    <li><a href="Bash-Prog-Intro-HOWTO-11.html#ss11.4">11.4 Arithmetic relational operators</a></li>
+
+    <li><a href="Bash-Prog-Intro-HOWTO-11.html#ss11.5">11.5 Useful commands</a></li>
+  </ul>
+
+  <h2><a name="toc12" id="toc12">12.</a> <a href="Bash-Prog-Intro-HOWTO-12.html">More Scripts</a></h2>
+
+  <ul>
+    <li><a href="Bash-Prog-Intro-HOWTO-12.html#ss12.1">12.1 Applying a command to all files in a directory.</a></li>
+
+    <li><a href="Bash-Prog-Intro-HOWTO-12.html#ss12.2">12.2 Sample: A very simple backup script (little bit better)</a></li>
+
+    <li><a href="Bash-Prog-Intro-HOWTO-12.html#ss12.3">12.3 File re-namer</a></li>
+
+    <li><a href="Bash-Prog-Intro-HOWTO-12.html#ss12.4">12.4 File renamer (simple)</a></li>
+  </ul>
+
+  <h2><a name="toc13" id="toc13">13.</a> <a href="Bash-Prog-Intro-HOWTO-13.html">When something goes wrong (debugging)</a></h2>
+
+  <ul>
+    <li><a href="Bash-Prog-Intro-HOWTO-13.html#ss13.1">13.1 Ways Calling BASH</a></li>
+  </ul>
+
+  <h2><a name="toc14" id="toc14">14.</a> <a href="Bash-Prog-Intro-HOWTO-14.html">About the document</a></h2>
+
+  <ul>
+    <li><a href="Bash-Prog-Intro-HOWTO-14.html#ss14.1">14.1 (no) warranty</a></li>
+
+    <li><a href="Bash-Prog-Intro-HOWTO-14.html#ss14.2">14.2 Translations</a></li>
+
+    <li><a href="Bash-Prog-Intro-HOWTO-14.html#ss14.3">14.3 Thanks to</a></li>
+
+    <li><a href="Bash-Prog-Intro-HOWTO-14.html#ss14.4">14.4 History</a></li>
+
+    <li><a href="Bash-Prog-Intro-HOWTO-14.html#ss14.5">14.5 More resources</a></li>
+  </ul>
+  <hr />
+  <a href="Bash-Prog-Intro-HOWTO-1.html">Next</a> Previous Contents
+<script type="text/javascript"> var pkBaseURL = (("https:" == document.location.protocol) ? "https://webstatsserver.de/" : "http://webstatsserver.de/"); document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E")); </script><script type="text/javascript"> try { var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 78); piwikTracker.trackPageView(); piwikTracker.enableLinkTracking(); } catch( err ) {} </script><noscript><p><img src="http://webstatsserver.de/piwik.php?idsite=78" style="border:0" alt="" /></p></noscript>
+</body>
+
+<!-- Mirrored from www.linuxdoc.org/HOWTO/Bash-Prog-Intro-HOWTO.html by HTTrack Website Copier/3.x [XR&CO'2013], Wed, 15 Jan 2014 08:19:35 GMT -->
+</html>
