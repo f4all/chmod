@@ -1,0 +1,859 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+<meta http-equiv="Content-Language" content="en-us">
+<link href="data:image/x-icon;base64,AAABAAEAEBAQAAAAAAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAADQwMAP/79wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACIiIiIAAAACIiIiIiAAAAIiAiAiIAAAACICICIAAAEQEAAAEQEQARERIiIRERACIRIiIiESIAIiEiIiISIgAiISIiIhIiAAIhEREREiAAAhERERERIAAAEiIRIiEAAAACIhEiIAAAAAACESAAAAAAAAAQAAAADgBwAAwAMAAMADAACAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIABAACAAQAAwAMAAOAHAAD4HwAA" rel="icon" type="image/x-icon" />
+<title>c99~</title>
+<style media="screen">/*<![CDATA[*/<!--TD { FONT-SIZE: 8pt; COLOR: xxebebeb; FONT-FAMILY: verdana;}BODY { scrollbar-face-color: xx800000; scrollbar-shadow-color: xx101010; scrollbar-highlight-color: xx101010; scrollbar-3dlight-color: xx101010; scrollbar-darkshadow-color: xx101010; scrollbar-track-color: xx101010; scrollbar-arrow-color: xx101010; font-family: Verdana;}TD.header { FONT-WEIGHT: normal; FONT-SIZE: 10pt; BACKGROUND: xx7d7474; COLOR: white; FONT-FAMILY: verdana;}A { FONT-WEIGHT: normal; COLOR: xxdadada; FONT-FAMILY: verdana; TEXT-DECORATION: none;}A:unknown { FONT-WEIGHT: normal; COLOR: xxffffff; FONT-FAMILY: verdana; TEXT-DECORATION: none;}A.Links { COLOR: xxffffff; TEXT-DECORATION: none;}A.Links:unknown { FONT-WEIGHT: normal; COLOR: xxffffff; TEXT-DECORATION: none;}A:hover { COLOR: xxffffff; TEXT-DECORATION: underline;}.skin0{position:absolute; width:200px; border:2px solid black; background-color:menu; font-family:Verdana; line-height:20px; cursor:default; visibility:hidden;;}.skin1{cursor: default; font: menutext; position: absolute; width: 145px; background-color: menu; border: 1 solid buttonface;visibility:hidden; border: 2 outset buttonhighlight; font-family: Verdana,Geneva, Arial; font-size: 10px; color: black;}.menuitems{padding-left:15px; padding-right:10px;;}input{background-color: xx800000; font-size: 8pt; color: xxFFFFFF; font-family: Tahoma; border: 1 solid xx666666;}textarea{background-color: xx800000; font-size: 8pt; color: xxFFFFFF; font-family: Tahoma; border: 1 solid xx666666;}button{background-color: xx800000; font-size: 8pt; color: xxFFFFFF; font-family: Tahoma; border: 1 solid xx666666;}select{background-color: xx800000; font-size: 8pt; color: xxFFFFFF; font-family: Tahoma; border: 1 solid xx666666;}option {background-color: xx800000; font-size: 8pt; color: xxFFFFFF; font-family: Tahoma; border: 1 solid xx666666;}iframe {background-color: xx800000; font-size: 8pt; color: xxFFFFFF; font-family: Tahoma; border: 1 solid xx666666;}p {MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; LINE-HEIGHT: 150%}blockquote{ font-size: 8pt; font-family: Courier, Fixed, Arial; border : 8px solid xxA9A9A9; padding: 1em; margin-top: 1em; margin-bottom: 5em; margin-right: 3em; margin-left: 4em; background-color: xxB7B2B0;}body,td,th { font-family: verdana; color: xxd9d9d9; font-size: 11px;}body { background-color: xx000000;}//-->/*]]>*/</style>
+</head><body bottommargin="0" leftmargin="0" topmargin="0" rightmargin="0" bgcolor="xx000000" marginheight="0" marginwidth="0" text="xxffffff">
+<center>
+<table style="border-collapse: collapse;" bordercolordark="xx666666" bordercolorlight="xxc0c0c0" bgcolor="xx333333" border="1" bordercolor="xxc0c0c0" cellpadding="5" cellspacing="0" height="1" width="100%">
+<tbody>
+<tr>
+<th bordercolor="xxC0C0C0" colspan="2" height="15" nowrap="nowrap" valign="top" width="100%">
+<p>
+<font face="Webdings" size="6">
+<b>!
+</b>
+</font>
+<a href="xx">
+<font face="Verdana" size="5">
+<b>C99Shell v. 4.0 (17.02.2013)
+</b>
+</font>
+</a>
+<font face="Webdings" size="6">
+<b>!
+</b>
+</font>
+</p>
+</th>
+</tr>
+<tr>
+<td>
+<p align="left">
+<b>Software:&nbsp;Nginx/1.4.1(Unix) OpenSSL/0.9.8d DAV/2
+<a href="xxphpinfo" target="_blank">
+<b>
+<u>PHP/5.2.3
+</u>
+</b>
+</a>
+</b>&nbsp;
+</p>
+<p align="left">
+<b>uname -a:&nbsp;Linux oshi 2.4.33.3 xx1  2013 i586
+</b>&nbsp;
+</p>
+<p align="left">
+<b>uid=0(root) gid=0(root) groups=0(root),0(root),0(root)
+</b>&nbsp;
+</p>
+<p align="left">
+<b>Safe-mode:&nbsp;
+<font color="yellow">HIGH SECURITY (danger)
+</font>
+</b>
+</p>
+<p align="left">
+<a href="../../">
+<b>/
+</b>
+</a>
+<a href="../../">
+<b>home/
+</b>
+</a>
+<a href="xx">
+<b>sites/
+</b>
+</a>
+<a href="xx">
+<b>chmod.ws/
+</b>
+</a>
+<a href="xx">
+<b>httpdocs/
+</b>
+</a>
+<a href="xx">
+<b>cgi-bin/
+</b>
+</a>
+<a href="xx">
+<b>socket~3/
+</b>
+</a>&nbsp;&nbsp;&nbsp;
+<b>
+<font color="white">drwxr-xr-x
+</font>
+</b>
+<br>
+<b>Free 24 TB of 24 TB (99.68%)
+</b>
+<br>
+<a href="xx">
+<img src="img/c99_files/c99_013.gif" alt="Home" border="0" height="20" width="20">
+</a>&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="xx" onclick="history.back(1)">
+<img src="img/c99_files/c99_007.gif" alt="Back" border="0" height="20" width="20">
+</a>&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="xx" onclick="history.go(1)">
+<img src="img/c99_files/c99_010.gif" alt="Forward" border="0" height="20" width="20">
+</a>&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="xx">
+<img src="img/c99_files/c99_003.gif" alt="UPDIR" border="0" height="20" width="20">
+</a>&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="xx">
+<img src="img/c99_files/c99_016.gif" alt="Refresh" border="0" height="20" width="17">
+</a>&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="xx">
+<img src="img/c99_files/c99_018.gif" alt="Search" border="0" height="20" width="20">
+</a>&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="xx">
+<img src="img/c99_files/c99_017.gif" alt="Buffer" border="0" height="20" width="20">
+</a>&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="xx">
+<b>Encoder
+</b>
+</a>&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="xx">
+<b>Bind
+</b>
+</a>&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="xx">
+<b>Proc.
+</b>
+</a>&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="xx">
+<b>FTP brute
+</b>
+</a>&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="xx">
+<b>Sec.
+</b>
+</a>&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="xx">
+<b>SQL
+</b>
+</a>&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="xx">
+<b>PHP-code
+</b>
+</a>&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="xx">
+<b>DDoS
+</b>
+</a>&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="/burro/">
+<b>Self remove
+</b>
+</a>&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="xx" onclick="if (confirm('Are you sure?')) window.close()">
+<b>Logout
+</b>
+</a>&nbsp;&nbsp;&nbsp;&nbsp;
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+<br>
+<table style="border-collapse: collapse;" bordercolordark="xx666666" bordercolorlight="xxc0c0c0" bgcolor="xx333333" border="1" cellpadding="5" cellspacing="0" width="100%">
+<tbody>
+<tr>
+<td valign="top" width="100%">
+<center>
+  <b>~~==Hacked by Ju4k3rM4z7eR=~~</b>
+</center>
+</td>
+</tr>
+</tbody>
+</table>
+<br>
+<table style="border-collapse: collapse;" bordercolordark="xx666666" bordercolorlight="xxc0c0c0" bgcolor="xx333333" border="1" cellpadding="5" cellspacing="0" width="100%">
+<tbody>
+<tr>
+<td valign="top" width="100%">
+<center>
+<b>Listing directory (39 files and 1 directories):
+</b>
+</center>
+<br>
+<table bordercolorlight="xx333333" bgcolor="xx333333" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody>
+<tr>
+
+<td>
+<b>Name
+</b>
+<a href="xx">
+<img src="img/c99_files/c99_002.gif" alt="Asc." border="0" height="9" width="14">
+</a>
+</td>
+
+<td>
+<a href="xx">
+<b>Size
+</b>
+</a>
+</td>
+
+<td>
+<a href="xx">
+<b>Modify
+</b>
+</a>
+</td>
+
+<td>
+<a href="xx">
+<b>Owner/Group
+</b>
+</a>
+</td>
+
+<td>
+<a href="xx">
+<b>Perms
+</b>
+</a>
+</td>
+
+<td>
+<b>Action
+</b>
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+<img src="img/c99_files/c99_015.gif" border="0" height="16" width="19">&nbsp;
+<a href="xx">.
+</a>
+</td>
+
+<td>LINK
+</td>
+
+<td>19.08.2008 10:28:48
+</td>
+
+<td>/adm
+</td>
+
+<td>
+<a href="xx">
+<b>
+<font color="white">drwxr-xr-x
+</font>
+</b>
+</a>
+</td>
+
+<td>
+<a href="xx">
+<img src="img/c99_files/c99_014.gif" alt="Info" border="0" height="16" width="16">
+</a>&nbsp;
+<input name="actbox[]" value="xx" type="checkbox">
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+<img src="img/c99_files/c99_004.gif" border="0" height="16" width="19">&nbsp;
+<a href="xx">..
+</a>
+</td>
+
+<td>LINK
+</td>
+
+<td>04.05.2008 00:35:37
+</td>
+
+<td>/adm
+</td>
+
+<td>
+<a href="xx">
+<b>
+<font color="green">drwxrwxrwx
+</font>
+</b>
+</a>
+</td>
+
+<td>
+<a href="xx">
+<img src="img/c99_files/c99_014.gif" alt="Info" border="0" height="16" width="16">
+</a>&nbsp;
+<input name="actbox[]" value="xx." type="checkbox">
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+<img src="img/c99_files/c99_015.gif" border="0" height="16" width="19">&nbsp;
+<a href="xx">[js]
+</a>
+</td>
+
+<td>DIR
+</td>
+
+<td>12.06.2006 11:55:39
+</td>
+
+<td>/adm
+</td>
+
+<td>
+<a href="xx">
+<b>
+<font color="white">drwxr-xr-x
+</font>
+</b>
+</a>
+</td>
+
+<td>
+<a href="xx">
+<img src="img/c99_files/c99_014.gif" alt="Info" border="0" height="16" width="16">
+</a>&nbsp;
+<input name="actbox[]" value="/home/sites/corz.org/httpdocs/corz/scripts/js" type="checkbox">
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+<img src="img/c99_files/c99_008.gif" border="0">&nbsp;
+<a href="xx">.passwd</a>
+</td>
+
+<td>28 B
+</td>
+
+<td>19.02.2005 06:52:11
+</td>
+
+<td>/adm
+</td>
+
+<td>
+<a href="xx">
+<b>
+<font color="green">-rwxrwxrwx
+</font>
+</b>
+</a>
+</td>
+
+<td>
+<a href="xx">
+<img src="img/c99_files/c99_014.gif" alt="Info" border="0" height="16" width="16">
+</a>&nbsp;
+<a href="xx">
+<img src="img/c99_files/c99_019.gif" alt="Change" border="0" height="16" width="19">
+</a>&nbsp;
+<a href="xx">
+<img src="img/c99_files/c99_012.gif" alt="Download" border="0" height="16" width="19">
+</a>&nbsp;
+<input id="ls_dir[]" name="actbox[]" value="xxcorzoogles" type="checkbox">
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+<img src="img/c99_files/c99_011.gif" border="0">&nbsp;
+<a href="xx">.bash_history</a>
+</td>
+
+<td>41 B
+</td>
+
+<td>15.03.2008 02:00:48
+</td>
+
+<td>root/root
+</td>
+
+<td>
+<a href="xx">
+<b>
+<font color="white">-rwxr--r--
+</font>
+</b>
+</a>
+</td>
+
+<td>
+<a href="xx">
+<img src="img/c99_files/c99_014.gif" alt="Info" border="0" height="16" width="16">
+</a>&nbsp;
+<a href="xx">
+<img src="img/c99_files/c99_019.gif" alt="Change" border="0" height="16" width="19">
+</a>&nbsp;
+<a href="xx">
+<img src="img/c99_files/c99_012.gif" alt="Download" border="0" height="16" width="19">
+</a>&nbsp;
+<input id="ls_dir[]" name="actbox[]" value="xxht_passwd" type="checkbox">
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+<img src="img/c99_files/c99_009.gif" border="0">&nbsp;
+<a href="xx">.htaccess
+</a>
+</td>
+
+<td>546 B
+</td>
+
+<td>14.06.2008 10:04:31
+</td>
+
+<td>/adm
+</td>
+
+<td>
+<a href="xx">
+<b>
+<font color="green">-rwxrw-r--
+</font>
+</b>
+</a>
+</td>
+
+<td>
+<a href="xx">
+<img src="img/c99_files/c99_014.gif" alt="Info" border="0" height="16" width="16">
+</a>&nbsp;
+<a href="xx">
+<img src="img/c99_files/c99_019.gif" alt="Change" border="0" height="16" width="19">
+</a>&nbsp;
+<a href="xx">
+<img src="img/c99_files/c99_012.gif" alt="Download" border="0" height="16" width="19">
+</a>&nbsp;
+<input id="ls_dir[]" name="actbox[]" value="xxhtaccess" type="checkbox">
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+<img src="img/c99_files/c99_006.gif" border="0">&nbsp;
+<a href="xx">mail_bomber.php</a>
+</td>
+
+<td>16.84 KB
+</td>
+
+<td>20.03.2006 18:27:34
+</td>
+
+<td>/adm
+</td>
+
+<td>
+<a href="xx">
+<b>
+<font color="green">-rw-rw-r--
+</font>
+</b>
+</a>
+</td>
+
+<td>
+<a href="xx">
+<img src="img/c99_files/c99_014.gif" alt="Info" border="0" height="16" width="16">
+</a>&nbsp;
+<a href="xx">
+<img src="img/c99_files/c99_019.gif" alt="Change" border="0" height="16" width="19">
+</a>&nbsp;
+<a href="xx">
+<img src="img/c99_files/c99_012.gif" alt="Download" border="0" height="16" width="19">
+</a>&nbsp;
+<input id="ls_dir[]" name="actbox[]" value="/home/sites/corz.org/httpdocs/corz/scripts/base64img.php" type="checkbox">
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+<img src="img/c99_files/c99_006.gif" border="0">&nbsp;
+<a href="xx">
+<font color="yellow">index.php
+</font>
+</a>
+</td>
+
+<td>153.91 KB
+</td>
+
+<td>19.08.2008 10:30:04
+</td>
+
+<td>root/adm
+</td>
+
+<td>
+<a href="xx">
+<b>
+<font color="white">-rwxr--r--
+</font>
+</b>
+</a>
+</td>
+
+<td>
+<a href="xx">
+<img src="img/c99_files/c99_014.gif" alt="Info" border="0" height="16" width="16">
+</a>&nbsp;
+<a href="xx">
+<img src="img/c99_files/c99_019.gif" alt="Change" border="0" height="16" width="19">
+</a>&nbsp;
+<a href="xx">
+<img src="img/c99_files/c99_012.gif" alt="Download" border="0" height="16" width="19">
+</a>&nbsp;
+<input id="ls_dir[]" name="actbox[]" value="/home/sites/corz.org/httpdocs/corz/scripts/c99.php" type="checkbox">
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+<img src="img/c99_files/c99_006.gif" border="0">&nbsp;
+<a href="xx">ddos_booter.php
+</a>
+</td>
+
+<td>2.12 KB
+</td>
+
+<td>20.10.2007 10:19:21
+</td>
+
+<td>/adm
+</td>
+
+<td>
+<a href="xx">
+<b>
+<font color="green">-rwxrw-r--
+</font>
+</b>
+</a>
+</td>
+
+<td>
+<a href="xx">
+<img src="img/c99_files/c99_014.gif" alt="Info" border="0" height="16" width="16">
+</a>&nbsp;
+<a href="xx">
+<img src="img/c99_files/c99_019.gif" alt="Change" border="0" height="16" width="19">
+</a>&nbsp;
+<a href="xx">
+<img src="img/c99_files/c99_012.gif" alt="Download" border="0" height="16" width="19">
+</a>&nbsp;
+<input id="ls_dir[]" name="actbox[]" value="/home/sites/corz.org/httpdocs/corz/scripts/comment-pages.php" type="checkbox">
+</td>
+
+</tr>
+
+</tbody>
+</table>
+<hr noshade="noshade" size="1">
+<form action="xxcmd" method="get">
+<p align="right">
+<b>
+<img src="img/c99_files/c99.gif" border="0">
+<select name="act">
+<option value="ls">With selected:
+</option>
+<option value="delete">Delete
+</option>
+<option value="chmod">Change-mode
+</option>
+<option value="cut">Cut
+</option>
+<option value="copy">Copy
+</option>
+<option value="unselect">Unselect
+</option>
+</select>&nbsp;
+<input value="Confirm" type="submit">
+</b>
+</p>
+</form>
+</td>
+</tr>
+</tbody>
+</table>
+<a bookmark="minipanel">
+<br>
+</a>
+<table style="border-collapse: collapse;" bordercolordark="xx666666" bordercolorlight="xxc0c0c0" bgcolor="xx333333" border="1" cellpadding="5" cellspacing="0" height="1" width="100%">
+
+<tbody>
+<tr>
+<td colspan="2" height="1" valign="top" width="100%">
+<p align="center">
+<b>::
+<a href="xx">
+<b>Command execute
+</b>
+</a> ::
+</b>
+</p>
+</td>
+</tr>
+
+<tr>
+<td height="1" valign="top" width="50%">
+<center>
+<b>Enter:
+</b>
+<form action="xxcmd" method="get">
+<input name="act" value="cmd" type="hidden">
+<input name="d" value="xx" type="hidden">
+<input name="cmd" size="50" value="" type="text">
+<input name="cmd_txt" value="1" type="hidden">&nbsp;
+<input name="submit" value="Execute" type="submit">
+</form>
+</center>
+</td>
+<td height="1" valign="top" width="50%">
+<center>
+<b>Select:
+</b>
+<form action="xxcmd" method="get">
+<input name="act" value="cmd" type="hidden">
+<input name="d" value="xx" type="hidden">
+<select name="cmd">
+<option value="ls -la">-----------------------------------------------------------
+</option>
+<option value="find / -type f -perm -04000 -ls">find all suid files
+</option>
+<option value="find . -type f -perm -04000 -ls">find suid files in current dir
+</option>
+<option value="find / -type f -perm -02000 -ls">find all sgid files
+</option>
+<option value="find . -type f -perm -02000 -ls">find sgid files in current dir
+</option>
+<option value="find / -type f -name config.inc.php">find config.inc.php files
+</option>
+<option value="find / -type f -name &quot;config*&quot;">find config* files
+</option>
+<option value="find . -type f -name &quot;config*&quot;">find config* files in current dir
+</option>
+<option value="find / -perm -2 -ls">find all writable directories and files
+</option>
+<option value="find . -perm -2 -ls">find all writable directories and files in current dir
+</option>
+<option value="find / -type f -name service.pwd">find all service.pwd files
+</option>
+<option value="find . -type f -name service.pwd">find service.pwd files in current dir
+</option>
+<option value="find / -type f -name .htpasswd">find all .htpasswd files
+</option>
+<option value="find . -type f -name .htpasswd">find .htpasswd files in current dir
+</option>
+<option value="find / -type f -name .bash_history">find all .bash_history files
+</option>
+<option value="find . -type f -name .bash_history">find .bash_history files in current dir
+</option>
+<option value="find / -type f -name .fetchmailrc">find all .fetchmailrc files
+</option>
+<option value="find . -type f -name .fetchmailrc">find .fetchmailrc files in current dir
+</option>
+<option value="lsattr -va">list file attributes on a Linux second extended file system
+</option>
+<option value="netstat -an | grep -i listen">show opened ports
+</option>
+</select>
+<input name="cmd_txt" value="1" type="hidden">&nbsp;
+<input name="submit" value="Execute" type="submit">
+</form>
+</center>
+</td>
+</tr>
+</tbody>
+</table>
+
+<a bookmark="minipanel">
+<br>
+
+</a>
+<table style="border-collapse: collapse;" bordercolordark="xx666666" bordercolorlight="xxc0c0c0" bgcolor="xx333333" border="1" cellpadding="5" cellspacing="0" height="1" width="100%">
+
+<tbody>
+<tr>
+
+<td height="1" valign="top" width="50%">
+<center>
+<b>::
+<a href="xx">
+<b>Search
+</b>
+</a> ::
+</b>
+<form method="get">
+<input name="act" value="search" type="hidden">
+<input name="d" value="/home/sites/corz.org/httpdocs/corz/scripts/" type="hidden">
+<input name="search_name" size="29" value="(.*)" type="text">&nbsp;
+<input name="search_name_regexp" value="1" checked="checked" type="checkbox"> - regexp&nbsp;
+<input name="submit" value="Search" type="submit">
+</form>
+</center>
+<p>
+</p>
+</td>
+
+<td height="1" valign="top" width="50%">
+<center>
+<b>::
+<a href="xx">
+<b>Upload
+</b>
+</a> ::
+</b>
+<form method="get" enctype="multipart/form-data">
+<input name="act" value="upload" type="hidden">
+<input name="uploadfile" type="file">
+<input name="miniform" value="1" type="hidden">&nbsp;
+<input name="submit" value="Upload" type="submit">
+<br>
+<font color="red">[ Read-Only ]
+</font>
+</form>
+</center>
+</td>
+
+</tr>
+
+</tbody>
+</table>
+
+<a bookmark="minipanel">
+<br>
+</a>
+<table style="border-collapse: collapse;" bordercolordark="xx666666" bordercolorlight="xxc0c0c0" bgcolor="xx333333" border="1" cellpadding="5" cellspacing="0" height="1" width="100%">
+<tbody>
+<tr>
+<td height="1" valign="top" width="50%">
+<center>
+<b>:: Make Dir ::
+</b>
+<form method="get">
+<input name="act" value="mkdir" type="hidden">
+<input name="d" value="/home/sites/corz.org/httpdocs/corz/scripts/" type="hidden">
+<input name="mkdir" size="50" value="/home/sites/chmod.ws/httpdocs/cgi-bin/socket~3/ " type="text">&nbsp;
+<input value="Create" type="submit">
+<br>
+<font color="red">[ Read-Only ]
+</font>
+</form>
+</center>
+</td>
+<td height="1" valign="top" width="50%">
+<center>
+<b>:: Make File ::
+</b>
+<form method="get">
+<input name="act" value="mkfile" type="hidden">
+<input name="d" value="/home/sites/corz.org/httpdocs/corz/scripts/" type="hidden">
+<input name="mkfile" size="50" value="/home/sites/chmod.ws/httpdocs/cgi-bin/socket~3/ " type="text">
+<input name="ft" value="edit" type="hidden">&nbsp;
+<input value="Create" type="submit">
+<br>
+<font color="red">[ Read-Only ]
+</font>
+</form>
+</center>
+</td>
+</tr>
+</tbody>
+</table>
+
+<a bookmark="minipanel">
+<br>
+</a>
+<table style="border-collapse: collapse;" bordercolordark="xx666666" bordercolorlight="xxc0c0c0" bgcolor="xx333333" border="1" cellpadding="5" cellspacing="0" height="1" width="100%">
+<tbody>
+<tr>
+<td height="1" valign="top" width="50%">
+<center>
+<b>:: Go Dir ::
+</b>
+<form action="xx">
+<input name="act" value="ls" type="hidden">
+<input name="d" size="50" value="/home/sites/chmod.ws/httpdocs/cgi-bin/socket~3/ " type="text">&nbsp;
+<input value="Go" type="submit">
+</form>
+</center>
+</td>
+<td height="1" valign="top" width="50%">
+<center>
+<b>:: Go File ::
+</b>
+<form action="xx">
+<input name="act" value="gofile" type="hidden">
+<input name="d" value="/home/sites/corz.org/httpdocs/corz/scripts/" type="hidden">
+<input name="f" size="50" value="/home/sites/chmod.ws/httpdocs/cgi-bin/socket~3/ " type="text">&nbsp;
+<input value="Go" type="submit">
+</form>
+</center>
+</td>
+</tr>
+</tbody>
+</table>
+
+<a bookmark="minipanel">
+<br>
+</a>
+<table style="border-collapse: collapse;" bordercolordark="xx666666" bordercolorlight="xxc0c0c0" bgcolor="xx333333" border="1" cellpadding="0" cellspacing="0" height="1" width="100%">
+<tbody>
+<tr>
+<td height="1" valign="top" width="990">
+<p align="center">
+<b>--[ c99shell v. 1.0 beta (21.05.2005)
+<a href="xxabout">
+<u>
+<b>powered by
+</b>
+</u>
+</a> Captain Crunch Security Team |
+<a href="http://-ccteam.ru/">
+<font color="xxff0000">http://-ccteam.ru
+</font>
+</a>
+<font color="xxff0000">
+</font> | Generation time: 0.3502 ]--
+</b>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+
+</center>
+</body>
+</html>

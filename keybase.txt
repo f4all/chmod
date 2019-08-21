@@ -1,0 +1,65 @@
+==================================================================
+https://keybase.io/chmod
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://chmod.ws
+  * I am chmod (https://keybase.io/chmod) on keybase.
+  * I have a public key with fingerprint 88B8 F88E 2B5F D779 007A  8F67 5777 98C0 B6A5 E96E
+
+To claim this, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "fingerprint": "88b8f88e2b5fd779007a8f67577798c0b6a5e96e",
+            "host": "keybase.io",
+            "key_id": "577798c0b6a5e96e",
+            "kid": "0101714f26b2062c9217026ef9ff21fd27a4b3174f5f290cdff9bb7c89b00adb83f00a",
+            "uid": "eb2dc8e2fde22ed09af65559e3630d00",
+            "username": "chmod"
+        },
+        "service": {
+            "hostname": "chmod.ws",
+            "protocol": "http:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1423898201,
+    "expire_in": 157680000,
+    "prev": "5728e0a3c3b073d98733576e8e8627f586c439a584fe8f056fa5113ba886f232",
+    "seqno": 3,
+    "tag": "signature"
+}
+
+which yields the PGP signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: GnuPG/MacGPG2 v2.0.22 (Darwin)
+
+owFtUl1IFFEU3t0y0zCtiEoSYjKKdrM7d/7uDIQPFT5oEaXRiyxzZ+5dx9WdbXb8
+Q6WEIoKyMogewpdMfOiHSkoQKomUsC2sKALRkJSEQkWtFIvuLAU9dF8O5zvf991z
+Dudi1jJfwJ+bdWtEeyPO+wf7NOwrHfkWaeSwbTZwWiMXJalArViEOHHHirmcxiGE
+EUWIQCxRU1FUABQdUVmRFJYgA2BZl4gqEy7EVdgJT8FssJ4gBZbNMJaELZOh/+FH
+UwXAA17hRQplDIEMDRXyCoAyoSqlkKcmVHQRC7wiUolCFRgmpSrGioFUDIBuYiRQ
+FpldTcqOYGgarF1qEgiJCVSdypIkqUSQBWAC4BETxInp1YSxjYpq2+SaQxyDai2D
+ePN7Y/xbLqhLMFHcsV3bsKsYWuG6cc0TuQ1xj1VHcPiPPoytmMn2xwS1xElYdozT
+eMY0XMsz5EUoIBVBwIc4Uh+3HBK2PIakyAiw531DalPbgogAXTAEDBTBVJEiCIxE
+EEEyVKiEZEMUVF1CIiWIAkmmusTzAtYRkikUIOdNdDxmc5rA2tQjzDJhRWK6W+MQ
+rjnzrH/zcp8/4FuRFvBOwJeZkfP3MG4E0n/t7sp2rIXxYPrGvPlkdsfX7OSzz09n
+F2+iT2cqH0yEfpaf2j16ouQALRw5aj8wj4TP0/7hmWBrsOtY7949WXnRlu93Hj7f
+NPolLdiSL5vfNkxE2nPvNiQXy1aW2K87Mham1xx8MdTd0tczPGW3Fm2jrz7w62qE
+jNIdc9G1+UX17Xs7T7wfrBzt39mgzVyLJp3ZVuXk4frJQ4G5ux83bJeWjmztwANz
+demV6z+NpX1/XH//9lL3j841Q5Pl24fcscayLStW33sjtvsvvFsWalspZs9M9L/d
+v6+67OrYVH5x3uWmc9rAYNV028ldvW0Les+V+Se+ruLrS6tyCi815Y+/fHT6Nw==
+=IXeh
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/chmod
+
+==================================================================
